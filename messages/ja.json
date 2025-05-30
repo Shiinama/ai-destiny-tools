@@ -1,0 +1,230 @@
+{
+  "HomePage": {
+    "title": "こんにちは",
+    "about": "詳細情報ページへ移動する"
+  },
+  "login": {
+    "modal": {
+      "description": "続行するにはログインしてください",
+      "triggerText": "ログイン"
+    },
+    "form": {
+      "continueWithGoogle": "Googleで続行する",
+      "continueWithGithub": "GitHubで続行する",
+      "orContinueWith": "または続行する",
+      "emailPlaceholder": "メールアドレスを入力してください",
+      "signInWithEmail": "メールアドレスでサインイン"
+    },
+    "signOut": "ログアウト",
+    "login": "ログイン"
+  },
+  "footer": {
+    "description": "AIで会話に力を与える。LinkAIでコミュニケーションの未来を体験してください。",
+    "contact": {
+      "title": "お問い合わせ",
+      "intro": "お問い合わせは以下まで：",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "クイックリンク",
+      "home": "ホーム",
+      "aboutUs": "会社概要",
+      "refundPolicy": "返金ポリシー",
+      "subscriptionTerms": "定期購読規約"
+    },
+    "copyright": " 2024 Cozyai LLC. All rights reserved."
+  },
+  "common": {
+    "previous": "前へ",
+    "next": "次へ",
+    "morePage": "もっと見る",
+    "close": "閉じる",
+    "loading": "読み込み中...",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "edit": "編集",
+    "delete": "削除",
+    "submit": "送信",
+    "morePages": "さらにページを見る",
+    "language": "言語",
+    "selectLanguage": "言語を選択"
+  },
+  "headers": {
+    "home": "ホーム",
+    "blogs": "ブログ",
+    "navigation": "サイトのナビゲーション",
+    "navigationDescription": "ウェブサイトの主要セクションにアクセスする"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "admin": {
+    "batch": {
+      "title": "バッチ記事を作成する",
+      "backToArticles": "記事一覧に戻る",
+      "keywordsCard": {
+        "title": "キーワードを入力",
+        "label": "キーワード（1行1件）",
+        "placeholder": "キーワードを1行ずつ入力してください"
+      },
+      "publishImmediately": "すぐに公開する",
+      "buttons": {
+        "generating": "生成中...",
+        "generateArticles": "記事を生成する",
+        "saving": "保存中...",
+        "saveSelected": "選択した記事を保存する"
+      },
+      "generatedArticles": {
+        "title": "生成された記事",
+        "selectAll": "すべて選択する"
+      },
+      "saveResults": {
+        "title": "保存結果"
+      },
+      "status": {
+        "generated": "✓ 生成済み",
+        "saved": "✓ 保存済み",
+        "failed": "✗ 失敗"
+      },
+      "errors": {
+        "emptyKeywords": "少なくとも1つのキーワードを入力してください",
+        "noValidKeywords": "少なくとも1つの有効なキーワードを入力してください",
+        "generateFailed": "記事の生成に失敗しました。もう一度試してください。",
+        "noArticlesToSave": "保存する記事がありません",
+        "noSelectedArticles": "保存する記事が選択されていません",
+        "saveFailed": "記事の保存に失敗しました。もう一度試してください。"
+      },
+      "success": {
+        "generated": "{successCount} 件の記事を正常に生成しました{errorMessage}",
+        "saved": "{successCount} 記事 {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} 失敗"
+      },
+      "publishStatus": {
+        "published": "公開済み",
+        "draft": "下書きとして保存"
+      }
+    },
+    "new": {
+      "title": "新しい記事を作成する",
+      "keywordSection": {
+        "label": "キーワード",
+        "placeholder": "記事のキーワードを入力"
+      },
+      "articleForm": {
+        "titleLabel": "タイトル",
+        "excerptLabel": "概要",
+        "contentLabel": "コンテンツ",
+        "publishImmediately": "すぐに公開する",
+        "slugLabel": "スラッグ"
+      },
+      "buttons": {
+        "generating": "生成中...",
+        "generateArticle": "記事を生成する",
+        "saving": "保存中...",
+        "saveArticle": "記事を保存する",
+        "cancel": "キャンセル"
+      },
+      "errors": {
+        "emptyKeyword": "キーワードを入力してください",
+        "generateFailed": "記事の生成に失敗しました。もう一度試してください。",
+        "saveFailed": "記事の保存に失敗しました。もう一度試してください。"
+      },
+      "success": {
+        "generated": "記事が生成されました",
+        "published": "記事が公開されました",
+        "savedAsDraft": "記事が下書きとして保存されました"
+      },
+      "backToArticles": "記事一覧に戻る"
+    },
+    "edit": {
+      "title": "記事を編集",
+      "loading": "読み込み中...",
+      "articleForm": {
+        "titleLabel": "タイトル",
+        "excerptLabel": "概要",
+        "contentLabel": "コンテンツ",
+        "publishArticle": "記事を公開する"
+      },
+      "deleteDialog": {
+        "title": "削除を確認",
+        "description": "この記事を削除してもよろしいですか？この操作は元に戻すことができません。"
+      },
+      "buttons": {
+        "saving": "保存中...",
+        "saveArticle": "記事を保存",
+        "deleting": "削除中...",
+        "deleteArticle": "記事を削除",
+        "delete": "削除",
+        "cancel": "キャンセル"
+      },
+      "errors": {
+        "articleNotFound": "記事が見つかりませんでした",
+        "fetchFailed": "記事の取得に失敗しました",
+        "updateFailed": "記事の更新に失敗しました",
+        "deleteFailed": "記事の削除に失敗しました"
+      },
+      "success": {
+        "updated": "記事を更新しました",
+        "deleted": "記事を削除しました"
+      }
+    },
+    "list": {
+      "title": "記事管理",
+      "buttons": {
+        "createNew": "新規記事を作成",
+        "batchCreate": "一括作成"
+      },
+      "table": {
+        "headers": {
+          "title": "タイトル",
+          "createdDate": "作成日",
+          "status": "ステータス",
+          "actions": "アクション",
+          "language": "詞詞"
+        },
+        "noArticles": "記事が見つかりません"
+      },
+      "status": {
+        "published": "公開済み",
+        "draft": "下書き"
+      },
+      "actions": {
+        "edit": "編集",
+        "view": "表示"
+      }
+    },
+    "r2": {
+      "title": "R2 ",
+      "uploadNew": " ",
+      "invalidFileType": "",
+      "noFileSelected": "ファイルが選択されていません",
+      "uploadSuccessful": "アップロードに成功しました",
+      "uploadFailed": "アップロードに失敗しました",
+      "uploading": "アップロード中...",
+      "uploadImage": "画像をアップロード",
+      "preview": "プレビュー:",
+      "uploadedImage": "アップロードされた画像",
+      "filename": "ファイル名：",
+      "url": "URL：",
+      "copyImageUrl": "画像URLをコピー",
+      "urlCopied": "URLをコピーしました"
+    }
+  },
+  "blog": {
+    "postNotFound": "投稿が見つかりませんでした",
+    "postNotFoundDescription": "お探しのブログ投稿は見つかりませんでした。",
+    "publishedAt": "{date} に公開"
+  },
+  "blogs": {
+    "pageTitle": "ブログ記事",
+    "metaTitle": "洞察と記事",
+    "metaDescription": "美容分析、AI技術、顔貌分析の最新記事をご覧ください。AIによる美容評価の世界における専門家の洞察、ヒント、トレンドをご紹介します。",
+    "noArticles": "記事がありません",
+    "publishedAt": "{date} に公開"
+  }
+}

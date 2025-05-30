@@ -1,0 +1,230 @@
+{
+  "HomePage": {
+    "title": "안녕하세요",
+    "about": "정보 페이지로 이동"
+  },
+  "login": {
+    "modal": {
+      "description": "계속하려면 로그인하세요",
+      "triggerText": "로그인"
+    },
+    "form": {
+      "continueWithGoogle": "Google로 계속",
+      "continueWithGithub": "GitHub로 계속",
+      "orContinueWith": "또는 계속",
+      "emailPlaceholder": "이메일 주소를 입력하세요",
+      "signInWithEmail": "이메일로 로그인"
+    },
+    "signOut": "로그아웃",
+    "login": "로그인"
+  },
+  "footer": {
+    "description": "AI를 통한 대화 강화. LinkAI와 함께 커뮤니케이션의 미래를 경험하세요.",
+    "contact": {
+      "title": "문의하기",
+      "intro": "문의 사항은 다음으로 연락해 주세요.",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "빠른 링크",
+      "home": "홈",
+      "aboutUs": "회사 소개",
+      "refundPolicy": "환불 정책",
+      "subscriptionTerms": "구독 약관"
+    },
+    "copyright": " 2024 Cozyai LLC. All rights reserved."
+  },
+  "common": {
+    "previous": "이전",
+    "next": "다음",
+    "morePage": "더 많은 페이지",
+    "close": "닫기",
+    "loading": "로딩중...",
+    "cancel": "취소",
+    "save": "저장",
+    "edit": "편집",
+    "delete": "삭제",
+    "submit": "제출",
+    "morePages": "더 많은 페이지 보기",
+    "language": "언어",
+    "selectLanguage": "언어 선택"
+  },
+  "headers": {
+    "home": "홈",
+    "blogs": "블로그",
+    "navigation": "사이트 탐색",
+    "navigationDescription": "웹사이트의 주요 섹션에 액세스"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "admin": {
+    "batch": {
+      "title": "일괄 기사 생성",
+      "backToArticles": "기사 목록으로 돌아가기",
+      "keywordsCard": {
+        "title": "키워드 입력",
+        "label": "키워드(하나씩 입력)",
+        "placeholder": "키워드를 한 줄에 하나씩 입력하세요."
+      },
+      "publishImmediately": "즉시 발행",
+      "buttons": {
+        "generating": "생성중...",
+        "generateArticles": "기사 생성",
+        "saving": "저장중...",
+        "saveSelected": "선택한 기사 저장"
+      },
+      "generatedArticles": {
+        "title": "생성된 기사",
+        "selectAll": "모두 선택"
+      },
+      "saveResults": {
+        "title": "저장 결과"
+      },
+      "status": {
+        "generated": "✓ 생성됨",
+        "saved": "✓ 저장됨",
+        "failed": "✗ 실패"
+      },
+      "errors": {
+        "emptyKeywords": "적어도 하나의 키워드를 입력하십시오",
+        "noValidKeywords": "적어도 하나의 유효한 키워드를 입력하십시오",
+        "generateFailed": "기사 생성이 실패했습니다. 다시 시도하십시오.",
+        "noArticlesToSave": "저장할 기사가 없습니다.",
+        "noSelectedArticles": "저장할 기사를 선택하지 않았습니다.",
+        "saveFailed": "기사 저장이 실패했습니다. 다시 시도하십시오."
+      },
+      "success": {
+        "generated": "{successCount}개의 기사를 성공적으로 생성했습니다.{errorMessage}",
+        "saved": "{successCount} 기사 {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} 실패"
+      },
+      "publishStatus": {
+        "published": "게시됨",
+        "draft": "초안으로 저장"
+      }
+    },
+    "new": {
+      "title": "새 기사 만들기",
+      "keywordSection": {
+        "label": "키워드",
+        "placeholder": "기사 키워드 입력"
+      },
+      "articleForm": {
+        "titleLabel": "제목",
+        "excerptLabel": "요약",
+        "contentLabel": "내용",
+        "publishImmediately": "즉시 게시",
+        "slugLabel": "슬러그"
+      },
+      "buttons": {
+        "generating": "생성중...",
+        "generateArticle": "기사 생성",
+        "saving": "저장중...",
+        "saveArticle": "기사 저장",
+        "cancel": "취소"
+      },
+      "errors": {
+        "emptyKeyword": "키워드를 입력하세요",
+        "generateFailed": "기사 생성에 실패했습니다. 다시 시도하세요.",
+        "saveFailed": "기사 저장이 실패했습니다. 다시 시도하세요."
+      },
+      "success": {
+        "generated": "기사 생성 성공",
+        "published": "게시물이 발행되었습니다.",
+        "savedAsDraft": "게시물이 초안으로 저장되었습니다."
+      },
+      "backToArticles": "기사 목록으로 돌아가기"
+    },
+    "edit": {
+      "title": "게시물 편집",
+      "loading": "로딩중...",
+      "articleForm": {
+        "titleLabel": "제목",
+        "excerptLabel": "요약",
+        "contentLabel": "내용",
+        "publishArticle": "기사 게시"
+      },
+      "deleteDialog": {
+        "title": "삭제 확인",
+        "description": "이 문서를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+      },
+      "buttons": {
+        "saving": "저장중...",
+        "saveArticle": "기사 저장",
+        "deleting": "삭제 중...",
+        "deleteArticle": "기사 삭제",
+        "delete": "삭제",
+        "cancel": "취소"
+      },
+      "errors": {
+        "articleNotFound": "찾을 수 없는 기사",
+        "fetchFailed": "기사 가져오기 실패",
+        "updateFailed": "기사 업데이트 실패",
+        "deleteFailed": "기사 삭제 실패"
+      },
+      "success": {
+        "updated": "기사 업데이트 성공",
+        "deleted": "기사 삭제 성공"
+      }
+    },
+    "list": {
+      "title": "기사 관리",
+      "buttons": {
+        "createNew": "새 기사 만들기",
+        "batchCreate": "일괄 생성"
+      },
+      "table": {
+        "headers": {
+          "title": "제목",
+          "createdDate": "생성 날짜",
+          "status": "상태",
+          "actions": "작업",
+          "language": "언어"
+        },
+        "noArticles": "文章을 찾을 수 없습니다."
+      },
+      "status": {
+        "published": "게시됨",
+        "draft": "초안"
+      },
+      "actions": {
+        "edit": "편집",
+        "view": "보기"
+      }
+    },
+    "r2": {
+      "title": "R2 ",
+      "uploadNew": " ",
+      "invalidFileType": "",
+      "noFileSelected": "파일이 선택되지 않았습니다",
+      "uploadSuccessful": "업로드에 성공했습니다",
+      "uploadFailed": "업로드에 실패했습니다",
+      "uploading": "업로드 중...",
+      "uploadImage": "이미지 업로드",
+      "preview": "미리보기:",
+      "uploadedImage": "업로드된 이미지",
+      "filename": "파일 이름:",
+      "url": "URL:",
+      "copyImageUrl": "이미지 URL 복사",
+      "urlCopied": "URL이 복사되었습니다."
+    }
+  },
+  "blog": {
+    "postNotFound": "게시물을 찾을 수 없습니다",
+    "postNotFoundDescription": "찾으려는 블로그 게시물이 없습니다.",
+    "publishedAt": "{date}에 게시됨"
+  },
+  "blogs": {
+    "pageTitle": "블로그 게시물",
+    "metaTitle": "통찰력 및 기사",
+    "metaDescription": "뷰티 분석, AI 기술 및 얼굴 미학에 관한 최신 기사를 탐색하세요. AI 기반 뷰티 평가 세계의 전문가 통찰력, 팁 및 트렌드를 발견하세요.",
+    "noArticles": "사용 가능한 기사가 없습니다",
+    "publishedAt": "{date}에 게시됨"
+  }
+}

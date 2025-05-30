@@ -1,0 +1,229 @@
+{
+  "headers": {
+    "blogs": "Blogs",
+    "home": "Home",
+    "navigation": "Site Navigation",
+    "navigationDescription": "Access the main sections of our website"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "footer": {
+    "description": "Empowering conversations with AI. Experience the future of communication with Next Template.",
+    "contact": {
+      "title": "Contact",
+      "intro": "For inquiries, please contact:",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "aboutUs": "About Us",
+      "refundPolicy": "Refund Policy",
+      "subscriptionTerms": "Subscription Terms"
+    },
+    "copyright": "© 2024 Cozyai LLC. All rights reserved."
+  },
+  "HomePage": {
+    "title": "Hello",
+    "about": "Go to the about page"
+  },
+  "login": {
+    "signOut": "Sign Out",
+    "login": "Login",
+    "modal": {
+      "description": "Sign in to continue your journey",
+      "triggerText": "Login"
+    },
+    "form": {
+      "continueWithGoogle": "Continue with Google",
+      "continueWithGithub": "Continue with GitHub",
+      "orContinueWith": "Or continue with",
+      "emailPlaceholder": "Enter your email",
+      "signInWithEmail": "Sign in with Email"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "morePages": "View More Pages",
+    "language": "Language",
+    "selectLanguage": "Select Language"
+  },
+  "blog": {
+    "postNotFound": "Post Not Found",
+    "postNotFoundDescription": "The blog post you're looking for could not be found.",
+    "publishedAt": "Published at {date}"
+  },
+  "blogs": {
+    "pageTitle": "Blog Posts",
+    "metaTitle": "Insights & Articles",
+    "metaDescription": "Explore our latest articles on beauty analysis, AI technology, and facial aesthetics. Discover expert insights, tips, and trends in the world of AI-powered beauty assessment.",
+    "noArticles": "No articles available",
+    "publishedAt": "Published at {date}"
+  },
+  "admin": {
+    "batch": {
+      "title": "Batch Create Articles",
+      "backToArticles": "Back to Articles",
+      "keywordsCard": {
+        "title": "Enter Keywords",
+        "label": "Keywords (one per line)",
+        "placeholder": "Enter keywords, one per line"
+      },
+      "publishImmediately": "Publish immediately",
+      "buttons": {
+        "generating": "Generating...",
+        "generateArticles": "Generate Articles",
+        "saving": "Saving...",
+        "saveSelected": "Save Selected Articles"
+      },
+      "generatedArticles": {
+        "title": "Generated Articles",
+        "selectAll": "Select All"
+      },
+      "saveResults": {
+        "title": "Save Results"
+      },
+      "status": {
+        "generated": "✓ Generated",
+        "saved": "✓ Saved",
+        "failed": "✗ Failed"
+      },
+      "errors": {
+        "emptyKeywords": "Please enter at least one keyword",
+        "noValidKeywords": "Please enter at least one valid keyword",
+        "generateFailed": "Failed to generate articles, please try again",
+        "noArticlesToSave": "No articles to save",
+        "noSelectedArticles": "No articles selected to save",
+        "saveFailed": "Failed to save articles, please try again"
+      },
+      "success": {
+        "generated": "Generated {successCount} articles successfully{errorMessage}",
+        "saved": "{successCount} articles {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} failed"
+      },
+      "publishStatus": {
+        "published": "published",
+        "draft": "saved as draft"
+      }
+    },
+    "new": {
+      "backToArticles": "Back to Articles",
+      "title": "Create New Article",
+      "keywordSection": {
+        "label": "Keyword",
+        "placeholder": "Enter article keyword"
+      },
+      "articleForm": {
+        "slugLabel": "Slug",
+        "titleLabel": "Title",
+        "excerptLabel": "Excerpt",
+        "contentLabel": "Content",
+        "publishImmediately": "Publish immediately"
+      },
+      "buttons": {
+        "generating": "Generating...",
+        "generateArticle": "Generate Article",
+        "saving": "Saving...",
+        "saveArticle": "Save Article",
+        "cancel": "Cancel"
+      },
+      "errors": {
+        "emptyKeyword": "Please enter a keyword",
+        "generateFailed": "Failed to generate article, please try again",
+        "saveFailed": "Failed to save article, please try again"
+      },
+      "success": {
+        "generated": "Article generated successfully",
+        "published": "Article published",
+        "savedAsDraft": "Article saved as draft"
+      }
+    },
+    "edit": {
+      "title": "Edit Article",
+      "loading": "Loading...",
+      "articleForm": {
+        "titleLabel": "Title",
+        "excerptLabel": "Excerpt",
+        "contentLabel": "Content",
+        "publishArticle": "Publish Article"
+      },
+      "deleteDialog": {
+        "title": "Confirm Deletion",
+        "description": "Are you sure you want to delete this article? This action cannot be undone."
+      },
+      "buttons": {
+        "saving": "Saving...",
+        "saveArticle": "Save Article",
+        "deleting": "Deleting...",
+        "deleteArticle": "Delete Article",
+        "delete": "Delete",
+        "cancel": "Cancel"
+      },
+      "errors": {
+        "articleNotFound": "Article not found",
+        "fetchFailed": "Failed to fetch article",
+        "updateFailed": "Failed to update article",
+        "deleteFailed": "Failed to delete article"
+      },
+      "success": {
+        "updated": "Article updated successfully",
+        "deleted": "Article deleted successfully"
+      }
+    },
+    "list": {
+      "title": "Article Management",
+      "buttons": {
+        "createNew": "Create New Article",
+        "batchCreate": "Batch Create"
+      },
+      "table": {
+        "headers": {
+          "title": "Title",
+          "createdDate": "Created Date",
+          "status": "Status",
+          "actions": "Actions",
+          "language": "Language"
+        },
+        "noArticles": "No articles found"
+      },
+      "status": {
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "actions": {
+        "edit": "Edit",
+        "view": "View"
+      }
+    },
+    "r2": {
+      "title": "R2 Image Upload",
+      "uploadNew": "Upload New Image",
+      "invalidFileType": "Invalid file type",
+      "noFileSelected": "No file selected",
+      "uploadSuccessful": "Upload successful",
+      "uploadFailed": "Upload failed",
+      "uploading": "Uploading...",
+      "uploadImage": "Upload Image",
+      "preview": "Preview:",
+      "uploadedImage": "Uploaded Image",
+      "filename": "Filename:",
+      "url": "URL:",
+      "copyImageUrl": "Copy Image URL",
+      "urlCopied": "URL copied"
+    }
+  }
+}

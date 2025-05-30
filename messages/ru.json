@@ -1,0 +1,230 @@
+{
+  "HomePage": {
+    "title": "Здравствуйте",
+    "about": "Перейти на страницу информации"
+  },
+  "login": {
+    "modal": {
+      "description": "Войдите, чтобы продолжить",
+      "triggerText": "Войти"
+    },
+    "form": {
+      "continueWithGoogle": "Продолжить с Google",
+      "continueWithGithub": "Продолжить с GitHub",
+      "orContinueWith": "Или продолжить с",
+      "emailPlaceholder": "Введите ваш адрес электронной почты",
+      "signInWithEmail": "Войти с помощью электронной почты"
+    },
+    "signOut": "Выйти",
+    "login": "Войти"
+  },
+  "footer": {
+    "description": "Расширяем возможности общения с помощью ИИ. Опыт будущего общения с LinkAI.",
+    "contact": {
+      "title": "Контакты",
+      "intro": "По вопросам обращайтесь:",
+      "email": "contact@yourdomain.com"
+    },
+    "quickLinks": {
+      "title": "Быстрые ссылки",
+      "home": "Главная",
+      "aboutUs": "О нас",
+      "refundPolicy": "Политик возврата",
+      "subscriptionTerms": "Условия подписки"
+    },
+    "copyright": " 2024 Cozyai LLC. Все права защищены."
+  },
+  "common": {
+    "previous": "Предыдущий",
+    "next": "Следующий",
+    "morePage": "Больше страниц",
+    "close": "Закрыть",
+    "loading": "Загрузка...",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "submit": "Отправить",
+    "morePages": "Посмотреть больше страниц",
+    "language": "Язык",
+    "selectLanguage": "Выберите язык"
+  },
+  "headers": {
+    "home": "Главная",
+    "blogs": "Блоги",
+    "navigation": "Навигация по сайту",
+    "navigationDescription": "Доступ к основным разделам нашего веб-сайта"
+  },
+  "siteInfo": {
+    "brandName": "Next Template",
+    "description": "Think, Write, Code",
+    "meta": {
+      "title": "Next Template - Think, Write, Code",
+      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+    }
+  },
+  "admin": {
+    "batch": {
+      "title": "Пакетное создание статей",
+      "backToArticles": "Вернуться к статьям",
+      "keywordsCard": {
+        "title": "Введите ключевые слова",
+        "label": "Ключевые слова (по одному на строку)",
+        "placeholder": "Введите ключевые слова, по одному на строку"
+      },
+      "publishImmediately": "Опубликовать немедленно",
+      "buttons": {
+        "generating": "Генерируется...",
+        "generateArticles": "Генерировать статьи",
+        "saving": "Сохранение...",
+        "saveSelected": "Сохранить выбранные статьи"
+      },
+      "generatedArticles": {
+        "title": "Сгенерированные статьи",
+        "selectAll": "Выбрать все"
+      },
+      "saveResults": {
+        "title": "Результаты сохранения"
+      },
+      "status": {
+        "generated": "✓ Сгенерировано",
+        "saved": "✓ Сохранено",
+        "failed": "✗ Неудачно"
+      },
+      "errors": {
+        "emptyKeywords": "Пожалуйста, введите хотя бы одно ключевое слово",
+        "noValidKeywords": "Пожалуйста, введите хотя бы одно действительное ключевое слово",
+        "generateFailed": "Не удалось сгенерировать статьи. Пожалуйста, попробуйте снова.",
+        "noArticlesToSave": "Нет статей для сохранения",
+        "noSelectedArticles": "Не выбрано статей для сохранения",
+        "saveFailed": "Не удалось сохранить статьи. Пожалуйста, попробуйте снова."
+      },
+      "success": {
+        "generated": "Успешно сгенерировано {successCount} статей{errorMessage}",
+        "saved": "{successCount} статей {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} не удалось"
+      },
+      "publishStatus": {
+        "published": "опубликовано",
+        "draft": "сохранено как черновик"
+      }
+    },
+    "new": {
+      "title": "Создать новую статью",
+      "keywordSection": {
+        "label": "Ключевое слово",
+        "placeholder": "Введите ключевое слово статьи"
+      },
+      "articleForm": {
+        "titleLabel": "Заголовок",
+        "excerptLabel": "Аннотация",
+        "contentLabel": "Содержимое",
+        "publishImmediately": "Опубликовать немедленно",
+        "slugLabel": "Slug"
+      },
+      "buttons": {
+        "generating": "Генерируется...",
+        "generateArticle": "Сгенерировать статью",
+        "saving": "Сохранение...",
+        "saveArticle": "Сохранить статью",
+        "cancel": "Отмена"
+      },
+      "errors": {
+        "emptyKeyword": "Пожалуйста, введите ключевое слово",
+        "generateFailed": "Не удалось сгенерировать статью. Пожалуйста, попробуйте еще раз.",
+        "saveFailed": "Не удалось сохранить статью. Пожалуйста, попробуйте еще раз."
+      },
+      "success": {
+        "generated": "Статья успешно сгенерирована",
+        "published": "Статья опубликована",
+        "savedAsDraft": "Статья сохранена как черновик"
+      },
+      "backToArticles": "Вернуться к статьям"
+    },
+    "edit": {
+      "title": "Редактировать статью",
+      "loading": "Загрузка...",
+      "articleForm": {
+        "titleLabel": "Название",
+        "excerptLabel": "Аннотация",
+        "contentLabel": "Содержимое",
+        "publishArticle": "Опубликовать статью"
+      },
+      "deleteDialog": {
+        "title": "Подтвердить удаление",
+        "description": "Вы уверены, что хотите удалить эту статью? Это действие нельзя отменить."
+      },
+      "buttons": {
+        "saving": "Сохранение...",
+        "saveArticle": "Сохранить статью",
+        "deleting": "Удаление...",
+        "deleteArticle": "Удалить статью",
+        "delete": "Удалить",
+        "cancel": "Отмена"
+      },
+      "errors": {
+        "articleNotFound": "Статья не найдена",
+        "fetchFailed": "Не удалось получить статью",
+        "updateFailed": "Не удалось обновить статью",
+        "deleteFailed": "Не удалось удалить статью"
+      },
+      "success": {
+        "updated": "Статья успешно обновлена",
+        "deleted": "Статья успешно удалена"
+      }
+    },
+    "list": {
+      "title": "Управление статьями",
+      "buttons": {
+        "createNew": "Создать новую статью",
+        "batchCreate": "Массовое создание"
+      },
+      "table": {
+        "headers": {
+          "title": "Заголовок",
+          "createdDate": "Дата создания",
+          "status": "Статус",
+          "actions": "Действия",
+          "language": "Язык"
+        },
+        "noArticles": "Статьи не найдены"
+      },
+      "status": {
+        "published": "Опубликовано",
+        "draft": "Черновик"
+      },
+      "actions": {
+        "edit": "Редактировать",
+        "view": "Просмотр"
+      }
+    },
+    "r2": {
+      "title": "Загрузка изображения R2",
+      "uploadNew": "Загрузить новое изображение",
+      "invalidFileType": "Неверный тип файла",
+      "noFileSelected": "Не выбран файл",
+      "uploadSuccessful": "Загрузка успешна",
+      "uploadFailed": "Не удалось загрузить",
+      "uploading": "Загрузка...",
+      "uploadImage": "Загрузить изображение",
+      "preview": "Предпросмотр:",
+      "uploadedImage": "Загруженное изображение",
+      "filename": "Имя файла:",
+      "url": "URL:",
+      "copyImageUrl": "Копировать URL изображения",
+      "urlCopied": "URL скопирован"
+    }
+  },
+  "blog": {
+    "postNotFound": "Пост не найден",
+    "postNotFoundDescription": "Пост блога, который вы ищете, не найден.",
+    "publishedAt": "Опубликовано {date}"
+  },
+  "blogs": {
+    "pageTitle": "Посты блога",
+    "metaTitle": "Статьи и аналитика",
+    "metaDescription": "Изучите наши последние статьи об анализе красоты, технологиях искусственного интеллекта и лицевой эстетике. Откройте для себя экспертные идеи, советы и тенденции в мире оценки красоты на основе ИИ.",
+    "noArticles": "Нет доступных статей",
+    "publishedAt": "Опубликовано {date}"
+  }
+}

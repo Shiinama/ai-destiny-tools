@@ -1,0 +1,77 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - 'master'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Get full git history for checking file changes
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create .env file
+        run: |
+          cat > .env << EOF
+          # Cloudflare configuration
+          CLOUDFLARE_API_TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN }}"
+          CLOUDFLARE_ACCOUNT_ID="${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+          PROJECT_NAME="${{ secrets.PROJECT_NAME }}"
+          DATABASE_ID="${{ secrets.DATABASE_ID }}"
+          DATABASE_NAME="${{ secrets.DATABASE_NAME }}"
+
+          # Authentication configuration
+          AUTH_SECRET="${{ secrets.AUTH_SECRET }}"
+          AUTH_TRUST_HOST="${{ secrets.AUTH_TRUST_HOST }}"
+          AUTH_GOOGLE_ID="${{ secrets.AUTH_GOOGLE_ID }}"
+          AUTH_GOOGLE_SECRET="${{ secrets.AUTH_GOOGLE_SECRET }}"
+          AUTH_RESEND_KEY="${{ secrets.AUTH_RESEND_KEY }}"
+
+          # Application configuration
+          GMI_API_KEY="${{ secrets.GMI_API_KEY }}"
+          NEXT_PUBLIC_BASE_URL="${{ secrets.NEXT_PUBLIC_BASE_URL }}"
+          NEXT_PUBLIC_ADMIN_ID="${{ secrets.NEXT_PUBLIC_ADMIN_ID }}"
+          EOF
+
+      - name: Run deploy script
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+          AUTH_TRUST_HOST: ${{ secrets.AUTH_TRUST_HOST }}
+          AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+          AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+          AUTH_RESEND_KEY: ${{ secrets.AUTH_RESEND_KEY }}
+          DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+          GMI_API_KEY: ${{ secrets.GMI_API_KEY }}
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+          NEXT_PUBLIC_ADMIN_ID: ${{ secrets.NEXT_PUBLIC_ADMIN_ID }}
+          NEXT_PUBLIC_R2_DOMAIN: ${{ secrets.NEXT_PUBLIC_R2_DOMAIN }}
+
+        run: pnpm dlx tsx scripts/deploy/index.ts
+
+      # Clean up
+      - name: Post deployment cleanup
+        run: |
+          rm -f .env*.*
+          rm -f wrangler*.json
