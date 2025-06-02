@@ -201,22 +201,6 @@
         "edit": "تحرير",
         "view": "عرض"
       }
-    },
-    "r2": {
-      "title": "تحميل صورة R2",
-      "uploadNew": "تحميل صورة جديدة",
-      "invalidFileType": "نوع الملف غير صالح",
-      "noFileSelected": "لم يتم تحديد ملف",
-      "uploadSuccessful": "تم الرفع بنجاح",
-      "uploadFailed": "فشل الرفع",
-      "uploading": "تحميل...",
-      "uploadImage": "تحميل الصورة",
-      "preview": "معاينة:",
-      "uploadedImage": "صورة محملة",
-      "filename": "اسم الملف:",
-      "url": "URL:",
-      "copyImageUrl": "نسخ عنوان URL للصورة",
-      "urlCopied": "تم نسخ URL"
     }
   },
   "blog": {

@@ -201,22 +201,6 @@
         "edit": "Редактировать",
         "view": "Просмотр"
       }
-    },
-    "r2": {
-      "title": "Загрузка изображения R2",
-      "uploadNew": "Загрузить новое изображение",
-      "invalidFileType": "Недопустимый тип файла",
-      "noFileSelected": "Не выбран файл",
-      "uploadSuccessful": "Загрузка успешна",
-      "uploadFailed": "Не удалось загрузить",
-      "uploading": "Загрузка...",
-      "uploadImage": "Загрузить изображение",
-      "preview": "Предпросмотр:",
-      "uploadedImage": "Загруженное изображение",
-      "filename": "Имя файла:",
-      "url": "URL:",
-      "copyImageUrl": "Копировать URL изображения",
-      "urlCopied": "URL скопирован"
     }
   },
   "blog": {
