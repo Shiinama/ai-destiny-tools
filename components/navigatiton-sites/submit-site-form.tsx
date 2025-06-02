@@ -38,7 +38,6 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
-    // @ts-expect-error: not all properties of `formSchema` are defined in the `form` object
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
