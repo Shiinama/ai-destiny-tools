@@ -15,50 +15,50 @@
     }
   },
   "submitTools": {
-    "title": "Submit AI Fortune Site",
-    "description": "Submit a new AI fortune telling or divination website to our directory",
+    "title": "Submit AI Divination Tool",
+    "description": "Submit a new AI-powered fortune telling or divination tool to our directory",
     "meta": {
-      "title": "Submit AI Fortune Site",
-      "description": "Submit a new AI fortune telling or divination website to our directory"
+      "title": "Submit AI Divination Tool",
+      "description": "Submit a new AI-powered fortune telling or divination tool to our directory"
     },
     "loadError": "Failed to load categories. Please try again later.",
     "form": {
       "name": {
         "label": "Name",
-        "placeholder": "AI Fortune Site Name",
-        "description": "The name of the AI fortune telling site"
+        "placeholder": "AI Divination Tool Name",
+        "description": "The name of the AI fortune telling or divination tool"
       },
       "description": {
         "label": "Description",
-        "placeholder": "Describe what this AI fortune telling site offers",
-        "description": "A brief description of the AI fortune telling site's capabilities"
+        "placeholder": "Describe what this AI divination tool offers",
+        "description": "A brief description of the AI divination tool's capabilities and insights"
       },
       "url": {
         "label": "URL",
         "placeholder": "https://example.com",
-        "description": "The website URL of the AI fortune telling site"
+        "description": "The website URL of the AI divination tool"
       },
       "imageUrl": {
         "label": "Cover Image",
         "placeholder": "https://example.com/image.png",
-        "description": "URL to an image representing the AI fortune telling site"
+        "description": "URL to an image representing the AI divination tool"
       },
       "category": {
         "label": "Category",
         "placeholder": "Select a category",
-        "description": "The category this AI fortune telling site belongs to"
+        "description": "The divination category this AI tool belongs to (e.g., Tarot, Astrology, Numerology)"
       },
       "submit": {
-        "label": "Submit AI Fortune Site",
+        "label": "Submit AI Divination Tool",
         "loading": "Submitting..."
       }
     },
     "toast": {
       "success": {
-        "description": "AI fortune telling site submitted successfully"
+        "description": "AI divination tool submitted successfully"
       },
       "error": {
-        "description": "Failed to submit AI fortune telling site",
+        "description": "Failed to submit AI divination tool",
         "unexpected": "An unexpected error occurred"
       }
     },

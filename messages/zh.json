@@ -224,57 +224,57 @@
     }
   },
   "submitTools": {
-    "title": "提交 AI 工具",
-    "description": "将新的 AI 工具提交到导航系统",
-    "loadError": "类别加载失败，请稍后重试。",
+    "title": "提交人工智能占卜工具",
+    "description": "向我们的目录提交一个新的人工智能驱动的占卜或占卜工具",
+    "loadError": "加载类别失败。请稍后再试。",
     "form": {
       "name": {
         "label": "名称",
-        "placeholder": "AI 工具名称",
-        "description": "AI 工具的名称"
+        "placeholder": "人工智能占卜工具名称",
+        "description": "人工智能占卜工具的名称"
       },
       "url": {
-        "description": " ",
+        "description": "人工智能占卜工具的网站网址",
         "placeholder": "https://example.com",
-        "label": "URL"
+        "label": "网址"
       },
       "imageUrl": {
         "label": "封面图片",
         "placeholder": "https://example.com/image.png",
-        "description": " "
+        "description": "代表人工智能占卜工具的图片的网址"
       },
       "category": {
-        "description": "this AI tool",
+        "description": "此人工智能工具所属的占卜类别（例如，塔罗牌、占星术、命理学）",
         "label": "类别",
-        "placeholder": "选择类别"
+        "placeholder": "选择一个类别"
       },
       "submit": {
-        "label": "AI Tool",
-        "loading": "Submitting..."
+        "label": "提交人工智能占卜工具",
+        "loading": "正在提交..."
       },
       "description": {
         "label": "描述",
-        "placeholder": "描述此 AI 工具的作用",
-        "description": "一个简歇的AI塔带和带来的肥警系统的肥警能力的简歇描追"
+        "placeholder": "描述此人工智能占卜工具提供的服务",
+        "description": "人工智能占卜工具功能和见解的简要描述"
       }
     },
     "validation": {
-      "nameRequired": "姓名必填",
+      "nameRequired": "名称必填",
       "descriptionRequired": "描述必填",
       "urlValid": "请输入有效的网址",
-      "categoryRequired": "请选择分类"
+      "categoryRequired": "类别必填"
     },
     "meta": {
-      "title": "提交 AI 工具",
-      "description": "将新的 AI 工具提交到导航系统"
+      "title": "提交人工智能占卜工具",
+      "description": "向我们的目录提交一个新的人工智能驱动的占卜或占卜工具"
     },
     "toast": {
       "success": {
-        "description": "AI"
+        "description": "人工智能占卜工具提交成功"
       },
       "error": {
-        "description": "AI ",
-        "unexpected": "发生意外的错误"
+        "description": "人工智能占卜工具提交失败",
+        "unexpected": "发生意外错误"
       }
     }
   },
