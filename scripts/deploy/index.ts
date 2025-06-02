@@ -29,27 +29,6 @@ const validateEnvironment = () => {
 }
 
 /**
- * 更新数据库ID到配置文件
- */
-const updateDatabaseConfig = (dbId: string) => {
-  console.log(`📝 Updating database ID (${dbId}) in configurations...`)
-
-  const wranglerPath = resolve('wrangler.jsonc')
-  if (existsSync(wranglerPath)) {
-    try {
-      const json = JSON.parse(readFileSync(wranglerPath, 'utf-8'))
-      if (json.d1_databases && json.d1_databases.length > 0) {
-        json.d1_databases[0].database_id = dbId
-      }
-      writeFileSync(wranglerPath, JSON.stringify(json, null, 2))
-      console.log(`✅ Updated database ID in ${wranglerPath}`)
-    } catch (error) {
-      console.error(`❌ Failed to update ${wranglerPath}:`, error)
-    }
-  }
-}
-
-/**
  * 迁移数据库
  */
 const migrateDatabase = () => {
@@ -114,7 +93,7 @@ const pushWorkerSecret = () => {
  * 部署Pages应用
  */
 const deployWorkers = () => {
-  console.log('🚧 Deploying to Cloudflare Pages...')
+  console.log('🚧 Deploying to Cloudflare Worker...')
   try {
     execSync('pnpm run deploy', { stdio: 'inherit' })
     console.log('✅ Pages deployment completed successfully')
