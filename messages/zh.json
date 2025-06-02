@@ -283,10 +283,11 @@
     "description": ""
   },
   "siteInfo": {
-    "brandName": "Destiny AI Tools",
+    "brandName": "Destiny AI 工具",
+    "description": "用 AI Destiny 工具探索您的未来——终极的人工智能驱动塔罗牌占卜、占星术、命理学和个性化占卜平台。今天就获得您命运的准确见解。",
     "meta": {
-      "title": "AI-Powered Fortune Telling & Divination Platform",
-      "description": "发现你的未亚呼私和呼私和个性化张王和呼私和个性化张王和带有私张张张和个性化张王和呼私和个性化张王和带有私张张张和个性化张王和呼私和个性化张王和带有私张张张"
+      "title": "人工智能驱动的占卜和占卜平台",
+      "description": "用 AI Destiny 工具探索您的未来——终极的人工智能驱动塔罗牌占卜、占星术、命理学和个性化占卜平台。"
     }
   }
 }

@@ -55,7 +55,7 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     mode = 'missing',
     targetLocales,
     keys = [],
-    model = '@cf/meta/llama-4-scout-17b-16e-instruct',
+    model = '@cf/google/gemma-3-12b-it',
     noTranslateKeys = []
   } = options
 
@@ -232,7 +232,7 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     // 准备多语言翻译提示
     const languagesToTranslate = localesToTranslate
       .filter((l) => translationPayload[l.code]) // 只包含需要翻译的语言
-      .map((l) => `${l.code}: ${l.name}`)
+      .map((l) => l.code)
 
     const languageList = languagesToTranslate.join(', ')
 
@@ -253,8 +253,6 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     Please respond with a JSON object with the same structure, where each language code contains its translated content.
     Return only the JSON without any additional text or explanations.
     `
-
-    console.log(prompt)
 
     // 调用AI模型进行批量翻译
     const response = await fetch(
@@ -278,8 +276,6 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     }
 
     const { result }: { result: { response: string } } = await response.json()
-
-    console.log(result.response)
 
     // 提取JSON响应
     const jsonMatch = result.response?.match(/\{[\s\S]*\}/)
