@@ -16,7 +16,10 @@
   },
   "HomePage": {
     "title": "你好",
-    "about": "前往关于页面"
+    "about": "前往关于页面",
+    "description": "发现满足您需求的最佳 AI 工具",
+    "submitTool": "提交工具",
+    "visitSite": "访问网站 →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "首页",
     "blogs": "博客",
     "navigation": "站点导航",
-    "navigationDescription": "访问我们网站的主要部分"
+    "navigationDescription": "访问我们网站的主要部分",
+    "submitTools": "提交工具"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "blog": {
     "postNotFound": "找不到文章",
@@ -213,7 +217,7 @@
     "r2": {
       "title": "R2 ",
       "uploadNew": " ",
-      "invalidFileType": "",
+      "invalidFileType": "无效的文件类型",
       "noFileSelected": "未选择文件",
       "uploadSuccessful": "上传成功",
       "uploadFailed": "上传失败",
@@ -225,6 +229,60 @@
       "url": "网址：",
       "copyImageUrl": "复制图片网址",
       "urlCopied": "网址已复制"
+    }
+  },
+  "submitTools": {
+    "title": "提交 AI 工具",
+    "description": "将新的 AI 工具提交到导航系统",
+    "loadError": "类别加载失败，请稍后重试。",
+    "form": {
+      "name": {
+        "label": "名称",
+        "placeholder": "AI 工具名称",
+        "description": "AI 工具的名称"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "封面图片",
+        "placeholder": "https://example.com/image.png",
+        "description": " "
+      },
+      "category": {
+        "description": "this AI tool",
+        "label": "类别",
+        "placeholder": "选择类别"
+      },
+      "submit": {
+        "label": "AI Tool",
+        "loading": "Submitting..."
+      },
+      "description": {
+        "label": "描述",
+        "placeholder": "描述此 AI 工具的作用"
+      }
+    },
+    "validation": {
+      "nameRequired": "姓名必填",
+      "descriptionRequired": "描述必填",
+      "urlValid": "请输入有效的网址",
+      "categoryRequired": "请选择分类"
+    },
+    "meta": {
+      "title": "提交 AI 工具",
+      "description": "将新的 AI 工具提交到导航系统"
+    },
+    "toast": {
+      "success": {
+        "description": "AI"
+      },
+      "error": {
+        "description": "AI ",
+        "unexpected": "发生意外的错误"
+      }
     }
   }
 }

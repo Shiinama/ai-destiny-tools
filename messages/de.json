@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Hallo",
-    "about": "Zur Info-Seite gehen"
+    "about": "Zur Info-Seite gehen",
+    "description": "Entdecken Sie die besten KI-Tools für Ihre Bedürfnisse",
+    "submitTool": "Ein Tool einreichen",
+    "visitSite": "Besuchen Sie die Website →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "Startseite",
     "blogs": "Blogs",
     "navigation": "Site-Navigation",
-    "navigationDescription": "Greifen Sie auf die Hauptabschnitte unserer Website zu"
+    "navigationDescription": "Greifen Sie auf die Hauptabschnitte unserer Website zu",
+    "submitTools": "Werkzeuge einreichen"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -226,5 +230,59 @@
     "metaDescription": "Entdecken Sie unsere neuesten Artikel über Beauty-Analyse, KI-Technologie und Gesichtsaesthetik. Erhalten Sie Experten-Einblicke, Tipps und Trends aus der Welt der KI-gestützten Schönheitsbewertung.",
     "noArticles": "Keine Artikel verfügbar",
     "publishedAt": "Veröffentlicht am {date}"
+  },
+  "submitTools": {
+    "title": "Einreichen eines KI-Tools",
+    "description": "Ein neues KI-Tool für das Navigationssystem einreichen",
+    "loadError": "Kategorien konnten nicht geladen werden. Bitte versuchen Sie es später noch einmal.",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Name des KI-Tools",
+        "description": "Der Name des KI-Tools"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "Cover-Bild",
+        "placeholder": "https://example.com/image.png",
+        "description": "URL zu einem Bild, das das KI-Tool darstellt"
+      },
+      "category": {
+        "description": "Dieses KI-Tool",
+        "label": "Kategorie",
+        "placeholder": "Kategorie auswählen"
+      },
+      "submit": {
+        "label": "KI-Tool einreichen",
+        "loading": "Einreichen..."
+      },
+      "description": {
+        "label": "Beschreibung",
+        "placeholder": "Beschreiben Sie, was dieses KI-Tool tut"
+      }
+    },
+    "validation": {
+      "nameRequired": "Name ist erforderlich",
+      "descriptionRequired": "Beschreibung ist erforderlich",
+      "urlValid": "Bitte geben Sie eine gültige URL ein",
+      "categoryRequired": "Kategorie ist erforderlich"
+    },
+    "meta": {
+      "title": "Einreichen von KI-Tools",
+      "description": "Einreichen eines neuen KI-Tools für das Navigationssystem"
+    },
+    "toast": {
+      "success": {
+        "description": "AI-Schicksalssite erfolgreich eingereicht"
+      },
+      "error": {
+        "description": "Konnte AI-Schicksalsvorhersage-Website nicht übermitteln",
+        "unexpected": "Ein unerwarteter Fehler ist aufgetreten"
+      }
+    }
   }
 }

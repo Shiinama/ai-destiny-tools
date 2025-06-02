@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "こんにちは",
-    "about": "詳細情報ページへ移動する"
+    "about": "詳細情報ページへ移動する",
+    "description": "あなたのニーズに最適なAIツールを発見してください",
+    "submitTool": "ツールを提出する",
+    "visitSite": "サイトを訪問する →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "ホーム",
     "blogs": "ブログ",
     "navigation": "サイトのナビゲーション",
-    "navigationDescription": "ウェブサイトの主要セクションにアクセスする"
+    "navigationDescription": "ウェブサイトの主要セクションにアクセスする",
+    "submitTools": "ツール提出"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -201,7 +205,7 @@
     "r2": {
       "title": "R2 ",
       "uploadNew": " ",
-      "invalidFileType": "",
+      "invalidFileType": "ファイルの種類が無効です",
       "noFileSelected": "ファイルが選択されていません",
       "uploadSuccessful": "アップロードに成功しました",
       "uploadFailed": "アップロードに失敗しました",
@@ -226,5 +230,59 @@
     "metaDescription": "美容分析、AI技術、顔貌分析の最新記事をご覧ください。AIによる美容評価の世界における専門家の洞察、ヒント、トレンドをご紹介します。",
     "noArticles": "記事がありません",
     "publishedAt": "{date} に公開"
+  },
+  "submitTools": {
+    "title": "AI ツールを提出する",
+    "description": "新しい AI ツールをナビゲーション システムに提出する",
+    "loadError": "カテゴリの読み込みに失敗しました。後ほど再度お試しください。",
+    "form": {
+      "name": {
+        "label": "名前",
+        "placeholder": "AI ツール名",
+        "description": "AI ツールの名前"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "カバー画像",
+        "placeholder": "https://example.com/image.png",
+        "description": " "
+      },
+      "category": {
+        "description": "この AI ツール",
+        "label": "カテゴリー",
+        "placeholder": "カテゴリを選択してください"
+      },
+      "submit": {
+        "label": "AI Tool を送信する",
+        "loading": "送信中..."
+      },
+      "description": {
+        "label": "説明",
+        "placeholder": "この AI ツールが何をするものかを説明してください"
+      }
+    },
+    "validation": {
+      "nameRequired": "名前が必要です",
+      "descriptionRequired": "説明が必要です",
+      "urlValid": "有効なURLを入力してください",
+      "categoryRequired": "カテゴリーを選択してください"
+    },
+    "meta": {
+      "title": "AI ツールを提出する",
+      "description": "ナビゲーション システムに新しい AI ツールを提出する"
+    },
+    "toast": {
+      "success": {
+        "description": "AI"
+      },
+      "error": {
+        "description": "AI ",
+        "unexpected": "予期しないエラーが発生しました"
+      }
+    }
   }
 }

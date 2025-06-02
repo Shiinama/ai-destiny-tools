@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "안녕하세요",
-    "about": "정보 페이지로 이동"
+    "about": "정보 페이지로 이동",
+    "description": "귀하의 필요에 맞는 최고의 AI 도구를 발견하세요",
+    "submitTool": "도구 제출",
+    "visitSite": "사이트 방문 →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "홈",
     "blogs": "블로그",
     "navigation": "사이트 탐색",
-    "navigationDescription": "웹사이트의 주요 섹션에 액세스"
+    "navigationDescription": "웹사이트의 주요 섹션에 액세스",
+    "submitTools": "도구 제출"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -201,7 +205,7 @@
     "r2": {
       "title": "R2 ",
       "uploadNew": " ",
-      "invalidFileType": "",
+      "invalidFileType": "잘못된 파일 형식입니다.",
       "noFileSelected": "파일이 선택되지 않았습니다",
       "uploadSuccessful": "업로드에 성공했습니다",
       "uploadFailed": "업로드에 실패했습니다",
@@ -226,5 +230,59 @@
     "metaDescription": "뷰티 분석, AI 기술 및 얼굴 미학에 관한 최신 기사를 탐색하세요. AI 기반 뷰티 평가 세계의 전문가 통찰력, 팁 및 트렌드를 발견하세요.",
     "noArticles": "사용 가능한 기사가 없습니다",
     "publishedAt": "{date}에 게시됨"
+  },
+  "submitTools": {
+    "title": "AI 도구 제출",
+    "description": "탐색 시스템에 새로운 AI 도구를 제출합니다.",
+    "loadError": "카테고리 로드에 실패했습니다. 나중에 다시 시도하십시오.",
+    "form": {
+      "name": {
+        "label": "이름",
+        "placeholder": "AI 도구 이름",
+        "description": "AI 도구의 이름"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "커버 이미지",
+        "placeholder": "https://example.com/image.png",
+        "description": " "
+      },
+      "category": {
+        "description": "이 AI 도구",
+        "label": "범주",
+        "placeholder": "카테고리를 선택하세요"
+      },
+      "submit": {
+        "label": "AI 도구 제출",
+        "loading": "제출 중..."
+      },
+      "description": {
+        "label": "설명",
+        "placeholder": "이 AI 도구가 하는 일을 설명하세요."
+      }
+    },
+    "validation": {
+      "nameRequired": "이름이 필요합니다",
+      "descriptionRequired": "설명이 필요합니다",
+      "urlValid": "유효한 URL을 입력하세요",
+      "categoryRequired": "카테고리를 선택하세요"
+    },
+    "meta": {
+      "title": "AI 도구 제출",
+      "description": "탐색 시스템에 새 AI 도구를 제출합니다."
+    },
+    "toast": {
+      "success": {
+        "description": "AI"
+      },
+      "error": {
+        "description": " ",
+        "unexpected": "예상치 못한 오류가 발생했습니다."
+      }
+    }
   }
 }

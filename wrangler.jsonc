@@ -19,8 +19,8 @@
     "d1_databases": [
         {
             "binding": "DB",
-            "database_name": "next-template",
-            "database_id": "76508c42-476a-458d-ae33-045e333d8bf4",
+            "database_name": "destiny-tools",
+            "database_id": "7fd600a0-009d-4d4b-848a-ae47081c554f",
             "migrations_dir": "migrations"
         }
     ],
@@ -29,7 +29,7 @@
     },
     "r2_buckets": [
         {
-            "bucket_name": "demo",
+            "bucket_name": "next-inc-cache",
             "binding": "NEXT_INC_CACHE_R2_BUCKET"
         },
         {
@@ -61,7 +61,7 @@
     "services": [
         {
             "binding": "WORKER_SELF_REFERENCE",
-            "service": "cloudflare-template"
+            "service": "ai-destiny-tools"
         }
     ]
 }

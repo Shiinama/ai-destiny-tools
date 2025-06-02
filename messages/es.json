@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Hola",
-    "about": "Ir a la página de información"
+    "about": "Ir a la página de información",
+    "description": "Descubre las mejores herramientas de IA para tus necesidades",
+    "submitTool": "Enviar una herramienta",
+    "visitSite": "Visitar sitio →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "Inicio",
     "blogs": "Blogs",
     "navigation": "Navegación del sitio",
-    "navigationDescription": "Acceder a las secciones principales de nuestro sitio web"
+    "navigationDescription": "Acceder a las secciones principales de nuestro sitio web",
+    "submitTools": "Enviar herramientas"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -226,5 +230,59 @@
     "metaDescription": "Explora nuestros últimos artículos sobre análisis de belleza, tecnología de inteligencia artificial y estética facial. Descubre perspectivas expertas, consejos y tendencias en el mundo de la evaluación de belleza impulsada por IA.",
     "noArticles": "No hay artículos disponibles",
     "publishedAt": "Publicado en {date}"
+  },
+  "submitTools": {
+    "title": "Enviar herramienta de IA",
+    "description": "Enviar una nueva herramienta de IA al sistema de navegación",
+    "loadError": "Error al cargar categorías. Por favor, inténtelo de nuevo más tarde.",
+    "form": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Nombre de la herramienta de IA",
+        "description": "El nombre de la herramienta de IA"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "Imagen de portada",
+        "placeholder": "https://example.com/image.png",
+        "description": "URL de una imagen que represente la herramienta de IA"
+      },
+      "category": {
+        "description": "Esta herramienta de inteligencia artificial",
+        "label": "Categoría",
+        "placeholder": "Seleccione una categoría"
+      },
+      "submit": {
+        "label": "Enviar herramienta de inteligencia artificial",
+        "loading": "Enviando..."
+      },
+      "description": {
+        "label": "Descripción",
+        "placeholder": "Describa qué hace esta herramienta de IA"
+      }
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "descriptionRequired": "La descripción es obligatoria",
+      "urlValid": "Por favor, introduzca una URL válida",
+      "categoryRequired": "Se requiere categoría"
+    },
+    "meta": {
+      "title": "Enviar herramienta de IA",
+      "description": "Enviar una nueva herramienta de IA al sistema de navegación"
+    },
+    "toast": {
+      "success": {
+        "description": "Sitio de adivinación AI enviado correctamente"
+      },
+      "error": {
+        "description": "No se ha podido enviar el sitio de adivinación de la suerte de AI",
+        "unexpected": "Ocurrió un error inesperado"
+      }
+    }
   }
 }

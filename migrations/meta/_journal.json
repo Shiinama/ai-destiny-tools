@@ -15,6 +15,13 @@
       "when": 1746880789188,
       "tag": "0001_brainy_mother_askani",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1748851200242,
+      "tag": "0002_short_norrin_radd",
+      "breakpoints": true
     }
   ]
 }

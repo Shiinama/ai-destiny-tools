@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "مرحبا",
-    "about": "الانتقال إلى صفحة المعلومات"
+    "about": "الانتقال إلى صفحة المعلومات",
+    "description": "اكتشف أفضل أدوات الذكاء الاصطناعي لاحتياجاتك",
+    "submitTool": "إرسال أداة",
+    "visitSite": "زيارة الموقع →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "الصفحة الرئيسية",
     "blogs": "المدونات",
     "navigation": "تنقل الموقع",
-    "navigationDescription": "الوصول إلى الأقسام الرئيسية لموقعنا على الإنترنت"
+    "navigationDescription": "الوصول إلى الأقسام الرئيسية لموقعنا على الإنترنت",
+    "submitTools": "إرسال الأدوات"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -201,7 +205,7 @@
     "r2": {
       "title": "تحميل صورة R2",
       "uploadNew": "تحميل صورة جديدة",
-      "invalidFileType": "نوع ملف غير صالح",
+      "invalidFileType": "نوع الملف غير صالح",
       "noFileSelected": "لم يتم تحديد ملف",
       "uploadSuccessful": "تم الرفع بنجاح",
       "uploadFailed": "فشل الرفع",
@@ -226,5 +230,59 @@
     "metaDescription": "استكشف أحدث مقالاتنا حول تحليل الجمال، وتكنولوجيا الذكاء الاصطناعي، وجماليات الوجه. اكتشف رؤى الخبراء، والنصائح، والاتجاهات في عالم تقييم الجمال المدعوم بالذكاء الاصطناعي.",
     "noArticles": "لا تتوفر مقالات",
     "publishedAt": "نُشر في {date}"
+  },
+  "submitTools": {
+    "title": "إرسال أداة الذكاء الاصطناعي",
+    "description": "إرسال أداة ذكاء اصطناعي جديدة إلى نظام الملاحة",
+    "loadError": "فشل تحميل الفئات. يرجى المحاولة مرة أخرى لاحقًا.",
+    "form": {
+      "name": {
+        "label": "الاسم",
+        "placeholder": "اسم أداة الذكاء الاصطناعي",
+        "description": "اسم أداة الذكاء الاصطناعي"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "صورة الغلاف",
+        "placeholder": "https://example.com/image.png",
+        "description": "URL لصورة تمثل أداة الذكاء الاصطناعي"
+      },
+      "category": {
+        "description": "أداة الذكاء الاصطناعي هذه",
+        "label": "فئة",
+        "placeholder": "اختر فئة"
+      },
+      "submit": {
+        "label": "إرسال أداة الذكاء الاصطناعي",
+        "loading": "جاري الإرسال..."
+      },
+      "description": {
+        "label": "وصف",
+        "placeholder": "وصف ما تعمل هذه الأداة الذكية"
+      }
+    },
+    "validation": {
+      "nameRequired": "الاسم مطلوب",
+      "descriptionRequired": "الوصف مطلوب",
+      "urlValid": "الرجاء إدخال عنوان URL صالح",
+      "categoryRequired": "الفئة مطلوبة"
+    },
+    "meta": {
+      "title": "إرسال أداة ذكاء اصطناعي",
+      "description": "إرسال أداة ذكاء اصطناعي جديدة إلى نظام الملاحة"
+    },
+    "toast": {
+      "success": {
+        "description": "موقع الكهانة AI تم تقديمه بنجاح"
+      },
+      "error": {
+        "description": "فشل في إرسال موقع التنبؤ بالحظ باستخدام الذكاء الاصطناعي",
+        "unexpected": "حدث خطأ غير متوقع"
+      }
+    }
   }
 }

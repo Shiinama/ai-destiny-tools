@@ -160,7 +160,7 @@ export async function sequentialTranslate(options: Omit<TranslationOptions, 'mod
     console.log(`\n总共发现 ${allMissingKeys.length} 个不同的键需要翻译`)
 
     // 设置批次大小和分批
-    const batchSize = 3 // 每批处理一个键，可以根据需要调整
+    const batchSize = 1
     const batches = []
 
     // 将键分成批次

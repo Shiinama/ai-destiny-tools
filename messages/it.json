@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Ciao",
-    "about": "Vai alla pagina delle informazioni"
+    "about": "Vai alla pagina delle informazioni",
+    "description": "Scopri i migliori strumenti di intelligenza artificiale per le tue esigenze",
+    "submitTool": "Invia uno strumento",
+    "visitSite": "Visita il sito →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "Home",
     "blogs": "Blogs",
     "navigation": "Navigazione del sito",
-    "navigationDescription": "Accedi alle sezioni principali del nostro sito web"
+    "navigationDescription": "Accedi alle sezioni principali del nostro sito web",
+    "submitTools": "Invia strumenti"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -226,5 +230,59 @@
     "metaDescription": "Esplora i nostri ultimi articoli sull'analisi della bellezza, la tecnologia dell'intelligenza artificiale e l'estetica facciale. Scopri informazioni approfondite di esperti, consigli e tendenze nel mondo della valutazione della bellezza basata sull'intelligenza artificiale.",
     "noArticles": "Nessun articolo disponibile",
     "publishedAt": "Pubblicato il {date}"
+  },
+  "submitTools": {
+    "title": "Invia strumento AI",
+    "description": "Invia un nuovo strumento AI al sistema di navigazione",
+    "loadError": "Errore durante il caricamento delle categorie. Riprova più tardi.",
+    "form": {
+      "name": {
+        "label": "Nome",
+        "placeholder": "Nome dello strumento di intelligenza artificiale",
+        "description": "Il nome dello strumento di intelligenza artificiale"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "Immagine di copertina",
+        "placeholder": "https://example.com/image.png",
+        "description": "URL di un'immagine che rappresenta lo strumento di intelligenza artificiale"
+      },
+      "category": {
+        "description": "Questo strumento di intelligenza artificiale",
+        "label": "Categoria",
+        "placeholder": "Seleziona una categoria"
+      },
+      "submit": {
+        "label": "Invia strumento di intelligenza artificiale",
+        "loading": "Invio in corso..."
+      },
+      "description": {
+        "label": "Descrizione",
+        "placeholder": "Descrivi cosa fa questo strumento di intelligenza artificiale"
+      }
+    },
+    "validation": {
+      "nameRequired": "Il nome è obbligatorio",
+      "descriptionRequired": "La descrizione è obbligatoria",
+      "urlValid": "Si prega di inserire un URL valido",
+      "categoryRequired": "Categoria richiesta"
+    },
+    "meta": {
+      "title": "Invia uno strumento di intelligenza artificiale",
+      "description": "Invia un nuovo strumento di intelligenza artificiale al sistema di navigazione"
+    },
+    "toast": {
+      "success": {
+        "description": "Sito di divinazione AI inviato correttamente"
+      },
+      "error": {
+        "description": "Impossibile inviare il sito di predizione della fortuna dell'intelligenza artificiale",
+        "unexpected": "Si è verificato un errore imprevisto"
+      }
+    }
   }
 }

@@ -99,3 +99,34 @@ export const posts = sqliteTable('posts', {
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()
 })
+
+export const aiCategories = sqliteTable('ai_categories', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  name: text('name').notNull(),
+  description: text('description'),
+  order: integer('order').default(0),
+  createdAt: integer('created_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull()
+})
+
+export const aiSites = sqliteTable('ai_sites', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id),
+  name: text('name').notNull(),
+  description: text('description').notNull(),
+  url: text('url').notNull(),
+  imageUrl: text('image_url'),
+  categoryId: text('category_id')
+    .notNull()
+    .references(() => aiCategories.id, { onDelete: 'cascade' }),
+  createdAt: integer('created_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull()
+})

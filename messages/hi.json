@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "नमस्ते",
-    "about": "जानकारी पृष्ठ पर जाएं"
+    "about": "जानकारी पृष्ठ पर जाएं",
+    "description": "अपनी आवश्यकताओं के लिए सर्वश्रेष्ठ AI उपकरण खोजें",
+    "submitTool": "एक टूल सबमिट करें",
+    "visitSite": "साइट पर जाएं →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "होम",
     "blogs": "ब्लॉग",
     "navigation": "साइट नेविगेशन",
-    "navigationDescription": "हमारी वेबसाइट के मुख्य अनुभागों तक पहुंचें"
+    "navigationDescription": "हमारी वेबसाइट के मुख्य अनुभागों तक पहुंचें",
+    "submitTools": "उपकरण जमा करें"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -226,5 +230,59 @@
     "metaDescription": "सौंदर्य विश्लेषण, आर्टिफ़िशियल इंटेलिजेंस तकनीक और चेहरे की सौंदर्यशास्त्र पर हमारे नवीनतम लेखों का अन्वेषण करें। AI-संचालित सौंदर्य मूल्यांकन की दुनिया में विशेषज्ञ अंतर्दृष्टि, सुझाव और रुझानों की खोज करें।",
     "noArticles": "कोई लेख उपलब्ध नहीं",
     "publishedAt": "{date} को प्रकाशित किया गया"
+  },
+  "submitTools": {
+    "title": "एआई टूल जमा करें",
+    "description": "नेविगेशन सिस्टम में एक नया एआई टूल जमा करें",
+    "loadError": "श्रेणियाँ लोड करने में विफलता। कृपया बाद में पुनः प्रयास करें।",
+    "form": {
+      "name": {
+        "label": "नाम",
+        "placeholder": "एआई टूल का नाम",
+        "description": "एआई टूल का नाम"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "कवर छवि",
+        "placeholder": "https://example.com/image.png",
+        "description": "AI टूल का प्रतिनिधित्व करने वाली छवि का URL"
+      },
+      "category": {
+        "description": "यह एआई उपकरण",
+        "label": "श्रेणी",
+        "placeholder": "एक श्रेणी का चयन करें"
+      },
+      "submit": {
+        "label": "एआई टूल सबमिट करें",
+        "loading": "सबमिट कर रहा है..."
+      },
+      "description": {
+        "label": "विवरण",
+        "placeholder": "वर्णन करें कि यह एआई उपकरण क्या करता है"
+      }
+    },
+    "validation": {
+      "nameRequired": "नाम आवश्यक है",
+      "descriptionRequired": "विवरण आवश्यक है",
+      "urlValid": "कृपया एक मान्य URL दर्ज करें",
+      "categoryRequired": "श्रेणी आवश्यक है"
+    },
+    "meta": {
+      "title": "एआई टूल सबमिट करें",
+      "description": "नेविगेशन सिस्टम में एक नया एआई टूल सबमिट करें"
+    },
+    "toast": {
+      "success": {
+        "description": "एआई भाग्य बताने की साइट सफलतापूर्वक प्रस्तुत की गई"
+      },
+      "error": {
+        "description": "AI भाग्य-कहानी साइट जमा करने में विफल रहा",
+        "unexpected": "एक अनपेक्षित त्रुटि हुई है"
+      }
+    }
   }
 }

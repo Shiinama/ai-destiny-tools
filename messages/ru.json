@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Здравствуйте",
-    "about": "Перейти на страницу информации"
+    "about": "Перейти на страницу информации",
+    "description": "Откройте для себя лучшие инструменты ИИ для ваших потребностей",
+    "submitTool": "Отправить инструмент",
+    "visitSite": "Посетить сайт →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "Главная",
     "blogs": "Блоги",
     "navigation": "Навигация по сайту",
-    "navigationDescription": "Доступ к основным разделам нашего веб-сайта"
+    "navigationDescription": "Доступ к основным разделам нашего веб-сайта",
+    "submitTools": "Отправить инструменты"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -201,7 +205,7 @@
     "r2": {
       "title": "Загрузка изображения R2",
       "uploadNew": "Загрузить новое изображение",
-      "invalidFileType": "Неверный тип файла",
+      "invalidFileType": "Недопустимый тип файла",
       "noFileSelected": "Не выбран файл",
       "uploadSuccessful": "Загрузка успешна",
       "uploadFailed": "Не удалось загрузить",
@@ -226,5 +230,59 @@
     "metaDescription": "Изучите наши последние статьи об анализе красоты, технологиях искусственного интеллекта и лицевой эстетике. Откройте для себя экспертные идеи, советы и тенденции в мире оценки красоты на основе ИИ.",
     "noArticles": "Нет доступных статей",
     "publishedAt": "Опубликовано {date}"
+  },
+  "submitTools": {
+    "title": "Отправить инструмент ИИ",
+    "description": "Отправить новый инструмент ИИ в систему навигации",
+    "loadError": "Не удалось загрузить категории. Пожалуйста, попробуйте позже.",
+    "form": {
+      "name": {
+        "label": "Имя",
+        "placeholder": "Имя инструмента ИИ",
+        "description": "Название инструмента ИИ"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "Изображение обложки",
+        "placeholder": "https://example.com/image.png",
+        "description": "URL-адрес изображения, представляющего инструмент ИИ"
+      },
+      "category": {
+        "description": "Этот инструмент ИИ",
+        "label": "Категория",
+        "placeholder": "Выберите категорию"
+      },
+      "submit": {
+        "label": "Отправить инструмент ИИ",
+        "loading": "Отправка..."
+      },
+      "description": {
+        "label": "Описание",
+        "placeholder": "Опишите, что делает этот инструмент ИИ"
+      }
+    },
+    "validation": {
+      "nameRequired": "Имя обязательно",
+      "descriptionRequired": "Описание обязательно",
+      "urlValid": "Пожалуйста, введите действительный URL",
+      "categoryRequired": "Требуется категория"
+    },
+    "meta": {
+      "title": "Отправить инструмент ИИ",
+      "description": "Отправить новый инструмент ИИ в навигационную систему"
+    },
+    "toast": {
+      "success": {
+        "description": "Сайт гадания ИИ успешно отправлен"
+      },
+      "error": {
+        "description": "Не удалось отправить сайт гадания на ИИ",
+        "unexpected": "Произошла непредвиденная ошибка"
+      }
+    }
   }
 }

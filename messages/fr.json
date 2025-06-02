@@ -1,7 +1,10 @@
 {
   "HomePage": {
     "title": "Bonjour",
-    "about": "Aller à la page d'informations"
+    "about": "Aller à la page d'informations",
+    "description": "Découvrez les meilleurs outils d'IA pour vos besoins",
+    "submitTool": "Soumettre un outil",
+    "visitSite": "Visiter le site →"
   },
   "login": {
     "modal": {
@@ -53,15 +56,16 @@
     "home": "Accueil",
     "blogs": "Blogs",
     "navigation": "Navigation du site",
-    "navigationDescription": "Accédez aux principales sections de notre site Web"
+    "navigationDescription": "Accédez aux principales sections de notre site Web",
+    "submitTools": "Soumettre des outils"
   },
   "siteInfo": {
-    "brandName": "Next Template",
     "description": "Think, Write, Code",
     "meta": {
       "title": "Next Template - Think, Write, Code",
       "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    }
+    },
+    "brandName": "Destiny AI Tools"
   },
   "admin": {
     "batch": {
@@ -226,5 +230,59 @@
     "metaDescription": "Explorez nos derniers articles sur l'analyse de la beauté, la technologie de l'intelligence artificielle et l'esthétique faciale. Découvrez les informations d'experts, les conseils et les tendances dans le monde de l'évaluation de la beauté alimentée par l'IA.",
     "noArticles": "Aucun article disponible",
     "publishedAt": "Publié le {date}"
+  },
+  "submitTools": {
+    "title": "Soumettre un outil d'IA",
+    "description": "Soumettre un nouvel outil d'IA au système de navigation",
+    "loadError": "Échec du chargement des catégories. Veuillez réessayer plus tard.",
+    "form": {
+      "name": {
+        "label": "Nom",
+        "placeholder": "Nom de l'outil d'IA",
+        "description": "Le nom de l'outil d'IA"
+      },
+      "url": {
+        "description": " ",
+        "placeholder": "https://example.com",
+        "label": "URL"
+      },
+      "imageUrl": {
+        "label": "Image de couverture",
+        "placeholder": "https://example.com/image.png",
+        "description": "URL vers une image représentant l'outil d'IA"
+      },
+      "category": {
+        "description": "Cet outil d'intelligence artificielle",
+        "label": "Catégorie",
+        "placeholder": "Sélectionnez une catégorie"
+      },
+      "submit": {
+        "label": "Soumettre un outil d'intelligence artificielle",
+        "loading": "Soumission en cours..."
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Décrivez ce que cet outil d'IA fait"
+      }
+    },
+    "validation": {
+      "nameRequired": "Le nom est requis",
+      "descriptionRequired": "La description est requise",
+      "urlValid": "Veuillez entrer une URL valide",
+      "categoryRequired": "La catégorie est requise"
+    },
+    "meta": {
+      "title": "Soumettre un outil d'IA",
+      "description": "Soumettre un nouvel outil d'IA au système de navigation"
+    },
+    "toast": {
+      "success": {
+        "description": "Site de divination AI soumis avec succès"
+      },
+      "error": {
+        "description": "Échec de la soumission du site de divination de chance AI",
+        "unexpected": "Une erreur inattendue s'est produite"
+      }
+    }
   }
 }

@@ -2,23 +2,79 @@
   "headers": {
     "blogs": "Blogs",
     "home": "Home",
+    "submitTools": "Submit Tools",
     "navigation": "Site Navigation",
     "navigationDescription": "Access the main sections of our website"
   },
   "siteInfo": {
-    "brandName": "Next Template",
-    "description": "Think, Write, Code",
+    "brandName": "Destiny AI Tools",
+    "description": "Discover your future with AI Destiny Tools - The ultimate platform for AI-powered tarot readings, astrology, numerology, and personalized fortune telling. Get accurate insights into your destiny today.",
     "meta": {
-      "title": "Think, Write, Code",
-      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
+      "title": "AI-Powered Fortune Telling & Divination Platform",
+      "description": "Discover your future with AI Destiny Tools - The ultimate platform for AI-powered tarot readings, astrology, numerology, and personalized fortune telling."
+    }
+  },
+  "submitTools": {
+    "title": "Submit AI Fortune Site",
+    "description": "Submit a new AI fortune telling or divination website to our directory",
+    "meta": {
+      "title": "Submit AI Fortune Site",
+      "description": "Submit a new AI fortune telling or divination website to our directory"
+    },
+    "loadError": "Failed to load categories. Please try again later.",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "AI Fortune Site Name",
+        "description": "The name of the AI fortune telling site"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Describe what this AI fortune telling site offers",
+        "description": "A brief description of the AI fortune telling site's capabilities"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://example.com",
+        "description": "The website URL of the AI fortune telling site"
+      },
+      "imageUrl": {
+        "label": "Cover Image",
+        "placeholder": "https://example.com/image.png",
+        "description": "URL to an image representing the AI fortune telling site"
+      },
+      "category": {
+        "label": "Category",
+        "placeholder": "Select a category",
+        "description": "The category this AI fortune telling site belongs to"
+      },
+      "submit": {
+        "label": "Submit AI Fortune Site",
+        "loading": "Submitting..."
+      }
+    },
+    "toast": {
+      "success": {
+        "description": "AI fortune telling site submitted successfully"
+      },
+      "error": {
+        "description": "Failed to submit AI fortune telling site",
+        "unexpected": "An unexpected error occurred"
+      }
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "descriptionRequired": "Description is required",
+      "urlValid": "Please enter a valid URL",
+      "categoryRequired": "Category is required"
     }
   },
   "footer": {
-    "description": "Empowering conversations with AI. Experience the future of communication with Next Template.",
+    "description": "Discover your future with AI Destiny Tools - The ultimate platform for AI-powered tarot readings, astrology, numerology, and personalized fortune telling. Get accurate insights into your destiny today.",
     "contact": {
       "title": "Contact",
       "intro": "For inquiries, please contact:",
-      "email": "contact@yourdomain.com"
+      "email": "contact@destinyai.tools"
     },
     "quickLinks": {
       "title": "Quick Links",
@@ -27,11 +83,13 @@
       "refundPolicy": "Refund Policy",
       "subscriptionTerms": "Subscription Terms"
     },
-    "copyright": "© 2024 Cozyai LLC. All rights reserved."
+    "copyright": "© 2025 destinyai.tools All rights reserved."
   },
   "HomePage": {
-    "title": "Hello",
-    "about": "Go to the about page"
+    "title": "AI-Powered Fortune Telling & Divination Platform",
+    "description": "Discover your future with AI Destiny Tools - The ultimate platform for AI-powered tarot readings, astrology, numerology, and personalized fortune telling.",
+    "submitTool": "Submit a Tool",
+    "visitSite": "Visit Site →"
   },
   "login": {
     "signOut": "Sign Out",
