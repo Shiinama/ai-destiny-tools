@@ -201,6 +201,22 @@
         "edit": "Modifica",
         "view": "Visualizza"
       }
+    },
+    "r2": {
+      "title": "Caricamento immagine R2",
+      "uploadNew": "Carica nuova immagine",
+      "invalidFileType": "Tipo di file non valido",
+      "noFileSelected": "Nessun file selezionato",
+      "uploadSuccessful": "Caricamento riuscito",
+      "uploadFailed": "Caricamento fallito",
+      "uploading": "Caricamento in corso...",
+      "uploadImage": "Carica immagine",
+      "preview": "Anteprima:",
+      "uploadedImage": "Immagine caricata",
+      "filename": "Nome file:",
+      "url": "URL:",
+      "copyImageUrl": "Copia l'URL dell'immagine",
+      "urlCopied": "URL copiato"
     }
   },
   "blog": {

@@ -201,6 +201,22 @@
         "edit": "संपादित करें",
         "view": "देखें"
       }
+    },
+    "r2": {
+      "title": "R2 छवि अपलोड",
+      "uploadNew": "नई छवि अपलोड करें",
+      "invalidFileType": "अवैध फ़ाइल प्रकार",
+      "noFileSelected": "कोई फ़ाइल चयनित नहीं की गई",
+      "uploadSuccessful": "अपलोड सफल रहा",
+      "uploadFailed": "अपलोड करने में विफल",
+      "uploading": "अपलोड हो रहा है...",
+      "uploadImage": "छवि अपलोड करें",
+      "preview": "पूर्वावलोकन:",
+      "uploadedImage": "अपलोड की गई छवि",
+      "filename": "फ़ाइल नाम:",
+      "url": "यूआरएल:",
+      "copyImageUrl": "छवि URL कॉपी करें",
+      "urlCopied": "यूआरएल कॉपी हो गया"
     }
   },
   "blog": {

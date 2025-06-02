@@ -266,6 +266,22 @@
         "edit": "Edit",
         "view": "View"
       }
+    },
+    "r2": {
+      "title": "R2 Image Upload",
+      "uploadNew": "Upload New Image",
+      "invalidFileType": "Invalid file type",
+      "noFileSelected": "No file selected",
+      "uploadSuccessful": "Upload successful",
+      "uploadFailed": "Upload failed",
+      "uploading": "Uploading...",
+      "uploadImage": "Upload Image",
+      "preview": "Preview:",
+      "uploadedImage": "Uploaded Image",
+      "filename": "Filename:",
+      "url": "URL:",
+      "copyImageUrl": "Copy Image URL",
+      "urlCopied": "URL copied"
     }
   }
 }

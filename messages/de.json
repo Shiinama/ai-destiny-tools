@@ -201,6 +201,22 @@
         "edit": "Bearbeiten",
         "view": "Anzeigen"
       }
+    },
+    "r2": {
+      "title": "R2 Bild-Upload",
+      "uploadNew": "Neue Bild hochladen",
+      "invalidFileType": "Ungültiger Dateityp",
+      "noFileSelected": "Keine Datei ausgewählt",
+      "uploadSuccessful": "Hochladen erfolgreich",
+      "uploadFailed": "Hochladen fehlgeschlagen",
+      "uploading": "Wird hochgeladen...",
+      "uploadImage": "Bild hochladen",
+      "preview": "Vorschau:",
+      "uploadedImage": "Hochgeladenes Bild",
+      "filename": "Dateiname:",
+      "url": "URL:",
+      "copyImageUrl": "Bild-URL kopieren",
+      "urlCopied": "URL kopiert"
     }
   },
   "blog": {

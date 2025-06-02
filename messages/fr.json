@@ -201,6 +201,22 @@
         "edit": "Modifier",
         "view": "Voir"
       }
+    },
+    "r2": {
+      "title": "Téléchargement d'image R2",
+      "uploadNew": "Télécharger une nouvelle image",
+      "invalidFileType": "Type de fichier invalide",
+      "noFileSelected": "Aucun fichier sélectionné",
+      "uploadSuccessful": "Téléchargement réussi",
+      "uploadFailed": "Échec du téléchargement",
+      "uploading": "En cours de téléchargement...",
+      "uploadImage": "Télécharger une image",
+      "preview": "Aperçu :",
+      "uploadedImage": "Image téléchargée",
+      "filename": "Nom du fichier :",
+      "url": "URL :",
+      "copyImageUrl": "Copier l'URL de l'image",
+      "urlCopied": "URL copiée"
     }
   },
   "blog": {

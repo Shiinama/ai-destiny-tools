@@ -213,6 +213,22 @@
         "edit": "编辑",
         "view": "查看"
       }
+    },
+    "r2": {
+      "title": "R2 ",
+      "uploadNew": " ",
+      "invalidFileType": "无效的文件类型",
+      "noFileSelected": "未选择文件",
+      "uploadSuccessful": "上传成功",
+      "uploadFailed": "上传失败",
+      "uploading": "正在上传...",
+      "uploadImage": "上传图片",
+      "preview": "预览：",
+      "uploadedImage": "上传图片",
+      "filename": "文件名：",
+      "url": "网址：",
+      "copyImageUrl": "复制图片网址",
+      "urlCopied": "网址已复制"
     }
   },
   "submitTools": {

@@ -201,6 +201,22 @@
         "edit": "編集",
         "view": "表示"
       }
+    },
+    "r2": {
+      "title": "R2 ",
+      "uploadNew": " ",
+      "invalidFileType": "ファイルの種類が無効です",
+      "noFileSelected": "ファイルが選択されていません",
+      "uploadSuccessful": "アップロードに成功しました",
+      "uploadFailed": "アップロードに失敗しました",
+      "uploading": "アップロード中...",
+      "uploadImage": "画像をアップロード",
+      "preview": "プレビュー:",
+      "uploadedImage": "アップロードされた画像",
+      "filename": "ファイル名：",
+      "url": "URL：",
+      "copyImageUrl": "画像URLをコピー",
+      "urlCopied": "URLをコピーしました"
     }
   },
   "blog": {
