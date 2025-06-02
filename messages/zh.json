@@ -59,14 +59,6 @@
     "navigationDescription": "访问我们网站的主要部分",
     "submitTools": "提交工具"
   },
-  "siteInfo": {
-    "description": "Think, Write, Code",
-    "meta": {
-      "title": "Next Template - Think, Write, Code",
-      "description": "A responsive, lightweight, and accessible front-end framework using Next.js, TypeScript, and Tailwind CSS."
-    },
-    "brandName": "Destiny AI Tools"
-  },
   "blog": {
     "postNotFound": "找不到文章",
     "postNotFoundDescription": "您寻找的博客文章不存在。",
@@ -213,6 +205,22 @@
         "edit": "编辑",
         "view": "查看"
       }
+    },
+    "r2": {
+      "title": "R2 图片上传",
+      "uploadNew": "上传新图片",
+      "invalidFileType": "",
+      "noFileSelected": "",
+      "uploadSuccessful": "上传成功",
+      "uploadFailed": "上传失败",
+      "uploading": "上传中...",
+      "uploadImage": "上传图片",
+      "preview": "预览：",
+      "uploadedImage": "上传图片",
+      "filename": "文件名：",
+      "url": "URL:",
+      "copyImageUrl": "复制图片地址",
+      "urlCopied": "URL "
     }
   },
   "submitTools": {
@@ -246,7 +254,8 @@
       },
       "description": {
         "label": "描述",
-        "placeholder": "描述此 AI 工具的作用"
+        "placeholder": "描述此 AI 工具的作用",
+        "description": "一个简歇的AI塔带和带来的肥警系统的肥警能力的简歇描追"
       }
     },
     "validation": {
@@ -267,6 +276,17 @@
         "description": "AI ",
         "unexpected": "发生意外的错误"
       }
+    }
+  },
+  "meta": {
+    "title": "",
+    "description": ""
+  },
+  "siteInfo": {
+    "brandName": "Destiny AI Tools",
+    "meta": {
+      "title": "AI-Powered Fortune Telling & Divination Platform",
+      "description": "发现你的未亚呼私和呼私和个性化张王和呼私和个性化张王和带有私张张张和个性化张王和呼私和个性化张王和带有私张张张和个性化张王和呼私和个性化张王和带有私张张张"
     }
   }
 }

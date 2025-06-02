@@ -236,8 +236,6 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
 
     const languageList = languagesToTranslate.join(', ')
 
-    console.log(languageList, 'languageList')
-
     const prompt = `
     I need to translate JSON structures from English to multiple languages: ${languageList}.
     
@@ -255,6 +253,8 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     Please respond with a JSON object with the same structure, where each language code contains its translated content.
     Return only the JSON without any additional text or explanations.
     `
+
+    console.log(prompt)
 
     // 调用AI模型进行批量翻译
     const response = await fetch(

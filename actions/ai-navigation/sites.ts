@@ -1,7 +1,6 @@
 'use server'
 
 import { eq } from 'drizzle-orm'
-import { revalidatePath } from 'next/cache'
 
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
@@ -35,7 +34,6 @@ export async function createSite(formData: FormData) {
       categoryId
     })
 
-    revalidatePath('/admin/ai-navigation')
     return { success: true, message: '站点创建成功' }
   } catch (error) {
     console.error('Error creating site:', error)

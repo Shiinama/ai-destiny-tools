@@ -4,7 +4,7 @@ import { hideBin } from 'yargs/helpers'
 import { translateMessages, TranslationMode, TranslationOptions, deleteKeysFromMessages } from './translate'
 import { locales } from '@/i18n/routing'
 
-const noTranslates = ['siteInfo', 'footer.copyright']
+const noTranslates = ['siteInfo.brandName', 'footer.copyright']
 
 async function main() {
   const argv = await yargs(hideBin(process.argv))
