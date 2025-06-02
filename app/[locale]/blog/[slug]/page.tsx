@@ -11,6 +11,9 @@ interface PostSlugPageProps {
   }>
 }
 
+export const dynamicParams = true
+export const revalidate = false
+
 export async function generateMetadata({ params }: PostSlugPageProps) {
   const { slug } = await params
   const article = await getArticleBySlug(slug)
