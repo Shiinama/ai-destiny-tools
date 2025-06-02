@@ -1,6 +1,5 @@
 import { clsx, type ClassValue } from 'clsx'
 import { format, isValid } from 'date-fns'
-import { zhCN } from 'date-fns/locale'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -26,7 +25,7 @@ export function formatDate(
   if (!isValid(dateObj)) return ''
 
   // 使用 date-fns 格式化日期，使用中文本地化
-  return format(dateObj, formatString, { locale: zhCN })
+  return format(dateObj, formatString)
 }
 
 /**

@@ -27,6 +27,37 @@
     "ai": {
         "binding": "AI"
     },
+    "r2_buckets": [
+        {
+            "bucket_name": "next-inc-cache",
+            "binding": "NEXT_INC_CACHE_R2_BUCKET"
+        },
+        {
+            "bucket_name": "static",
+            "binding": "static"
+        }
+    ],
+    "durable_objects": {
+        "bindings": [
+            {
+                "name": "NEXT_CACHE_DO_QUEUE",
+                "class_name": "DOQueueHandler"
+            },
+            {
+                "name": "NEXT_TAG_CACHE_DO_SHARDED",
+                "class_name": "DOShardedTagCache"
+            }
+        ]
+    },
+    "migrations": [
+        {
+            "tag": "v1",
+            "new_sqlite_classes": [
+                "DOQueueHandler",
+                "DOShardedTagCache"
+            ]
+        }
+    ],
     "services": [
         {
             "binding": "WORKER_SELF_REFERENCE",
