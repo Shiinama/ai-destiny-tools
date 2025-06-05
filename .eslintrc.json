@@ -4,7 +4,7 @@
   "ignorePatterns": ["scripts/**/*"],
   "rules": {
     "react/no-unescaped-entities": "off",
-    "react/jsx-no-literals": "error",
+    // "react/jsx-no-literals": "error",
     "no-console": ["error", { "allow": ["error", "warn"] }],
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",

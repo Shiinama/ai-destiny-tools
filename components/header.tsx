@@ -27,7 +27,7 @@ export default async function Header({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        'bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b px-4 backdrop-blur sm:px-6 lg:px-18',
+        'bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 flex h-16 w-full items-center justify-between border-b px-4 backdrop-blur sm:px-6 lg:px-18',
         className
       )}
     >

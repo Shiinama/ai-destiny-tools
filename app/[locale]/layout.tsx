@@ -67,7 +67,7 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <SessionProvider>
             <Header />
-            <main className="mx-auto flex w-full max-w-(--breakpoint-xl) flex-1 flex-col px-2.5 py-8 md:px-20">
+            <main className="mx-auto mt-16 flex w-full max-w-(--breakpoint-xl) flex-1 flex-col px-2.5 py-8 md:px-20">
               {children}
             </main>
             <Footer />
