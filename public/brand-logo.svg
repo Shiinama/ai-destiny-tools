@@ -1,0 +1,67 @@
+<svg width="150" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <defs>
+    <linearGradient id="letter-gradient" gradientTransform="rotate(45)">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+  </defs>
+  
+  <path
+    d="M32 20H44C54 20 62 29 62 40C62 51 54 60 44 60H32V20Z
+     M37 25V55H44C51 55 57 48 57 40C57 32 51 25 44 25H37Z"
+    fill="url(#letter-gradient)"
+  />
+  
+  <circle cx="38" cy="30" r="1.5" fill="#F8FAFC" />
+  <circle cx="58" cy="50" r="1.5" fill="#F8FAFC" />
+  <circle cx="53" cy="25" r="1" fill="#F8FAFC" opacity="0.7" />
+  <circle cx="43" cy="55" r="1" fill="#F8FAFC" opacity="0.7" />
+  
+  <path d="M28 40H68" stroke="#94A3B8" stroke-width="0.5" stroke-dasharray="5 3" opacity="0.3" />
+  <path d="M48 20V60" stroke="#94A3B8" stroke-width="0.5" stroke-dasharray="5 3" opacity="0.3" />
+  
+  <path
+    d="M58 30C63 32 65 36 65 40"
+    stroke="#A855F7"
+    stroke-width="0.75"
+    fill="none"
+    stroke-dasharray="3 2"
+    opacity="0.6"
+  />
+  <path
+    d="M58 50C63 48 65 44 65 40"
+    stroke="#A855F7"
+    stroke-width="0.75"
+    fill="none"
+    stroke-dasharray="3 2"
+    opacity="0.6"
+  />
+  
+  <path d="M33 25L34 28L31 26.5H35L32 28L33 25Z" fill="#F8FAFC" opacity="0.8" />
+  <path d="M58 55L59 58L56 56.5H60L57 58L58 55Z" fill="#F8FAFC" opacity="0.6" />
+
+  <text
+    x="65"
+    y="50"
+    font-family="Arial, sans-serif"
+    font-weight="500"
+    font-size="36"
+    fill="#F8FAFC"
+    letter-spacing="0.5"
+  >
+    estiny AI
+  </text>
+
+  <path
+    d="M64 70 C84 67 104 64 124 67 C144 70 164 67 184 64"
+    stroke="url(#accent-gradient)"
+    stroke-width="1.5"
+    fill="none"
+    stroke-linecap="round"
+    opacity="0.6"
+  />
+</svg>
