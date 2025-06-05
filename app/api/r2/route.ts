@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const u = await auth()
-  if (!process.env.NEXT_PUBLIC_ADMIN_ID.split(',').includes(u?.user?.id ?? '')) {
+  if (!u?.user?.id) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

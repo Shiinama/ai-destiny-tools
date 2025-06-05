@@ -209,8 +209,8 @@
     "r2": {
       "title": "R2 图片上传",
       "uploadNew": "上传新图片",
-      "invalidFileType": "",
-      "noFileSelected": "",
+      "invalidFileType": "无效的文件类型",
+      "noFileSelected": "未选择文件",
       "uploadSuccessful": "上传成功",
       "uploadFailed": "上传失败",
       "uploading": "上传中...",
@@ -240,7 +240,6 @@
       },
       "imageUrl": {
         "label": "封面图片",
-        "placeholder": "https://example.com/image.png",
         "description": "代表人工智能占卜工具的图片的网址"
       },
       "category": {
@@ -276,6 +275,15 @@
         "description": "人工智能占卜工具提交失败",
         "unexpected": "发生意外错误"
       }
+    },
+    "imageUpload": {
+      "select": "选择图片",
+      "change": "更改图片",
+      "uploading": "上传中...",
+      "preview": "图像预览将在这里显示",
+      "success": "图片上传成功",
+      "error": "图片上传失败",
+      "tooLarge": "图片大小须小于 5MB"
     }
   },
   "meta": {

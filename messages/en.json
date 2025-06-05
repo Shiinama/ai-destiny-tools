@@ -22,6 +22,16 @@
       "description": "Submit a new AI-powered fortune telling or divination tool to our directory"
     },
     "loadError": "Failed to load categories. Please try again later.",
+    "imageUpload": {
+      "select": "Select Image",
+      "change": "Change Image",
+      "uploading": "Uploading...",
+      "preview": "Image preview will appear here",
+      "success": "Image uploaded successfully",
+      "error": "Failed to upload image",
+      "invalidType": "Please select a valid image file",
+      "tooLarge": "Image must be less than 5MB"
+    },
     "form": {
       "name": {
         "label": "Name",
@@ -40,7 +50,6 @@
       },
       "imageUrl": {
         "label": "Cover Image",
-        "placeholder": "https://example.com/image.png",
         "description": "URL to an image representing the AI divination tool"
       },
       "category": {

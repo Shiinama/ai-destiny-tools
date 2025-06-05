@@ -5,6 +5,7 @@ import { useState, FormEvent } from 'react'
 import { toast } from 'sonner'
 
 import { createSite } from '@/actions/ai-navigation/sites'
+import { SiteImageUploader } from '@/components/navigatiton-sites/site-image-uploader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -125,9 +126,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     <div>
       <form onSubmit={handleSubmit} className="max-w-2xl space-y-6">
         <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium">
-            {t('form.name.label')}
-          </label>
+          <p className="text-sm font-medium">{t('form.name.label')}</p>
           <Input
             id="name"
             placeholder={t('form.name.placeholder')}
@@ -139,9 +138,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="description" className="text-sm font-medium">
-            {t('form.description.label')}
-          </label>
+          <p className="text-sm font-medium">{t('form.description.label')}</p>
           <Textarea
             id="description"
             placeholder={t('form.description.placeholder')}
@@ -154,9 +151,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="url" className="text-sm font-medium">
-            {t('form.url.label')}
-          </label>
+          <p className="text-sm font-medium">{t('form.url.label')}</p>
           <Input
             id="url"
             placeholder={t('form.url.placeholder')}
@@ -168,23 +163,17 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="imageUrl" className="text-sm font-medium">
-            {t('form.imageUrl.label')}
-          </label>
-          <Input
-            id="imageUrl"
-            placeholder={t('form.imageUrl.placeholder')}
-            value={formValues.imageUrl}
-            onChange={(e) => handleInputChange('imageUrl', e.target.value)}
+          <p className="text-sm font-medium">{t('form.imageUrl.label')}</p>
+          <SiteImageUploader
+            onUploadComplete={(imageUrl) => handleInputChange('imageUrl', imageUrl)}
+            currentImageUrl={formValues.imageUrl}
           />
           <p className="text-muted-foreground text-[0.8rem]">{t('form.imageUrl.description')}</p>
           {errors.imageUrl && <p className="text-destructive text-[0.8rem] font-medium">{errors.imageUrl}</p>}
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="category" className="text-sm font-medium">
-            {t('form.category.label')}
-          </label>
+          <p className="text-sm font-medium">{t('form.category.label')}</p>
           <Select value={formValues.categoryId} onValueChange={(value) => handleInputChange('categoryId', value)}>
             <SelectTrigger id="category">
               <SelectValue placeholder={t('form.category.placeholder')} />
