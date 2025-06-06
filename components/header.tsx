@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import LoginModal from '@/components/login/login-modal'
 import Logo from '@/components/logo'
+import { MainNav } from '@/components/main-nav'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
@@ -11,12 +12,11 @@ import { cn } from '@/lib/utils'
 export default async function Header({ className }: { className?: string }) {
   const t = await getTranslations('headers')
 
-  const pcLinkStyle = 'text-foreground hover:text-primary group relative font-medium transition-colors'
-  const mobileLinkStyle =
-    'hover:bg-secondary flex items-center rounded-md px-3 py-3 text-lg font-medium transition-colors'
+  const mobileLinkStyle = 'flex items-center rounded-md px-3 py-3 text-lg font-medium transition-colors'
 
   const navLinks = [
     { href: '/', label: t('home') },
+    { href: '/about', label: t('about') },
     { href: '/blogs', label: t('blogs') },
     {
       href: '/submit-tools',
@@ -34,14 +34,7 @@ export default async function Header({ className }: { className?: string }) {
       <nav className="hidden w-full items-center justify-between md:flex">
         <div className="flex items-center">
           <Logo />
-          <div className="ml-12 flex space-x-8">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={pcLinkStyle}>
-                {link.label}
-                <span className="bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-          </div>
+          <MainNav className="ml-4" items={navLinks} />
         </div>
         <div className="flex items-center gap-6">
           <LocaleSwitcher />

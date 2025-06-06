@@ -14,10 +14,19 @@
     "language": "语言",
     "selectLanguage": "选择语言"
   },
+  "about": {
+    "title": "关于我们",
+    "paragraph1": "欢迎来到 Destiny AI，这里是探索命运奥秘的一个平台。我们想整合最先进的AI技术与古老的占卜智慧，为大家揭示那些隐藏在日常生活表象之下的深层模式和可能性。",
+    "paragraph2": "人类自古以来就渴望揭开未来的面纱。这种对命运的好奇不仅仅是迷信，而是我们本能中对确定性的追求。在这个充满不确定性的世界里，我们都想知道：下一步该怎么走？那个决定会带来什么后果？那段关系值得投入吗？大模型的出现彻底改变了这个古老领域的游戏规则。它们能够分析海量数据，识别人类行为模式，理解复杂的因果关系，并以前所未有的方式将这些线索转化为个性化的指导。这不再是模糊的预言，而是基于数据和模式的精准分析。",
+    "paragraph3": "在 Destiny AI，我们会挑选市面上表现比较好的占卜工具（如果它们不够好，我们就自己开发！）。我们不满足于表面的娱乐，而是深入挖掘每种技术的真正潜力，每一个工具都经过严格测试，确保它能够提供有意义且可操作的洞察，而不仅仅是空洞的安慰。",
+    "paragraph4": "我们也致力于建立一个充满活力的社区，让志同道合的探索者可以分享经验、交流见解，真正意义上能推动大模型与世界上各种主流占比流派的融合。",
+    "paragraph5": "同时，让世界上所有占卜流派在一起竞争，也是一件非常有趣的事情！毕竟每一种占卜方式都有一套自圆其说的理论，把它们都拉出来PK一下，就能知道哪种方法真正有效，哪些只是华而不实。AI不会偏向任何一种流派，它只关心结果和准确性。",
+    "paragraph6": "最后欢迎您的加入到 Destiny AI 中！"
+  },
   "HomePage": {
-    "title": "你好",
+    "title": "人工智能驱动的占卜和占卜平台",
     "about": "前往关于页面",
-    "description": "发现满足您需求的最佳 AI 工具",
+    "description": "使用人工智能命运工具探索您的未来——终极人工智能驱动的塔罗牌阅读、占星术、命理学和个性化占卜平台。",
     "submitTool": "提交工具",
     "visitSite": "访问网站 →"
   },
@@ -37,11 +46,11 @@
     "login": "登录"
   },
   "footer": {
-    "description": "通过人工智能赋予对话力量。体验与LinkAI沟通的未来。",
+    "description": "用人工智能命运工具发现您的未来——终极的人工智能驱动的塔罗牌阅读、占星术、命理学和个性化占卜平台。今天就获得您命运的准确见解。",
     "contact": {
-      "title": "联系",
-      "intro": "如需查询，请联系：",
-      "email": "contact@yourdomain.com"
+      "title": "联系方式",
+      "intro": "如有任何疑问，请联系：",
+      "email": "contact@destinyai.tools"
     },
     "quickLinks": {
       "title": "快速链接",
@@ -50,11 +59,12 @@
       "refundPolicy": "退款政策",
       "subscriptionTerms": "订阅条款"
     },
-    "copyright": " 2024 Cozyai LLC. 版权所有。"
+    "copyright": "© 2025 destinyai.tools 版权所有。"
   },
   "headers": {
     "home": "首页",
     "blogs": "博客",
+    "about": "关于",
     "navigation": "站点导航",
     "navigationDescription": "访问我们网站的主要部分",
     "submitTools": "提交工具"
@@ -261,7 +271,8 @@
       "nameRequired": "名称必填",
       "descriptionRequired": "描述必填",
       "urlValid": "请输入有效的网址",
-      "categoryRequired": "类别必填"
+      "categoryRequired": "类别必填",
+      "imageValid": "请上传有效的图片文件"
     },
     "meta": {
       "title": "提交人工智能占卜工具",
@@ -283,7 +294,8 @@
       "preview": "图像预览将在这里显示",
       "success": "图片上传成功",
       "error": "图片上传失败",
-      "tooLarge": "图片大小须小于 5MB"
+      "tooLarge": "图片大小须小于 5MB",
+      "invalidType": "请选择有效的图片文件"
     }
   },
   "meta": {

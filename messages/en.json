@@ -2,17 +2,27 @@
   "headers": {
     "blogs": "Blogs",
     "home": "Home",
+    "about": "About",
     "submitTools": "Submit Tools",
     "navigation": "Site Navigation",
     "navigationDescription": "Access the main sections of our website"
   },
   "siteInfo": {
-    "brandName": "Destiny AI Tools",
-    "description": "Discover your future with AI Destiny Tools - The ultimate platform for AI-powered tarot readings, astrology, numerology, and personalized fortune telling. Get accurate insights into your destiny today.",
+    "brandName": "Destiny AI",
+    "description": "Discover your future with Destiny AI - Your ultimate platform for AI-powered tarot, astrology, numerology and fortune telling",
     "meta": {
-      "title": "AI-Powered Fortune Telling & Divination Platform",
-      "description": "Discover your future with AI Destiny Tools - The ultimate platform for AI-powered tarot readings, astrology, numerology, and personalized fortune telling."
+      "title": "AI Fortune Telling Tools - Top Tarot & Astrology Apps",
+      "description": "Discover the best AI fortune telling tools for tarot readings, astrology charts, and psychic predictions. Explore your future with cutting-edge divination technology."
     }
+  },
+  "about": {
+    "title": "About Us",
+    "paragraph1": "Welcome to Destiny AI, a platform for exploring the mysteries of fate. We aim to integrate cutting-edge AI technology with ancient divination wisdom to reveal the deeper patterns and possibilities hidden beneath the surface of everyday life.",
+    "paragraph2": "Throughout history, humans have yearned to peek behind the veil of the future. This curiosity about destiny isn't merely superstition—it's our instinctive quest for certainty. In this world full of uncertainties, we all want to know: What's my next move? What consequences will that decision bring? Is that relationship worth investing in? The emergence of large language models has completely changed the game in this ancient field. They can analyze vast amounts of data, recognize human behavioral patterns, understand complex causal relationships, and transform these clues into personalized guidance in unprecedented ways. This is no longer vague prophecy, but precise analysis based on data and patterns.",
+    "paragraph3": "At Destiny AI, we select the best-performing divination tools on the market (and if they're not good enough, we develop our own!). We're not satisfied with surface-level entertainment—we dig deep into the true potential of each technology. Every tool undergoes rigorous testing to ensure it provides meaningful and actionable insights, not just empty reassurances.",
+    "paragraph4": "We're also committed to building a vibrant community where like-minded explorers can share experiences and exchange insights, truly advancing the integration of large language models with various mainstream divination schools worldwide.",
+    "paragraph5": "At the same time, bringing all divination schools from around the world together to compete is incredibly fascinating! After all, each divination method has its own self-consistent theory. Putting them all to the test allows us to see which methods are truly effective and which are just all talk. AI doesn't favor any particular school—it only cares about results and accuracy.",
+    "paragraph6": "Finally, we welcome you to join us at Destiny AI!"
   },
   "submitTools": {
     "title": "Submit AI Divination Tool",
@@ -75,6 +85,7 @@
       "nameRequired": "Name is required",
       "descriptionRequired": "Description is required",
       "urlValid": "Please enter a valid URL",
+      "imageValid": "Please upload a valid image file",
       "categoryRequired": "Category is required"
     }
   },
@@ -275,22 +286,6 @@
         "edit": "Edit",
         "view": "View"
       }
-    },
-    "r2": {
-      "title": "R2 Image Upload",
-      "uploadNew": "Upload New Image",
-      "invalidFileType": "Invalid file type",
-      "noFileSelected": "No file selected",
-      "uploadSuccessful": "Upload successful",
-      "uploadFailed": "Upload failed",
-      "uploading": "Uploading...",
-      "uploadImage": "Upload Image",
-      "preview": "Preview:",
-      "uploadedImage": "Uploaded Image",
-      "filename": "Filename:",
-      "url": "URL:",
-      "copyImageUrl": "Copy Image URL",
-      "urlCopied": "URL copied"
     }
   }
 }

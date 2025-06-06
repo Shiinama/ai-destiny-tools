@@ -26,7 +26,6 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const t = useTranslations('submitTools')
 
-  // Form state
   const [formValues, setFormValues] = useState({
     name: '',
     description: '',
@@ -35,17 +34,14 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     categoryId: ''
   })
 
-  // Form errors
   const [errors, setErrors] = useState<Record<string, string>>({})
 
-  // Handle input changes
   const handleInputChange = (field: string, value: string) => {
     setFormValues((prev) => ({
       ...prev,
       [field]: value
     }))
 
-    // Clear error when field is edited
     if (errors[field]) {
       setErrors((prev) => {
         const newErrors = { ...prev }
@@ -76,8 +72,8 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     }
 
     // Validate image URL
-    if (formValues.imageUrl && !urlPattern.test(formValues.imageUrl)) {
-      newErrors.imageUrl = t('validation.urlValid')
+    if (!urlPattern.test(formValues.imageUrl)) {
+      newErrors.imageUrl = t('validation.imageValid')
     }
 
     // Validate category

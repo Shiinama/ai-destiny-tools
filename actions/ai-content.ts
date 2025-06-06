@@ -1,9 +1,9 @@
 'use server'
 
+import { GoogleGenAI } from '@google/genai'
 import { count, desc, eq } from 'drizzle-orm'
 
 import { locales } from '@/i18n/routing'
-import { createAI } from '@/lib/ai'
 import { createDb } from '@/lib/db'
 import { posts } from '@/lib/db/schema'
 
@@ -57,50 +57,73 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
   const userPrompt = `Create an article about "${keyword}" in ${languageName} language. Optimize it for search engines while maintaining high-quality, valuable content for readers.`
 
   try {
-    const cloudflareAI = createAI()
+    const ai = new GoogleGenAI({
+      apiKey: process.env.GEMINI_API_KEY
+    })
+    const model = 'gemini-2.5-pro-preview-06-05'
 
-    const analysisResult = await cloudflareAI.run('@cf/meta/llama-4-scout-17b-16e-instruct', {
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userPrompt }
-      ],
-      stream: false,
-      max_tokens: 16000
+    const chat = ai.chats.create({
+      model: model,
+      config: {
+        maxOutputTokens: 65535,
+        temperature: 1,
+        topP: 1,
+        seed: 0,
+        tools: [
+          {
+            googleSearch: {
+              timeRangeFilter: {
+                startTime: '2025-01-01T00:00:00Z',
+                endTime: '2026-01-01T00:00:00Z'
+              }
+            }
+          }
+        ],
+        systemInstruction: {
+          parts: [
+            {
+              text: systemPrompt
+            }
+          ]
+        }
+      }
     })
 
-    if (typeof analysisResult === 'object') {
-      const fullResponse = analysisResult.response
+    const response = await chat.sendMessage({
+      message: [{ text: userPrompt }]
+    })
 
-      const metaDescriptionMatch = fullResponse.match(/META_DESCRIPTION:\s*([\s\S]*?)(?=URL_SLUG:|$)/)
-      const excerpt = metaDescriptionMatch ? metaDescriptionMatch[1].trim() : ''
+    const fullResponse = response.text!
 
-      const urlSlugMatch = fullResponse.match(/URL_SLUG:\s*([\s\S]+)$/)
-      let slug = urlSlugMatch ? urlSlugMatch[1].trim() : ''
+    const metaDescriptionMatch = fullResponse.match(/META_DESCRIPTION:\s*([\s\S]*?)(?=URL_SLUG:|$)/)
+    const excerpt = metaDescriptionMatch ? metaDescriptionMatch[1].trim() : ''
 
-      let content = fullResponse
-      if (metaDescriptionMatch) {
-        content = content.replace(/META_DESCRIPTION:[\s\S]*$/, '').trim()
-      }
+    const urlSlugMatch = fullResponse.match(/URL_SLUG:\s*([\s\S]+)$/)
+    let slug = urlSlugMatch ? urlSlugMatch[1].trim() : ''
 
-      const titleMatch = content.match(/^#\s+(.+)$/m)
-      const extractedTitle = titleMatch ? titleMatch[1].trim() : 'Untitled Article'
+    let content = fullResponse
+    if (metaDescriptionMatch) {
+      content = content.replace(/META_DESCRIPTION:[\s\S]*$/, '').trim()
+    }
 
-      if (!slug) {
-        slug = extractedTitle
-          .toLowerCase()
-          .trim()
-          .replace(/\s+/g, '-')
-          .replace(/[^\w\-]+/g, '')
-          .replace(/\-\-+/g, '-')
-      }
+    const titleMatch = content.match(/^#\s+(.+)$/m)
+    const extractedTitle = titleMatch ? titleMatch[1].trim() : 'Untitled Article'
 
-      return {
-        title: extractedTitle,
-        slug,
-        content,
-        excerpt: excerpt || content.substring(0, 140) + '...',
-        locale
-      }
+    if (!slug) {
+      slug = extractedTitle
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+    }
+
+    return {
+      title: extractedTitle,
+      slug,
+      content,
+      excerpt: excerpt || content.substring(0, 140) + '...',
+      locale
     }
   } catch (error) {
     throw error

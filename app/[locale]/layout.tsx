@@ -63,11 +63,16 @@ export default async function RootLayout({
 
   return (
     <html lang={currentLocale?.code ?? 'en'} dir={currentLocale?.dir || 'ltr'} suppressHydrationWarning>
-      <body className="antialiased">
+      <body className="relative overflow-x-hidden antialiased">
+        <div className="pointer-events-none fixed inset-0 z-99 overflow-hidden">
+          <div className="bg-primary/20 absolute -top-20 -left-20 h-96 w-96 rounded-full blur-3xl"></div>
+          <div className="bg-primary/15 absolute -right-20 -bottom-40 h-96 w-96 rounded-full blur-3xl"></div>
+        </div>
+
         <NextIntlClientProvider>
           <SessionProvider>
             <Header />
-            <main className="mx-auto mt-16 flex w-full max-w-(--breakpoint-xl) flex-1 flex-col px-2.5 py-8 md:px-20">
+            <main className="relative z-10 mx-auto mt-16 flex w-full max-w-(--breakpoint-xl) flex-1 flex-col px-2.5 py-8 md:px-20">
               {children}
             </main>
             <Footer />
