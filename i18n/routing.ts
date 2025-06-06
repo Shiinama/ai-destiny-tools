@@ -8,7 +8,7 @@ export const locales = [
   },
   {
     code: 'zh',
-    name: '中文',
+    name: '简体中文',
     dir: 'ltr'
   }
 ]
