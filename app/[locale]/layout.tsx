@@ -65,8 +65,8 @@ export default async function RootLayout({
     <html lang={currentLocale?.code ?? 'en'} dir={currentLocale?.dir || 'ltr'} suppressHydrationWarning>
       <body className="relative overflow-x-hidden antialiased">
         <div className="pointer-events-none fixed inset-0 z-99 overflow-hidden">
-          <div className="bg-primary/20 absolute -top-20 -left-20 h-96 w-96 rounded-full blur-3xl"></div>
-          <div className="bg-primary/15 absolute -right-20 -bottom-40 h-96 w-96 rounded-full blur-3xl"></div>
+          <div className="bg-primary/5 absolute -top-20 -left-20 h-96 w-96 rounded-full blur-3xl"></div>
+          <div className="bg-primary/8 absolute -right-20 -bottom-40 h-96 w-96 rounded-full blur-3xl"></div>
         </div>
 
         <NextIntlClientProvider>
