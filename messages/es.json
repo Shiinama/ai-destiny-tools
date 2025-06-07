@@ -1,0 +1,291 @@
+{
+  "about": {
+    "title": "Acerca de nosotros",
+    "paragraph1": "Bienvenido a Destiny AI, una plataforma para explorar los misterios del destino. Nuestro objetivo es integrar la tecnología de IA con la adivinación para revelar los patrones y posibilidades más profundos ocultos bajo la superficie de la vida cotidiana.",
+    "paragraph2": "A lo largo de la historia, los humanos han anhelado asomarse al velo del futuro. Esta curiosidad sobre el destino no es mera superstición, es nuestra búsqueda instintiva de certeza. En este mundo lleno de incertidumbres, todos queremos saber: ¿Cuál es mi próximo paso? ¿Qué consecuencias traerá esa decisión? ¿Esa relación vale la pena invertir en ella? La aparición de los grandes modelos de lenguaje ha cambiado completamente el juego en este antiguo campo. Pueden analizar vastas cantidades de datos, reconocer patrones de comportamiento humano, comprender relaciones causales complejas y transformar estas pistas en una guía personalizada de maneras sin precedentes. Esto ya no es una profecía vaga, sino un análisis preciso basado en datos y patrones.",
+    "paragraph3": "En Destiny AI, seleccionamos las herramientas de adivinación de mejor rendimiento del mercado (¡y si no son lo suficientemente buenas, desarrollamos las nuestras propias!). Cada herramienta se somete a pruebas rigurosas para asegurar que proporciona conocimientos significativos y accionables, no solo meras tranquilidades vacías.",
+    "paragraph4": "También estamos comprometidos con la construcción de una comunidad vibrante donde exploradores afines puedan compartir experiencias e intercambiar ideas, avanzando verdaderamente la integración de grandes modelos de lenguaje con varias escuelas de adivinación convencionales en todo el mundo.",
+    "paragraph5": "Al mismo tiempo, ¡es muy interesante reunir a todas las escuelas de adivinación de todo el mundo para una competición comparativa! Después de todo, cada método de adivinación tiene su propia teoría autoconsistente. Ponerlos todos en práctica nos permite ver qué métodos son realmente efectivos y cuáles son solo palabrería. La inteligencia artificial no favorece a ninguna escuela de pensamiento en particular, solo se preocupa por los resultados y la precisión.",
+    "paragraph6": "Finalmente, ¡le damos la bienvenida a Destiny AI!"
+  },
+  "blogs": {
+    "pageTitle": "Entradas de blog",
+    "metaTitle": "Perspectivas y Artículos",
+    "metaDescription": "Explore nuestros últimos artículos sobre adivinación con IA, tecnologías de adivinación y conocimientos místicos. Descubra perspectivas de expertos, tendencias y desarrollos en el mundo de la exploración del destino impulsada por IA.",
+    "noArticles": "No hay artículos disponibles",
+    "publishedAt": "Publicado el {date}"
+  },
+  "headers": {
+    "blogs": "Blogs",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "submitTools": "Enviar Herramientas",
+    "navigation": "Navegación del Sitio",
+    "navigationDescription": "Acceder a las secciones principales de nuestro sitio web"
+  },
+  "siteInfo": {
+    "brandName": "Destiny AI",
+    "description": "Descubre tu futuro con Destiny AI - Su plataforma definitiva para tarot, astrología, numerología y adivinación impulsados por IA",
+    "meta": {
+      "title": "Herramientas de Adivinación con IA - Mejores Aplicaciones de Tarot y Astrología",
+      "description": "Descubra las mejores herramientas de adivinación con IA para lecturas de tarot, cartas astrales y predicciones psíquicas. Explore su futuro con tecnología de adivinación de vanguardia."
+    }
+  },
+  "submitTools": {
+    "title": "Enviar Herramienta de Adivinación con IA",
+    "description": "Envíe una nueva herramienta de adivinación o quiromancia impulsada por IA a nuestro directorio",
+    "meta": {
+      "title": "Enviar Herramienta de Adivinación con IA",
+      "description": "Envíe una nueva herramienta de adivinación o quiromancia impulsada por IA a nuestro directorio"
+    },
+    "loadError": "Error al cargar las categorías. Por favor, inténtelo de nuevo más tarde.",
+    "imageUpload": {
+      "select": "Seleccionar Imagen",
+      "change": "Cambiar Imagen",
+      "uploading": "Subiendo...",
+      "preview": "La vista previa de la imagen aparecerá aquí",
+      "success": "Imagen subida correctamente",
+      "error": "Error al subir la imagen",
+      "invalidType": "Por favor, seleccione un archivo de imagen válido",
+      "tooLarge": "La imagen debe ser inferior a 5MB"
+    },
+    "form": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Nombre de la Herramienta de Adivinación con IA",
+        "description": "El nombre de la herramienta de adivinación o quiromancia con IA"
+      },
+      "description": {
+        "label": "Descripción",
+        "placeholder": "Describa lo que ofrece esta herramienta de adivinación con IA",
+        "description": "Una breve descripción de las capacidades y conocimientos de la herramienta de adivinación con IA"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://example.com",
+        "description": "La URL del sitio web de la herramienta de adivinación con IA"
+      },
+      "imageUrl": {
+        "label": "Imagen de Portada",
+        "description": "Una imagen que representa la herramienta de adivinación con IA"
+      },
+      "category": {
+        "label": "Categoría",
+        "placeholder": "Seleccionar una categoría",
+        "description": "La categoría de adivinación a la que pertenece esta herramienta de IA (ej., Tarot, Astrología, Numerología)"
+      },
+      "submit": {
+        "label": "Enviar Herramienta de Adivinación con IA",
+        "loading": "Enviando..."
+      }
+    },
+    "toast": {
+      "success": {
+        "description": "Herramienta de adivinación con IA enviada correctamente"
+      },
+      "error": {
+        "description": "Error al enviar la herramienta de adivinación con IA",
+        "unexpected": "Ocurrió un error inesperado"
+      }
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "descriptionRequired": "La descripción es obligatoria",
+      "urlValid": "Por favor, introduzca una URL válida",
+      "imageValid": "Por favor, suba un archivo de imagen válido",
+      "categoryRequired": "La categoría es obligatoria"
+    }
+  },
+  "footer": {
+    "description": "Descubre tu futuro con AI Destiny Tools: La plataforma definitiva para lecturas de tarot, astrología, numerología y adivinación personalizada impulsadas por IA. Obtén información precisa sobre tu destino hoy mismo.",
+    "contact": {
+      "title": "Contacto",
+      "intro": "Para consultas, por favor contacte a:",
+      "email": "contact@destinyai.tools"
+    },
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "home": "Inicio",
+      "aboutUs": "Sobre Nosotros",
+      "refundPolicy": "Política de Reembolso",
+      "subscriptionTerms": "Términos de Suscripción"
+    },
+    "copyright": "© 2025 destinyai.tools Todos los derechos reservados."
+  },
+  "HomePage": {
+    "title": "Plataforma de Adivinación y Quiromancia Impulsada por IA",
+    "description": "Descubre tu futuro con AI Destiny Tools: La plataforma definitiva para lecturas de tarot, astrología, numerología y adivinación personalizada impulsadas por IA.",
+    "submitTool": "Enviar una Herramienta",
+    "visitSite": "Visitar Sitio →"
+  },
+  "login": {
+    "signOut": "Cerrar Sesión",
+    "login": "Iniciar Sesión",
+    "modal": {
+      "description": "Inicia sesión para continuar tu viaje",
+      "triggerText": "Iniciar Sesión"
+    },
+    "form": {
+      "continueWithGoogle": "Continuar con Google",
+      "continueWithGithub": "Continuar con GitHub",
+      "orContinueWith": "O continuar con",
+      "emailPlaceholder": "Introduce tu correo electrónico",
+      "signInWithEmail": "Iniciar sesión con Correo Electrónico"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "submit": "Enviar",
+    "morePages": "Ver Más Páginas",
+    "language": "Idioma",
+    "selectLanguage": "Seleccionar Idioma"
+  },
+  "blog": {
+    "postNotFound": "Publicación No Encontrada",
+    "postNotFoundDescription": "La publicación del blog que buscas no pudo ser encontrada.",
+    "publishedAt": "Publicado el {date}"
+  },
+  "admin": {
+    "batch": {
+      "title": "Crear Artículos en Lote",
+      "backToArticles": "Volver a Artículos",
+      "keywordsCard": {
+        "title": "Introducir Palabras Clave",
+        "label": "Palabras clave (una por línea)",
+        "placeholder": "Introduzca palabras clave, una por línea"
+      },
+      "publishImmediately": "Publicar inmediatamente",
+      "buttons": {
+        "generating": "Generando...",
+        "generateArticles": "Generar Artículos",
+        "saving": "Guardando...",
+        "saveSelected": "Guardar Artículos Seleccionados"
+      },
+      "generatedArticles": {
+        "title": "Artículos Generados",
+        "selectAll": "Seleccionar Todo"
+      },
+      "saveResults": {
+        "title": "Guardar Resultados"
+      },
+      "status": {
+        "generated": "✓ Generado",
+        "saved": "✓ Guardado",
+        "failed": "✗ Fallido"
+      },
+      "errors": {
+        "emptyKeywords": "Por favor, introduzca al menos una palabra clave",
+        "noValidKeywords": "Por favor, introduzca al menos una palabra clave válida",
+        "generateFailed": "Error al generar artículos, por favor, inténtelo de nuevo",
+        "noArticlesToSave": "No hay artículos para guardar",
+        "noSelectedArticles": "No hay artículos seleccionados para guardar",
+        "saveFailed": "Error al guardar artículos, por favor, inténtelo de nuevo"
+      },
+      "success": {
+        "generated": "{successCount} artículos generados correctamente{errorMessage}",
+        "saved": "{successCount} artículos {publishStatus} {errorMessage}",
+        "withErrors": ", {errorCount} fallidos"
+      },
+      "publishStatus": {
+        "published": "publicados",
+        "draft": "guardados como borrador"
+      }
+    },
+    "new": {
+      "backToArticles": "Volver a Artículos",
+      "title": "Crear Nuevo Artículo",
+      "keywordSection": {
+        "label": "Palabra Clave",
+        "placeholder": "Introducir palabra clave del artículo"
+      },
+      "articleForm": {
+        "slugLabel": "Slug",
+        "titleLabel": "Título",
+        "excerptLabel": "Extracto",
+        "contentLabel": "Contenido",
+        "publishImmediately": "Publicar inmediatamente"
+      },
+      "buttons": {
+        "generating": "Generando...",
+        "generateArticle": "Generar Artículo",
+        "saving": "Guardando...",
+        "saveArticle": "Guardar Artículo",
+        "cancel": "Cancelar"
+      },
+      "errors": {
+        "emptyKeyword": "Por favor, introduzca una palabra clave",
+        "generateFailed": "Error al generar el artículo, por favor, inténtelo de nuevo",
+        "saveFailed": "Error al guardar el artículo, por favor, inténtelo de nuevo"
+      },
+      "success": {
+        "generated": "Artículo generado correctamente",
+        "published": "Artículo publicado",
+        "savedAsDraft": "Artículo guardado como borrador"
+      }
+    },
+    "edit": {
+      "title": "Editar Artículo",
+      "loading": "Cargando...",
+      "articleForm": {
+        "titleLabel": "Título",
+        "excerptLabel": "Extracto",
+        "contentLabel": "Contenido",
+        "publishArticle": "Publicar Artículo"
+      },
+      "deleteDialog": {
+        "title": "Confirmar Eliminación",
+        "description": "¿Está seguro de que desea eliminar este artículo? Esta acción no se puede deshacer."
+      },
+      "buttons": {
+        "saving": "Guardando...",
+        "saveArticle": "Guardar Artículo",
+        "deleting": "Eliminando...",
+        "deleteArticle": "Eliminar Artículo",
+        "delete": "Eliminar",
+        "cancel": "Cancelar"
+      },
+      "errors": {
+        "articleNotFound": "Artículo no encontrado",
+        "fetchFailed": "Error al recuperar el artículo",
+        "updateFailed": "Error al actualizar el artículo",
+        "deleteFailed": "Error al eliminar el artículo"
+      },
+      "success": {
+        "updated": "Artículo actualizado correctamente",
+        "deleted": "Artículo eliminado correctamente"
+      }
+    },
+    "list": {
+      "title": "Gestión de Artículos",
+      "buttons": {
+        "createNew": "Crear Nuevo Artículo",
+        "batchCreate": "Crear en Lote"
+      },
+      "table": {
+        "headers": {
+          "title": "Título",
+          "createdDate": "Fecha de Creación",
+          "status": "Estado",
+          "actions": "Acciones",
+          "language": "Idioma"
+        },
+        "noArticles": "No se encontraron artículos"
+      },
+      "status": {
+        "published": "Publicado",
+        "draft": "Borrador"
+      },
+      "actions": {
+        "edit": "Editar",
+        "view": "Ver"
+      }
+    }
+  }
+}

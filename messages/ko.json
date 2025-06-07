@@ -1,0 +1,291 @@
+{
+  "about": {
+    "title": "회사 소개",
+    "paragraph1": "운명의 신비를 탐구하는 플랫폼, Destiny AI에 오신 것을 환영합니다. 우리는 AI 기술과 점술을 통합하여 일상생활 표면에 숨겨진 더 깊은 패턴과 가능성을 밝히는 것을 목표로 합니다.",
+    "paragraph2": "역사적으로 인간은 미래의 장막 너머를 엿보기를 갈망해왔습니다. 운명에 대한 이러한 호기심은 단순히 미신이 아니라, 확실성을 향한 우리의 본능적인 탐구입니다. 불확실성으로 가득 찬 이 세상에서 우리는 모두 알고 싶어 합니다. 다음 행보는 무엇인가? 그 결정은 어떤 결과를 가져올까? 그 관계는 투자할 가치가 있는가? 대규모 언어 모델의 등장은 이 고대 분야의 판도를 완전히 바꾸어 놓았습니다. 이 모델들은 방대한 양의 데이터를 분석하고, 인간 행동 패턴을 인식하며, 복잡한 인과 관계를 이해하고, 이러한 단서들을 전례 없는 방식으로 개인화된 지침으로 변환할 수 있습니다. 이것은 더 이상 모호한 예언이 아니라, 데이터와 패턴에 기반한 정밀한 분석입니다.",
+    "paragraph3": "Destiny AI에서는 시장에서 가장 성능이 뛰어난 점술 도구를 엄선합니다(만약 충분히 좋지 않다면, 저희가 직접 개발합니다!). 모든 도구는 엄격한 테스트를 거쳐 단순한 공허한 안심이 아닌, 의미 있고 실행 가능한 통찰력을 제공하는지 확인합니다.",
+    "paragraph4": "또한 우리는 뜻을 같이하는 탐험가들이 경험을 공유하고 통찰력을 교환하며, 대규모 언어 모델과 전 세계 다양한 주류 점술 학파의 통합을 진정으로 발전시킬 수 있는 활기찬 커뮤니티를 구축하는 데 전념하고 있습니다.",
+    "paragraph5": "동시에, 전 세계의 모든 점술 학파들을 한자리에 모아 비교 경쟁시키는 것은 매우 흥미로운 일입니다! 결국, 모든 점술 방법은 자체적으로 일관된 이론을 가지고 있습니다. 이들을 모두 실제 적용함으로써 어떤 방법이 정말 효과적이고 어떤 방법이 그저 헛소리인지 확인할 수 있습니다. 인공지능은 특정 사상 학파를 선호하지 않습니다. 오직 결과와 정확성만을 중요하게 생각합니다.",
+    "paragraph6": "마지막으로, Destiny AI에 오신 것을 환영합니다!"
+  },
+  "blogs": {
+    "pageTitle": "블로그 게시물",
+    "metaTitle": "통찰력 및 기사",
+    "metaDescription": "AI 점술, 운세 기술 및 신비로운 통찰에 대한 최신 기사를 탐색하십시오. AI 기반 운명 탐색 세계의 전문가 관점, 동향 및 발전을 발견하십시오.",
+    "noArticles": "사용 가능한 기사가 없습니다",
+    "publishedAt": "게시일: {date}"
+  },
+  "headers": {
+    "blogs": "블로그",
+    "home": "홈",
+    "about": "소개",
+    "submitTools": "도구 제출",
+    "navigation": "사이트 탐색",
+    "navigationDescription": "저희 웹사이트의 주요 섹션에 접근하세요"
+  },
+  "siteInfo": {
+    "brandName": "Destiny AI",
+    "description": "Destiny AI와 함께 당신의 미래를 발견하세요 - AI 기반 타로, 점성술, 수비학 및 점술을 위한 궁극의 플랫폼",
+    "meta": {
+      "title": "AI 점술 도구 - 최고의 타로 및 점성술 앱",
+      "description": "타로 읽기, 점성술 차트, 심령 예측을 위한 최고의 AI 점술 도구를 발견하세요. 최첨단 점술 기술로 미래를 탐색하세요."
+    }
+  },
+  "submitTools": {
+    "title": "AI 점술 도구 제출",
+    "description": "새로운 AI 기반 점술 또는 점술 도구를 저희 디렉토리에 제출하세요",
+    "meta": {
+      "title": "AI 점술 도구 제출",
+      "description": "새로운 AI 기반 점술 또는 점술 도구를 저희 디렉토리에 제출하세요"
+    },
+    "loadError": "카테고리를 로드하지 못했습니다. 나중에 다시 시도해주세요.",
+    "imageUpload": {
+      "select": "이미지 선택",
+      "change": "이미지 변경",
+      "uploading": "업로드 중...",
+      "preview": "이미지 미리보기가 여기에 표시됩니다",
+      "success": "이미지 업로드 성공",
+      "error": "이미지 업로드 실패",
+      "invalidType": "유효한 이미지 파일을 선택해주세요",
+      "tooLarge": "이미지는 5MB 미만이어야 합니다"
+    },
+    "form": {
+      "name": {
+        "label": "이름",
+        "placeholder": "AI 점술 도구 이름",
+        "description": "AI 점술 또는 점술 도구의 이름"
+      },
+      "description": {
+        "label": "설명",
+        "placeholder": "이 AI 점술 도구가 제공하는 내용을 설명하세요",
+        "description": "AI 점술 도구의 기능 및 통찰력에 대한 간략한 설명"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://example.com",
+        "description": "AI 점술 도구의 웹사이트 URL"
+      },
+      "imageUrl": {
+        "label": "표지 이미지",
+        "description": "AI 점술 도구를 나타내는 이미지"
+      },
+      "category": {
+        "label": "카테고리",
+        "placeholder": "카테고리 선택",
+        "description": "이 AI 도구가 속하는 점술 카테고리 (예: 타로, 점성술, 수비학)"
+      },
+      "submit": {
+        "label": "AI 점술 도구 제출",
+        "loading": "제출 중..."
+      }
+    },
+    "toast": {
+      "success": {
+        "description": "AI 점술 도구가 성공적으로 제출되었습니다"
+      },
+      "error": {
+        "description": "AI 점술 도구 제출 실패",
+        "unexpected": "예상치 못한 오류가 발생했습니다"
+      }
+    },
+    "validation": {
+      "nameRequired": "이름은 필수입니다",
+      "descriptionRequired": "설명은 필수입니다",
+      "urlValid": "유효한 URL을 입력해주세요",
+      "imageValid": "유효한 이미지 파일을 업로드해주세요",
+      "categoryRequired": "카테고리는 필수입니다"
+    }
+  },
+  "footer": {
+    "description": "AI Destiny Tools와 함께 당신의 미래를 발견하세요 - AI 기반 타로 읽기, 점성술, 수비학 및 개인화된 점술을 위한 궁극의 플랫폼입니다. 오늘 당신의 운명에 대한 정확한 통찰력을 얻으세요.",
+    "contact": {
+      "title": "문의",
+      "intro": "문의 사항은 다음으로 연락해주세요:",
+      "email": "contact@destinyai.tools"
+    },
+    "quickLinks": {
+      "title": "바로가기",
+      "home": "홈",
+      "aboutUs": "회사 소개",
+      "refundPolicy": "환불 정책",
+      "subscriptionTerms": "구독 약관"
+    },
+    "copyright": "© 2025 Destiny AI.tools All rights reserved."
+  },
+  "HomePage": {
+    "title": "AI 기반 점술 및 점술 플랫폼",
+    "description": "AI Destiny Tools와 함께 당신의 미래를 발견하세요 - AI 기반 타로 읽기, 점성술, 수비학 및 개인화된 점술을 위한 궁극의 플랫폼.",
+    "submitTool": "도구 제출",
+    "visitSite": "사이트 방문 →"
+  },
+  "login": {
+    "signOut": "로그아웃",
+    "login": "로그인",
+    "modal": {
+      "description": "여정을 계속하려면 로그인하세요",
+      "triggerText": "로그인"
+    },
+    "form": {
+      "continueWithGoogle": "Google로 계속",
+      "continueWithGithub": "GitHub로 계속",
+      "orContinueWith": "또는 다음으로 계속",
+      "emailPlaceholder": "이메일 주소 입력",
+      "signInWithEmail": "이메일로 로그인"
+    }
+  },
+  "common": {
+    "loading": "로드 중...",
+    "cancel": "취소",
+    "close": "닫기",
+    "previous": "이전",
+    "next": "다음",
+    "save": "저장",
+    "edit": "편집",
+    "delete": "삭제",
+    "submit": "제출",
+    "morePages": "더 많은 페이지 보기",
+    "language": "언어",
+    "selectLanguage": "언어 선택"
+  },
+  "blog": {
+    "postNotFound": "게시물을 찾을 수 없음",
+    "postNotFoundDescription": "찾으시는 블로그 게시물을 찾을 수 없습니다.",
+    "publishedAt": "{date}에 게시됨"
+  },
+  "admin": {
+    "batch": {
+      "title": "게시물 일괄 생성",
+      "backToArticles": "게시물로 돌아가기",
+      "keywordsCard": {
+        "title": "키워드 입력",
+        "label": "키워드 (한 줄에 하나)",
+        "placeholder": "키워드를 한 줄에 하나씩 입력하세요"
+      },
+      "publishImmediately": "즉시 게시",
+      "buttons": {
+        "generating": "생성 중...",
+        "generateArticles": "게시물 생성",
+        "saving": "저장 중...",
+        "saveSelected": "선택한 게시물 저장"
+      },
+      "generatedArticles": {
+        "title": "생성된 게시물",
+        "selectAll": "모두 선택"
+      },
+      "saveResults": {
+        "title": "저장 결과"
+      },
+      "status": {
+        "generated": "✓ 생성됨",
+        "saved": "✓ 저장됨",
+        "failed": "✗ 실패"
+      },
+      "errors": {
+        "emptyKeywords": "하나 이상의 키워드를 입력해주세요",
+        "noValidKeywords": "하나 이상의 유효한 키워드를 입력해주세요",
+        "generateFailed": "게시물 생성에 실패했습니다. 다시 시도해주세요.",
+        "noArticlesToSave": "저장할 게시물이 없습니다",
+        "noSelectedArticles": "저장할 게시물이 선택되지 않았습니다",
+        "saveFailed": "게시물 저장에 실패했습니다. 다시 시도해주세요."
+      },
+      "success": {
+        "generated": "{successCount}개의 게시물이 성공적으로 생성되었습니다{errorMessage}",
+        "saved": "{successCount}개의 게시물이 {publishStatus}되었습니다{errorMessage}",
+        "withErrors": ", {errorCount}개 실패"
+      },
+      "publishStatus": {
+        "published": "게시됨",
+        "draft": "초안으로 저장됨"
+      }
+    },
+    "new": {
+      "backToArticles": "게시물로 돌아가기",
+      "title": "새 게시물 생성",
+      "keywordSection": {
+        "label": "키워드",
+        "placeholder": "게시물 키워드 입력"
+      },
+      "articleForm": {
+        "slugLabel": "슬러그",
+        "titleLabel": "제목",
+        "excerptLabel": "요약",
+        "contentLabel": "내용",
+        "publishImmediately": "즉시 게시"
+      },
+      "buttons": {
+        "generating": "생성 중...",
+        "generateArticle": "게시물 생성",
+        "saving": "저장 중...",
+        "saveArticle": "게시물 저장",
+        "cancel": "취소"
+      },
+      "errors": {
+        "emptyKeyword": "키워드를 입력해주세요",
+        "generateFailed": "게시물 생성에 실패했습니다. 다시 시도해주세요.",
+        "saveFailed": "게시물 저장에 실패했습니다. 다시 시도해주세요."
+      },
+      "success": {
+        "generated": "게시물이 성공적으로 생성되었습니다",
+        "published": "게시물이 게시되었습니다",
+        "savedAsDraft": "게시물이 초안으로 저장되었습니다"
+      }
+    },
+    "edit": {
+      "title": "게시물 편집",
+      "loading": "로드 중...",
+      "articleForm": {
+        "titleLabel": "제목",
+        "excerptLabel": "요약",
+        "contentLabel": "내용",
+        "publishArticle": "게시물 게시"
+      },
+      "deleteDialog": {
+        "title": "삭제 확인",
+        "description": "이 게시물을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+      },
+      "buttons": {
+        "saving": "저장 중...",
+        "saveArticle": "게시물 저장",
+        "deleting": "삭제 중...",
+        "deleteArticle": "게시물 삭제",
+        "delete": "삭제",
+        "cancel": "취소"
+      },
+      "errors": {
+        "articleNotFound": "게시물을 찾을 수 없음",
+        "fetchFailed": "게시물 가져오기 실패",
+        "updateFailed": "게시물 업데이트 실패",
+        "deleteFailed": "게시물 삭제 실패"
+      },
+      "success": {
+        "updated": "게시물이 성공적으로 업데이트되었습니다",
+        "deleted": "게시물이 성공적으로 삭제되었습니다"
+      }
+    },
+    "list": {
+      "title": "게시물 관리",
+      "buttons": {
+        "createNew": "새 게시물 생성",
+        "batchCreate": "일괄 생성"
+      },
+      "table": {
+        "headers": {
+          "title": "제목",
+          "createdDate": "생성일",
+          "status": "상태",
+          "actions": "작업",
+          "language": "언어"
+        },
+        "noArticles": "게시물을 찾을 수 없습니다"
+      },
+      "status": {
+        "published": "게시됨",
+        "draft": "초안"
+      },
+      "actions": {
+        "edit": "편집",
+        "view": "보기"
+      }
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "about": {
+    "title": "Über uns",
+    "paragraph1": "Willkommen bei Destiny AI, einer Plattform zur Erkundung der Mysterien des Schicksals. Wir zielen darauf ab, KI-Technologie mit Wahrsagerei zu integrieren, um die tieferen Muster und Möglichkeiten zu enthüllen, die unter der Oberfläche des Alltags verborgen liegen.",
+    "paragraph2": "Im Laufe der Geschichte haben die Menschen danach gesehnt, einen Blick hinter den Schleier der Zukunft zu werfen. Diese Neugier auf das Schicksal ist nicht bloßer Aberglaube – sie ist unsere instinktive Suche nach Gewissheit. In dieser Welt voller Unsicherheiten wollen wir alle wissen: Was ist mein nächster Schritt? Welche Konsequenzen wird diese Entscheidung mit sich bringen? Lohnt es sich, in diese Beziehung zu investieren? Das Aufkommen großer Sprachmodelle hat das Spiel in diesem alten Bereich komplett verändert. Sie können riesige Datenmengen analysieren, menschliche Verhaltensmuster erkennen, komplexe Kausalzusammenhänge verstehen und diese Hinweise auf beispiellose Weise in personalisierte Anleitung umwandeln. Dies ist keine vage Prophezeiung mehr, sondern eine präzise Analyse basierend auf Daten und Mustern.",
+    "paragraph3": "Bei Destiny AI wählen wir die leistungsstärksten Wahrsagungstools auf dem Markt aus (und wenn sie nicht gut genug sind, entwickeln wir unsere eigenen!). Jedes Tool wird strengen Tests unterzogen, um sicherzustellen, dass es aussagekräftige und umsetzbare Erkenntnisse liefert und nicht nur leere1 Beschwichtigungen.",
+    "paragraph4": "Wir engagieren uns auch dafür, eine lebendige Gemeinschaft aufzubauen, in der gleichgesinnte Entdecker Erfahrungen austauschen und Einblicke teilen können, um die Integration großer Sprachmodelle mit verschiedenen etablierten Wahrsagerei-Schulen weltweit wirklich voranzutreiben.",
+    "paragraph5": "Gleichzeitig ist es sehr interessant, alle Wahrsagekünste aus der ganzen Welt zu einem vergleichenden Wettbewerb zusammenzuführen! Schließlich hat jede Wahrsagemethode ihre eigene in sich schlüssige Theorie. Wenn wir sie alle in die Praxis umsetzen, können wir sehen, welche Methoden wirklich effektiv sind und welche nur leeres Gerede. Künstliche Intelligenz bevorzugt keine bestimmte Denkschule – sie kümmert sich nur um Ergebnisse und Genauigkeit.",
+    "paragraph6": "Schließlich heißen wir Sie bei Destiny AI willkommen!"
+  },
+  "blogs": {
+    "pageTitle": "Blogbeiträge",
+    "metaTitle": "Einblicke & Artikel",
+    "metaDescription": "Entdecken Sie unsere neuesten Artikel über KI-Divination, Wahrsagetechnologien und mystische Einblicke. Erfahren Sie mehr über Expertenperspektiven, Trends und Entwicklungen in der Welt der KI-gestützten Schicksalserkundung.",
+    "noArticles": "Keine Artikel verfügbar",
+    "publishedAt": "Veröffentlicht am {date}"
+  },
+  "headers": {
+    "blogs": "Blogs",
+    "home": "Startseite",
+    "about": "Über uns",
+    "submitTools": "Tools einreichen",
+    "navigation": "Seiten-Navigation",
+    "navigationDescription": "Greifen Sie auf die Hauptbereiche unserer Website zu"
+  },
+  "siteInfo": {
+    "brandName": "Destiny AI",
+    "description": "Entdecken Sie Ihre Zukunft mit Destiny AI – Ihre ultimative Plattform für KI-gestütztes Tarot, Astrologie, Numerologie und Wahrsagerei.",
+    "meta": {
+      "title": "KI-Wahrsagewerkzeuge - Top Tarot- & Astrologie-Apps",
+      "description": "Entdecken Sie die besten KI-Wahrsagewerkzeuge für Tarot-Lesungen, Astrologie-Charts und psychische Vorhersagen. Erforschen Sie Ihre Zukunft mit modernster Divinationstechnologie."
+    }
+  },
+  "submitTools": {
+    "title": "KI-Wahrsagewerkzeug einreichen",
+    "description": "Reichen Sie ein neues KI-gestütztes Wahrsage- oder Divinationswerkzeug in unser Verzeichnis ein",
+    "meta": {
+      "title": "KI-Wahrsagewerkzeug einreichen",
+      "description": "Reichen Sie ein neues KI-gestütztes Wahrsage- oder Divinationswerkzeug in unser Verzeichnis ein"
+    },
+    "loadError": "Kategorien konnten nicht geladen werden. Bitte versuchen Sie es später noch einmal.",
+    "imageUpload": {
+      "select": "Bild auswählen",
+      "change": "Bild ändern",
+      "uploading": "Wird hochgeladen...",
+      "preview": "Bildvorschau wird hier angezeigt",
+      "success": "Bild erfolgreich hochgeladen",
+      "error": "Bild konnte nicht hochgeladen werden",
+      "invalidType": "Bitte wählen Sie eine gültige Bilddatei",
+      "tooLarge": "Bild muss kleiner als 5MB sein"
+    },
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Name des KI-Wahrsagewerkzeugs",
+        "description": "Der Name des KI-Wahrsage- oder Divinationswerkzeugs"
+      },
+      "description": {
+        "label": "Beschreibung",
+        "placeholder": "Beschreiben Sie, was dieses KI-Wahrsagewerkzeug bietet",
+        "description": "Eine kurze Beschreibung der Funktionen und Erkenntnisse des KI-Wahrsagewerkzeugs"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://example.com",
+        "description": "Die Website-URL des KI-Wahrsagewerkzeugs"
+      },
+      "imageUrl": {
+        "label": "Titelbild",
+        "description": "Ein Bild, das das KI-Wahrsagewerkzeug darstellt"
+      },
+      "category": {
+        "label": "Kategorie",
+        "placeholder": "Wählen Sie eine Kategorie",
+        "description": "Die Divinationskategorie, zu der dieses KI-Tool gehört (z.B. Tarot, Astrologie, Numerologie)"
+      },
+      "submit": {
+        "label": "KI-Wahrsagewerkzeug einreichen",
+        "loading": "Wird eingereicht..."
+      }
+    },
+    "toast": {
+      "success": {
+        "description": "KI-Wahrsagewerkzeug erfolgreich eingereicht"
+      },
+      "error": {
+        "description": "Fehler beim Einreichen des KI-Wahrsagewerkzeugs",
+        "unexpected": "Ein unerwarteter Fehler ist aufgetreten"
+      }
+    },
+    "validation": {
+      "nameRequired": "Name ist erforderlich",
+      "descriptionRequired": "Beschreibung ist erforderlich",
+      "urlValid": "Bitte geben Sie eine gültige URL ein",
+      "imageValid": "Bitte laden Sie eine gültige Bilddatei hoch",
+      "categoryRequired": "Kategorie ist erforderlich"
+    }
+  },
+  "footer": {
+    "description": "Entdecken Sie Ihre Zukunft mit AI Destiny Tools – der ultimativen Plattform für KI-gestützte Tarot-Lesungen, Astrologie, Numerologie und personalisiertes Wahrsagen. Erhalten Sie noch heute präzise Einblicke in Ihr Schicksal.",
+    "contact": {
+      "title": "Kontakt",
+      "intro": "Für Anfragen kontaktieren Sie bitte:",
+      "email": "contact@destinyai.tools"
+    },
+    "quickLinks": {
+      "title": "Schnellzugriff",
+      "home": "Startseite",
+      "aboutUs": "Über uns",
+      "refundPolicy": "Rückerstattungsrichtlinien",
+      "subscriptionTerms": "Abonnementbedingungen"
+    },
+    "copyright": "© 2025 destinyai.tools Alle Rechte vorbehalten."
+  },
+  "HomePage": {
+    "title": "KI-gestützte Wahrsage- & Divinationsplattform",
+    "description": "Entdecken Sie Ihre Zukunft mit AI Destiny Tools – der ultimativen Plattform für KI-gestützte Tarot-Lesungen, Astrologie, Numerologie und personalisiertes Wahrsagen.",
+    "submitTool": "Tool einreichen",
+    "visitSite": "Website besuchen →"
+  },
+  "login": {
+    "signOut": "Abmelden",
+    "login": "Anmelden",
+    "modal": {
+      "description": "Melden Sie sich an, um Ihre Reise fortzusetzen",
+      "triggerText": "Anmelden"
+    },
+    "form": {
+      "continueWithGoogle": "Mit Google fortfahren",
+      "continueWithGithub": "Mit GitHub fortfahren",
+      "orContinueWith": "Oder fortfahren mit",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "signInWithEmail": "Mit E-Mail anmelden"
+    }
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "submit": "Absenden",
+    "morePages": "Weitere Seiten anzeigen",
+    "language": "Sprache",
+    "selectLanguage": "Sprache auswählen"
+  },
+  "blog": {
+    "postNotFound": "Beitrag nicht gefunden",
+    "postNotFoundDescription": "Der gesuchte Blog-Beitrag konnte nicht gefunden werden.",
+    "publishedAt": "Veröffentlicht am {date}"
+  },
+  "admin": {
+    "batch": {
+      "title": "Artikel stapelweise erstellen",
+      "backToArticles": "Zurück zu Artikeln",
+      "keywordsCard": {
+        "title": "Schlüsselwörter eingeben",
+        "label": "Schlüsselwörter (eins pro Zeile)",
+        "placeholder": "Geben Sie Schlüsselwörter ein, eins pro Zeile"
+      },
+      "publishImmediately": "Sofort veröffentlichen",
+      "buttons": {
+        "generating": "Wird generiert...",
+        "generateArticles": "Artikel generieren",
+        "saving": "Wird gespeichert...",
+        "saveSelected": "Ausgewählte Artikel speichern"
+      },
+      "generatedArticles": {
+        "title": "Generierte Artikel",
+        "selectAll": "Alle auswählen"
+      },
+      "saveResults": {
+        "title": "Ergebnisse speichern"
+      },
+      "status": {
+        "generated": "✓ Generiert",
+        "saved": "✓ Gespeichert",
+        "failed": "✗ Fehlgeschlagen"
+      },
+      "errors": {
+        "emptyKeywords": "Bitte geben Sie mindestens ein Schlüsselwort ein",
+        "noValidKeywords": "Bitte geben Sie mindestens ein gültiges Schlüsselwort ein",
+        "generateFailed": "Fehler beim Generieren der Artikel, bitte versuchen Sie es erneut",
+        "noArticlesToSave": "Keine Artikel zum Speichern vorhanden",
+        "noSelectedArticles": "Keine Artikel zum Speichern ausgewählt",
+        "saveFailed": "Fehler beim Speichern der Artikel, bitte versuchen Sie es erneut"
+      },
+      "success": {
+        "generated": "{successCount} Artikel erfolgreich generiert{errorMessage}",
+        "saved": "{successCount} Artikel {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} fehlgeschlagen"
+      },
+      "publishStatus": {
+        "published": "veröffentlicht",
+        "draft": "als Entwurf gespeichert"
+      }
+    },
+    "new": {
+      "backToArticles": "Zurück zu Artikeln",
+      "title": "Neuen Artikel erstellen",
+      "keywordSection": {
+        "label": "Schlüsselwort",
+        "placeholder": "Schlüsselwort des Artikels eingeben"
+      },
+      "articleForm": {
+        "slugLabel": "Slug",
+        "titleLabel": "Titel",
+        "excerptLabel": "Auszug",
+        "contentLabel": "Inhalt",
+        "publishImmediately": "Sofort veröffentlichen"
+      },
+      "buttons": {
+        "generating": "Wird generiert...",
+        "generateArticle": "Artikel generieren",
+        "saving": "Wird gespeichert...",
+        "saveArticle": "Artikel speichern",
+        "cancel": "Abbrechen"
+      },
+      "errors": {
+        "emptyKeyword": "Bitte geben Sie ein Schlüsselwort ein",
+        "generateFailed": "Fehler beim Generieren des Artikels, bitte versuchen Sie es erneut",
+        "saveFailed": "Fehler beim Speichern des Artikels, bitte versuchen Sie es erneut"
+      },
+      "success": {
+        "generated": "Artikel erfolgreich generiert",
+        "published": "Artikel veröffentlicht",
+        "savedAsDraft": "Artikel als Entwurf gespeichert"
+      }
+    },
+    "edit": {
+      "title": "Artikel bearbeiten",
+      "loading": "Wird geladen...",
+      "articleForm": {
+        "titleLabel": "Titel",
+        "excerptLabel": "Auszug",
+        "contentLabel": "Inhalt",
+        "publishArticle": "Artikel veröffentlichen"
+      },
+      "deleteDialog": {
+        "title": "Löschen bestätigen",
+        "description": "Sind Sie sicher, dass Sie diesen Artikel löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+      },
+      "buttons": {
+        "saving": "Wird gespeichert...",
+        "saveArticle": "Artikel speichern",
+        "deleting": "Wird gelöscht...",
+        "deleteArticle": "Artikel löschen",
+        "delete": "Löschen",
+        "cancel": "Abbrechen"
+      },
+      "errors": {
+        "articleNotFound": "Artikel nicht gefunden",
+        "fetchFailed": "Fehler beim Abrufen des Artikels",
+        "updateFailed": "Fehler beim Aktualisieren des Artikels",
+        "deleteFailed": "Fehler beim Löschen des Artikels"
+      },
+      "success": {
+        "updated": "Artikel erfolgreich aktualisiert",
+        "deleted": "Artikel erfolgreich gelöscht"
+      }
+    },
+    "list": {
+      "title": "Artikelverwaltung",
+      "buttons": {
+        "createNew": "Neuen Artikel erstellen",
+        "batchCreate": "Stapelweise erstellen"
+      },
+      "table": {
+        "headers": {
+          "title": "Titel",
+          "createdDate": "Erstellungsdatum",
+          "status": "Status",
+          "actions": "Aktionen",
+          "language": "Sprache"
+        },
+        "noArticles": "Keine Artikel gefunden"
+      },
+      "status": {
+        "published": "Veröffentlicht",
+        "draft": "Entwurf"
+      },
+      "actions": {
+        "edit": "Bearbeiten",
+        "view": "Anzeigen"
+      }
+    }
+  }
+}

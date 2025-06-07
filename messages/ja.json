@@ -1,0 +1,291 @@
+{
+  "about": {
+    "title": "私たちについて",
+    "paragraph1": "運命の謎を探求するためのプラットフォーム、Destiny AIへようこそ。私たちはAI技術と占いを統合し、日常生活の表面下に隠されたより深いパターンと可能性を明らかにすることを目指しています。",
+    "paragraph2": "歴史を通じて、人類は未来のベールの向こう側を覗き見たいと切望してきました。運命に対するこの好奇心は単なる迷信ではなく、確実性を求める私たちの本能的な探求です。不確実性に満ちたこの世界で、私たちは皆、次の行動は何？その決断はどのような結果をもたらす？その関係は投資する価値があるのか？といった疑問を抱いています。大規模言語モデルの出現は、この古代の分野におけるゲームを完全に変えました。それらは膨大な量のデータを分析し、人間の行動パターンを認識し、複雑な因果関係を理解し、これらの手がかりを前例のない方法でパーソナライズされたガイダンスに変換できます。これはもはや漠然とした予言ではなく、データとパターンに基づいた精密な分析です。",
+    "paragraph3": "Destiny AIでは、市場で最も優れた占いツールを選定しています（もし十分でなければ、自社で開発します！）。すべてのツールは厳格なテストを受け、単なる空虚な安心感ではなく、意味のある実用的な洞察を提供することを確認しています。",
+    "paragraph4": "また、私たちは志を同じくする探求者が経験を共有し、洞察を交換できる活気あるコミュニティの構築にも力を入れています。これにより、大規模言語モデルと世界中の様々な主流の占術学派との統合が真に推進されます。",
+    "paragraph5": "同時に、世界中からあらゆる占い学派を集めて比較競争させるのも非常に興味深いです！結局のところ、すべての占いの方法には独自の自己完結した理論があります。それらをすべて実践に移すことで、どの方法が本当に効果的で、どれがただの空論に過ぎないのかを見ることができます。人工知能は特定の思想学派を支持せず、結果と正確性のみを重視します。",
+    "paragraph6": "最後に、Destiny AIへご参加ください！"
+  },
+  "blogs": {
+    "pageTitle": "ブログ記事",
+    "metaTitle": "洞察と記事",
+    "metaDescription": "AIによる占術、運命予測技術、神秘的な洞察に関する最新記事をご覧ください。Destiny AIを活用した運命探求の世界における専門家の視点、トレンド、発展を発見してください。",
+    "noArticles": "記事はありません",
+    "publishedAt": "公開日: {date}"
+  },
+  "headers": {
+    "blogs": "ブログ",
+    "home": "ホーム",
+    "about": "Destiny AIについて",
+    "submitTools": "ツールを提出",
+    "navigation": "サイトナビゲーション",
+    "navigationDescription": "ウェブサイトの主要セクションにアクセス"
+  },
+  "siteInfo": {
+    "brandName": "Destiny AI",
+    "description": "Destiny AIであなたの未来を発見 - AIを搭載したタロット、占星術、数秘術、および占い究極のプラットフォーム",
+    "meta": {
+      "title": "AI占いツール - トップタロット＆占星術アプリ",
+      "description": "タロットリーディング、占星術チャート、超能力予測のための最高のAI占いツールをご覧ください。最先端の占い技術であなたの未来を探求しましょう。"
+    }
+  },
+  "submitTools": {
+    "title": "AI占いツールを提出",
+    "description": "新しいAI搭載の占いツールまたは予測ツールをディレクトリに提出する",
+    "meta": {
+      "title": "AI占いツールを提出",
+      "description": "新しいAI搭載の占いツールまたは予測ツールをディレクトリに提出する"
+    },
+    "loadError": "カテゴリの読み込みに失敗しました。後でもう一度お試しください。",
+    "imageUpload": {
+      "select": "画像を選択",
+      "change": "画像を変換",
+      "uploading": "アップロード中...",
+      "preview": "ここに画像のプレビューが表示されます",
+      "success": "画像を正常にアップロードしました",
+      "error": "画像のアップロードに失敗しました",
+      "invalidType": "有効な画像ファイルを選択してください",
+      "tooLarge": "画像は5MB未満でなければなりません"
+    },
+    "form": {
+      "name": {
+        "label": "名前",
+        "placeholder": "AI占いツール名",
+        "description": "AI占いツールまたは予測ツールの名前"
+      },
+      "description": {
+        "label": "説明",
+        "placeholder": "このAI占いツールが提供するものを説明してください",
+        "description": "AI占いツールの機能と洞察の簡単な説明"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://example.com",
+        "description": "AI占いツールのウェブサイトURL"
+      },
+      "imageUrl": {
+        "label": "カバー画像",
+        "description": "AI占いツールを表す画像"
+      },
+      "category": {
+        "label": "カテゴリ",
+        "placeholder": "カテゴリを選択",
+        "description": "このAIツールが属する占いカテゴリ（例：タロット、占星術、数秘術）"
+      },
+      "submit": {
+        "label": "AI占いツールを提出",
+        "loading": "提出中..."
+      }
+    },
+    "toast": {
+      "success": {
+        "description": "AI占いツールが正常に提出されました"
+      },
+      "error": {
+        "description": "AI占いツールの提出に失敗しました",
+        "unexpected": "予期せぬエラーが発生しました"
+      }
+    },
+    "validation": {
+      "nameRequired": "名前は必須です",
+      "descriptionRequired": "説明は必須です",
+      "urlValid": "有効なURLを入力してください",
+      "imageValid": "有効な画像ファイルをアップロードしてください",
+      "categoryRequired": "カテゴリは必須です"
+    }
+  },
+  "footer": {
+    "description": "AI Destiny Toolsで未来を発見 - AI搭載のタロットリーディング、占星術、数秘術、パーソナライズされた占いを提供する究極のプラットフォームです。今日、あなたの運命に関する正確な洞察を得ましょう。",
+    "contact": {
+      "title": "お問い合わせ",
+      "intro": "お問い合わせは下記までご連絡ください：",
+      "email": "contact@destinyai.tools"
+    },
+    "quickLinks": {
+      "title": "クイックリンク",
+      "home": "ホーム",
+      "aboutUs": "会社概要",
+      "refundPolicy": "返金ポリシー",
+      "subscriptionTerms": "購読規約"
+    },
+    "copyright": "© 2025 destinyai.tools 無断転載を禁じます。"
+  },
+  "HomePage": {
+    "title": "AI搭載占い＆予測プラットフォーム",
+    "description": "AI Destiny Toolsで未来を発見 - AI搭載のタロットリーディング、占星術、数秘術、パーソナライズされた占いを提供する究極のプラットフォーム。",
+    "submitTool": "ツールを提出",
+    "visitSite": "サイトを訪問 →"
+  },
+  "login": {
+    "signOut": "ログアウト",
+    "login": "ログイン",
+    "modal": {
+      "description": "旅を続けるにはサインインしてください",
+      "triggerText": "ログイン"
+    },
+    "form": {
+      "continueWithGoogle": "Googleで続行",
+      "continueWithGithub": "GitHubで続行",
+      "orContinueWith": "または以下で続行",
+      "emailPlaceholder": "メールアドレスを入力",
+      "signInWithEmail": "メールでサインイン"
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "previous": "前へ",
+    "next": "次へ",
+    "save": "保存",
+    "edit": "編集",
+    "delete": "削除",
+    "submit": "提出",
+    "morePages": "その他のページを表示",
+    "language": "言語",
+    "selectLanguage": "言語を選択"
+  },
+  "blog": {
+    "postNotFound": "投稿が見つかりません",
+    "postNotFoundDescription": "お探しのブログ投稿は見つかりませんでした。",
+    "publishedAt": "{date}に公開"
+  },
+  "admin": {
+    "batch": {
+      "title": "記事の一括作成",
+      "backToArticles": "記事に戻る",
+      "keywordsCard": {
+        "title": "キーワードを入力",
+        "label": "キーワード（1行に1つ）",
+        "placeholder": "キーワードを1行に1つ入力してください"
+      },
+      "publishImmediately": "すぐに公開",
+      "buttons": {
+        "generating": "生成中...",
+        "generateArticles": "記事を生成",
+        "saving": "保存中...",
+        "saveSelected": "選択した記事を保存"
+      },
+      "generatedArticles": {
+        "title": "生成された記事",
+        "selectAll": "すべて選択"
+      },
+      "saveResults": {
+        "title": "保存結果"
+      },
+      "status": {
+        "generated": "✓ 生成済み",
+        "saved": "✓ 保存済み",
+        "failed": "✗ 失敗"
+      },
+      "errors": {
+        "emptyKeywords": "少なくとも1つのキーワードを入力してください",
+        "noValidKeywords": "少なくとも1つの有効なキーワードを入力してください",
+        "generateFailed": "記事の生成に失敗しました。もう一度お試しください。",
+        "noArticlesToSave": "保存する記事がありません",
+        "noSelectedArticles": "保存する記事が選択されていません",
+        "saveFailed": "記事の保存に失敗しました。もう一度お試しください。"
+      },
+      "success": {
+        "generated": "{successCount}件の記事を正常に生成しました{errorMessage}",
+        "saved": "{successCount}件の記事が{publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount}件が失敗しました"
+      },
+      "publishStatus": {
+        "published": "公開済み",
+        "draft": "下書きとして保存済み"
+      }
+    },
+    "new": {
+      "backToArticles": "記事に戻る",
+      "title": "新しい記事を作成",
+      "keywordSection": {
+        "label": "キーワード",
+        "placeholder": "記事のキーワードを入力"
+      },
+      "articleForm": {
+        "slugLabel": "スラッグ",
+        "titleLabel": "タイトル",
+        "excerptLabel": "抜粋",
+        "contentLabel": "コンテンツ",
+        "publishImmediately": "すぐに公開"
+      },
+      "buttons": {
+        "generating": "生成中...",
+        "generateArticle": "記事を生成",
+        "saving": "保存中...",
+        "saveArticle": "記事を保存",
+        "cancel": "キャンセル"
+      },
+      "errors": {
+        "emptyKeyword": "キーワードを入力してください",
+        "generateFailed": "記事の生成に失敗しました。もう一度お試しください。",
+        "saveFailed": "記事の保存に失敗しました。もう一度お試しください。"
+      },
+      "success": {
+        "generated": "記事を正常に生成しました",
+        "published": "記事を公開しました",
+        "savedAsDraft": "記事を下書きとして保存しました"
+      }
+    },
+    "edit": {
+      "title": "記事を編集",
+      "loading": "読み込み中...",
+      "articleForm": {
+        "titleLabel": "タイトル",
+        "excerptLabel": "抜粋",
+        "contentLabel": "コンテンツ",
+        "publishArticle": "記事を公開"
+      },
+      "deleteDialog": {
+        "title": "削除の確認",
+        "description": "この記事を削除してもよろしいですか？この操作は元に戻せません。"
+      },
+      "buttons": {
+        "saving": "保存中...",
+        "saveArticle": "記事を保存",
+        "deleting": "削除中...",
+        "deleteArticle": "記事を削除",
+        "delete": "削除",
+        "cancel": "キャンセル"
+      },
+      "errors": {
+        "articleNotFound": "記事が見つかりません",
+        "fetchFailed": "記事の取得に失敗しました",
+        "updateFailed": "記事の更新に失敗しました",
+        "deleteFailed": "記事の削除に失敗しました"
+      },
+      "success": {
+        "updated": "記事を正常に更新しました",
+        "deleted": "記事を正常に削除しました"
+      }
+    },
+    "list": {
+      "title": "記事管理",
+      "buttons": {
+        "createNew": "新しい記事を作成",
+        "batchCreate": "一括作成"
+      },
+      "table": {
+        "headers": {
+          "title": "タイトル",
+          "createdDate": "作成日",
+          "status": "ステータス",
+          "actions": "アクション",
+          "language": "言語"
+        },
+        "noArticles": "記事が見つかりません"
+      },
+      "status": {
+        "published": "公開済み",
+        "draft": "下書き"
+      },
+      "actions": {
+        "edit": "編集",
+        "view": "表示"
+      }
+    }
+  }
+}

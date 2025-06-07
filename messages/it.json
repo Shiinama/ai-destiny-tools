@@ -1,0 +1,291 @@
+{
+  "about": {
+    "title": "Chi siamo",
+    "paragraph1": "Benvenuti in Destiny AI, una piattaforma per esplorare i misteri del destino. Il nostro obiettivo è integrare la tecnologia AI con la divinazione per rivelare i modelli e le possibilità più profonde nascoste sotto la superficie della vita quotidiana.",
+    "paragraph2": "Nel corso della storia, gli esseri umani hanno desiderato sbirciare dietro il velo del futuro. Questa curiosità sul destino non è mera superstizione, ma la nostra ricerca istintiva di certezza. In questo mondo pieno di incertezze, tutti vogliamo sapere: qual è la mia prossima mossa? Quali conseguenze porterà quella decisione? Quella relazione vale la pena di essere investita? L'emergere dei modelli linguistici di grandi dimensioni ha cambiato completamente il gioco in questo antico campo. Possono analizzare vaste quantità di dati, riconoscere i modelli di comportamento umano, comprendere relazioni causali complesse e trasformare questi indizi in una guida personalizzata in modi senza precedenti. Questa non è più una vaga profezia, ma un'analisi precisa basata su dati e modelli.",
+    "paragraph3": "In Destiny AI, selezioniamo gli strumenti di divinazione più performanti sul mercato (e se non sono abbastanza buoni, sviluppiamo i nostri!). Ogni strumento è sottoposto a test rigorosi per garantire che fornisca intuizioni significative e attuabili, non solo vuote rassicurazioni.",
+    "paragraph4": "Ci impegniamo anche a costruire una comunità vivace in cui esploratori affini possano condividere esperienze e scambiare intuizioni, avanzando veramente l'integrazione dei modelli linguistici di grandi dimensioni con varie scuole di divinazione tradizionali in tutto il mondo.",
+    "paragraph5": "Allo stesso tempo, è molto interessante riunire tutte le scuole di divinazione di tutto il mondo per una competizione comparativa! Dopotutto, ogni metodo di divinazione ha la sua teoria auto-coerente. Mettendole tutte in pratica, possiamo vedere quali metodi sono veramente efficaci e quali sono solo chiacchiere. L'intelligenza artificiale non favorisce alcuna particolare scuola di pensiero, si preoccupa solo dei risultati e della precisione.",
+    "paragraph6": "Infine, ti diamo il benvenuto in Destiny AI!"
+  },
+  "blogs": {
+    "pageTitle": "Articoli del blog",
+    "metaTitle": "Approfondimenti e Articoli",
+    "metaDescription": "Esplora i nostri ultimi articoli su divinazione AI, tecnologie di predizione del futuro e intuizioni mistiche. Scopri prospettive di esperti, tendenze e sviluppi nel mondo dell'esplorazione del destino basata sull'AI.",
+    "noArticles": "Nessun articolo disponibile",
+    "publishedAt": "Pubblicato il {date}"
+  },
+  "headers": {
+    "blogs": "Blog",
+    "home": "Home",
+    "about": "Chi siamo",
+    "submitTools": "Invia Strumenti",
+    "navigation": "Navigazione del sito",
+    "navigationDescription": "Accedi alle sezioni principali del nostro sito web"
+  },
+  "siteInfo": {
+    "brandName": "Destiny AI",
+    "description": "Scopri il tuo futuro con Destiny AI - La tua piattaforma definitiva per tarocchi, astrologia, numerologia e divinazione basati sull'IA",
+    "meta": {
+      "title": "Strumenti di Divinazione AI - Migliori App di Tarocchi e Astrologia",
+      "description": "Scopri i migliori strumenti di divinazione AI per letture di tarocchi, carte astrologiche e previsioni psichiche. Esplora il tuo futuro con la tecnologia di divinazione all'avanguardia."
+    }
+  },
+  "submitTools": {
+    "title": "Invia Strumento di Divinazione AI",
+    "description": "Invia un nuovo strumento di divinazione o chiromanzia basato sull'IA alla nostra directory",
+    "meta": {
+      "title": "Invia Strumento di Divinazione AI",
+      "description": "Invia un nuovo strumento di divinazione o chiromanzia basato sull'IA alla nostra directory"
+    },
+    "loadError": "Impossibile caricare le categorie. Riprova più tardi.",
+    "imageUpload": {
+      "select": "Seleziona Immagine",
+      "change": "Cambia Immagine",
+      "uploading": "Caricamento...",
+      "preview": "L'anteprima dell'immagine apparirà qui",
+      "success": "Immagine caricata con successo",
+      "error": "Caricamento immagine fallito",
+      "invalidType": "Seleziona un file immagine valido",
+      "tooLarge": "L'immagine deve essere inferiore a 5MB"
+    },
+    "form": {
+      "name": {
+        "label": "Nome",
+        "placeholder": "Nome dello Strumento di Divinazione AI",
+        "description": "Il nome dello strumento di divinazione o chiromanzia basato sull'IA"
+      },
+      "description": {
+        "label": "Descrizione",
+        "placeholder": "Descrivi cosa offre questo strumento di divinazione AI",
+        "description": "Una breve descrizione delle capacità e delle intuizioni dello strumento di divinazione AI"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://example.com",
+        "description": "L'URL del sito web dello strumento di divinazione AI"
+      },
+      "imageUrl": {
+        "label": "Immagine di Copertina",
+        "description": "Un'immagine che rappresenta lo strumento di divinazione AI"
+      },
+      "category": {
+        "label": "Categoria",
+        "placeholder": "Seleziona una categoria",
+        "description": "La categoria di divinazione a cui appartiene questo strumento AI (es. Tarocchi, Astrologia, Numerologia)"
+      },
+      "submit": {
+        "label": "Invia Strumento di Divinazione AI",
+        "loading": "Invio in corso..."
+      }
+    },
+    "toast": {
+      "success": {
+        "description": "Strumento di divinazione AI inviato con successo"
+      },
+      "error": {
+        "description": "Invio dello strumento di divinazione AI fallito",
+        "unexpected": "Si è verificato un errore inaspettato"
+      }
+    },
+    "validation": {
+      "nameRequired": "Il nome è obbligatorio",
+      "descriptionRequired": "La descrizione è obbligatoria",
+      "urlValid": "Inserisci un URL valido",
+      "imageValid": "Carica un file immagine valido",
+      "categoryRequired": "La categoria è obbligatoria"
+    }
+  },
+  "footer": {
+    "description": "Scopri il tuo futuro con AI Destiny Tools – la piattaforma definitiva per letture di tarocchi, astrologia, numerologia e divinazione personalizzata basate sull'IA. Ottieni oggi stesso intuizioni accurate sul tuo destino.",
+    "contact": {
+      "title": "Contatti",
+      "intro": "Per informazioni, si prega di contattare:",
+      "email": "contact@destinyai.tools"
+    },
+    "quickLinks": {
+      "title": "Link Rapidi",
+      "home": "Home",
+      "aboutUs": "Chi siamo",
+      "refundPolicy": "Politica di rimborso",
+      "subscriptionTerms": "Termini di abbonamento"
+    },
+    "copyright": "© 2025 destinyai.tools Tutti i diritti riservati."
+  },
+  "HomePage": {
+    "title": "Piattaforma di Divinazione e Chiromanzia basata sull'IA",
+    "description": "Scopri il tuo futuro con AI Destiny Tools – la piattaforma definitiva per letture di tarocchi, astrologia, numerologia e divinazione personalizzata basate sull'IA.",
+    "submitTool": "Invia uno Strumento",
+    "visitSite": "Visita il sito →"
+  },
+  "login": {
+    "signOut": "Esci",
+    "login": "Accedi",
+    "modal": {
+      "description": "Accedi per continuare il tuo viaggio",
+      "triggerText": "Accedi"
+    },
+    "form": {
+      "continueWithGoogle": "Continua con Google",
+      "continueWithGithub": "Continua con GitHub",
+      "orContinueWith": "O continua con",
+      "emailPlaceholder": "Inserisci la tua email",
+      "signInWithEmail": "Accedi con Email"
+    }
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "previous": "Precedente",
+    "next": "Successivo",
+    "save": "Salva",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "submit": "Invia",
+    "morePages": "Visualizza Altre Pagine",
+    "language": "Lingua",
+    "selectLanguage": "Seleziona Lingua"
+  },
+  "blog": {
+    "postNotFound": "Post non trovato",
+    "postNotFoundDescription": "Il post del blog che stai cercando non è stato trovato.",
+    "publishedAt": "Pubblicato il {date}"
+  },
+  "admin": {
+    "batch": {
+      "title": "Crea Articoli in Blocco",
+      "backToArticles": "Torna agli Articoli",
+      "keywordsCard": {
+        "title": "Inserisci Parole Chiave",
+        "label": "Parole chiave (una per riga)",
+        "placeholder": "Inserisci parole chiave, una per riga"
+      },
+      "publishImmediately": "Pubblica immediatamente",
+      "buttons": {
+        "generating": "Generazione in corso...",
+        "generateArticles": "Genera Articoli",
+        "saving": "Salvataggio in corso...",
+        "saveSelected": "Salva Articoli Selezionati"
+      },
+      "generatedArticles": {
+        "title": "Articoli Generati",
+        "selectAll": "Seleziona Tutto"
+      },
+      "saveResults": {
+        "title": "Salva Risultati"
+      },
+      "status": {
+        "generated": "✓ Generato",
+        "saved": "✓ Salvato",
+        "failed": "✗ Fallito"
+      },
+      "errors": {
+        "emptyKeywords": "Inserisci almeno una parola chiave",
+        "noValidKeywords": "Inserisci almeno una parola chiave valida",
+        "generateFailed": "Errore nella generazione degli articoli, riprova",
+        "noArticlesToSave": "Nessun articolo da salvare",
+        "noSelectedArticles": "Nessun articolo selezionato da salvare",
+        "saveFailed": "Errore nel salvataggio degli articoli, riprova"
+      },
+      "success": {
+        "generated": "{successCount} articoli generati con successo{errorMessage}",
+        "saved": "{successCount} articoli {publishStatus}{errorMessage}",
+        "withErrors": ", {errorCount} falliti"
+      },
+      "publishStatus": {
+        "published": "pubblicati",
+        "draft": "salvati come bozza"
+      }
+    },
+    "new": {
+      "backToArticles": "Torna agli Articoli",
+      "title": "Crea Nuovo Articolo",
+      "keywordSection": {
+        "label": "Parola Chiave",
+        "placeholder": "Inserisci parola chiave articolo"
+      },
+      "articleForm": {
+        "slugLabel": "Slug",
+        "titleLabel": "Titolo",
+        "excerptLabel": "Estratto",
+        "contentLabel": "Contenuto",
+        "publishImmediately": "Pubblica immediatamente"
+      },
+      "buttons": {
+        "generating": "Generazione in corso...",
+        "generateArticle": "Genera Articolo",
+        "saving": "Salvataggio in corso...",
+        "saveArticle": "Salva Articolo",
+        "cancel": "Annulla"
+      },
+      "errors": {
+        "emptyKeyword": "Inserisci una parola chiave",
+        "generateFailed": "Errore nella generazione dell'articolo, riprova",
+        "saveFailed": "Errore nel salvataggio dell'articolo, riprova"
+      },
+      "success": {
+        "generated": "Articolo generato con successo",
+        "published": "Articolo pubblicato",
+        "savedAsDraft": "Articolo salvato come bozza"
+      }
+    },
+    "edit": {
+      "title": "Modifica Articolo",
+      "loading": "Caricamento...",
+      "articleForm": {
+        "titleLabel": "Titolo",
+        "excerptLabel": "Estratto",
+        "contentLabel": "Contenuto",
+        "publishArticle": "Pubblica Articolo"
+      },
+      "deleteDialog": {
+        "title": "Conferma Eliminazione",
+        "description": "Sei sicuro di voler eliminare questo articolo? Questa azione non può essere annullata."
+      },
+      "buttons": {
+        "saving": "Salvataggio in corso...",
+        "saveArticle": "Salva Articolo",
+        "deleting": "Eliminazione in corso...",
+        "deleteArticle": "Elimina Articolo",
+        "delete": "Elimina",
+        "cancel": "Annulla"
+      },
+      "errors": {
+        "articleNotFound": "Articolo non trovato",
+        "fetchFailed": "Recupero articolo fallito",
+        "updateFailed": "Aggiornamento articolo fallito",
+        "deleteFailed": "Eliminazione articolo fallita"
+      },
+      "success": {
+        "updated": "Articolo aggiornato con successo",
+        "deleted": "Articolo eliminato con successo"
+      }
+    },
+    "list": {
+      "title": "Gestione Articoli",
+      "buttons": {
+        "createNew": "Crea Nuovo Articolo",
+        "batchCreate": "Crea in Blocco"
+      },
+      "table": {
+        "headers": {
+          "title": "Titolo",
+          "createdDate": "Data Creazione",
+          "status": "Stato",
+          "actions": "Azioni",
+          "language": "Lingua"
+        },
+        "noArticles": "Nessun articolo trovato"
+      },
+      "status": {
+        "published": "Pubblicato",
+        "draft": "Bozza"
+      },
+      "actions": {
+        "edit": "Modifica",
+        "view": "Visualizza"
+      }
+    }
+  }
+}
