@@ -287,5 +287,42 @@
         "view": "Ver"
       }
     }
+  },
+  "divinationCategories": {
+    "tarot": {
+      "name": "Lectura de Tarot",
+      "description": "Un método de adivinación que utiliza una baraja de 78 cartas con imágenes simbólicas para obtener información sobre el pasado, presente y futuro.",
+      "origin": "Italia/Francia (Europa del siglo XV)"
+    },
+    "astrology": {
+      "name": "Astrología",
+      "description": "El estudio de cómo las posiciones y movimientos de los cuerpos celestes influyen en los asuntos humanos y los fenómenos naturales.",
+      "origin": "Orígenes múltiples (Antigua Babilonia, Egipto, Grecia)"
+    },
+    "iChing": {
+      "name": "I Ching",
+      "description": "Un antiguo sistema de adivinación chino que utiliza hexagramas para proporcionar orientación y predecir eventos futuros.",
+      "origin": "China (circa 1000-750 a.C.)"
+    },
+    "numerology": {
+      "name": "Numerología",
+      "description": "La creencia en la relación divina o mística entre los números y los eventos, utilizando cálculos para revelar información sobre la personalidad y el futuro.",
+      "origin": "Orígenes múltiples (Antigua Grecia, Egipto, Babilonia)"
+    },
+    "palmistry": {
+      "name": "Quiromancia",
+      "description": "El arte de la caracterización y la adivinación a través del estudio de las líneas, formas y texturas de la palma de la mano.",
+      "origin": "India (hace aproximadamente 4000 años)"
+    },
+    "dreamInterpretation": {
+      "name": "Interpretación de Sueños",
+      "description": "Analizar sueños para descubrir significados ocultos, mensajes y predicciones sobre el futuro.",
+      "origin": "Antiguo Egipto, Grecia y Mesopotamia"
+    },
+    "vedic": {
+      "name": "Astrología Védica",
+      "description": "Un antiguo sistema astrológico indio basado en posiciones siderales en lugar de posiciones tropicales, que ofrece un análisis detallado del destino, el carácter y los acontecimientos de la vida.",
+      "origin": "India (alrededor de 1500 a.C.)"
+    }
   }
 }

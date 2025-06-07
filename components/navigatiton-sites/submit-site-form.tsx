@@ -14,7 +14,7 @@ import { useRouter } from '@/i18n/navigation'
 
 interface Category {
   id: string
-  name: string
+  key: string
 }
 
 interface SubmitSiteFormProps {
@@ -25,6 +25,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const t = useTranslations('submitTools')
+  const divinationCategories = useTranslations('divinationCategories')
 
   const [formValues, setFormValues] = useState({
     name: '',
@@ -177,7 +178,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
             <SelectContent>
               {categories.map((category) => (
                 <SelectItem key={category.id} value={category.id}>
-                  {category.name}
+                  {divinationCategories(`${category.key}.name` as any)}
                 </SelectItem>
               ))}
             </SelectContent>

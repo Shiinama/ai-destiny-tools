@@ -287,5 +287,42 @@
         "view": "Voir"
       }
     }
+  },
+  "divinationCategories": {
+    "tarot": {
+      "name": "Lecture de Tarot",
+      "description": "Une méthode de divination utilisant un jeu de 78 cartes avec des images symboliques pour obtenir des aperçus sur le passé, le présent et le futur.",
+      "origin": "Italie/France (Europe du 15ème siècle)"
+    },
+    "astrology": {
+      "name": "Astrologie",
+      "description": "L'étude de la manière dont les positions et les mouvements des corps célestes influencent les affaires humaines et les phénomènes naturels.",
+      "origin": "Origines multiples (Babylone antique, Égypte, Grèce)"
+    },
+    "iChing": {
+      "name": "Yi King",
+      "description": "Un ancien système de divination chinois utilisant des hexagrammes pour fournir des conseils et prédire les événements futurs.",
+      "origin": "Chine (vers 1000-750 av. J.-C.)"
+    },
+    "numerology": {
+      "name": "Numérologie",
+      "description": "La croyance en la relation divine ou mystique entre les nombres et les événements, utilisant des calculs pour révéler des informations sur la personnalité et l'avenir.",
+      "origin": "Origines multiples (Grèce antique, Égypte, Babylone)"
+    },
+    "palmistry": {
+      "name": "Chiromancie",
+      "description": "L'art de la caractérisation et de la chiromancie par l'étude des lignes, des formes et des textures de la paume.",
+      "origin": "Inde (il y a environ 4000 ans)"
+    },
+    "dreamInterpretation": {
+      "name": "Interprétation des Rêves",
+      "description": "Analyser les rêves pour découvrir des significations cachées, des messages et des prédictions sur l'avenir.",
+      "origin": "Ancienne Égypte, Grèce et Mésopotamie"
+    },
+    "vedic": {
+      "name": "Astrologie Védique",
+      "description": "Un ancien système astrologique indien basé sur les positions sidérales plutôt que tropicales, offrant une analyse détaillée du destin, du caractère et des événements de la vie.",
+      "origin": "Inde (vers 1500 av. J.-C.)"
+    }
   }
 }

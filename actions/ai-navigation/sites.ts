@@ -4,7 +4,7 @@ import { eq } from 'drizzle-orm'
 
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
-import { aiSites, aiCategories } from '@/lib/db/schema'
+import { divinationTools, divinationCategories } from '@/lib/db/schema'
 
 export async function createSite(formData: FormData) {
   try {
@@ -25,7 +25,7 @@ export async function createSite(formData: FormData) {
 
     const db = createDb()
 
-    await db.insert(aiSites).values({
+    await db.insert(divinationTools).values({
       name,
       userId: u?.user?.id,
       description,
@@ -46,17 +46,17 @@ export async function getSites() {
   try {
     const sites = await db
       .select({
-        id: aiSites.id,
-        name: aiSites.name,
-        description: aiSites.description,
-        url: aiSites.url,
-        imageUrl: aiSites.imageUrl,
-        categoryId: aiSites.categoryId,
-        categoryName: aiCategories.name,
-        createdAt: aiSites.createdAt
+        id: divinationTools.id,
+        name: divinationTools.name,
+        description: divinationTools.description,
+        url: divinationTools.url,
+        imageUrl: divinationTools.imageUrl,
+        categoryId: divinationTools.categoryId,
+        categoryName: divinationCategories.key,
+        createdAt: divinationTools.createdAt
       })
-      .from(aiSites)
-      .leftJoin(aiCategories, eq(aiSites.categoryId, aiCategories.id))
+      .from(divinationTools)
+      .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
 
     return { success: true, data: sites }
   } catch (error) {
@@ -68,7 +68,7 @@ export async function getSites() {
 export async function getSitesByCategory(categoryId: string) {
   const db = createDb()
   try {
-    const sites = await db.select().from(aiSites).where(eq(aiSites.categoryId, categoryId))
+    const sites = await db.select().from(divinationTools).where(eq(divinationTools.categoryId, categoryId))
 
     return { success: true, data: sites }
   } catch (error) {

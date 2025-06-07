@@ -100,19 +100,18 @@ export const posts = sqliteTable('posts', {
     .notNull()
 })
 
-export const aiCategories = sqliteTable('ai_categories', {
+export const divinationCategories = sqliteTable('divination_categories', {
   id: text('id')
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
-  name: text('name').notNull(),
-  description: text('description'),
+  key: text('key').notNull().unique(), // 用于i18n翻译的键名
   order: integer('order').default(0),
   createdAt: integer('created_at', { mode: 'timestamp_ms' })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()
 })
 
-export const aiSites = sqliteTable('ai_sites', {
+export const divinationTools = sqliteTable('divination_tools', {
   id: text('id')
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
@@ -125,7 +124,7 @@ export const aiSites = sqliteTable('ai_sites', {
   imageUrl: text('image_url'),
   categoryId: text('category_id')
     .notNull()
-    .references(() => aiCategories.id, { onDelete: 'cascade' }),
+    .references(() => divinationCategories.id, { onDelete: 'cascade' }),
   createdAt: integer('created_at', { mode: 'timestamp_ms' })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()

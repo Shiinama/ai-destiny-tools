@@ -287,5 +287,42 @@
         "view": "Anzeigen"
       }
     }
+  },
+  "divinationCategories": {
+    "tarot": {
+      "name": "Tarot-Lesung",
+      "description": "Eine Wahrsagemethode, die ein Deck von 78 Karten mit symbolischen Bildern verwendet, um Einblicke in Vergangenheit, Gegenwart und Zukunft zu gewinnen.",
+      "origin": "Italien/Frankreich (15. Jahrhundert Europa)"
+    },
+    "astrology": {
+      "name": "Astrologie",
+      "description": "Die Lehre davon, wie die Positionen und Bewegungen himmlischer Körper menschliche Angelegenheiten und Naturphänomene beeinflussen.",
+      "origin": "Mehrere Ursprünge (Antikes Babylon, Ägypten, Griechenland)"
+    },
+    "iChing": {
+      "name": "I Ging",
+      "description": "Ein altes chinesisches Wahrsagesystem, das Hexagramme verwendet, um Orientierung zu geben und zukünftige Ereignisse vorherzusagen.",
+      "origin": "China (ca. 1000-750 v. Chr.)"
+    },
+    "numerology": {
+      "name": "Numerologie",
+      "description": "Der Glaube an die göttliche oder mystische Beziehung zwischen Zahlen und Ereignissen, wobei Berechnungen verwendet werden, um Informationen über Persönlichkeit und Zukunft zu enthüllen.",
+      "origin": "Mehrere Ursprünge (Antikes Griechenland, Ägypten, Babylon)"
+    },
+    "palmistry": {
+      "name": "Handlesen",
+      "description": "Die Kunst der Charakterisierung und Wahrsagerei durch das Studium der Handlinien, -formen und -texturen.",
+      "origin": "Indien (vor ca. 4000 Jahren)"
+    },
+    "dreamInterpretation": {
+      "name": "Traumdeutung",
+      "description": "Träume analysieren, um verborgene Bedeutungen, Botschaften und Vorhersagen über die Zukunft aufzudecken.",
+      "origin": "Antikes Ägypten, Griechenland und Mesopotamien"
+    },
+    "vedic": {
+      "name": "Vedische Astrologie",
+      "description": "Ein altes indisches astrologisches System, das auf siderischen Positionen statt auf tropischen Positionen basiert und eine detaillierte Analyse von Schicksal, Charakter und Lebensereignissen bietet.",
+      "origin": "Indien (ca. 1500 v. Chr.)"
+    }
   }
 }

@@ -1,17 +1,17 @@
 'use server'
 
 import { createDb } from '@/lib/db'
-import { aiCategories } from '@/lib/db/schema'
+import { divinationCategories } from '@/lib/db/schema'
 
 export async function getCategories() {
   const db = createDb()
   const categories = await db
     .select({
-      id: aiCategories.id,
-      name: aiCategories.name
+      id: divinationCategories.id,
+      key: divinationCategories.key
     })
-    .from(aiCategories)
-    .orderBy(aiCategories.order)
+    .from(divinationCategories)
+    .orderBy(divinationCategories.order)
 
   return { success: true, data: categories }
 }

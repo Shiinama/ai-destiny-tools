@@ -287,5 +287,42 @@
         "view": "Visualizar"
       }
     }
+  },
+  "divinationCategories": {
+    "tarot": {
+      "name": "Leitura de Tarô",
+      "description": "Um método de adivinhação que usa um baralho de 78 cartas com imagens simbólicas para obter insights sobre o passado, presente e futuro.",
+      "origin": "Itália/França (Europa do século XV)"
+    },
+    "astrology": {
+      "name": "Astrologia",
+      "description": "O estudo de como as posições e movimentos dos corpos celestes influenciam os assuntos humanos e os fenômenos naturais.",
+      "origin": "Múltiplas origens (Babilônia Antiga, Egito, Grécia)"
+    },
+    "iChing": {
+      "name": "I Ching",
+      "description": "Um antigo sistema de adivinhação chinês que usa hexagramas para fornecer orientação e prever eventos futuros.",
+      "origin": "China (cerca de 1000-750 a.C.)"
+    },
+    "numerology": {
+      "name": "Numerologia",
+      "description": "A crença na relação divina ou mística entre números e eventos, usando cálculos para revelar informações sobre personalidade e futuro.",
+      "origin": "Múltiplas origens (Grécia Antiga, Egito, Babilônia)"
+    },
+    "palmistry": {
+      "name": "Quiromancia",
+      "description": "A arte de caracterização e leitura da sorte através do estudo das linhas, formas e texturas da palma da mão.",
+      "origin": "Índia (aproximadamente 4000 anos atrás)"
+    },
+    "dreamInterpretation": {
+      "name": "Interpretação de Sonhos",
+      "description": "Analisar sonhos para desvendar significados ocultos, mensagens e previsões sobre o futuro.",
+      "origin": "Antigo Egito, Grécia e Mesopotâmia"
+    },
+    "vedic": {
+      "name": "Astrologia Védica",
+      "description": "Um antigo sistema astrológico indiano baseado em posições siderais em vez de posições tropicais, oferecendo análise detalhada de destino, caráter e eventos da vida.",
+      "origin": "Índia (cerca de 1500 a.C.)"
+    }
   }
 }

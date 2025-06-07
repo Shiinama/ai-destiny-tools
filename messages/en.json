@@ -15,6 +15,43 @@
       "description": "Discover the best AI fortune telling tools for tarot readings, astrology charts, and psychic predictions. Explore your future with cutting-edge divination technology."
     }
   },
+  "divinationCategories": {
+    "tarot": {
+      "name": "Tarot Reading",
+      "description": "A divination method using a deck of 78 cards with symbolic imagery to gain insights into the past, present, and future.",
+      "origin": "Italy/France (15th century Europe)"
+    },
+    "astrology": {
+      "name": "Astrology",
+      "description": "The study of how celestial bodies' positions and movements influence human affairs and natural phenomena.",
+      "origin": "Multiple origins (Ancient Babylon, Egypt, Greece)"
+    },
+    "vedic": {
+      "name": "Vedic Astrology",
+      "description": "An ancient Indian astrological system based on sidereal positions rather than tropical positions, offering detailed analysis of destiny, character, and life events.",
+      "origin": "India (circa 1500 BCE)"
+    },
+    "iChing": {
+      "name": "I Ching",
+      "description": "An ancient Chinese divination system using hexagrams to provide guidance and predict future events.",
+      "origin": "China (circa 1000-750 BCE)"
+    },
+    "numerology": {
+      "name": "Numerology",
+      "description": "The belief in the divine or mystical relationship between numbers and events, using calculations to reveal information about personality and future.",
+      "origin": "Multiple origins (Ancient Greece, Egypt, Babylon)"
+    },
+    "palmistry": {
+      "name": "Palmistry",
+      "description": "The art of characterization and fortune-telling through the study of the palm lines, shapes, and textures.",
+      "origin": "India (approximately 4000 years ago)"
+    },
+    "dreamInterpretation": {
+      "name": "Dream Interpretation",
+      "description": "Analyzing dreams to uncover hidden meanings, messages, and predictions about the future.",
+      "origin": "Ancient Egypt, Greece, and Mesopotamia"
+    }
+  },
   "about": {
     "title": "About Us",
     "paragraph1": "Welcome to Destiny AI, a platform for exploring the mysteries of fate. We aim to integrate AI technology with divination to reveal the deeper patterns and possibilities hidden beneath the surface of everyday life.",
