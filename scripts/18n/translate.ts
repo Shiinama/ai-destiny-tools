@@ -8,6 +8,7 @@ import 'dotenv/config'
 
 import { locales } from '@/i18n/routing'
 import { extractKeys, findMissingKeys, deepMerge } from './utils'
+import { GoogleGenAI } from '@google/genai'
 
 /**
  * 翻译模式
@@ -55,7 +56,7 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     mode = 'missing',
     targetLocales,
     keys = [],
-    model = '@cf/google/gemma-3-12b-it',
+    model = 'gemini-2.5-flash-preview-05-20',
     noTranslateKeys = []
   } = options
 
@@ -246,6 +247,14 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     1. Preserve all placeholders like {name}, {count}, etc.
     2. Maintain the exact same JSON structure for each language
     3. Only translate the values, not the keys
+    4. Maintain a consistent, professional tone across all languages
+    5. Keep the brand name "Destiny AI" unchanged in all translations
+    6. Use terminology consistent with AI technology and tools
+    7. Avoid overly localized expressions or colloquialisms
+    
+    About the brand:
+    Destiny AI is a navigation platform that catalogs and showcases mainstream AI divination and fortune-telling tools from around the world.
+    The content should maintain a professional, tech-focused tone rather than casual language.
     
     Source JSON:
     ${JSON.stringify(translationPayload, null, 2)}
@@ -254,31 +263,42 @@ export async function translateMessages(options: TranslationOptions): Promise<Tr
     Return only the JSON without any additional text or explanations.
     `
 
-    // 调用AI模型进行批量翻译
-    const response = await fetch(
-      `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/${model}`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          prompt,
-          stream: false,
-          max_tokens: 13000
-        })
+    const ai = new GoogleGenAI({
+      apiKey: process.env.GEMINI_API_KEY
+    })
+
+    const chat = ai.chats.create({
+      model,
+      config: {
+        maxOutputTokens: 65535,
+        temperature: 1,
+        topP: 1,
+        seed: 0,
+        tools: [
+          {
+            googleSearch: {
+              timeRangeFilter: {
+                startTime: '2025-01-01T00:00:00Z',
+                endTime: '2026-01-01T00:00:00Z'
+              }
+            }
+          }
+        ],
+        systemInstruction: {
+          parts: [
+            {
+              text: 'You are a helpful translation assistant.'
+            }
+          ]
+        }
       }
-    )
-
-    if (!response.ok) {
-      throw new Error(`API调用失败: ${response.status} ${response.statusText}`)
-    }
-
-    const { result }: { result: { response: string } } = await response.json()
+    })
+    const result = await chat.sendMessage({
+      message: [{ text: prompt }]
+    })
 
     // 提取JSON响应
-    const jsonMatch = result.response?.match(/\{[\s\S]*\}/)
+    const jsonMatch = result.text?.match(/\{[\s\S]*\}/)
     if (!jsonMatch) {
       throw new Error('响应中未找到有效的JSON')
     }

@@ -60,7 +60,7 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
     const ai = new GoogleGenAI({
       apiKey: process.env.GEMINI_API_KEY
     })
-    const model = 'gemini-2.5-pro-preview-06-05'
+    const model = 'gemini-2.5-flash-preview-05-20'
 
     const chat = ai.chats.create({
       model: model,
