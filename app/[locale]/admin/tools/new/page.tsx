@@ -243,7 +243,7 @@ export default function NewToolPage() {
               onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'logoUrl')}
               currentImageUrl={formData.logoUrl}
             />
-            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：1:1，正方形，PNG格式（支持透明背景）</p>
+            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：1:1，正方形，支持透明背景</p>
           </div>
           <div>
             <Label htmlFor="imageUrl">封面图片</Label>
