@@ -292,37 +292,53 @@
     "tarot": {
       "name": "Tarot-Lesung",
       "description": "Eine Wahrsagemethode, die ein Deck von 78 Karten mit symbolischen Bildern verwendet, um Einblicke in Vergangenheit, Gegenwart und Zukunft zu gewinnen.",
-      "origin": "Italien/Frankreich (15. Jahrhundert Europa)"
+      "origin": "Italien/Frankreich (15. Jahrhundert Europa)",
+      "seoTitle": "KI-Tarot-Lesung - Kostenlose Online-Karten-Vorhersagen & Bedeutungen",
+      "seoDescription": "Erhalten Sie genaue KI-gestützte Tarot-Lesungen online. Entdecken Sie mit unseren fortschrittlichen Tarot-Vorhersagetools, was die Karten über Ihr Liebesleben, Ihren Karriereweg und Ihre Zukunft enthüllen."
     },
     "astrology": {
       "name": "Astrologie",
       "description": "Die Lehre davon, wie die Positionen und Bewegungen himmlischer Körper menschliche Angelegenheiten und Naturphänomene beeinflussen.",
-      "origin": "Mehrere Ursprünge (Antikes Babylon, Ägypten, Griechenland)"
+      "origin": "Mehrere Ursprünge (Antikes Babylon, Ägypten, Griechenland)",
+      "seoTitle": "KI-Astrologie-Charts & Horoskope - Personalisierte Sternzeichen-Lesungen",
+      "seoDescription": "Erkunden Sie Ihr kosmisches Schicksal mit KI-gestützten Astrologie-Tools. Erhalten Sie personalisierte Geburtshoroskope, Tageshoroskope und Kompatibilitätslesungen basierend auf Ihrem Sternzeichen."
     },
     "iChing": {
       "name": "I Ging",
       "description": "Ein altes chinesisches Wahrsagesystem, das Hexagramme verwendet, um Orientierung zu geben und zukünftige Ereignisse vorherzusagen.",
-      "origin": "China (ca. 1000-750 v. Chr.)"
+      "origin": "China (ca. 1000-750 v. Chr.)",
+      "seoTitle": "I Ging Orakel KI - Buch der Wandlungen Lesungen & Hexagramme",
+      "seoDescription": "Konsultieren Sie das alte Buch der Wandlungen mit unserem KI-I-Ging-Orakel. Erhalten Sie personalisierte Hexagramm-Lesungen, Interpretationen und Anleitungen für wichtige Lebensentscheidungen."
     },
     "numerology": {
       "name": "Numerologie",
       "description": "Der Glaube an die göttliche oder mystische Beziehung zwischen Zahlen und Ereignissen, wobei Berechnungen verwendet werden, um Informationen über Persönlichkeit und Zukunft zu enthüllen.",
-      "origin": "Mehrere Ursprünge (Antikes Griechenland, Ägypten, Babylon)"
+      "origin": "Mehrere Ursprünge (Antikes Griechenland, Ägypten, Babylon)",
+      "seoTitle": "Numerologie-Rechner KI - Lebensweg- & Schicksalszahlen-Analyse",
+      "seoDescription": "Berechnen Sie Ihre Lebensweg-, Schicksals- und Ausdruckszahlen mit unseren KI-Numerologie-Tools. Entdecken Sie, wie Zahlen Ihre Persönlichkeit, Beziehungen und Zukunft beeinflussen."
     },
     "palmistry": {
       "name": "Handlesen",
       "description": "Die Kunst der Charakterisierung und Wahrsagerei durch das Studium der Handlinien, -formen und -texturen.",
-      "origin": "Indien (vor ca. 4000 Jahren)"
+      "origin": "Indien (vor ca. 4000 Jahren)",
+      "seoTitle": "KI-Handlesen - Digitale Chiromantie & Handanalyse",
+      "seoDescription": "Laden Sie ein Foto für eine KI-Handlese-Analyse hoch. Entdecken Sie mit unseren digitalen Chiromantie-Tools, was Ihre Handlinien über Ihr Liebesleben, Ihren beruflichen Erfolg, Ihre Gesundheit und Ihre Zukunft enthüllen."
     },
     "dreamInterpretation": {
       "name": "Traumdeutung",
       "description": "Träume analysieren, um verborgene Bedeutungen, Botschaften und Vorhersagen über die Zukunft aufzudecken.",
-      "origin": "Antikes Ägypten, Griechenland und Mesopotamien"
+      "origin": "Antikes Ägypten, Griechenland und Mesopotamien",
+      "seoTitle": "KI-Traumdeutung - Bedeutung von Träumen & Symbolen",
+      "seoDescription": "Verstehen Sie, was Ihre Träume bedeuten, mit KI-Traumanalyse. Erhalten Sie personalisierte Interpretationen von Traumsymbolen, wiederkehrenden Themen und unterbewussten Botschaften in Ihrem Schlaf."
     },
     "vedic": {
       "name": "Vedische Astrologie",
       "description": "Ein altes indisches astrologisches System, das auf siderischen Positionen statt auf tropischen Positionen basiert und eine detaillierte Analyse von Schicksal, Charakter und Lebensereignissen bietet.",
-      "origin": "Indien (ca. 1500 v. Chr.)"
-    }
+      "origin": "Indien (ca. 1500 v. Chr.)",
+      "seoTitle": "Vedische Astrologie KI - Jyotish-Geburtshoroskope & Vorhersagen",
+      "seoDescription": "Entdecken Sie Ihren wahren kosmischen Bauplan mit KI-Vedischer Astrologie. Erhalten Sie genaue Jyotish-Lesungen, Geburtshoroskope und Vorhersagen für Karriere, Beziehungen und Lebensweg."
+    },
+    "categoryNotFound": "Kategorie nicht gefunden",
+    "categoryNotFoundDescription": "Die von Ihnen gesuchte Divinationskategorie konnte nicht gefunden werden. Bitte überprüfen Sie unsere Homepage für verfügbare Kategorien."
   }
 }

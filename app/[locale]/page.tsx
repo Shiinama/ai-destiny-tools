@@ -14,12 +14,11 @@ export default async function Home() {
 
   return (
     <div className="text-foreground container min-h-screen space-y-12 rounded-lg py-8">
-      <header className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">{t('title')}</h1>
+      <header className="space-y-4 text-center">
+        <h1 className="text-4xl font-bold">{t('title')}</h1>
         <p className="text-muted-foreground mx-auto max-w-2xl text-lg">{t('description')}</p>
+        <CategoryLinks categories={categories} />
       </header>
-
-      <CategoryLinks categories={categories} />
 
       <div className="grid grid-cols-1 gap-8">
         <section className="space-y-4">

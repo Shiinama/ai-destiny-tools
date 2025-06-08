@@ -9,7 +9,7 @@ export function CategoryLinks({ categories }: { categories: { id: string; key: s
   const divinationCategories = useTranslations('divinationCategories')
 
   return (
-    <section className="mb-8 flex gap-2">
+    <section className="flex flex-wrap gap-2">
       {categories?.map((category) => (
         <Button key={category.key} variant="outline" asChild>
           <Link href={`/${category.key}`}>{divinationCategories(`${category.key}.name` as any)}</Link>

@@ -292,37 +292,53 @@
     "tarot": {
       "name": "Lettura dei Tarocchi",
       "description": "Un metodo di divinazione che utilizza un mazzo di 78 carte con immagini simboliche per ottenere intuizioni sul passato, presente e futuro.",
-      "origin": "Italia/Francia (Europa del XV secolo)"
+      "origin": "Italia/Francia (Europa del XV secolo)",
+      "seoTitle": "Lettura Tarocchi AI - Predizioni e Significati delle Carte Online Gratuite",
+      "seoDescription": "Ottieni letture dei tarocchi accurate basate sull'intelligenza artificiale online. Scopri cosa rivelano le carte sulla tua vita amorosa, carriera e futuro con i nostri strumenti avanzati di predizione dei tarocchi."
     },
     "astrology": {
       "name": "Astrologia",
       "description": "Lo studio di come le posizioni e i movimenti dei corpi celesti influenzano gli affari umani e i fenomeni naturali.",
-      "origin": "Origini multiple (Antica Babilonia, Egitto, Grecia)"
+      "origin": "Origini multiple (Antica Babilonia, Egitto, Grecia)",
+      "seoTitle": "Carte Astrologiche e Oroscopi AI - Letture Zodiacali Personalizzate",
+      "seoDescription": "Esplora il tuo destino cosmico con gli strumenti di astrologia basati sull'intelligenza artificiale. Ottieni grafici di nascita personalizzati, oroscopi giornalieri e letture di compatibilità basate sul tuo segno zodiacale."
     },
     "iChing": {
       "name": "I Ching",
       "description": "Un antico sistema di divinazione cinese che utilizza esagrammi per fornire guida e predire eventi futuri.",
-      "origin": "Cina (circa 1000-750 a.C.)"
+      "origin": "Cina (circa 1000-750 a.C.)",
+      "seoTitle": "Oracolo I Ching AI - Letture e Esagrammi del Libro dei Mutamenti",
+      "seoDescription": "Consulta l'antico Libro dei Mutamenti con il nostro oracolo I Ching AI. Ottieni letture esagrammiche personalizzate, interpretazioni e guida per le decisioni importanti della vita."
     },
     "numerology": {
       "name": "Numerologia",
       "description": "La credenza nella relazione divina o mistica tra numeri ed eventi, utilizzando calcoli per rivelare informazioni sulla personalità e il futuro.",
-      "origin": "Origini multiple (Antica Grecia, Egitto, Babilonia)"
+      "origin": "Origini multiple (Antica Grecia, Egitto, Babilonia)",
+      "seoTitle": "Calcolatore Numerologia AI - Analisi del Percorso di Vita e del Numero Destino",
+      "seoDescription": "Calcola il tuo percorso di vita, destino e numeri di espressione con i nostri strumenti di numerologia AI. Scopri come i numeri influenzano la tua personalità, le relazioni e il futuro."
     },
     "palmistry": {
       "name": "Chiromanzia",
       "description": "L'arte della caratterizzazione e della predizione del futuro attraverso lo studio delle linee, delle forme e delle trame del palmo.",
-      "origin": "India (circa 4000 anni fa)"
+      "origin": "India (circa 4000 anni fa)",
+      "seoTitle": "Lettura della Mano AI - Chiromanzia Digitale e Analisi della Mano",
+      "seoDescription": "Carica una foto per un'analisi della lettura della mano AI. Scopri cosa rivelano le linee della tua mano sulla tua vita amorosa, successo professionale, salute e futuro con i nostri strumenti di chiromanzia digitale."
     },
     "dreamInterpretation": {
       "name": "Interpretazione dei Sogni",
       "description": "Analizzare i sogni per scoprire significati nascosti, messaggi e predicazioni sul futuro.",
-      "origin": "Antico Egitto, Grecia e Mesopotamia"
+      "origin": "Antico Egitto, Grecia e Mesopotamia",
+      "seoTitle": "Interpretazione dei Sogni AI - Significato di Sogni e Simboli",
+      "seoDescription": "Comprendi il significato dei tuoi sogni con l'analisi dei sogni AI. Ottieni interpretazioni personalizzate di simboli onirici, temi ricorrenti e messaggi subconsci durante il sonno."
     },
     "vedic": {
       "name": "Astrologia Vedica",
       "description": "Un antico sistema astrologico indiano basato su posizioni siderali piuttosto che tropicali, che offre un'analisi dettagliata del destino, del carattere e degli eventi della vita.",
-      "origin": "India (circa 1500 a.C.)"
-    }
+      "origin": "India (circa 1500 a.C.)",
+      "seoTitle": "Astrologia Vedica AI - Temi Natali e Predizioni Jyotish",
+      "seoDescription": "Scopri la tua vera impronta cosmica con l'astrologia vedica AI. Ottieni letture Jyotish accurate, temi natali e predizioni per carriera, relazioni e percorso di vita."
+    },
+    "categoryNotFound": "Categoria non trovata",
+    "categoryNotFoundDescription": "La categoria di divinazione che stai cercando non è stata trovata. Controlla la nostra homepage per le categorie disponibili."
   }
 }

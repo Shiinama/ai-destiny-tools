@@ -19,38 +19,54 @@
     "tarot": {
       "name": "Tarot Reading",
       "description": "A divination method using a deck of 78 cards with symbolic imagery to gain insights into the past, present, and future.",
-      "origin": "Italy/France (15th century Europe)"
+      "origin": "Italy/France (15th century Europe)",
+      "seoTitle": "AI Tarot Reading - Free Online Card Predictions & Meanings",
+      "seoDescription": "Get accurate AI-powered tarot readings online. Discover what the cards reveal about your love life, career path, and future with our advanced tarot prediction tools."
     },
     "astrology": {
       "name": "Astrology",
       "description": "The study of how celestial bodies' positions and movements influence human affairs and natural phenomena.",
-      "origin": "Multiple origins (Ancient Babylon, Egypt, Greece)"
+      "origin": "Multiple origins (Ancient Babylon, Egypt, Greece)",
+      "seoTitle": "AI Astrology Charts & Horoscopes - Personalized Zodiac Readings",
+      "seoDescription": "Explore your cosmic destiny with AI-powered astrology tools. Get personalized birth charts, daily horoscopes, and compatibility readings based on your zodiac sign."
     },
     "vedic": {
       "name": "Vedic Astrology",
       "description": "An ancient Indian astrological system based on sidereal positions rather than tropical positions, offering detailed analysis of destiny, character, and life events.",
-      "origin": "India (circa 1500 BCE)"
+      "origin": "India (circa 1500 BCE)",
+      "seoTitle": "Vedic Astrology AI - Jyotish Birth Charts & Predictions",
+      "seoDescription": "Discover your true cosmic blueprint with AI Vedic astrology. Get accurate Jyotish readings, birth charts, and predictions for career, relationships, and life path."
     },
     "iChing": {
       "name": "I Ching",
       "description": "An ancient Chinese divination system using hexagrams to provide guidance and predict future events.",
-      "origin": "China (circa 1000-750 BCE)"
+      "origin": "China (circa 1000-750 BCE)",
+      "seoTitle": "I Ching Oracle AI - Book of Changes Readings & Hexagrams",
+      "seoDescription": "Consult the ancient Book of Changes with our AI I Ching oracle. Get personalized hexagram readings, interpretations, and guidance for life's important decisions."
     },
     "numerology": {
       "name": "Numerology",
       "description": "The belief in the divine or mystical relationship between numbers and events, using calculations to reveal information about personality and future.",
-      "origin": "Multiple origins (Ancient Greece, Egypt, Babylon)"
+      "origin": "Multiple origins (Ancient Greece, Egypt, Babylon)",
+      "seoTitle": "Numerology Calculator AI - Life Path & Destiny Number Analysis",
+      "seoDescription": "Calculate your life path, destiny, and expression numbers with our AI numerology tools. Discover how numbers influence your personality, relationships, and future."
     },
     "palmistry": {
       "name": "Palmistry",
       "description": "The art of characterization and fortune-telling through the study of the palm lines, shapes, and textures.",
-      "origin": "India (approximately 4000 years ago)"
+      "origin": "India (approximately 4000 years ago)",
+      "seoTitle": "AI Palm Reading - Digital Palmistry & Hand Analysis",
+      "seoDescription": "Upload a photo for an AI palm reading analysis. Discover what your hand lines reveal about your love life, career success, health, and future with our digital palmistry tools."
     },
     "dreamInterpretation": {
       "name": "Dream Interpretation",
       "description": "Analyzing dreams to uncover hidden meanings, messages, and predictions about the future.",
-      "origin": "Ancient Egypt, Greece, and Mesopotamia"
-    }
+      "origin": "Ancient Egypt, Greece, and Mesopotamia",
+      "seoTitle": "AI Dream Interpretation - Meaning of Dreams & Symbols",
+      "seoDescription": "Understand what your dreams mean with AI dream analysis. Get personalized interpretations of dream symbols, recurring themes, and subconscious messages in your sleep."
+    },
+    "categoryNotFound": "Category Not Found",
+    "categoryNotFoundDescription": "The divination category you're looking for could not be found. Please check our homepage for available categories."
   },
   "about": {
     "title": "About Us",

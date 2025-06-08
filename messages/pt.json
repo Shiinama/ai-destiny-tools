@@ -292,37 +292,53 @@
     "tarot": {
       "name": "Leitura de Tarô",
       "description": "Um método de adivinhação que usa um baralho de 78 cartas com imagens simbólicas para obter insights sobre o passado, presente e futuro.",
-      "origin": "Itália/França (Europa do século XV)"
+      "origin": "Itália/França (Europa do século XV)",
+      "seoTitle": "Leitura de Tarot com IA - Previsões e Significados de Cartas Online Grátis",
+      "seoDescription": "Obtenha leituras de tarot precisas impulsionadas pela IA online. Descubra o que as cartas revelam sobre sua vida amorosa, caminho de carreira e futuro com nossas ferramentas avançadas de previsão de tarot."
     },
     "astrology": {
       "name": "Astrologia",
       "description": "O estudo de como as posições e movimentos dos corpos celestes influenciam os assuntos humanos e os fenômenos naturais.",
-      "origin": "Múltiplas origens (Babilônia Antiga, Egito, Grécia)"
+      "origin": "Múltiplas origens (Babilônia Antiga, Egito, Grécia)",
+      "seoTitle": "Mapas Astrológicos e Horóscopos com IA - Leituras de Zodíaco Personalizadas",
+      "seoDescription": "Explore seu destino cósmico com ferramentas de astrologia impulsionadas pela IA. Obtenha mapas astrais personalizados, horóscopos diários e leituras de compatibilidade baseadas em seu signo do zodíaco."
     },
     "iChing": {
       "name": "I Ching",
       "description": "Um antigo sistema de adivinhação chinês que usa hexagramas para fornecer orientação e prever eventos futuros.",
-      "origin": "China (cerca de 1000-750 a.C.)"
+      "origin": "China (cerca de 1000-750 a.C.)",
+      "seoTitle": "Oráculo I Ching com IA - Leituras e Hexagramas do Livro das Mutações",
+      "seoDescription": "Consulte o antigo Livro das Mutações com nosso oráculo I Ching com IA. Obtenha leituras de hexagramas personalizadas, interpretações e orientação para as decisões importantes da vida."
     },
     "numerology": {
       "name": "Numerologia",
       "description": "A crença na relação divina ou mística entre números e eventos, usando cálculos para revelar informações sobre personalidade e futuro.",
-      "origin": "Múltiplas origens (Grécia Antiga, Egito, Babilônia)"
+      "origin": "Múltiplas origens (Grécia Antiga, Egito, Babilônia)",
+      "seoTitle": "Calculadora de Numerologia com IA - Análise do Caminho de Vida e Número do Destino",
+      "seoDescription": "Calcule seu caminho de vida, destino e números de expressão com nossas ferramentas de numerologia com IA. Descubra como os números influenciam sua personalidade, relacionamentos e futuro."
     },
     "palmistry": {
       "name": "Quiromancia",
       "description": "A arte de caracterização e leitura da sorte através do estudo das linhas, formas e texturas da palma da mão.",
-      "origin": "Índia (aproximadamente 4000 anos atrás)"
+      "origin": "Índia (aproximadamente 4000 anos atrás)",
+      "seoTitle": "Leitura de Palma com IA - Quiromancia Digital e Análise da Mão",
+      "seoDescription": "Carregue uma foto para uma análise de leitura de palma com IA. Descubra o que as linhas da sua mão revelam sobre sua vida amorosa, sucesso na carreira, saúde e futuro com nossas ferramentas de quiromancia digital."
     },
     "dreamInterpretation": {
       "name": "Interpretação de Sonhos",
       "description": "Analisar sonhos para desvendar significados ocultos, mensagens e previsões sobre o futuro.",
-      "origin": "Antigo Egito, Grécia e Mesopotâmia"
+      "origin": "Antigo Egito, Grécia e Mesopotâmia",
+      "seoTitle": "Interpretação de Sonhos com IA - Significado de Sonhos e Símbolos",
+      "seoDescription": "Compreenda o significado de seus sonhos com a análise de sonhos com IA. Obtenha interpretações personalizadas de símbolos oníricos, temas recorrentes e mensagens subconscientes durante o sono."
     },
     "vedic": {
       "name": "Astrologia Védica",
       "description": "Um antigo sistema astrológico indiano baseado em posições siderais em vez de posições tropicais, oferecendo análise detalhada de destino, caráter e eventos da vida.",
-      "origin": "Índia (cerca de 1500 a.C.)"
-    }
+      "origin": "Índia (cerca de 1500 a.C.)",
+      "seoTitle": "Astrologia Védica com IA - Mapas de Nascimento e Previsões Jyotish",
+      "seoDescription": "Descubra sua verdadeira planta cósmica com a astrologia védica com IA. Obtenha leituras Jyotish precisas, mapas de nascimento e previsões para carreira, relacionamentos e caminho de vida."
+    },
+    "categoryNotFound": "Categoria Não Encontrada",
+    "categoryNotFoundDescription": "A categoria de adivinhação que você está procurando não pôde ser encontrada. Por favor, verifique nossa página inicial para as categorias disponíveis."
   }
 }
