@@ -28,7 +28,7 @@ export default function NewToolPage() {
     price: '',
     content: '',
     logoUrl: '',
-    coverImageUrl: '',
+    imageUrl: '',
     screenshotUrls: [] as string[],
     status: 'approved' as ToolStatus,
     platform: [] as ToolPlatform[]
@@ -246,10 +246,10 @@ export default function NewToolPage() {
           </div>
 
           <div>
-            <Label htmlFor="coverImageUrl">封面图片</Label>
+            <Label htmlFor="imageUrl">封面图片</Label>
             <SiteImageUploader
-              onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'coverImageUrl')}
-              currentImageUrl={formData.coverImageUrl}
+              onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'imageUrl')}
+              currentImageUrl={formData.imageUrl}
             />
           </div>
 

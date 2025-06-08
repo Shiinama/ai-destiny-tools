@@ -40,7 +40,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
     price: '',
     content: '',
     logoUrl: '',
-    coverImageUrl: '',
+    imageUrl: '',
     screenshotUrls: [] as string[],
     status: 'pending' as ToolStatus,
     platform: [] as ToolPlatform[]
@@ -72,7 +72,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
             status: toolResult.status || 'pending',
             content: toolResult.content || '',
             logoUrl: toolResult.logoUrl || '',
-            coverImageUrl: toolResult.coverImageUrl || '',
+            imageUrl: toolResult.imageUrl || '',
             screenshotUrls: toolResult.screenshotUrls || [],
             platform: toolResult.platform || []
           })
@@ -327,10 +327,10 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
           </div>
 
           <div>
-            <Label htmlFor="coverImageUrl">封面图片</Label>
+            <Label htmlFor="imageUrl">封面图片</Label>
             <SiteImageUploader
-              onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'coverImageUrl')}
-              currentImageUrl={formData.coverImageUrl}
+              onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'imageUrl')}
+              currentImageUrl={formData.imageUrl}
             />
           </div>
 

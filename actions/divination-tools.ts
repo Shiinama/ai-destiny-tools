@@ -10,6 +10,7 @@ export type DivinationToolInput = {
   name: string
   description: string
   url: string
+  imageUrl: string
   categoryId: string
   content?: string
   platform?: ToolPlatform[]
@@ -17,7 +18,6 @@ export type DivinationToolInput = {
   price?: string
   contactInfo?: string
   logoUrl?: string
-  coverImageUrl?: string
   screenshotUrls?: string[]
 }
 

@@ -9,7 +9,7 @@ interface HeroSectionProps {
   tool: {
     name: string
     description: string
-    coverImageUrl: string | null
+    imageUrl: string | null
     logoUrl: string | null
     url: string
     isFree: boolean | null
@@ -20,9 +20,7 @@ interface HeroSectionProps {
 export default function HeroSection({ tool }: HeroSectionProps) {
   return (
     <div className="from-primary/10 to-secondary/10 relative mb-8 h-72 w-full overflow-hidden rounded-xl bg-gradient-to-r">
-      {tool.coverImageUrl && (
-        <Image src={tool.coverImageUrl} alt={tool.name} fill className="object-cover opacity-90" />
-      )}
+      {tool.imageUrl && <Image src={tool.imageUrl} alt={tool.name} fill className="object-cover opacity-90" />}
       <div className="from-background/90 absolute inset-0 bg-gradient-to-t to-transparent">
         <div className="absolute bottom-0 flex w-full items-center gap-6 p-6">
           <div className="bg-card relative h-24 w-24 overflow-hidden rounded-xl border shadow-lg">
