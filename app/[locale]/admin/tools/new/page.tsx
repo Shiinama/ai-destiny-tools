@@ -239,24 +239,49 @@ export default function NewToolPage() {
           <div>
             <Label htmlFor="logoUrl">Logo图片</Label>
             <SiteImageUploader
+              aspectRatio="1:1"
               onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'logoUrl')}
               currentImageUrl={formData.logoUrl}
             />
-            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：512x512像素，正方形，PNG格式（支持透明背景）</p>
+            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：1:1，正方形，PNG格式（支持透明背景）</p>
           </div>
           <div>
             <Label htmlFor="imageUrl">封面图片</Label>
             <SiteImageUploader
+              aspectRatio="3:1"
               onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'imageUrl')}
               currentImageUrl={formData.imageUrl}
             />
-            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：1920x576像素，横向矩形，16:9比例</p>
+            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：3:1，横向矩形，16:9比例</p>
           </div>
           <div>
             <Label htmlFor="screenshots">
               截图集 ({formData.screenshotUrls ? formData.screenshotUrls.split(',').filter(Boolean).length : 0})
             </Label>
-            <div className="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">{/* 现有代码不变 */}</div>
+            <div className="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {formData.screenshotUrls &&
+                formData.screenshotUrls.split(',').map((url, index) => (
+                  <div key={index} className="relative">
+                    <img src={url} alt={`Screenshot ${index + 1}`} className="h-40 w-full rounded-md object-cover" />
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      size="sm"
+                      className="absolute top-2 right-2"
+                      onClick={() => removeScreenshot(index)}
+                    >
+                      删除
+                    </Button>
+                  </div>
+                ))}
+              {(!formData.screenshotUrls || formData.screenshotUrls.split(',').filter(Boolean).length < 6) && (
+                <SiteImageUploader
+                  aspectRatio="16:9"
+                  onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'screenshotUrls')}
+                  currentImageUrl=""
+                />
+              )}
+            </div>
             <p className="text-muted-foreground mt-1 text-sm">最多上传6张截图，推荐尺寸：1280x720像素，16:9比例</p>
           </div>
           <div>
