@@ -1,0 +1,4 @@
+-- Custom SQL migration file, put your code below! ---- Add new divination categories
+INSERT INTO `divination_categories` (`id`, `key`, `order`, `created_at`) VALUES
+(lower(hex(randomblob(4)) || '-' || hex(randomblob(2)) || '-4' || substr(hex(randomblob(2)), 2) || '-' || substr('89ab', abs(random()) % 4 + 1, 1) || substr(hex(randomblob(2)), 2) || '-' || hex(randomblob(6))), 'other', 9, CURRENT_TIMESTAMP),
+(lower(hex(randomblob(4)) || '-' || hex(randomblob(2)) || '-4' || substr(hex(randomblob(2)), 2) || '-' || substr('89ab', abs(random()) % 4 + 1, 1) || substr(hex(randomblob(2)), 2) || '-' || hex(randomblob(6))), 'comprehensive', 8, CURRENT_TIMESTAMP);
