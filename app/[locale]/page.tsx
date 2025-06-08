@@ -1,11 +1,15 @@
 import { getTranslations } from 'next-intl/server'
 
+import { getCategories } from '@/actions/ai-navigation/categories'
 import { getSites } from '@/actions/ai-navigation/sites'
-import { Card, CardDescription, CardFooter, CardHeader } from '@/components/ui/card'
-import { Link } from '@/i18n/navigation'
+import { CategoryLinks } from '@/components/categories/category-links'
+import SiteCard from '@/components/navigatiton-sites/site-card'
 
 export default async function Home() {
+  const { data: categories } = await getCategories()
+
   const t = await getTranslations('HomePage')
+
   const { data: sites = [] } = await getSites()
 
   return (
@@ -15,27 +19,13 @@ export default async function Home() {
         <p className="text-muted-foreground mx-auto max-w-2xl text-lg">{t('description')}</p>
       </header>
 
+      <CategoryLinks categories={categories} />
+
       <div className="grid grid-cols-1 gap-8">
         <section className="space-y-4">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {sites.map((site) => (
-              <Card key={site.id}>
-                <img src={site.imageUrl!} alt={site.name} className="rounded-md" />
-                <CardHeader>
-                  <h3 className="text-lg font-medium">{site.name}</h3>
-                  <CardDescription>{site.description}</CardDescription>
-                </CardHeader>
-                <CardFooter>
-                  <Link
-                    href={site.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
-                  >
-                    {t('visitSite')}
-                  </Link>
-                </CardFooter>
-              </Card>
+              <SiteCard key={site.id} site={site} />
             ))}
           </div>
         </section>

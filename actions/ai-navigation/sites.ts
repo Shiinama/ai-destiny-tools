@@ -41,10 +41,10 @@ export async function createSite(formData: FormData) {
   }
 }
 
-export async function getSites() {
+export async function getSites(categoryId?: string) {
   const db = createDb()
   try {
-    const sites = await db
+    const baseQuery = db
       .select({
         id: divinationTools.id,
         name: divinationTools.name,
@@ -58,9 +58,10 @@ export async function getSites() {
       .from(divinationTools)
       .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
 
+    const sites = categoryId ? await baseQuery.where(eq(divinationTools.categoryId, categoryId)) : await baseQuery
+
     return { success: true, data: sites }
-  } catch (error) {
-    console.error('Error fetching sites:', error)
+  } catch {
     return { success: false, message: '获取站点失败', data: [] }
   }
 }
