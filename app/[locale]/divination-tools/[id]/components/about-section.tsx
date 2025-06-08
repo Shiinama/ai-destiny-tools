@@ -13,7 +13,6 @@ export default function AboutSection({ content }: AboutSectionProps) {
   return (
     <Card>
       <CardContent className="p-6">
-        <h2 className="mb-4 text-xl font-bold">About</h2>
         <div className="prose prose-violet prose-invert">
           <BlogBody content={content} />
         </div>
