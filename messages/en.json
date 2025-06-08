@@ -78,6 +78,7 @@
   },
   "submitTools": {
     "title": "Submit AI Divination Tool",
+    "welcomeMessage": "We welcome divination tools from around the world to submit your platform. You can submit in your native language, and we will collect user interaction data to objectively evaluate the effectiveness and accuracy of divination methods from different countries. Based on this data, we'll see which divination technique truly reigns supreme!",
     "description": "Submit a new AI-powered fortune telling or divination tool to our directory",
     "meta": {
       "title": "Submit AI Divination Tool",

@@ -93,7 +93,8 @@
       "urlValid": "Por favor, introduzca una URL válida",
       "imageValid": "Por favor, suba un archivo de imagen válido",
       "categoryRequired": "La categoría es obligatoria"
-    }
+    },
+    "welcomeMessage": "Damos la bienvenida a las herramientas de adivinación de todo el mundo para que las presenten en nuestra plataforma. Pueden enviar su contenido en su idioma nativo, y recopilaremos datos de interacción de los usuarios para evaluar objetivamente la efectividad y precisión de los métodos de adivinación de diferentes países. Con base en estos datos, ¡determinaremos qué técnica de adivinación prevalece verdaderamente!"
   },
   "footer": {
     "description": "Descubre tu futuro con AI Destiny Tools: La plataforma definitiva para lecturas de tarot, astrología, numerología y adivinación personalizada impulsadas por IA. Obtén información precisa sobre tu destino hoy mismo.",

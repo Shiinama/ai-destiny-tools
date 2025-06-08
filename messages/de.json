@@ -93,7 +93,8 @@
       "urlValid": "Bitte geben Sie eine gültige URL ein",
       "imageValid": "Bitte laden Sie eine gültige Bilddatei hoch",
       "categoryRequired": "Kategorie ist erforderlich"
-    }
+    },
+    "welcomeMessage": "Wir begrüßen Wahrsage-Tools aus aller Welt zur Einreichung auf unserer Plattform. Sie können Inhalte in Ihrer Muttersprache einreichen, und wir werden Benutzerinteraktionsdaten sammeln, um die Effektivität und Genauigkeit von Wahrsagemethoden aus verschiedenen Ländern objektiv zu bewerten. Basierend auf diesen Daten werden wir ermitteln, welche Wahrsagetechnik tatsächlich überlegen ist!"
   },
   "footer": {
     "description": "Entdecken Sie Ihre Zukunft mit AI Destiny Tools – der ultimativen Plattform für KI-gestützte Tarot-Lesungen, Astrologie, Numerologie und personalisiertes Wahrsagen. Erhalten Sie noch heute präzise Einblicke in Ihr Schicksal.",
