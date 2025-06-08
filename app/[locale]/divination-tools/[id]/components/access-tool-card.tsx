@@ -3,12 +3,11 @@ import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
-import { ToolPlatform } from '@/lib/db/schema'
 
 interface AccessToolCardProps {
   tool: {
     url: string
-    platform: ToolPlatform[] | null
+    platform: string | null
     name: string
   }
 }
@@ -31,7 +30,7 @@ export default function AccessToolCard({ tool }: AccessToolCardProps) {
           <div className="mt-4">
             <p className="text-muted-foreground mb-2 text-sm">Available on:</p>
             <div className="flex flex-wrap gap-2">
-              {tool.platform.map((platform) => (
+              {tool.platform.split(',').map((platform) => (
                 <div
                   key={platform}
                   className="bg-secondary text-secondary-foreground rounded-md px-2 py-1 text-xs capitalize"

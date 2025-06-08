@@ -4,13 +4,13 @@ import { Card, CardContent } from '@/components/ui/card'
 
 interface ScreenshotsSectionProps {
   tool: {
-    screenshotUrls: string[] | null
+    screenshotUrls: string | null
     name: string
   }
 }
 
 export default function ScreenshotsSection({ tool }: ScreenshotsSectionProps) {
-  if (!tool.screenshotUrls || tool.screenshotUrls.length === 0) {
+  if (!tool.screenshotUrls || tool.screenshotUrls.split(',').length === 0) {
     return null
   }
 
@@ -19,7 +19,7 @@ export default function ScreenshotsSection({ tool }: ScreenshotsSectionProps) {
       <CardContent className="p-6">
         <h2 className="mb-4 text-xl font-bold">Screenshots</h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {tool.screenshotUrls.map((url, index) => (
+          {tool.screenshotUrls.split(',').map((url, index) => (
             <div key={index} className="relative h-48 w-full overflow-hidden rounded-md">
               <Image src={url} alt={`${tool.name} screenshot ${index + 1}`} fill className="object-cover" />
             </div>
