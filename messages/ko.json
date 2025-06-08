@@ -25,10 +25,9 @@
   },
   "siteInfo": {
     "brandName": "Destiny AI",
-    "description": "Destiny AI와 함께 당신의 미래를 발견하세요 - AI 기반 타로, 점성술, 수비학 및 점술을 위한 궁극의 플랫폼",
     "meta": {
-      "title": "AI 점술 도구 - 최고의 타로 및 점성술 앱",
-      "description": "타로 읽기, 점성술 차트, 심령 예측을 위한 최고의 AI 점술 도구를 발견하세요. 최첨단 점술 기술로 미래를 탐색하세요."
+      "title": "Destiny AI - AI 점술 도구 디렉토리",
+      "description": "타로, 점성술, 주역 등을 위한 최고의 AI 기반 점술 도구를 찾아보세요. 현대 점술 기술에 대한 귀하의 가이드."
     }
   },
   "submitTools": {
@@ -113,8 +112,8 @@
     "copyright": "© 2025 Destiny AI.tools All rights reserved."
   },
   "HomePage": {
-    "title": "AI 기반 점술 및 점술 플랫폼",
-    "description": "AI Destiny Tools와 함께 당신의 미래를 발견하세요 - AI 기반 타로 읽기, 점성술, 수비학 및 개인화된 점술을 위한 궁극의 플랫폼.",
+    "title": "최고의 AI 점술 웹사이트, 도구 및 앱을 발견하세요",
+    "description": "전 세계 최고의 AI 운세 도구를 발견하고 탐색하세요. 타로 리딩, 점성술, 수비학 등을 위한 포괄적인 내비게이션 플랫폼입니다.",
     "submitTool": "도구 제출",
     "visitSite": "사이트 방문 →"
   },

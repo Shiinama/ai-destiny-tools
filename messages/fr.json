@@ -25,10 +25,9 @@
   },
   "siteInfo": {
     "brandName": "Destiny AI",
-    "description": "Découvrez votre avenir avec Destiny AI - Votre plateforme ultime pour le tarot, l'astrologie, la numérologie et la voyance alimentés par l'IA",
     "meta": {
-      "title": "Outils de voyance IA - Meilleures applications de tarot et d'astrologie",
-      "description": "Découvrez les meilleurs outils de voyance IA pour les lectures de tarot, les cartes astrologiques et les prédictions psychiques. Explorez votre avenir avec une technologie de divination de pointe."
+      "title": "Destiny AI - Annuaire des Outils de Divination IA",
+      "description": "Découvrez les meilleurs outils de divination basés sur l'IA pour le tarot, l'astrologie, le Yi King et plus encore. Votre guide de la technologie moderne de la bonne aventure."
     }
   },
   "submitTools": {
@@ -113,8 +112,8 @@
     "copyright": "© 2025 destinyai.tools Tous droits réservés."
   },
   "HomePage": {
-    "title": "Plateforme de voyance et de divination alimentée par l'IA",
-    "description": "Découvrez votre avenir avec AI Destiny Tools - La plateforme ultime pour les lectures de tarot, l'astrologie, la numérologie et la voyance personnalisée alimentées par l'IA.",
+    "title": "Découvrez les Meilleurs Sites Web, Outils et Applications de Divination par IA",
+    "description": "Découvrez et explorez les meilleurs outils de divination par IA du monde entier. Votre plateforme de navigation complète pour les lectures de tarot, l'astrologie, la numérologie et plus encore.",
     "submitTool": "Soumettre un outil",
     "visitSite": "Visiter le site →"
   },

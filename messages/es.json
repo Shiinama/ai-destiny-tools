@@ -25,10 +25,9 @@
   },
   "siteInfo": {
     "brandName": "Destiny AI",
-    "description": "Descubre tu futuro con Destiny AI - Su plataforma definitiva para tarot, astrología, numerología y adivinación impulsados por IA",
     "meta": {
-      "title": "Herramientas de Adivinación con IA - Mejores Aplicaciones de Tarot y Astrología",
-      "description": "Descubra las mejores herramientas de adivinación con IA para lecturas de tarot, cartas astrales y predicciones psíquicas. Explore su futuro con tecnología de adivinación de vanguardia."
+      "title": "Destiny AI - Directorio de Herramientas de Adivinación con IA",
+      "description": "Descubre las mejores herramientas de adivinación impulsadas por IA para tarot, astrología, I Ching y más. Tu guía para la tecnología moderna de adivinación."
     }
   },
   "submitTools": {
@@ -113,8 +112,8 @@
     "copyright": "© 2025 destinyai.tools Todos los derechos reservados."
   },
   "HomePage": {
-    "title": "Plataforma de Adivinación y Quiromancia Impulsada por IA",
-    "description": "Descubre tu futuro con AI Destiny Tools: La plataforma definitiva para lecturas de tarot, astrología, numerología y adivinación personalizada impulsadas por IA.",
+    "title": "Descubre los Mejores Sitios Web, Herramientas y Aplicaciones de Adivinación con IA",
+    "description": "Descubre y explora las mejores herramientas de adivinación con IA de todo el mundo. Tu plataforma de navegación integral para lecturas de tarot, astrología, numerología y más.",
     "submitTool": "Enviar una Herramienta",
     "visitSite": "Visitar Sitio →"
   },

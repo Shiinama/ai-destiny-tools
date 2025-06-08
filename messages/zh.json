@@ -9,10 +9,9 @@
   },
   "siteInfo": {
     "brandName": "Destiny AI",
-    "description": "通过 Destiny AI 探索您的未来——您的人工智能塔罗牌、占星术、数字命理学和算命的终极平台",
     "meta": {
-      "title": "AI 算命工具 - 热门塔罗牌与占星应用程序",
-      "description": "发现最好的人工智能算命工具，用于塔罗牌解读、占星图和通灵预测。利用尖端占卜技术探索您的未来。"
+      "title": "Destiny AI - AI占卜工具目录",
+      "description": "发现塔罗牌、占星术、易经等最佳AI驱动的占卜工具。您了解现代占卜技术的指南。"
     }
   },
   "about": {
@@ -106,8 +105,8 @@
     "copyright": "© 2025 destinyai.tools 保留所有权利。"
   },
   "HomePage": {
-    "title": "AI 驱动的算命与占卜平台",
-    "description": "通过 Destiny AI 工具探索您的未来——您的人工智能塔罗牌解读、占星术、数字命理学和个性化算命的终极平台。",
+    "title": "发现最佳AI占卜网站、工具和应用",
+    "description": "探索并发现世界各地最佳的AI算命工具。您进行塔罗牌解读、占星术、数字命理学等综合导航平台。",
     "submitTool": "提交工具",
     "visitSite": "访问网站 →"
   },
