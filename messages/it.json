@@ -339,6 +339,20 @@
       "seoDescription": "Scopri la tua vera impronta cosmica con l'astrologia vedica AI. Ottieni letture Jyotish accurate, temi natali e predizioni per carriera, relazioni e percorso di vita."
     },
     "categoryNotFound": "Categoria non trovata",
-    "categoryNotFoundDescription": "La categoria di divinazione che stai cercando non è stata trovata. Controlla la nostra homepage per le categorie disponibili."
+    "categoryNotFoundDescription": "La categoria di divinazione che stai cercando non è stata trovata. Controlla la nostra homepage per le categorie disponibili.",
+    "other": {
+      "name": "Altri",
+      "description": "Varie tecniche di divinazione alternative e pratiche mistiche non contemplate nelle categorie tradizionali.",
+      "origin": "Diverse culture in tutto il mondo",
+      "seoTitle": "Strumenti di Divinazione AI Alternativi - Metodi Unici di Predizione del Futuro",
+      "seoDescription": "Esplora metodi di divinazione AI non convenzionali e tecniche uniche di predizione del futuro. Scopri rare pratiche mistiche e modi alternativi per intravedere il tuo destino."
+    },
+    "comprehensive": {
+      "name": "Completo",
+      "description": "Piattaforme che offrono molteplici metodi di divinazione e approcci integrati alla predizione del futuro in un unico luogo.",
+      "origin": "Integrazione moderna di pratiche tradizionali",
+      "seoTitle": "Piattaforme di Divinazione AI All-in-One - Metodi Multipli di Predizione del Futuro",
+      "seoDescription": "Accedi a molteplici metodi di divinazione AI in un unico luogo. Piattaforme complete che offrono tarocchi, astrologia, numerologia e altro per una guida spirituale e una predizione del futuro complete."
+    }
   }
 }

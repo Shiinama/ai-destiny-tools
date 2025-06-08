@@ -339,6 +339,20 @@
       "seoDescription": "Descubre tu verdadera huella cósmica con la astrología védica con IA. Obtén lecturas Jyotish precisas, cartas natales y predicciones para carrera, relaciones y camino de vida."
     },
     "categoryNotFound": "Categoría no encontrada",
-    "categoryNotFoundDescription": "La categoría de adivinación que buscas no pudo ser encontrada. Por favor, revisa nuestra página de inicio para ver las categorías disponibles."
+    "categoryNotFoundDescription": "La categoría de adivinación que buscas no pudo ser encontrada. Por favor, revisa nuestra página de inicio para ver las categorías disponibles.",
+    "other": {
+      "name": "Otros",
+      "description": "Diversas técnicas de adivinación alternativas y prácticas místicas no cubiertas por las categorías tradicionales.",
+      "origin": "Varias culturas en todo el mundo",
+      "seoTitle": "Herramientas de Adivinación de IA Alternativas - Métodos Únicos de Adivinación",
+      "seoDescription": "Explore métodos de adivinación de IA no convencionales y técnicas únicas de adivinación. Descubra prácticas místicas raras y formas alternativas de vislumbrar su destino."
+    },
+    "comprehensive": {
+      "name": "Integral",
+      "description": "Plataformas que ofrecen múltiples métodos de adivinación y enfoques integrados de pronóstico en un solo lugar.",
+      "origin": "Integración moderna de prácticas tradicionales",
+      "seoTitle": "Plataformas de Adivinación con IA Todo en Uno - Múltiples Métodos de Fortuna",
+      "seoDescription": "Acceda a múltiples métodos de adivinación con IA en un solo lugar. Plataformas integrales que ofrecen tarot, astrología, numerología y más para una guía espiritual y pronóstico completos."
+    }
   }
 }

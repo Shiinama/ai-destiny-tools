@@ -18,6 +18,7 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "deploy:c": "tsx scripts/deploy/index.ts",
     "db:generate": "drizzle-kit generate",
+    "db:generate:empty": "drizzle-kit generate --custom --name",
     "db:migrate-local": "tsx scripts/migrate.ts local",
     "db:migrate-remote": "tsx scripts/migrate.ts remote",
     "db:seed": "wrangler dev scripts/seed.ts",

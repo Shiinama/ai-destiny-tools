@@ -339,6 +339,20 @@
       "seoDescription": "Descubra sua verdadeira planta cósmica com a astrologia védica com IA. Obtenha leituras Jyotish precisas, mapas de nascimento e previsões para carreira, relacionamentos e caminho de vida."
     },
     "categoryNotFound": "Categoria Não Encontrada",
-    "categoryNotFoundDescription": "A categoria de adivinhação que você está procurando não pôde ser encontrada. Por favor, verifique nossa página inicial para as categorias disponíveis."
+    "categoryNotFoundDescription": "A categoria de adivinhação que você está procurando não pôde ser encontrada. Por favor, verifique nossa página inicial para as categorias disponíveis.",
+    "other": {
+      "name": "Outros",
+      "description": "Várias técnicas de adivinhação alternativas e práticas místicas não abrangidas pelas categorias tradicionais.",
+      "origin": "Várias culturas em todo o mundo",
+      "seoTitle": "Ferramentas de Adivinhação de IA Alternativas - Métodos Únicos de Leitura da Sorte",
+      "seoDescription": "Explore métodos não convencionais de adivinhação de IA e técnicas únicas de leitura da sorte. Descubra práticas místicas raras e formas alternativas de vislumbrar seu destino."
+    },
+    "comprehensive": {
+      "name": "Abrangente",
+      "description": "Plataformas que oferecem múltiplos métodos de adivinhação e abordagens integradas de leitura da sorte em um só lugar.",
+      "origin": "Integração moderna de práticas tradicionais",
+      "seoTitle": "Plataformas de Adivinhação por IA Tudo-em-Um - Múltiplos Métodos de Leitura da Sorte",
+      "seoDescription": "Aceda a múltiplos métodos de adivinhação por IA num só lugar. Plataformas abrangentes que oferecem tarot, astrologia, numerologia e muito mais para orientação espiritual completa e leitura da sorte."
+    }
   }
 }

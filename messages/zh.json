@@ -339,6 +339,20 @@
       "seoDescription": "通过AI吠陀占星术发现你真正的宇宙蓝图。获取精准的乔蒂什解读、出生图以及职业、关系和人生道路的预测。"
     },
     "categoryNotFound": "未找到类别",
-    "categoryNotFoundDescription": "您查找的占卜类别未找到。请查看我们的主页以获取可用类别。"
+    "categoryNotFoundDescription": "您查找的占卜类别未找到。请查看我们的主页以获取可用类别。",
+    "other": {
+      "name": "其他",
+      "description": "各种未被传统类别涵盖的另类占卜技术和神秘实践。",
+      "origin": "世界各地的各种文化",
+      "seoTitle": "另类AI占卜工具 - 独特算命方法",
+      "seoDescription": "探索非传统的AI占卜方法和独特的算命技巧。发现稀有的神秘实践和洞察命运的另类途径。"
+    },
+    "comprehensive": {
+      "name": "综合性",
+      "description": "在一个地方提供多种占卜方法和集成算命方法的平台。",
+      "origin": "传统实践的现代整合",
+      "seoTitle": "一体化AI占卜平台 - 多种算命方法",
+      "seoDescription": "在一个地方访问多种AI占卜方法。综合平台提供塔罗牌、占星术、数字命理学等，提供全面的精神指导和算命服务。"
+    }
   }
 }

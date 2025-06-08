@@ -339,6 +339,20 @@
       "seoDescription": "Entdecken Sie Ihren wahren kosmischen Bauplan mit KI-Vedischer Astrologie. Erhalten Sie genaue Jyotish-Lesungen, Geburtshoroskope und Vorhersagen für Karriere, Beziehungen und Lebensweg."
     },
     "categoryNotFound": "Kategorie nicht gefunden",
-    "categoryNotFoundDescription": "Die von Ihnen gesuchte Divinationskategorie konnte nicht gefunden werden. Bitte überprüfen Sie unsere Homepage für verfügbare Kategorien."
+    "categoryNotFoundDescription": "Die von Ihnen gesuchte Divinationskategorie konnte nicht gefunden werden. Bitte überprüfen Sie unsere Homepage für verfügbare Kategorien.",
+    "other": {
+      "name": "Sonstige",
+      "description": "Verschiedene alternative Wahrsagetechniken und mystische Praktiken, die nicht durch traditionelle Kategorien abgedeckt sind.",
+      "origin": "Verschiedene Kulturen weltweit",
+      "seoTitle": "Alternative KI-Wahrsagewerkzeuge - Einzigartige Methoden zur Zukunftsvorhersage",
+      "seoDescription": "Entdecken Sie unkonventionelle KI-Wahrsagemethoden und einzigartige Techniken zur Zukunftsvorhersage. Entdecken Sie seltene mystische Praktiken und alternative Wege, um Ihr Schicksal zu erahnen."
+    },
+    "comprehensive": {
+      "name": "Umfassend",
+      "description": "Plattformen, die mehrere Divinationsmethoden und integrierte Wahrsageansätze an einem Ort anbieten.",
+      "origin": "Moderne Integration traditioneller Praktiken",
+      "seoTitle": "All-in-One KI-Divinationsplattformen - Mehrere Wahrsagemethoden",
+      "seoDescription": "Greifen Sie an einem Ort auf mehrere KI-Divinationsmethoden zu. Umfassende Plattformen bieten Tarot, Astrologie, Numerologie und mehr für vollständige spirituelle Führung und Wahrsagerei."
+    }
   }
 }

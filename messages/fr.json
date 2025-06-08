@@ -339,6 +339,20 @@
       "seoDescription": "Découvrez votre véritable empreinte cosmique avec l'astrologie védique IA. Obtenez des lectures Jyotish précises, des thèmes astraux et des prédictions pour la carrière, les relations et le chemin de vie."
     },
     "categoryNotFound": "Catégorie Introuvable",
-    "categoryNotFoundDescription": "La catégorie de divination que vous recherchez n'a pas pu être trouvée. Veuillez consulter notre page d'accueil pour les catégories disponibles."
+    "categoryNotFoundDescription": "La catégorie de divination que vous recherchez n'a pas pu être trouvée. Veuillez consulter notre page d'accueil pour les catégories disponibles.",
+    "other": {
+      "name": "Autres",
+      "description": "Diverses techniques de divination alternatives et pratiques mystiques non couvertes par les catégories traditionnelles.",
+      "origin": "Diverses cultures à travers le monde",
+      "seoTitle": "Outils de Divination IA Alternatifs - Méthodes Uniques de Voyance",
+      "seoDescription": "Explorez des méthodes de divination IA non conventionnelles et des techniques de voyance uniques. Découvrez des pratiques mystiques rares et des façons alternatives d'apercevoir votre destinée."
+    },
+    "comprehensive": {
+      "name": "Complet",
+      "description": "Plateformes offrant plusieurs méthodes de divination et des approches intégrées de voyance en un seul endroit.",
+      "origin": "Intégration moderne des pratiques traditionnelles",
+      "seoTitle": "Plateformes de divination IA tout-en-un - Méthodes multiples de voyance",
+      "seoDescription": "Accédez à plusieurs méthodes de divination IA en un seul endroit. Des plateformes complètes offrant le tarot, l'astrologie, la numérologie et bien plus pour une guidance spirituelle et une voyance complètes."
+    }
   }
 }

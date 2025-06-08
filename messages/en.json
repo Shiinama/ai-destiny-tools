@@ -64,6 +64,20 @@
       "seoTitle": "AI Dream Interpretation - Meaning of Dreams & Symbols",
       "seoDescription": "Understand what your dreams mean with AI dream analysis. Get personalized interpretations of dream symbols, recurring themes, and subconscious messages in your sleep."
     },
+    "other": {
+      "name": "Other",
+      "description": "Various alternative divination techniques and mystical practices not covered by traditional categories.",
+      "origin": "Various cultures worldwide",
+      "seoTitle": "Alternative AI Divination Tools - Unique Fortune Telling Methods",
+      "seoDescription": "Explore unconventional AI divination methods and unique fortune telling techniques. Discover rare mystical practices and alternative ways to glimpse your destiny."
+    },
+    "comprehensive": {
+      "name": "Comprehensive",
+      "description": "Platforms offering multiple divination methods and integrated fortune-telling approaches in one place.",
+      "origin": "Modern integration of traditional practices",
+      "seoTitle": "All-in-One AI Divination Platforms - Multiple Fortune Telling Methods",
+      "seoDescription": "Access multiple AI divination methods in one place. Comprehensive platforms offering tarot, astrology, numerology and more for complete spiritual guidance and fortune telling."
+    },
     "categoryNotFound": "Category Not Found",
     "categoryNotFoundDescription": "The divination category you're looking for could not be found. Please check our homepage for available categories."
   },

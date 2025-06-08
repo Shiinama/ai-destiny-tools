@@ -29,6 +29,13 @@
       "when": 1749307075132,
       "tag": "0003_tiresome_chat",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1749381603459,
+      "tag": "0004_add_new_categories",
+      "breakpoints": true
     }
   ]
 }
