@@ -1,0 +1,1 @@
+ALTER TABLE `divination_tools` DROP COLUMN `cover_image_url`;
