@@ -24,7 +24,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     return notFound()
   }
 
-  const { data: sites } = await getSites(categoryId)
+  const { data: sites } = await getSites(category.id)
 
   return (
     <div className="container py-8">
