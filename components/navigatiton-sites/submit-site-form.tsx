@@ -5,7 +5,6 @@ import { useState, FormEvent } from 'react'
 import { toast } from 'sonner'
 
 import { createTool } from '@/actions/divination-tools'
-import { SiteImageUploader } from '@/components/navigatiton-sites/site-image-uploader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -31,7 +30,6 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     name: '',
     description: '',
     url: '',
-    imageUrl: '',
     contactInfo: '',
     categoryId: ''
   })
@@ -73,11 +71,6 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
       newErrors.url = t('validation.urlValid')
     }
 
-    // Validate image URL
-    if (!urlPattern.test(formValues.imageUrl)) {
-      newErrors.imageUrl = t('validation.imageValid')
-    }
-
     // Validate category
     if (!formValues.categoryId) {
       newErrors.categoryId = t('validation.categoryRequired')
@@ -107,7 +100,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
         name: formValues.name,
         description: formValues.description,
         url: formValues.url,
-        imageUrl: formValues.imageUrl || '',
+        imageUrl: '',
         categoryId: formValues.categoryId,
         contactInfo: formValues.contactInfo,
         status: 'pending'
@@ -165,16 +158,6 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
           />
           <p className="text-muted-foreground text-[0.8rem]">{t('form.url.description')}</p>
           {errors.url && <p className="text-destructive text-[0.8rem] font-medium">{errors.url}</p>}
-        </div>
-
-        <div className="space-y-2">
-          <p className="text-sm font-medium">{t('form.imageUrl.label')}</p>
-          <SiteImageUploader
-            onUploadComplete={(imageUrl) => handleInputChange('imageUrl', imageUrl)}
-            currentImageUrl={formValues.imageUrl}
-          />
-          <p className="text-muted-foreground text-[0.8rem]">{t('form.imageUrl.description')}</p>
-          {errors.imageUrl && <p className="text-destructive text-[0.8rem] font-medium">{errors.imageUrl}</p>}
         </div>
 
         <div className="space-y-2">

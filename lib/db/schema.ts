@@ -134,9 +134,9 @@ export const divinationTools = sqliteTable('divination_tools', {
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
   content: text('content'),
-  platform: text('platform').$type<ToolPlatform[]>(),
+  platform: text('platform'),
   isFree: integer('is_free', { mode: 'boolean' }).default(true),
   price: text('price'),
   logoUrl: text('logo_url'),
-  screenshotUrls: text('screenshot_urls').$type<string[]>()
+  screenshotUrls: text('screenshot_urls')
 })

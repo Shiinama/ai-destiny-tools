@@ -4,7 +4,7 @@ import { eq, desc, like, sql, and } from 'drizzle-orm'
 
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
-import { divinationTools, divinationCategories, ToolStatus, ToolPlatform } from '@/lib/db/schema'
+import { divinationTools, divinationCategories, ToolStatus } from '@/lib/db/schema'
 
 export type DivinationToolInput = {
   name: string
@@ -13,13 +13,13 @@ export type DivinationToolInput = {
   imageUrl: string
   categoryId: string
   content?: string
-  platform?: ToolPlatform[]
+  platform?: string
   isFree?: boolean
   status: ToolStatus
   price?: string
   contactInfo?: string
   logoUrl?: string
-  screenshotUrls?: string[]
+  screenshotUrls?: string
 }
 
 export type DivinationToolUpdateInput = DivinationToolInput & {

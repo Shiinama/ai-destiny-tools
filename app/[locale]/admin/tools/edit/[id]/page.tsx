@@ -24,7 +24,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
-import { ToolPlatform, ToolStatus } from '@/lib/db/schema'
+import { ToolStatus } from '@/lib/db/schema'
 
 export default function EditToolPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
@@ -41,9 +41,9 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
     content: '',
     logoUrl: '',
     imageUrl: '',
-    screenshotUrls: [] as string[],
+    screenshotUrls: '',
     status: 'pending' as ToolStatus,
-    platform: [] as ToolPlatform[]
+    platform: ''
   })
 
   const [isLoading, setIsLoading] = useState(true)
@@ -73,8 +73,12 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
             content: toolResult.content || '',
             logoUrl: toolResult.logoUrl || '',
             imageUrl: toolResult.imageUrl || '',
-            screenshotUrls: toolResult.screenshotUrls || [],
-            platform: toolResult.platform || []
+            // Convert array to comma-separated string if it's an array
+            screenshotUrls: Array.isArray(toolResult.screenshotUrls)
+              ? toolResult.screenshotUrls.join(',')
+              : toolResult.screenshotUrls || '',
+            // Convert array to comma-separated string if it's an array
+            platform: Array.isArray(toolResult.platform) ? toolResult.platform.join(',') : toolResult.platform || ''
           })
         }
       })
@@ -104,34 +108,40 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
     if (field === 'screenshotUrls') {
       setFormData((prev) => ({
         ...prev,
-        screenshotUrls: [...prev.screenshotUrls, imageUrl]
+        screenshotUrls: prev.screenshotUrls ? `${prev.screenshotUrls},${imageUrl}` : imageUrl
       }))
     } else {
       setFormData((prev) => ({ ...prev, [field]: imageUrl }))
     }
   }
 
-  const togglePlatform = (platform: ToolPlatform) => {
+  const togglePlatform = (platform: string) => {
     setFormData((prev) => {
-      if (prev.platform?.includes(platform)) {
+      const platforms = prev.platform ? prev.platform.split(',') : []
+
+      if (platforms.includes(platform)) {
         return {
           ...prev,
-          platform: prev.platform.filter((p) => p !== platform)
+          platform: platforms.filter((p) => p !== platform).join(',')
         }
       } else {
         return {
           ...prev,
-          platform: [...(prev.platform || []), platform]
+          platform: platforms.length > 0 ? `${prev.platform},${platform}` : platform
         }
       }
     })
   }
 
   const removeScreenshot = (index: number) => {
-    setFormData((prev) => ({
-      ...prev,
-      screenshotUrls: prev.screenshotUrls.filter((_, i) => i !== index)
-    }))
+    setFormData((prev) => {
+      const screenshots = prev.screenshotUrls ? prev.screenshotUrls.split(',') : []
+      screenshots.splice(index, 1)
+      return {
+        ...prev,
+        screenshotUrls: screenshots.join(',')
+      }
+    })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -180,6 +190,9 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
       </div>
     )
   }
+
+  // Get screenshots as array for rendering
+  const screenshotUrlsArray = formData.screenshotUrls ? formData.screenshotUrls.split(',').filter(Boolean) : []
 
   return (
     <>
@@ -287,7 +300,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
 
           <div>
             <Label htmlFor="status">状态</Label>
-            <Select value={formData.status} onValueChange={(value: any) => handleSelectChange(value, 'status')}>
+            <Select value={formData.status} onValueChange={(value) => handleSelectChange(value, 'status')}>
               <SelectTrigger>
                 <SelectValue placeholder="选择状态" />
               </SelectTrigger>
@@ -302,18 +315,21 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
           <div>
             <Label htmlFor="platform">平台</Label>
             <div className="mt-2 flex flex-wrap gap-2">
-              {['web', 'ios', 'android', 'wechat', 'windows', 'mac', 'linux'].map((platform) => (
-                <Button
-                  key={platform}
-                  type="button"
-                  variant={formData.platform?.includes(platform as ToolPlatform) ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => togglePlatform(platform as ToolPlatform)}
-                  className="capitalize"
-                >
-                  {platform}
-                </Button>
-              ))}
+              {['web', 'ios', 'android', 'wechat', 'windows', 'mac', 'linux'].map((platform) => {
+                const platforms = formData.platform ? formData.platform.split(',') : []
+                return (
+                  <Button
+                    key={platform}
+                    type="button"
+                    variant={platforms.includes(platform) ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => togglePlatform(platform)}
+                    className="capitalize"
+                  >
+                    {platform}
+                  </Button>
+                )
+              })}
             </div>
             <p className="text-muted-foreground mt-1 text-sm">选择工具支持的平台</p>
           </div>
@@ -335,9 +351,9 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
           </div>
 
           <div>
-            <Label htmlFor="screenshots">截图集 ({formData.screenshotUrls.length})</Label>
+            <Label htmlFor="screenshots">截图集 ({screenshotUrlsArray.length})</Label>
             <div className="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {formData.screenshotUrls.map((url, index) => (
+              {screenshotUrlsArray.map((url, index) => (
                 <div key={index} className="relative">
                   <img src={url} alt={`Screenshot ${index + 1}`} className="h-40 w-full rounded-md object-cover" />
                   <Button
@@ -351,7 +367,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
                   </Button>
                 </div>
               ))}
-              {formData.screenshotUrls.length < 6 && (
+              {screenshotUrlsArray.length < 6 && (
                 <SiteImageUploader
                   onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'screenshotUrls')}
                   currentImageUrl=""

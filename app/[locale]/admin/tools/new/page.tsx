@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
-import { ToolPlatform, ToolStatus } from '@/lib/db/schema'
+import { ToolStatus } from '@/lib/db/schema'
 
 export default function NewToolPage() {
   const router = useRouter()
@@ -29,9 +29,9 @@ export default function NewToolPage() {
     content: '',
     logoUrl: '',
     imageUrl: '',
-    screenshotUrls: [] as string[],
+    screenshotUrls: '',
     status: 'approved' as ToolStatus,
-    platform: [] as ToolPlatform[]
+    platform: ''
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -62,34 +62,40 @@ export default function NewToolPage() {
     if (field === 'screenshotUrls') {
       setFormData((prev) => ({
         ...prev,
-        screenshotUrls: [...prev.screenshotUrls, imageUrl]
+        screenshotUrls: prev.screenshotUrls ? `${prev.screenshotUrls},${imageUrl}` : imageUrl
       }))
     } else {
       setFormData((prev) => ({ ...prev, [field]: imageUrl }))
     }
   }
 
-  const togglePlatform = (platform: ToolPlatform) => {
+  const togglePlatform = (platform: string) => {
     setFormData((prev) => {
-      if (prev.platform?.includes(platform)) {
+      const platforms = prev.platform ? prev.platform.split(',') : []
+
+      if (platforms.includes(platform)) {
         return {
           ...prev,
-          platform: prev.platform.filter((p) => p !== platform)
+          platform: platforms.filter((p) => p !== platform).join(',')
         }
       } else {
         return {
           ...prev,
-          platform: [...(prev.platform || []), platform]
+          platform: platforms.length > 0 ? `${prev.platform},${platform}` : platform
         }
       }
     })
   }
 
   const removeScreenshot = (index: number) => {
-    setFormData((prev) => ({
-      ...prev,
-      screenshotUrls: prev.screenshotUrls.filter((_, i) => i !== index)
-    }))
+    setFormData((prev) => {
+      const screenshots = prev.screenshotUrls ? prev.screenshotUrls.split(',') : []
+      screenshots.splice(index, 1)
+      return {
+        ...prev,
+        screenshotUrls: screenshots.join(',')
+      }
+    })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -225,9 +231,9 @@ export default function NewToolPage() {
                 <Button
                   key={platform}
                   type="button"
-                  variant={formData.platform?.includes(platform as ToolPlatform) ? 'default' : 'outline'}
+                  variant={formData.platform?.split(',').includes(platform) ? 'default' : 'outline'}
                   size="sm"
-                  onClick={() => togglePlatform(platform as ToolPlatform)}
+                  onClick={() => togglePlatform(platform)}
                   className="capitalize"
                 >
                   {platform}
@@ -254,23 +260,26 @@ export default function NewToolPage() {
           </div>
 
           <div>
-            <Label htmlFor="screenshots">截图集 ({formData.screenshotUrls.length})</Label>
+            <Label htmlFor="screenshots">
+              截图集 ({formData.screenshotUrls ? formData.screenshotUrls.split(',').filter(Boolean).length : 0})
+            </Label>
             <div className="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {formData.screenshotUrls.map((url, index) => (
-                <div key={index} className="relative">
-                  <img src={url} alt={`Screenshot ${index + 1}`} className="h-40 w-full rounded-md object-cover" />
-                  <Button
-                    type="button"
-                    variant="destructive"
-                    size="sm"
-                    className="absolute top-2 right-2"
-                    onClick={() => removeScreenshot(index)}
-                  >
-                    删除
-                  </Button>
-                </div>
-              ))}
-              {formData.screenshotUrls.length < 6 && (
+              {formData.screenshotUrls &&
+                formData.screenshotUrls.split(',').map((url, index) => (
+                  <div key={index} className="relative">
+                    <img src={url} alt={`Screenshot ${index + 1}`} className="h-40 w-full rounded-md object-cover" />
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      size="sm"
+                      className="absolute top-2 right-2"
+                      onClick={() => removeScreenshot(index)}
+                    >
+                      删除
+                    </Button>
+                  </div>
+                ))}
+              {(!formData.screenshotUrls || formData.screenshotUrls.split(',').filter(Boolean).length < 6) && (
                 <SiteImageUploader
                   onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'screenshotUrls')}
                   currentImageUrl=""
