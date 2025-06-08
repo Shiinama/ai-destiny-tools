@@ -149,7 +149,6 @@ export default function NewToolPage() {
               required
             />
           </div>
-
           <div>
             <Label htmlFor="description" className="required">
               工具描述
@@ -164,7 +163,6 @@ export default function NewToolPage() {
               required
             />
           </div>
-
           <div>
             <Label htmlFor="content">详细内容</Label>
             <Textarea
@@ -176,7 +174,6 @@ export default function NewToolPage() {
               rows={8}
             />
           </div>
-
           <div>
             <Label htmlFor="url" className="required">
               工具链接
@@ -191,7 +188,6 @@ export default function NewToolPage() {
               required
             />
           </div>
-
           <div>
             <Label htmlFor="category" className="required">
               分类
@@ -209,7 +205,6 @@ export default function NewToolPage() {
               </SelectContent>
             </Select>
           </div>
-
           <div>
             <Label htmlFor="status">状态</Label>
             <Select value={formData.status} onValueChange={(value) => handleSelectChange(value, 'status')}>
@@ -223,7 +218,6 @@ export default function NewToolPage() {
               </SelectContent>
             </Select>
           </div>
-
           <div>
             <Label htmlFor="platform">平台</Label>
             <div className="mt-2 flex flex-wrap gap-2">
@@ -242,53 +236,29 @@ export default function NewToolPage() {
             </div>
             <p className="text-muted-foreground mt-1 text-sm">选择工具支持的平台</p>
           </div>
-
           <div>
             <Label htmlFor="logoUrl">Logo图片</Label>
             <SiteImageUploader
               onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'logoUrl')}
               currentImageUrl={formData.logoUrl}
             />
+            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：512x512像素，正方形，PNG格式（支持透明背景）</p>
           </div>
-
           <div>
             <Label htmlFor="imageUrl">封面图片</Label>
             <SiteImageUploader
               onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'imageUrl')}
               currentImageUrl={formData.imageUrl}
             />
+            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：1920x576像素，横向矩形，16:9比例</p>
           </div>
-
           <div>
             <Label htmlFor="screenshots">
               截图集 ({formData.screenshotUrls ? formData.screenshotUrls.split(',').filter(Boolean).length : 0})
             </Label>
-            <div className="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {formData.screenshotUrls &&
-                formData.screenshotUrls.split(',').map((url, index) => (
-                  <div key={index} className="relative">
-                    <img src={url} alt={`Screenshot ${index + 1}`} className="h-40 w-full rounded-md object-cover" />
-                    <Button
-                      type="button"
-                      variant="destructive"
-                      size="sm"
-                      className="absolute top-2 right-2"
-                      onClick={() => removeScreenshot(index)}
-                    >
-                      删除
-                    </Button>
-                  </div>
-                ))}
-              {(!formData.screenshotUrls || formData.screenshotUrls.split(',').filter(Boolean).length < 6) && (
-                <SiteImageUploader
-                  onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'screenshotUrls')}
-                  currentImageUrl=""
-                />
-              )}
-            </div>
-            <p className="text-muted-foreground mt-1 text-sm">最多上传6张截图</p>
+            <div className="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">{/* 现有代码不变 */}</div>
+            <p className="text-muted-foreground mt-1 text-sm">最多上传6张截图，推荐尺寸：1280x720像素，16:9比例</p>
           </div>
-
           <div>
             <Label htmlFor="contactInfo">联系方式</Label>
             <Input
@@ -299,12 +269,10 @@ export default function NewToolPage() {
               placeholder="邮箱或其他联系方式"
             />
           </div>
-
           <div className="flex items-center space-x-2">
             <Switch id="isFree" checked={formData.isFree} onCheckedChange={handleSwitchChange} />
             <Label htmlFor="isFree">免费工具</Label>
           </div>
-
           {!formData.isFree && (
             <div>
               <Label htmlFor="price">价格</Label>

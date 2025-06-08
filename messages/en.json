@@ -107,7 +107,14 @@
       "success": "Image uploaded successfully",
       "error": "Failed to upload image",
       "invalidType": "Please select a valid image file",
-      "tooLarge": "Image must be less than 5MB"
+      "tooLarge": "Image must be less than {size}MB",
+      "title": "Upload Image",
+      "dragOrClick": "Drag and drop an image here, or click to select",
+      "pasteSupported": "You can also paste an image from clipboard (Ctrl+V)",
+      "dropHere": "Drop image here",
+      "cancel": "Cancel",
+      "remove": "Remove image",
+      "aspectRatio": "Recommended aspect ratio: {ratio}"
     },
     "form": {
       "name": {

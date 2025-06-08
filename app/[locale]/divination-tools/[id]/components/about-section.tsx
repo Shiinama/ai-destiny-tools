@@ -1,3 +1,4 @@
+import BlogBody from '@/components/blog/blog-body'
 import { Card, CardContent } from '@/components/ui/card'
 
 interface AboutSectionProps {
@@ -13,10 +14,8 @@ export default function AboutSection({ content }: AboutSectionProps) {
     <Card>
       <CardContent className="p-6">
         <h2 className="mb-4 text-xl font-bold">About</h2>
-        <div className="prose dark:prose-invert max-w-none">
-          {content.split('\n').map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+        <div className="prose prose-violet prose-invert">
+          <BlogBody content={content} />
         </div>
       </CardContent>
     </Card>
