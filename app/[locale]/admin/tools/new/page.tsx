@@ -252,7 +252,7 @@ export default function NewToolPage() {
               onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'imageUrl')}
               currentImageUrl={formData.imageUrl}
             />
-            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：3:1，横向矩形，16:9比例</p>
+            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：3:1，横向矩形</p>
           </div>
           <div>
             <Label htmlFor="screenshots">
@@ -282,7 +282,7 @@ export default function NewToolPage() {
                 />
               )}
             </div>
-            <p className="text-muted-foreground mt-1 text-sm">最多上传6张截图，推荐尺寸：1280x720像素，16:9比例</p>
+            <p className="text-muted-foreground mt-1 text-sm">最多上传6张截图，推荐尺寸：16:9比例</p>
           </div>
           <div>
             <Label htmlFor="contactInfo">联系方式</Label>
