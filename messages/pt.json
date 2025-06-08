@@ -76,11 +76,16 @@
       "submit": {
         "label": "Enviar Ferramenta de Adivinhação com IA",
         "loading": "Enviando..."
+      },
+      "contactInfo": {
+        "label": "Informações de Contato",
+        "placeholder": "Insira suas informações de contato (e-mail, redes sociais, etc.)",
+        "description": "Como podemos contatá-lo se precisarmos de mais informações sobre sua submissão?"
       }
     },
     "toast": {
       "success": {
-        "description": "Ferramenta de adivinhação com IA enviada com sucesso"
+        "description": "Recebemos sua submissão. Por favor, aguarde nossa resposta por e-mail. Após a revisão, notificaremos você sobre o status de aprovação e solicitaremos informações adicionais, se necessário."
       },
       "error": {
         "description": "Falha ao enviar a ferramenta de adivinhação com IA",
@@ -92,7 +97,8 @@
       "descriptionRequired": "A descrição é obrigatória",
       "urlValid": "Por favor, insira uma URL válida",
       "imageValid": "Por favor, carregue um arquivo de imagem válido",
-      "categoryRequired": "A categoria é obrigatória"
+      "categoryRequired": "A categoria é obrigatória",
+      "contactInfoRequired": "As informações de contato são obrigatórias"
     },
     "welcomeMessage": "Convidamos ferramentas de adivinhação de todo o mundo a submeterem-se à nossa plataforma. Você pode realizar a submissão em sua língua nativa, e coletaremos dados de interação do usuário para avaliar objetivamente a eficácia e a precisão dos métodos de adivinhação de diferentes países. Com base nesses dados, determinaremos qual técnica de adivinhação realmente prevalece!"
   },

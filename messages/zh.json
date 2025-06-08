@@ -69,11 +69,16 @@
       "submit": {
         "label": "提交 AI 占卜工具",
         "loading": "正在提交..."
+      },
+      "contactInfo": {
+        "label": "联系方式",
+        "placeholder": "输入您的联系信息（电子邮件、社交媒体等）",
+        "description": "如果我们需要您提交的更多信息，我们将如何联系您？"
       }
     },
     "toast": {
       "success": {
-        "description": "AI 占卜工具提交成功"
+        "description": "我们已收到您的提交。请等待我们的电子邮件回复。审核后，我们将通知您审批状态，并在需要时请求任何额外信息。"
       },
       "error": {
         "description": "提交 AI 占卜工具失败",
@@ -85,7 +90,8 @@
       "descriptionRequired": "描述为必填项",
       "urlValid": "请输入有效网址",
       "imageValid": "请上传有效图片文件",
-      "categoryRequired": "类别为必填项"
+      "categoryRequired": "类别为必填项",
+      "contactInfoRequired": "联系信息是必需的"
     },
     "welcomeMessage": "我们欢迎来自世界各地的占卜工具提交至我们的平台。您可以以您的母语提交，我们将收集用户互动数据，以客观评估来自不同国家的占卜方法的有效性和准确性。基于这些数据，我们将揭示哪种占卜技术真正卓越！"
   },

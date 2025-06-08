@@ -76,11 +76,16 @@
       "submit": {
         "label": "Invia Strumento di Divinazione AI",
         "loading": "Invio in corso..."
+      },
+      "contactInfo": {
+        "label": "Informazioni di Contatto",
+        "placeholder": "Inserisci le tue informazioni di contatto (email, social media, ecc.)",
+        "description": "Come possiamo contattarti se abbiamo bisogno di maggiori informazioni sulla tua sottomissione?"
       }
     },
     "toast": {
       "success": {
-        "description": "Strumento di divinazione AI inviato con successo"
+        "description": "Abbiamo ricevuto la sua sottomissione. La preghiamo di attendere la nostra risposta via email. Dopo la revisione, la informeremo sullo stato di approvazione e richiederemo qualsiasi informazione aggiuntiva, se necessaria."
       },
       "error": {
         "description": "Invio dello strumento di divinazione AI fallito",
@@ -92,7 +97,8 @@
       "descriptionRequired": "La descrizione è obbligatoria",
       "urlValid": "Inserisci un URL valido",
       "imageValid": "Carica un file immagine valido",
-      "categoryRequired": "La categoria è obbligatoria"
+      "categoryRequired": "La categoria è obbligatoria",
+      "contactInfoRequired": "Le informazioni di contatto sono richieste"
     },
     "welcomeMessage": "Diamo il benvenuto agli strumenti di divinazione di tutto il mondo per la sottomissione alla nostra piattaforma. Potete inviare contenuti nella vostra lingua madre e raccoglieremo dati di interazione utente per valutare obiettivamente l'efficacia e l'accuratezza dei metodi di divinazione provenienti da diversi paesi. Basandoci su questi dati, stabiliremo quale tecnica di divinazione regna davvero sovrana!"
   },

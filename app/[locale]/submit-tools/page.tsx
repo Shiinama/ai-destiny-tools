@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
-import { getCategories } from '@/actions/ai-navigation/categories'
+import { getCategories } from '@/actions/divination-tools'
 import SubmitSiteForm from '@/components/navigatiton-sites/submit-site-form'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function SubmitSitePage() {
-  const { data: categories } = await getCategories()
+  const categories = await getCategories()
   const t = await getTranslations('submitTools')
 
   return (

@@ -4,21 +4,23 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
-import { getCategories } from '@/actions/ai-navigation/categories'
-import { getSites } from '@/actions/ai-navigation/sites'
+import { getCategories, getPaginatedTools } from '@/actions/divination-tools'
+import { BlogPagination } from '@/components/blog/blog-pagination'
 import SiteCard from '@/components/navigatiton-sites/site-card'
 
 interface CategoryPageProps {
   params: Promise<{
     categoryId: string
   }>
+  searchParams: Promise<{ page?: string }>
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { categoryId } = await params
+
   const t = await getTranslations('divinationCategories')
 
-  const { data: categories } = await getCategories()
+  const categories = await getCategories()
   const category = categories?.find((cat) => cat.key === categoryId)
 
   if (!category) {
@@ -34,18 +36,25 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 }
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
   const { categoryId } = await params
+  const { page } = await searchParams
   const t = await getTranslations('divinationCategories')
 
-  const { data: categories } = await getCategories()
+  const currentPage = page ? parseInt(page) : 1
+  const pageSize = 18
+  const categories = await getCategories()
   const category = categories?.find((cat) => cat.key === categoryId)
 
   if (!category) {
     return notFound()
   }
-
-  const { data: sites } = await getSites(category.id)
+  const { pagination, tools } = await getPaginatedTools({
+    page: currentPage,
+    pageSize,
+    status: 'approved',
+    categoryId: category.id
+  })
 
   return (
     <div className="container py-8">
@@ -54,9 +63,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <p className="text-muted-foreground mx-auto max-w-3xl text-lg">{t(`${category.key}.description` as any)}</p>
       </header>
 
-      {sites.length > 0 ? (
+      {tools.length > 0 ? (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {sites.map((site) => (
+          {tools.map((site) => (
             <SiteCard key={site.id} site={site} />
           ))}
         </div>
@@ -65,6 +74,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <p>No tools available in this category yet.</p>
         </div>
       )}
+      <div className="mt-6">
+        <BlogPagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+      </div>
     </div>
   )
 }

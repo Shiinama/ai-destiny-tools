@@ -134,6 +134,11 @@
         "placeholder": "Select a category",
         "description": "The divination category this AI tool belongs to (e.g., Tarot, Astrology, Numerology)"
       },
+      "contactInfo": {
+        "label": "Contact Information",
+        "placeholder": "Enter your contact information (email, social media, etc.)",
+        "description": "How can we reach you if we need more information about your submission?"
+      },
       "submit": {
         "label": "Submit AI Divination Tool",
         "loading": "Submitting..."
@@ -141,7 +146,7 @@
     },
     "toast": {
       "success": {
-        "description": "AI divination tool submitted successfully"
+        "description": "We've received your submission. Please wait for our email response. After review, we'll notify you of approval status and request any additional information if needed."
       },
       "error": {
         "description": "Failed to submit AI divination tool",
@@ -152,6 +157,7 @@
       "nameRequired": "Name is required",
       "descriptionRequired": "Description is required",
       "urlValid": "Please enter a valid URL",
+      "contactInfoRequired": "Contact information is required",
       "imageValid": "Please upload a valid image file",
       "categoryRequired": "Category is required"
     }

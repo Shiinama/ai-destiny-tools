@@ -14,7 +14,8 @@ export type DivinationToolInput = {
   categoryId: string
   content?: string
   platform?: ToolPlatform[]
-  isFree: boolean
+  isFree?: boolean
+  status: ToolStatus
   price?: string
   contactInfo?: string
   logoUrl?: string
@@ -29,12 +30,14 @@ export async function getPaginatedTools({
   page = 1,
   pageSize = 10,
   status,
-  search
+  search,
+  categoryId
 }: {
   page?: number
   pageSize?: number
   status?: ToolStatus
   search?: string
+  categoryId?: string
 }) {
   const offset = (page - 1) * pageSize
   const db = createDb()
@@ -47,6 +50,10 @@ export async function getPaginatedTools({
 
   if (search) {
     conditions.push(like(divinationTools.name, `%${search}%`))
+  }
+
+  if (categoryId) {
+    conditions.push(eq(divinationTools.categoryId, categoryId))
   }
 
   const query = db
@@ -139,8 +146,6 @@ export async function updateTool(id: string, data: DivinationToolUpdateInput) {
     if (tool.length === 0 || tool[0].userId !== session.user.id) {
       throw new Error('Unauthorized')
     }
-
-    delete data.status
   }
 
   const result = await db.update(divinationTools).set(data).where(eq(divinationTools.id, id)).returning().execute()

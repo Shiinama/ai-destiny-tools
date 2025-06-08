@@ -76,11 +76,16 @@
       "submit": {
         "label": "KI-Wahrsagewerkzeug einreichen",
         "loading": "Wird eingereicht..."
+      },
+      "contactInfo": {
+        "label": "Kontaktinformationen",
+        "placeholder": "Geben Sie Ihre Kontaktinformationen ein (E-Mail, soziale Medien usw.)",
+        "description": "Wie können wir Sie erreichen, wenn wir weitere Informationen zu Ihrer Einreichung benötigen?"
       }
     },
     "toast": {
       "success": {
-        "description": "KI-Wahrsagewerkzeug erfolgreich eingereicht"
+        "description": "Wir haben Ihre Einreichung erhalten. Bitte warten Sie auf unsere E-Mail-Antwort. Nach der Überprüfung werden wir Sie über den Genehmigungsstatus informieren und bei Bedarf zusätzliche Informationen anfordern."
       },
       "error": {
         "description": "Fehler beim Einreichen des KI-Wahrsagewerkzeugs",
@@ -92,7 +97,8 @@
       "descriptionRequired": "Beschreibung ist erforderlich",
       "urlValid": "Bitte geben Sie eine gültige URL ein",
       "imageValid": "Bitte laden Sie eine gültige Bilddatei hoch",
-      "categoryRequired": "Kategorie ist erforderlich"
+      "categoryRequired": "Kategorie ist erforderlich",
+      "contactInfoRequired": "Kontaktinformationen sind erforderlich"
     },
     "welcomeMessage": "Wir begrüßen Wahrsage-Tools aus aller Welt zur Einreichung auf unserer Plattform. Sie können Inhalte in Ihrer Muttersprache einreichen, und wir werden Benutzerinteraktionsdaten sammeln, um die Effektivität und Genauigkeit von Wahrsagemethoden aus verschiedenen Ländern objektiv zu bewerten. Basierend auf diesen Daten werden wir ermitteln, welche Wahrsagetechnik tatsächlich überlegen ist!"
   },

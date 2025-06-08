@@ -1,16 +1,25 @@
 import { getTranslations } from 'next-intl/server'
 
-import { getCategories } from '@/actions/ai-navigation/categories'
-import { getSites } from '@/actions/ai-navigation/sites'
+import { getCategories, getPaginatedTools } from '@/actions/divination-tools'
+import { BlogPagination } from '@/components/blog/blog-pagination'
 import { CategoryLinks } from '@/components/categories/category-links'
 import SiteCard from '@/components/navigatiton-sites/site-card'
 
-export default async function Home() {
-  const { data: categories } = await getCategories()
+export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const { page } = await searchParams
+
+  const categories = await getCategories()
+
+  const currentPage = page ? parseInt(page) : 1
+  const pageSize = 18
 
   const t = await getTranslations('HomePage')
 
-  const { data: sites = [] } = await getSites()
+  const sites = await getPaginatedTools({
+    page: currentPage,
+    pageSize,
+    status: 'approved'
+  })
 
   return (
     <div className="text-foreground container min-h-screen rounded-lg py-8">
@@ -23,11 +32,14 @@ export default async function Home() {
       <div className="grid grid-cols-1 gap-8">
         <section className="space-y-4">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {sites.map((site) => (
+            {sites.tools.map((site) => (
               <SiteCard key={site.id} site={site} />
             ))}
           </div>
         </section>
+        <div className="mt-6">
+          <BlogPagination currentPage={sites.pagination.currentPage} totalPages={sites.pagination.totalPages} />
+        </div>
       </div>
     </div>
   )

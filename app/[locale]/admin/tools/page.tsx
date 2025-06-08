@@ -3,12 +3,13 @@ import { BlogPagination } from '@/components/blog/blog-pagination'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
+import { ToolStatus } from '@/lib/db/schema'
 import { formatDate } from '@/lib/utils'
 
 export default async function ToolsAdminPage({
   searchParams
 }: {
-  searchParams: Promise<{ page?: string; status?: string }>
+  searchParams: Promise<{ page?: string; status?: ToolStatus }>
 }) {
   const { page, status } = await searchParams
   const currentPage = page ? parseInt(page) : 1
@@ -17,7 +18,7 @@ export default async function ToolsAdminPage({
   const { tools, pagination } = await getPaginatedTools({
     page: currentPage,
     pageSize,
-    status: status as any
+    status: status
   })
 
   // Helper function to get status badge variant

@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useState, FormEvent } from 'react'
 import { toast } from 'sonner'
 
-import { createSite } from '@/actions/ai-navigation/sites'
+import { createTool } from '@/actions/divination-tools'
 import { SiteImageUploader } from '@/components/navigatiton-sites/site-image-uploader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -32,6 +32,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     description: '',
     url: '',
     imageUrl: '',
+    contactInfo: '',
     categoryId: ''
   })
 
@@ -82,6 +83,11 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
       newErrors.categoryId = t('validation.categoryRequired')
     }
 
+    // Validate contact info
+    if (!formValues.contactInfo.trim()) {
+      newErrors.contactInfo = t('validation.contactInfoRequired')
+    }
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -96,17 +102,18 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
 
     setIsSubmitting(true)
 
-    const formData = new FormData()
-    formData.append('name', formValues.name)
-    formData.append('description', formValues.description)
-    formData.append('url', formValues.url)
-    formData.append('imageUrl', formValues.imageUrl || '')
-    formData.append('categoryId', formValues.categoryId)
-
     try {
-      const result = await createSite(formData)
+      const result = await createTool({
+        name: formValues.name,
+        description: formValues.description,
+        url: formValues.url,
+        imageUrl: formValues.imageUrl || '',
+        categoryId: formValues.categoryId,
+        contactInfo: formValues.contactInfo,
+        status: 'pending'
+      })
 
-      if (result.success) {
+      if (result) {
         toast(t('toast.success.description'))
         router.push(`/`)
       } else {
@@ -168,6 +175,18 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
           />
           <p className="text-muted-foreground text-[0.8rem]">{t('form.imageUrl.description')}</p>
           {errors.imageUrl && <p className="text-destructive text-[0.8rem] font-medium">{errors.imageUrl}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-sm font-medium">{t('form.contactInfo.label')}</p>
+          <Input
+            id="contactInfo"
+            placeholder={t('form.contactInfo.placeholder')}
+            value={formValues.contactInfo}
+            onChange={(e) => handleInputChange('contactInfo', e.target.value)}
+          />
+          <p className="text-muted-foreground text-[0.8rem]">{t('form.contactInfo.description')}</p>
+          {errors.contactInfo && <p className="text-destructive text-[0.8rem] font-medium">{errors.contactInfo}</p>}
         </div>
 
         <div className="space-y-2">

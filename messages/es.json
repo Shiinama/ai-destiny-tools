@@ -76,11 +76,16 @@
       "submit": {
         "label": "Enviar Herramienta de Adivinación con IA",
         "loading": "Enviando..."
+      },
+      "contactInfo": {
+        "label": "Información de Contacto",
+        "placeholder": "Introduzca su información de contacto (correo electrónico, redes sociales, etc.)",
+        "description": "¿Cómo podemos contactarle si necesitamos más información sobre su envío?"
       }
     },
     "toast": {
       "success": {
-        "description": "Herramienta de adivinación con IA enviada correctamente"
+        "description": "Hemos recibido su envío. Por favor, espere nuestra respuesta por correo electrónico. Después de la revisión, le notificaremos el estado de aprobación y solicitaremos cualquier información adicional si es necesario."
       },
       "error": {
         "description": "Error al enviar la herramienta de adivinación con IA",
@@ -92,7 +97,8 @@
       "descriptionRequired": "La descripción es obligatoria",
       "urlValid": "Por favor, introduzca una URL válida",
       "imageValid": "Por favor, suba un archivo de imagen válido",
-      "categoryRequired": "La categoría es obligatoria"
+      "categoryRequired": "La categoría es obligatoria",
+      "contactInfoRequired": "La información de contacto es obligatoria"
     },
     "welcomeMessage": "Damos la bienvenida a las herramientas de adivinación de todo el mundo para que las presenten en nuestra plataforma. Pueden enviar su contenido en su idioma nativo, y recopilaremos datos de interacción de los usuarios para evaluar objetivamente la efectividad y precisión de los métodos de adivinación de diferentes países. Con base en estos datos, ¡determinaremos qué técnica de adivinación prevalece verdaderamente!"
   },

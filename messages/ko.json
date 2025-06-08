@@ -76,11 +76,16 @@
       "submit": {
         "label": "AI 점술 도구 제출",
         "loading": "제출 중..."
+      },
+      "contactInfo": {
+        "label": "연락처 정보",
+        "placeholder": "연락처 정보(이메일, 소셜 미디어 등)를 입력하세요",
+        "description": "제출하신 내용에 대해 더 많은 정보가 필요한 경우 어떻게 연락드릴 수 있을까요?"
       }
     },
     "toast": {
       "success": {
-        "description": "AI 점술 도구가 성공적으로 제출되었습니다"
+        "description": "귀하의 제출물을 받았습니다. 이메일 답변을 기다려 주십시오. 검토 후 승인 상태를 알려드리며, 필요한 경우 추가 정보를 요청할 것입니다."
       },
       "error": {
         "description": "AI 점술 도구 제출 실패",
@@ -92,7 +97,8 @@
       "descriptionRequired": "설명은 필수입니다",
       "urlValid": "유효한 URL을 입력해주세요",
       "imageValid": "유효한 이미지 파일을 업로드해주세요",
-      "categoryRequired": "카테고리는 필수입니다"
+      "categoryRequired": "카테고리는 필수입니다",
+      "contactInfoRequired": "연락처 정보는 필수입니다"
     },
     "welcomeMessage": "전 세계의 점술 도구들을 당사 플랫폼에 제출하실 것을 환영합니다. 모국어로 제출하실 수 있으며, 다양한 국가의 점술 방식의 효과와 정확성을 객관적으로 평가하기 위해 사용자 상호작용 데이터를 수집할 것입니다. 이 데이터를 기반으로, 어떤 점술 기술이 진정으로 우수한지 확인하게 될 것입니다!"
   },

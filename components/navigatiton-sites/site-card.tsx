@@ -10,9 +10,6 @@ interface SiteCardProps {
     description: string
     url: string
     imageUrl: string | null
-    categoryId: string
-    categoryName: string | null
-    createdAt: Date
   }
 }
 
@@ -28,7 +25,7 @@ export default function SiteCard({ site }: SiteCardProps) {
       </CardHeader>
       <CardFooter>
         <Link
-          href={site.url}
+          href={`/divination-tools/${site.id}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
