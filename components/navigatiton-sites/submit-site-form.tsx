@@ -67,7 +67,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     }
 
     // Validate URL
-    const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/
+    const urlPattern = /^https?:\/\/.+/i
     if (!urlPattern.test(formValues.url)) {
       newErrors.url = t('validation.urlValid')
     }

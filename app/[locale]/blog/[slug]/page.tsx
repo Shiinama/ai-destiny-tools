@@ -42,7 +42,7 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   }
 
   return (
-    <article className="prose prose-slate prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
+    <article className="prose prose-violet prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
       <div className="mb-8 text-sm">{t('publishedAt', { date: formatDate(article.publishedAt) })}</div>
       <BlogBody content={article.content} />
     </article>

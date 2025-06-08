@@ -36,6 +36,13 @@
       "when": 1749381603459,
       "tag": "0004_add_new_categories",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1749389417048,
+      "tag": "0005_green_moira_mactaggert",
+      "breakpoints": true
     }
   ]
 }

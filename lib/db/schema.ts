@@ -111,6 +111,9 @@ export const divinationCategories = sqliteTable('divination_categories', {
     .notNull()
 })
 
+export type ToolStatus = 'pending' | 'approved' | 'rejected'
+export type ToolPlatform = 'web' | 'ios' | 'android' | 'windows' | 'macos' | 'linux'
+
 export const divinationTools = sqliteTable('divination_tools', {
   id: text('id')
     .primaryKey()
@@ -118,6 +121,8 @@ export const divinationTools = sqliteTable('divination_tools', {
   userId: text('userId')
     .notNull()
     .references(() => users.id),
+  contactInfo: text('contact_info'),
+  status: text('status').$type<ToolStatus>().default('pending').notNull(),
   name: text('name').notNull(),
   description: text('description').notNull(),
   url: text('url').notNull(),
@@ -127,5 +132,12 @@ export const divinationTools = sqliteTable('divination_tools', {
     .references(() => divinationCategories.id, { onDelete: 'cascade' }),
   createdAt: integer('created_at', { mode: 'timestamp_ms' })
     .default(sql`CURRENT_TIMESTAMP`)
-    .notNull()
+    .notNull(),
+  content: text('content'),
+  platform: text('platform').$type<ToolPlatform[]>(),
+  isFree: integer('is_free', { mode: 'boolean' }).default(true),
+  price: text('price'),
+  logoUrl: text('logo_url'),
+  coverImageUrl: text('cover_image_url'),
+  screenshotUrls: text('screenshot_urls').$type<string[]>()
 })

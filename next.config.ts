@@ -6,6 +6,9 @@ initOpenNextCloudflareForDev()
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  images: {
+    remotePatterns: [new URL('https://static.destinyai.tools/**')]
+  },
   experimental: {
     staleTimes: {
       dynamic: 3600,
