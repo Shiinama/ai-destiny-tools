@@ -1,4 +1,5 @@
 import BlogBody from '@/components/blog/blog-body'
+import { Card, CardContent } from '@/components/ui/card'
 
 interface AboutSectionProps {
   content: string | null
@@ -10,8 +11,10 @@ export default function AboutSection({ content }: AboutSectionProps) {
   }
 
   return (
-    <div className="prose prose-violet prose-invert">
-      <BlogBody content={content} />
-    </div>
+    <Card className="prose prose-violet prose-invert">
+      <CardContent>
+        <BlogBody content={content} />
+      </CardContent>
+    </Card>
   )
 }

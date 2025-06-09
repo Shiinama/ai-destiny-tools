@@ -21,13 +21,13 @@ export default function SiteCard({ site }: SiteCardProps) {
       <img src={site.imageUrl!} alt={site.name} className="rounded-md" />
       <CardHeader>
         <h3 className="text-lg font-medium">{site.name}</h3>
-        <CardDescription>{site.description}</CardDescription>
+        <CardDescription className="line-clamp-4">{site.description}</CardDescription>
       </CardHeader>
       <CardFooter>
         <Link
           href={`/divination-tools/${site.id}`}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow"
           className="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
         >
           {t('visitSite')}
