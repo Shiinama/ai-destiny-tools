@@ -11,7 +11,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
   }
 
   return (
-    <Card className="prose prose-violet prose-invert">
+    <Card className="prose prose-violet prose-invert max-w-none">
       <CardContent>
         <BlogBody content={content} />
       </CardContent>
