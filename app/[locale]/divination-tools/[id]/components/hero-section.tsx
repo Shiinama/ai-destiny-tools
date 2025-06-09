@@ -25,8 +25,10 @@ export default function HeroSection({ tool }: HeroSectionProps) {
 
   return (
     <div className="relative mb-8 w-full">
-      <div className="from-primary/10 to-secondary/10 relative w-full overflow-hidden rounded-xl bg-gradient-to-r pb-[56.25%]">
-        {tool.imageUrl && <Image src={tool.imageUrl} alt={tool.name} fill className="object-cover opacity-90" />}
+      <div className="from-primary/10 to-secondary/10 relative w-full overflow-hidden rounded-xl bg-gradient-to-r pb-[25%]">
+        {tool.imageUrl && (
+          <Image src={tool.imageUrl} alt={tool.name} fill className="object-cover opacity-90" sizes="100vw" priority />
+        )}
         <div className="from-background/90 absolute inset-0 bg-gradient-to-t to-transparent">
           <div className="absolute bottom-0 flex w-full items-center gap-6 p-6">
             <div className="bg-card relative h-24 w-24 overflow-hidden rounded-xl border shadow-lg">
