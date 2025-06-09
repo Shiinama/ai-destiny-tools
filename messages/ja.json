@@ -46,7 +46,14 @@
       "success": "画像を正常にアップロードしました",
       "error": "画像のアップロードに失敗しました",
       "invalidType": "有効な画像ファイルを選択してください",
-      "tooLarge": "画像は5MB未満でなければなりません"
+      "tooLarge": "画像は5MB未満でなければなりません",
+      "title": "画像をアップロード",
+      "dragOrClick": "ここに画像をドラッグ＆ドロップ、またはクリックして選択",
+      "pasteSupported": "クリップボードから画像を貼り付けることもできます (Ctrl+V)",
+      "dropHere": "ここに画像をドロップ",
+      "cancel": "キャンセル",
+      "remove": "画像を削除",
+      "aspectRatio": "推奨アスペクト比: {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "オールインワンAI占術プラットフォーム - 複数の運勢判断方法",
       "seoDescription": "複数のAI占術方法に1箇所でアクセス。タロット、占星術、数秘術などを提供する総合プラットフォームで、完全な精神的ガイダンスと運勢判断を実現します。"
     }
+  },
+  "divinationTools": {
+    "accessTool": "ツールにアクセス",
+    "visit": "訪問",
+    "availableOn": "利用可能",
+    "free": "無料",
+    "visitWebsite": "ウェブサイトを訪問",
+    "pricing": "料金",
+    "paid": "有料",
+    "oneTimePayment": "一度払い",
+    "noPaymentRequired": "支払い不要",
+    "premiumFeatures": "プレミアム機能",
+    "basicFunctionality": "基本機能",
+    "screenshots": "スクリーンショット",
+    "screenshot": "スクリーンショット",
+    "previousImage": "前の画像",
+    "nextImage": "次の画像",
+    "goToImage": "画像へ移動"
   }
 }

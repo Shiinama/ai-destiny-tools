@@ -39,7 +39,14 @@
       "success": "图片上传成功",
       "error": "图片上传失败",
       "invalidType": "请选择有效图片文件",
-      "tooLarge": "图片必须小于 5MB"
+      "tooLarge": "图片必须小于 5MB",
+      "title": "上传图片",
+      "dragOrClick": "将图片拖放到此处，或点击选择",
+      "pasteSupported": "您也可以从剪贴板粘贴图片 (Ctrl+V)",
+      "dropHere": "在此处放置图片",
+      "cancel": "取消",
+      "remove": "删除图片",
+      "aspectRatio": "推荐宽高比: {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "一体化AI占卜平台 - 多种算命方法",
       "seoDescription": "在一个地方访问多种AI占卜方法。综合平台提供塔罗牌、占星术、数字命理学等，提供全面的精神指导和算命服务。"
     }
+  },
+  "divinationTools": {
+    "accessTool": "访问工具",
+    "visit": "访问",
+    "availableOn": "可用平台",
+    "free": "免费",
+    "visitWebsite": "访问网站",
+    "pricing": "价格",
+    "paid": "付费",
+    "oneTimePayment": "一次性付款",
+    "noPaymentRequired": "无需付款",
+    "premiumFeatures": "高级功能",
+    "basicFunctionality": "基本功能",
+    "screenshots": "屏幕截图",
+    "screenshot": "屏幕截图",
+    "previousImage": "上一张图片",
+    "nextImage": "下一张图片",
+    "goToImage": "转到图片"
   }
 }

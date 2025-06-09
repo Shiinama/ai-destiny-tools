@@ -1,6 +1,7 @@
 'use client'
 
 import { ExternalLink } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -15,22 +16,24 @@ interface AccessToolCardProps {
 }
 
 export default function AccessToolCard({ tool }: AccessToolCardProps) {
+  const t = useTranslations('divinationTools')
+
   return (
     <Card>
       <CardHeader className="pb-3">
-        <CardTitle className="text-base font-medium">Access Tool</CardTitle>
+        <CardTitle className="text-base font-medium">{t('accessTool')}</CardTitle>
       </CardHeader>
       <CardContent>
         <Button asChild className="w-full gap-2">
-          <Link href={tool.url} target="_blank" rel="noopener noreferrer">
+          <Link href={tool.url} target="_blank" rel="nofollow">
             <ExternalLink size={16} />
-            Visit {tool.name}
+            {t('visit')} {tool.name}
           </Link>
         </Button>
 
         {tool.platform && tool.platform.length > 0 && (
           <div className="mt-4">
-            <p className="text-muted-foreground mb-2 text-sm">Available on:</p>
+            <p className="text-muted-foreground mb-2 text-sm">{t('availableOn')}:</p>
             <div className="flex flex-wrap gap-2">
               {tool.platform.split(',').map((platform) => (
                 <div

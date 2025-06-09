@@ -46,7 +46,14 @@
       "success": "Immagine caricata con successo",
       "error": "Caricamento immagine fallito",
       "invalidType": "Seleziona un file immagine valido",
-      "tooLarge": "L'immagine deve essere inferiore a 5MB"
+      "tooLarge": "L'immagine deve essere inferiore a 5MB",
+      "title": "Carica immagine",
+      "dragOrClick": "Trascina e rilascia un'immagine qui, o clicca per selezionare",
+      "pasteSupported": "Puoi anche incollare un'immagine dagli appunti (Ctrl+V)",
+      "dropHere": "Trascina l'immagine qui",
+      "cancel": "Annulla",
+      "remove": "Rimuovi immagine",
+      "aspectRatio": "Rapporto di aspetto consigliato: {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "Piattaforme di Divinazione AI All-in-One - Metodi Multipli di Predizione del Futuro",
       "seoDescription": "Accedi a molteplici metodi di divinazione AI in un unico luogo. Piattaforme complete che offrono tarocchi, astrologia, numerologia e altro per una guida spirituale e una predizione del futuro complete."
     }
+  },
+  "divinationTools": {
+    "accessTool": "Accedi allo strumento",
+    "visit": "Visita",
+    "availableOn": "Disponibile su",
+    "free": "Gratuito",
+    "visitWebsite": "Visita il sito web",
+    "pricing": "Prezzi",
+    "paid": "A pagamento",
+    "oneTimePayment": "pagamento una tantum",
+    "noPaymentRequired": "Nessun pagamento richiesto",
+    "premiumFeatures": "Funzionalità premium",
+    "basicFunctionality": "Funzionalità di base",
+    "screenshots": "Screenshot",
+    "screenshot": "screenshot",
+    "previousImage": "Immagine precedente",
+    "nextImage": "Immagine successiva",
+    "goToImage": "Vai all'immagine"
   }
 }

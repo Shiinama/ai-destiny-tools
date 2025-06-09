@@ -46,7 +46,14 @@
       "success": "Image téléchargée avec succès",
       "error": "Échec du téléchargement de l'image",
       "invalidType": "Veuillez sélectionner un fichier image valide",
-      "tooLarge": "L'image doit faire moins de 5 Mo"
+      "tooLarge": "L'image doit faire moins de 5 Mo",
+      "title": "Télécharger une image",
+      "dragOrClick": "Faites glisser et déposez une image ici, ou cliquez pour sélectionner",
+      "pasteSupported": "Vous pouvez également coller une image depuis le presse-papiers (Ctrl+V)",
+      "dropHere": "Déposez l'image ici",
+      "cancel": "Annuler",
+      "remove": "Supprimer l'image",
+      "aspectRatio": "Ratio d'aspect recommandé : {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "Plateformes de divination IA tout-en-un - Méthodes multiples de voyance",
       "seoDescription": "Accédez à plusieurs méthodes de divination IA en un seul endroit. Des plateformes complètes offrant le tarot, l'astrologie, la numérologie et bien plus pour une guidance spirituelle et une voyance complètes."
     }
+  },
+  "divinationTools": {
+    "accessTool": "Accéder à l'outil",
+    "visit": "Visiter",
+    "availableOn": "Disponible sur",
+    "free": "Gratuit",
+    "visitWebsite": "Visiter le site web",
+    "pricing": "Tarification",
+    "paid": "Payant",
+    "oneTimePayment": "paiement unique",
+    "noPaymentRequired": "Aucun paiement requis",
+    "premiumFeatures": "Fonctionnalités premium",
+    "basicFunctionality": "Fonctionnalité de base",
+    "screenshots": "Captures d'écran",
+    "screenshot": "capture d'écran",
+    "previousImage": "Image précédente",
+    "nextImage": "Image suivante",
+    "goToImage": "Aller à l'image"
   }
 }

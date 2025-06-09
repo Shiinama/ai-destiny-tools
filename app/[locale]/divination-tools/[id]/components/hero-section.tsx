@@ -2,6 +2,7 @@
 
 import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -20,6 +21,8 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ tool }: HeroSectionProps) {
+  const t = useTranslations('divinationTools')
+
   return (
     <div className="from-primary/10 to-secondary/10 relative mb-8 h-72 w-full overflow-hidden rounded-xl bg-gradient-to-r">
       {tool.imageUrl && <Image src={tool.imageUrl} alt={tool.name} fill className="object-cover opacity-90" />}
@@ -33,12 +36,12 @@ export default function HeroSection({ tool }: HeroSectionProps) {
             <p className="text-muted-foreground mt-1 max-w-2xl">{tool.description}</p>
             <div className="mt-3 flex items-center gap-3">
               <Badge variant={tool.isFree ? 'secondary' : 'default'} className="text-sm">
-                {tool.isFree ? 'Free' : tool.price}
+                {tool.isFree ? t('free') : tool.price}
               </Badge>
               <Button size="sm" variant="outline" asChild className="gap-2">
-                <Link href={tool.url} target="_blank" rel="noopener noreferrer">
+                <Link href={tool.url} target="_blank" rel="nofollow">
                   <ExternalLink size={16} />
-                  Visit Website
+                  {t('visitWebsite')}
                 </Link>
               </Button>
             </div>

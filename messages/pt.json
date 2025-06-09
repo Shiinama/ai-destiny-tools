@@ -46,7 +46,14 @@
       "success": "Imagem carregada com sucesso",
       "error": "Falha ao carregar imagem",
       "invalidType": "Por favor, selecione um arquivo de imagem válido",
-      "tooLarge": "A imagem deve ter menos de 5MB"
+      "tooLarge": "A imagem deve ter menos de 5MB",
+      "title": "Carregar Imagem",
+      "dragOrClick": "Arraste e solte uma imagem aqui, ou clique para selecionar",
+      "pasteSupported": "Você também pode colar uma imagem da área de transferência (Ctrl+V)",
+      "dropHere": "Solte a imagem aqui",
+      "cancel": "Cancelar",
+      "remove": "Remover imagem",
+      "aspectRatio": "Proporção recomendada: {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "Plataformas de Adivinhação por IA Tudo-em-Um - Múltiplos Métodos de Leitura da Sorte",
       "seoDescription": "Aceda a múltiplos métodos de adivinhação por IA num só lugar. Plataformas abrangentes que oferecem tarot, astrologia, numerologia e muito mais para orientação espiritual completa e leitura da sorte."
     }
+  },
+  "divinationTools": {
+    "accessTool": "Acessar Ferramenta",
+    "visit": "Visitar",
+    "availableOn": "Disponível em",
+    "free": "Grátis",
+    "visitWebsite": "Visitar Site",
+    "pricing": "Preços",
+    "paid": "Pago",
+    "oneTimePayment": "pagamento único",
+    "noPaymentRequired": "Não é necessário pagamento",
+    "premiumFeatures": "Recursos Premium",
+    "basicFunctionality": "Funcionalidade Básica",
+    "screenshots": "Capturas de tela",
+    "screenshot": "captura de tela",
+    "previousImage": "Imagem anterior",
+    "nextImage": "Próxima imagem",
+    "goToImage": "Ir para a imagem"
   }
 }

@@ -90,6 +90,24 @@
     "paragraph5": "At the same time, it is very interesting to bring together all the divination schools from all over the world for comparative competition! After all, every divination method has its own self-consistent theory. Put them all into practice and we can see which methods are really effective and which are just empty talk. Artificial intelligence does not favor any particular school of thought—it only cares about results and accuracy.",
     "paragraph6": "Finally, we welcome you to join us at Destiny AI!"
   },
+  "divinationTools": {
+    "accessTool": "Access Tool",
+    "visit": "Visit",
+    "availableOn": "Available on",
+    "free": "Free",
+    "visitWebsite": "Visit Website",
+    "pricing": "Pricing",
+    "paid": "Paid",
+    "oneTimePayment": "one-time payment",
+    "noPaymentRequired": "No payment required",
+    "premiumFeatures": "Premium features",
+    "basicFunctionality": "Basic functionality",
+    "screenshots": "Screenshots",
+    "screenshot": "screenshot",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "goToImage": "Go to image"
+  },
   "submitTools": {
     "title": "Submit AI Divination Tool",
     "welcomeMessage": "We welcome divination tools from around the world to submit your platform. You can submit in your native language, and we will collect user interaction data to objectively evaluate the effectiveness and accuracy of divination methods from different countries. Based on this data, we'll see which divination technique truly reigns supreme!",

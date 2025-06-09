@@ -46,7 +46,14 @@
       "success": "Imagen subida correctamente",
       "error": "Error al subir la imagen",
       "invalidType": "Por favor, seleccione un archivo de imagen válido",
-      "tooLarge": "La imagen debe ser inferior a 5MB"
+      "tooLarge": "La imagen debe ser inferior a 5MB",
+      "title": "Subir imagen",
+      "dragOrClick": "Arrastra y suelta una imagen aquí, o haz clic para seleccionar",
+      "pasteSupported": "También puedes pegar una imagen desde el portapapeles (Ctrl+V)",
+      "dropHere": "Suelta la imagen aquí",
+      "cancel": "Cancelar",
+      "remove": "Eliminar imagen",
+      "aspectRatio": "Relación de aspecto recomendada: {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "Plataformas de Adivinación con IA Todo en Uno - Múltiples Métodos de Fortuna",
       "seoDescription": "Acceda a múltiples métodos de adivinación con IA en un solo lugar. Plataformas integrales que ofrecen tarot, astrología, numerología y más para una guía espiritual y pronóstico completos."
     }
+  },
+  "divinationTools": {
+    "accessTool": "Acceder a la Herramienta",
+    "visit": "Visitar",
+    "availableOn": "Disponible en",
+    "free": "Gratis",
+    "visitWebsite": "Visitar Sitio Web",
+    "pricing": "Precios",
+    "paid": "De pago",
+    "oneTimePayment": "pago único",
+    "noPaymentRequired": "No requiere pago",
+    "premiumFeatures": "Características premium",
+    "basicFunctionality": "Funcionalidad básica",
+    "screenshots": "Capturas de pantalla",
+    "screenshot": "captura de pantalla",
+    "previousImage": "Imagen anterior",
+    "nextImage": "Imagen siguiente",
+    "goToImage": "Ir a la imagen"
   }
 }

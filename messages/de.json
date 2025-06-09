@@ -46,7 +46,14 @@
       "success": "Bild erfolgreich hochgeladen",
       "error": "Bild konnte nicht hochgeladen werden",
       "invalidType": "Bitte wählen Sie eine gültige Bilddatei",
-      "tooLarge": "Bild muss kleiner als 5MB sein"
+      "tooLarge": "Bild muss kleiner als 5MB sein",
+      "title": "Bild hochladen",
+      "dragOrClick": "Ziehen Sie ein Bild hierher oder klicken Sie zum Auswählen",
+      "pasteSupported": "Sie können auch ein Bild aus der Zwischenablage einfügen (Strg+V)",
+      "dropHere": "Bild hier ablegen",
+      "cancel": "Abbrechen",
+      "remove": "Bild entfernen",
+      "aspectRatio": "Empfohlenes Seitenverhältnis: {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "All-in-One KI-Divinationsplattformen - Mehrere Wahrsagemethoden",
       "seoDescription": "Greifen Sie an einem Ort auf mehrere KI-Divinationsmethoden zu. Umfassende Plattformen bieten Tarot, Astrologie, Numerologie und mehr für vollständige spirituelle Führung und Wahrsagerei."
     }
+  },
+  "divinationTools": {
+    "accessTool": "Tool aufrufen",
+    "visit": "Besuchen",
+    "availableOn": "Verfügbar auf",
+    "free": "Kostenlos",
+    "visitWebsite": "Website besuchen",
+    "pricing": "Preise",
+    "paid": "Kostenpflichtig",
+    "oneTimePayment": "Einmalzahlung",
+    "noPaymentRequired": "Keine Zahlung erforderlich",
+    "premiumFeatures": "Premium-Funktionen",
+    "basicFunctionality": "Basisfunktionen",
+    "screenshots": "Screenshots",
+    "screenshot": "Screenshot",
+    "previousImage": "Vorheriges Bild",
+    "nextImage": "Nächstes Bild",
+    "goToImage": "Zum Bild springen"
   }
 }

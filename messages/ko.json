@@ -46,7 +46,14 @@
       "success": "이미지 업로드 성공",
       "error": "이미지 업로드 실패",
       "invalidType": "유효한 이미지 파일을 선택해주세요",
-      "tooLarge": "이미지는 5MB 미만이어야 합니다"
+      "tooLarge": "이미지는 5MB 미만이어야 합니다",
+      "title": "이미지 업로드",
+      "dragOrClick": "여기에 이미지를 끌어다 놓거나 클릭하여 선택하십시오",
+      "pasteSupported": "클립보드에서 이미지를 붙여넣을 수도 있습니다 (Ctrl+V)",
+      "dropHere": "여기에 이미지 놓기",
+      "cancel": "취소",
+      "remove": "이미지 제거",
+      "aspectRatio": "권장 가로 세로 비율: {ratio}"
     },
     "form": {
       "name": {
@@ -360,5 +367,23 @@
       "seoTitle": "올인원 AI 점술 플랫폼 - 다양한 운세 예측 방법",
       "seoDescription": "한곳에서 다양한 AI 점술 방법을 이용하세요. 타로, 점성술, 수비학 등을 제공하는 종합 플랫폼으로, 완벽한 영적 가이드와 운세 예측을 지원합니다."
     }
+  },
+  "divinationTools": {
+    "accessTool": "도구 접속",
+    "visit": "방문",
+    "availableOn": "이용 가능",
+    "free": "무료",
+    "visitWebsite": "웹사이트 방문",
+    "pricing": "가격",
+    "paid": "유료",
+    "oneTimePayment": "일회성 결제",
+    "noPaymentRequired": "결제 필요 없음",
+    "premiumFeatures": "프리미엄 기능",
+    "basicFunctionality": "기본 기능",
+    "screenshots": "스크린샷",
+    "screenshot": "스크린샷",
+    "previousImage": "이전 이미지",
+    "nextImage": "다음 이미지",
+    "goToImage": "이미지로 이동"
   }
 }
