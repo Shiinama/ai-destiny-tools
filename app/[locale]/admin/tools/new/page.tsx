@@ -248,11 +248,11 @@ export default function NewToolPage() {
           <div>
             <Label htmlFor="imageUrl">封面图片</Label>
             <SiteImageUploader
-              aspectRatio="3:1"
+              aspectRatio="16:9"
               onUploadComplete={(imageUrl) => handleImageUpload(imageUrl, 'imageUrl')}
               currentImageUrl={formData.imageUrl}
             />
-            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：3:1，横向矩形</p>
+            <p className="text-muted-foreground mt-1 text-sm">推荐尺寸：16:9，横向矩形</p>
           </div>
           <div>
             <Label htmlFor="screenshots">

@@ -51,8 +51,8 @@ export default function ScreenshotsSection({ tool }: ScreenshotsSectionProps) {
             <>
               <Button
                 variant="outline"
-                size="icon"
-                className="bg-background/80 absolute top-1/2 left-0 -translate-y-1/2 rounded-full shadow-md"
+                size="sm"
+                className="bg-background/80 absolute top-1/2 left-2 h-8 w-8 -translate-y-1/2 rounded-full p-0 shadow-md"
                 onClick={handlePrevious}
                 aria-label={t('previousImage')}
               >
@@ -61,8 +61,8 @@ export default function ScreenshotsSection({ tool }: ScreenshotsSectionProps) {
 
               <Button
                 variant="outline"
-                size="icon"
-                className="bg-background/80 absolute top-1/2 right-0 -translate-y-1/2 rounded-full shadow-md"
+                size="sm"
+                className="bg-background/80 absolute top-1/2 right-2 h-8 w-8 -translate-y-1/2 rounded-full p-0 shadow-md"
                 onClick={handleNext}
                 aria-label={t('nextImage')}
               >
