@@ -42,7 +42,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const t = await getTranslations('divinationCategories')
 
   const currentPage = page ? parseInt(page) : 1
-  const pageSize = 18
+  const pageSize = 12
   const categories = await getCategories()
   const category = categories?.find((cat) => cat.key === categoryId)
 
@@ -64,7 +64,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
       </header>
 
       {tools.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] md:gap-4">
           {tools.map((site) => (
             <SiteCard key={site.id} site={site} />
           ))}

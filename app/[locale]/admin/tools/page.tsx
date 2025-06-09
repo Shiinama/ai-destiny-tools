@@ -1,5 +1,6 @@
-import { getPaginatedTools } from '@/actions/divination-tools'
+import { getPaginatedTools, getCategories } from '@/actions/divination-tools'
 import { BlogPagination } from '@/components/blog/blog-pagination'
+import CategoryFilter from '@/components/navigatiton-sites/category-filter'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
@@ -9,16 +10,20 @@ import { formatDate } from '@/lib/utils'
 export default async function ToolsAdminPage({
   searchParams
 }: {
-  searchParams: Promise<{ page?: string; status?: string }>
+  searchParams: Promise<{ page?: string; status?: string; categoryId?: string }>
 }) {
-  const { page, status } = await searchParams
+  const { page, status, categoryId } = await searchParams
   const currentPage = page ? parseInt(page) : 1
   const pageSize = 10
+
+  // Get all categories for the filter dropdown
+  const categories = await getCategories()
 
   const { tools, pagination } = await getPaginatedTools({
     page: currentPage,
     pageSize,
-    status: undefined
+    status: status as any,
+    categoryId: categoryId === 'all' ? undefined : categoryId
   })
 
   // Helper function to get status badge variant
@@ -47,6 +52,22 @@ export default async function ToolsAdminPage({
     }
   }
 
+  // Helper function to build URL with filters
+  const buildFilterUrl = (newStatus?: string) => {
+    const params = new URLSearchParams()
+
+    if (newStatus) {
+      params.set('status', newStatus)
+    }
+
+    if (categoryId) {
+      params.set('categoryId', categoryId)
+    }
+
+    const queryString = params.toString()
+    return `/admin/tools${queryString ? `?${queryString}` : ''}`
+  }
+
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
@@ -59,27 +80,30 @@ export default async function ToolsAdminPage({
       </div>
 
       {/* Filter controls */}
-      <div className="mb-6 flex flex-wrap gap-2">
-        <Link href="/admin/tools">
-          <Button variant={!status ? 'default' : 'outline'} size="sm">
-            全部
-          </Button>
-        </Link>
-        <Link href="/admin/tools?status=pending">
-          <Button variant={status === 'pending' ? 'default' : 'outline'} size="sm">
-            待审核
-          </Button>
-        </Link>
-        <Link href="/admin/tools?status=approved">
-          <Button variant={status === 'approved' ? 'default' : 'outline'} size="sm">
-            已批准
-          </Button>
-        </Link>
-        <Link href="/admin/tools?status=rejected">
-          <Button variant={status === 'rejected' ? 'default' : 'outline'} size="sm">
-            已拒绝
-          </Button>
-        </Link>
+      <div className="mb-6 space-y-4">
+        <div className="flex flex-wrap gap-2">
+          <Link href={buildFilterUrl(undefined)}>
+            <Button variant={!status ? 'default' : 'outline'} size="sm">
+              全部
+            </Button>
+          </Link>
+          <Link href={buildFilterUrl('pending')}>
+            <Button variant={status === 'pending' ? 'default' : 'outline'} size="sm">
+              待审核
+            </Button>
+          </Link>
+          <Link href={buildFilterUrl('approved')}>
+            <Button variant={status === 'approved' ? 'default' : 'outline'} size="sm">
+              已批准
+            </Button>
+          </Link>
+          <Link href={buildFilterUrl('rejected')}>
+            <Button variant={status === 'rejected' ? 'default' : 'outline'} size="sm">
+              已拒绝
+            </Button>
+          </Link>
+          <CategoryFilter categories={categories} currentCategoryId={categoryId} currentStatus={status} />
+        </div>
       </div>
 
       <div className="overflow-hidden rounded-lg border shadow">

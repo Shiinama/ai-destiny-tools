@@ -1,12 +1,16 @@
 'use client'
 
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Button } from '@/components/ui/button'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 import { Card, CardContent } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 
 interface ScreenshotsSectionProps {
   tool: {
@@ -17,73 +21,49 @@ interface ScreenshotsSectionProps {
 
 export default function ScreenshotsSection({ tool }: ScreenshotsSectionProps) {
   const t = useTranslations('divinationTools')
-  const [currentIndex, setCurrentIndex] = useState(0)
 
-  if (!tool.screenshotUrls || tool.screenshotUrls.split(',').length === 0) {
+  const screenshots = tool.screenshotUrls ? tool.screenshotUrls.split(',').filter((url) => url.trim() !== '') : []
+
+  if (screenshots.length === 0) {
     return null
-  }
-
-  const screenshots = tool.screenshotUrls.split(',')
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1))
-  }
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1))
   }
 
   return (
     <Card className="mb-8">
-      <CardContent className="p-6">
-        <h2 className="mb-4 text-xl font-bold">{t('screenshots')}</h2>
-        <div className="relative">
-          <div className="relative mx-auto h-64 w-full overflow-hidden rounded-md md:h-80">
-            <Image
-              src={screenshots[currentIndex]}
-              alt={`${tool.name} ${t('screenshot')} ${currentIndex + 1}`}
-              fill
-              className="object-contain"
-            />
-          </div>
-
-          {screenshots.length > 1 && (
-            <>
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-background/80 absolute top-1/2 left-2 h-8 w-8 -translate-y-1/2 rounded-full p-0 shadow-md"
-                onClick={handlePrevious}
-                aria-label={t('previousImage')}
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-background/80 absolute top-1/2 right-2 h-8 w-8 -translate-y-1/2 rounded-full p-0 shadow-md"
-                onClick={handleNext}
-                aria-label={t('nextImage')}
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </>
+      <CardContent className="px-1">
+        <h2 className="p-4 text-xl font-bold">{t('screenshots')}</h2>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          navigation
+          pagination={{ clickable: true }}
+          spaceBetween={30}
+          slidesPerView={1}
+          className={cn(
+            'rounded-md',
+            '[--swiper-theme-color:var(--color-primary)]',
+            '[--swiper-pagination-color:var(--color-primary)]',
+            '[--swiper-navigation-color:var(--color-primary)]',
+            '[--swiper-navigation-size:24px]',
+            '[&_.swiper-button-prev]:h-8 [&_.swiper-button-prev]:w-8',
+            '[&_.swiper-button-next]:h-8 [&_.swiper-button-next]:w-8'
           )}
-
-          {screenshots.length > 1 && (
-            <div className="mt-4 flex justify-center gap-2">
-              {screenshots.map((_, index) => (
-                <button
-                  key={index}
-                  className={`h-2 w-2 rounded-full ${index === currentIndex ? 'bg-primary' : 'bg-muted'}`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`${t('goToImage')} ${index + 1}`}
+        >
+          {screenshots.map((src, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative h-80 w-full">
+                <Image
+                  src={src}
+                  alt={`${tool.name} ${t('screenshot')} ${index + 1}`}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                  priority={index === 0}
+                  quality={90}
                 />
-              ))}
-            </div>
-          )}
-        </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </CardContent>
     </Card>
   )

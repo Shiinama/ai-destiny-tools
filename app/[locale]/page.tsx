@@ -11,7 +11,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
   const categories = await getCategories()
 
   const currentPage = page ? parseInt(page) : 1
-  const pageSize = 18
+  const pageSize = 12
 
   const t = await getTranslations('HomePage')
 
@@ -31,7 +31,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
 
       <div className="grid grid-cols-1 gap-8">
         <section className="space-y-4">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] md:gap-4">
             {sites.tools.map((site) => (
               <SiteCard key={site.id} site={site} />
             ))}
