@@ -21,7 +21,10 @@ export default function ReorderTools() {
   const [items, setItems] = useState<Tool[]>()
 
   useEffect(() => {
-    getPaginatedTools({}).then((r) => {
+    getPaginatedTools({
+      pageSize: 10000,
+      page: 1
+    }).then((r) => {
       setItems(r.tools)
     })
   }, [])
