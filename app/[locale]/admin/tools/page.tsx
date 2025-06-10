@@ -77,7 +77,7 @@ export default async function ToolsAdminPage({
       </div>
 
       <div className="overflow-hidden rounded-lg border shadow">
-        <ReorderTools tools={tools as any} />
+        <ReorderTools tools={tools as any} currentPage={pagination.currentPage} itemsPerPage={pageSize} />
       </div>
 
       <div className="mt-6">

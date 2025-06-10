@@ -22,7 +22,11 @@ interface ReorderToolsProps {
   tools: Tool[]
 }
 
-export default function ReorderTools({ tools }: ReorderToolsProps) {
+export default function ReorderTools({
+  tools,
+  currentPage,
+  itemsPerPage
+}: ReorderToolsProps & { currentPage: number; itemsPerPage: number }) {
   const [items, setItems] = useState<Tool[]>(tools)
 
   const handleDragEnd = async (event: DragEndEvent) => {
@@ -35,7 +39,10 @@ export default function ReorderTools({ tools }: ReorderToolsProps) {
       const newItems = arrayMove(items, oldIndex, newIndex)
       setItems(newItems)
 
-      await Promise.all(newItems.map((item, index) => updateToolOrder(item.id, index)))
+      // Calculate the starting order index based on the current page
+      const startOrderIndex = (currentPage - 1) * itemsPerPage
+
+      await Promise.all(newItems.map((item, index) => updateToolOrder(item.id, startOrderIndex + index)))
     }
   }
 
