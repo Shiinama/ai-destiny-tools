@@ -48,9 +48,11 @@ export default function ReorderTools() {
   return (
     <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <SortableContext items={items} strategy={verticalListSortingStrategy}>
-        {items.map((tool) => (
-          <SortableItem key={tool.id} id={tool.id} tool={tool} />
-        ))}
+        <div className="h-[500px] overflow-auto">
+          {items.map((tool) => (
+            <SortableItem key={tool.id} id={tool.id} tool={tool} />
+          ))}
+        </div>
       </SortableContext>
     </DndContext>
   )

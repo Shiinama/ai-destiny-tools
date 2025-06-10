@@ -14,7 +14,7 @@ export default function SortableItem({ id, tool }: { id: string; tool: Tool }) {
   }
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div ref={setNodeRef} className="cursor-grabbing" style={style} {...attributes} {...listeners}>
       <div className="flex items-center justify-between border-b p-2">
         <div>{tool.name}</div>
         <div>{tool.categoryKey}</div>
