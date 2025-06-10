@@ -1,6 +1,6 @@
 'use server'
 
-import { eq, desc, like, sql, and } from 'drizzle-orm'
+import { eq, like, sql, and } from 'drizzle-orm'
 
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
@@ -66,7 +66,7 @@ export async function getPaginatedTools({
 
   const filteredQuery = conditions.length > 0 ? query.where(and(...conditions)) : query
 
-  const paginatedQuery = filteredQuery.orderBy(desc(divinationTools.createdAt)).limit(pageSize).offset(offset)
+  const paginatedQuery = filteredQuery.orderBy(divinationTools.order).limit(pageSize).offset(offset)
 
   const countQuery = db.select({ count: sql`count(*)` }).from(divinationTools)
 
@@ -153,14 +153,12 @@ export async function updateTool(id: string, data: DivinationToolUpdateInput) {
   return result[0]
 }
 
-// Update tool status (admin only)
 export async function updateToolStatus(id: string, status: ToolStatus) {
   const session = await auth()
   if (!session?.user?.id) {
     throw new Error('Unauthorized')
   }
 
-  // Check if admin
   const isAdmin = process.env.NEXT_PUBLIC_ADMIN_ID.split(',').includes(session.user.id)
   if (!isAdmin) {
     throw new Error('Unauthorized')
@@ -178,7 +176,19 @@ export async function updateToolStatus(id: string, status: ToolStatus) {
   return result[0]
 }
 
-// Delete a tool
+export async function updateToolOrder(id: string, newOrder: number) {
+  const db = createDb()
+
+  const result = await db
+    .update(divinationTools)
+    .set({ order: newOrder })
+    .where(eq(divinationTools.id, id))
+    .returning()
+    .execute()
+
+  return result[0]
+}
+
 export async function deleteTool(id: string) {
   const session = await auth()
   if (!session?.user?.id) {
@@ -187,11 +197,9 @@ export async function deleteTool(id: string) {
 
   const db = createDb()
 
-  // Check if admin or owner
   const isAdmin = process.env.NEXT_PUBLIC_ADMIN_ID.split(',').includes(session.user.id)
 
   if (!isAdmin) {
-    // If not admin, check if user is the owner
     const tool = await db.select().from(divinationTools).where(eq(divinationTools.id, id)).execute()
 
     if (tool.length === 0 || tool[0].userId !== session.user.id) {

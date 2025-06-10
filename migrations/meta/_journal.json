@@ -50,6 +50,13 @@
       "when": 1749393221961,
       "tag": "0006_bright_the_watchers",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1749534446561,
+      "tag": "0007_white_starjammers",
+      "breakpoints": true
     }
   ]
 }

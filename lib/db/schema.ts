@@ -138,5 +138,6 @@ export const divinationTools = sqliteTable('divination_tools', {
   isFree: integer('is_free', { mode: 'boolean' }).default(true),
   price: text('price'),
   logoUrl: text('logo_url'),
-  screenshotUrls: text('screenshot_urls')
+  screenshotUrls: text('screenshot_urls'),
+  order: integer('order').default(0)
 })
