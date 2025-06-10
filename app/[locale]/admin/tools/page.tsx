@@ -26,7 +26,6 @@ export default async function ToolsAdminPage({
   const currentPage = page ? parseInt(page) : 1
   const pageSize = 10
 
-  // Get all categories for the filter dropdown
   const categories = await getCategories()
 
   const { tools, pagination } = await getPaginatedTools({
@@ -36,7 +35,6 @@ export default async function ToolsAdminPage({
     categoryId: categoryId === 'all' ? undefined : categoryId
   })
 
-  // Helper function to get status badge variant
   const getStatusBadgeVariant = (status: string) => {
     switch (status) {
       case 'approved':
@@ -48,7 +46,6 @@ export default async function ToolsAdminPage({
     }
   }
 
-  // Helper function to get status text
   const getStatusText = (status: string) => {
     switch (status) {
       case 'approved':
@@ -62,7 +59,6 @@ export default async function ToolsAdminPage({
     }
   }
 
-  // Helper function to build URL with filters
   const buildFilterUrl = (newStatus?: string) => {
     const params = new URLSearchParams()
 
@@ -89,7 +85,6 @@ export default async function ToolsAdminPage({
         </div>
       </div>
 
-      {/* Filter controls */}
       <div className="mb-6 space-y-4">
         <div className="flex flex-wrap gap-2">
           <Link href={buildFilterUrl(undefined)}>

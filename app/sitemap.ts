@@ -1,6 +1,7 @@
 import { unstable_noStore } from 'next/cache'
 
 import { getAllArticles } from '@/actions/ai-content'
+import { getPaginatedTools } from '@/actions/divination-tools'
 import { locales } from '@/i18n/routing'
 
 import type { MetadataRoute } from 'next'
@@ -10,9 +11,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-  const routes = ['', '/blogs']
+  const [{ tools }, allArticles] = await Promise.all([
+    getPaginatedTools({
+      pageSize: 10000,
+      page: 1
+    }),
+    getAllArticles()
+  ])
 
-  // 为每个路由和每种语言创建sitemap条目
+  const divinationTools = tools.map((i) => `/divination-tools/${i.id}`)
+
+  const routes = [
+    '',
+    '/tarot',
+    '/astrology',
+    '/vedic',
+    '/iChing',
+    '/numerology',
+    '/palmistry',
+    '/dreamInterpretation',
+    '/other',
+    '/blogs',
+    '/about',
+    '/submit-tools',
+    ...divinationTools
+  ]
+
   const entries: MetadataRoute.Sitemap = []
 
   for (const route of routes) {
@@ -22,8 +46,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       })
     }
   }
-
-  const allArticles = await getAllArticles()
 
   const publishedArticles = allArticles
     .filter((article) => article.publishedAt)
