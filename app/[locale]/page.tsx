@@ -24,10 +24,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
   })
 
   const specificSlugs = [
-    'ai-fortune-teller-online-unveil-future',
-    'free-ai-fortune-teller-tools',
-    'ai-fortune-teller-app-guide',
-    'ai-fortune-cookies-future-wisdom'
+    'ai-divination-future-foresight',
+    'ai-fortune-telling-predicting-tomorrow',
+    'mainstream-methods-divination-world'
   ]
   const specificPosts = await getSpecificPosts(specificSlugs)
 
@@ -39,28 +38,43 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         <CategoryLinks categories={categories} />
       </header>
 
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-6 md:gap-12">
         <section className="space-y-4">
           <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] md:gap-4">
             {sites.tools.map((site) => (
               <SiteCard key={site.id} site={site} />
             ))}
           </div>
+          <div className="mt-6">
+            <BlogPagination currentPage={sites.pagination.currentPage} totalPages={sites.pagination.totalPages} />
+          </div>
         </section>
-        <div className="mt-6">
-          <BlogPagination currentPage={sites.pagination.currentPage} totalPages={sites.pagination.totalPages} />
-        </div>
 
-        <section className="mt-8">
-          <h2 className="text-primary mb-4 text-2xl font-bold">{t('featuredPosts')}</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {specificPosts.map((post) => (
-              <div key={post.id} className="bg-secondary rounded-lg p-4 shadow-lg">
-                <Link href={`/blog/${post.slug}`} className="text-foreground/80 text-xl font-semibold hover:underline">
-                  {post.title}
-                </Link>
-                <p className="text-muted-foreground mt-2 line-clamp-4">{post.excerpt}</p>
-              </div>
+        <section>
+          <h2 className="text-primary mb-6 text-2xl font-bold">{t('featuredPosts')}</h2>
+          <div className="space-y-4">
+            {specificPosts.map((article) => (
+              <Link
+                key={article.id}
+                href={`/blog/${article.slug}`}
+                className="flex cursor-pointer items-center space-x-2"
+              >
+                {article.coverImageUrl && (
+                  <div className="w-1/4">
+                    <img
+                      src={article.coverImageUrl}
+                      alt={article.title}
+                      className="h-full w-full rounded-lg object-cover"
+                      style={{ aspectRatio: '16/9' }}
+                    />
+                  </div>
+                )}
+                <div className="w-3/4">
+                  <h2 className="mb-1 text-xl font-semibold text-white">{article.title}</h2>
+
+                  <p className="text-gray-300">{article.excerpt}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </section>

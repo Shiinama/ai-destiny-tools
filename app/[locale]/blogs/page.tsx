@@ -39,25 +39,35 @@ export default async function BlogPage({
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="mb-8 text-3xl font-bold">{t('pageTitle')}</h1>
+      <h1 className="mb-8 text-3xl font-bold text-white">{t('pageTitle')}</h1>
 
       {publishedArticles.length === 0 ? (
         <p className="text-muted-foreground text-center">{t('noArticles')}</p>
       ) : (
         <>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-8">
             {publishedArticles.map((article) => (
               <Link
                 key={article.id}
                 href={`/blog/${article.slug}`}
-                className="bg-card block overflow-hidden rounded-lg border shadow transition-shadow hover:shadow-md"
+                className="flex cursor-pointer items-center space-x-6"
               >
-                <div className="p-6">
-                  <h2 className="text-card-foreground mb-2 text-xl font-semibold">{article.title}</h2>
-                  <p className="text-muted-foreground mb-4 text-sm">
+                {article.coverImageUrl && (
+                  <div className="w-1/4">
+                    <img
+                      src={article.coverImageUrl}
+                      alt={article.title}
+                      className="h-full w-full rounded-lg object-cover"
+                      style={{ aspectRatio: '16/9' }}
+                    />
+                  </div>
+                )}
+                <div className="w-3/4">
+                  <h2 className="mb-1 text-xl font-semibold text-white">{article.title}</h2>
+                  <p className="mb-2 text-sm text-gray-400">
                     {t('publishedAt', { date: formatDate(article.publishedAt) })}
                   </p>
-                  <p className="text-card-foreground/80">{article.excerpt}</p>
+                  <p className="text-gray-300">{article.excerpt}</p>
                 </div>
               </Link>
             ))}
