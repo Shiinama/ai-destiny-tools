@@ -24,6 +24,7 @@ export default function NewArticlePage() {
   const [generatedArticle, setGeneratedArticle] = useState<{
     title: string
     slug: string
+    coverImageUrl: string
     content: string
     excerpt: string
   }>()

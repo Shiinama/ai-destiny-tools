@@ -138,6 +138,7 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
 export async function saveGeneratedArticle(
   article: {
     title: string
+    coverImageUrl: string
     slug: string
     content: string
     excerpt: string
@@ -150,6 +151,7 @@ export async function saveGeneratedArticle(
   // 准备文章数据
   const postData = {
     slug: article.slug,
+    coverImageUrl: article.coverImageUrl,
     title: article.title,
     excerpt: article.excerpt,
     content: article.content,
