@@ -1,0 +1,1 @@
+ALTER TABLE `posts` ADD `cover_image_url` text;
