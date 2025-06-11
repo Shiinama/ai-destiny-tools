@@ -255,6 +255,7 @@ export async function saveBatchArticles(
   articles: Array<{
     title: string
     slug: string
+    coverImageUrl: string
     content: string
     excerpt: string
     locale?: string
@@ -276,6 +277,7 @@ export async function saveBatchArticles(
         const postData = {
           slug: article.slug,
           title: article.title,
+          coverImageUrl: article.coverImageUrl,
           excerpt: article.excerpt,
           content: article.content,
           locale: article.locale || 'en',
@@ -308,7 +310,6 @@ export async function saveBatchArticles(
 async function generateAndUploadCoverImage(title: string, keyword: string): Promise<string> {
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 
-  // Create a detailed prompt using the title and keyword
   const divinationPrompt = `Create a mystical and enchanting 3D rendered image for an article titled "${title}". The image should visually represent the keyword "${keyword}" and feature elements of divination such as tarot cards, crystal balls, or astrological symbols. Set the scene in a magical and ethereal environment that captures the essence of divination and mystery.`
 
   const response = await ai.models.generateImages({
