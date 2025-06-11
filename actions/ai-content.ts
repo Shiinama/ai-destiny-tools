@@ -323,7 +323,7 @@ async function generateAndUploadCoverImage(title: string, keyword: string): Prom
   }
 
   const imgBytes = response.generatedImages[0].image?.imageBytes
-  const buffer = Buffer.from(imgBytes, 'base64')
+  const buffer = Buffer.from(imgBytes!, 'base64')
 
   const r2 = createR2()
   const sanitizedKeyword = keyword

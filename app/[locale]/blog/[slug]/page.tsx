@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
@@ -43,6 +44,17 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
 
   return (
     <article className="prose prose-violet prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
+      {article.coverImageUrl && (
+        <div className="relative mb-8 w-full" style={{ paddingBottom: '56.25%' }}>
+          <Image
+            src={article.coverImageUrl}
+            alt={article.title}
+            layout="fill"
+            objectFit="cover"
+            className="absolute top-0 left-0 h-full w-full"
+          />
+        </div>
+      )}
       <div className="mb-8 text-sm">{t('publishedAt', { date: formatDate(article.publishedAt) })}</div>
       <BlogBody content={article.content} />
     </article>
