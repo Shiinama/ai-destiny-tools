@@ -1,11 +1,12 @@
 'use server'
 
 import { GoogleGenAI } from '@google/genai'
-import { count, desc, eq } from 'drizzle-orm'
+import { count, desc, eq, inArray } from 'drizzle-orm'
 
 import { locales } from '@/i18n/routing'
 import { createDb } from '@/lib/db'
 import { posts } from '@/lib/db/schema'
+import { createR2 } from '@/lib/r2'
 
 interface ArticleGenerationParams {
   keyword: string
@@ -118,12 +119,15 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
         .replace(/\-\-+/g, '-')
     }
 
+    const coverImageUrl = await generateAndUploadCoverImage(extractedTitle, keyword)
+
     return {
       title: extractedTitle,
       slug,
       content,
       excerpt: excerpt || content.substring(0, 140) + '...',
-      locale
+      locale,
+      coverImageUrl
     }
   } catch (error) {
     throw error
@@ -297,4 +301,47 @@ export async function saveBatchArticles(
   }
 
   return results
+}
+
+async function generateAndUploadCoverImage(title: string, keyword: string): Promise<string> {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
+
+  // Create a detailed prompt using the title and keyword
+  const divinationPrompt = `Create a mystical and enchanting 3D rendered image for an article titled "${title}". The image should visually represent the keyword "${keyword}" and feature elements of divination such as tarot cards, crystal balls, or astrological symbols. Set the scene in a magical and ethereal environment that captures the essence of divination and mystery.`
+
+  const response = await ai.models.generateImages({
+    model: 'imagen-3.0-generate-002',
+    prompt: divinationPrompt,
+    config: {
+      numberOfImages: 1,
+      aspectRatio: '16:9'
+    }
+  })
+
+  if (!response.generatedImages || response.generatedImages.length === 0) {
+    throw new Error('Failed to generate image')
+  }
+
+  const imgBytes = response.generatedImages[0].image?.imageBytes
+  const buffer = Buffer.from(imgBytes, 'base64')
+
+  const r2 = createR2()
+  const sanitizedKeyword = keyword
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+
+  const filename = `${Date.now()}-${sanitizedKeyword}-cover-image.png`
+  await r2.put(filename, buffer, {
+    httpMetadata: {
+      contentType: 'image/png'
+    }
+  })
+
+  return `${process.env.NEXT_PUBLIC_R2_DOMAIN}/${filename}`
+}
+
+export async function getSpecificPosts(slugs: string[]) {
+  const db = createDb()
+  return db.select().from(posts).where(inArray(posts.slug, slugs)).execute()
 }

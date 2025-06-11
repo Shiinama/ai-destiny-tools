@@ -57,6 +57,13 @@
       "when": 1749534446561,
       "tag": "0007_white_starjammers",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1749623951951,
+      "tag": "0008_smart_mentallo",
+      "breakpoints": true
     }
   ]
 }
