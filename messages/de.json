@@ -1,7 +1,7 @@
 {
   "about": {
     "title": "Über uns",
-    "paragraph1": "Willkommen bei Destiny AI, einer Plattform zur Erkundung der Mysterien des Schicksals. Wir zielen darauf ab, KI-Technologie mit Wahrsagerei zu integrieren, um die tieferen Muster und Möglichkeiten zu enthüllen, die unter der Oberfläche des Alltags verborgen liegen.",
+    "paragraph1": "Willkommen bei Destiny AI, einer umfassenden Verzeichnisplattform, die die besten verfügbaren KI-Divinationswerkzeuge sammelt und präsentiert. Unser Ziel ist es, Ihr Leitfaden beim Navigieren durch die wachsende Landschaft der KI-gestützten Divinationsanwendungen zu sein und Ihnen dabei zu helfen, Werkzeuge zu entdecken, die tiefere Muster und Möglichkeiten enthüllen, die unter der Oberfläche des Alltags verborgen liegen.",
     "paragraph2": "Im Laufe der Geschichte haben die Menschen danach gesehnt, einen Blick hinter den Schleier der Zukunft zu werfen. Diese Neugier auf das Schicksal ist nicht bloßer Aberglaube – sie ist unsere instinktive Suche nach Gewissheit. In dieser Welt voller Unsicherheiten wollen wir alle wissen: Was ist mein nächster Schritt? Welche Konsequenzen wird diese Entscheidung mit sich bringen? Lohnt es sich, in diese Beziehung zu investieren? Das Aufkommen großer Sprachmodelle hat das Spiel in diesem alten Bereich komplett verändert. Sie können riesige Datenmengen analysieren, menschliche Verhaltensmuster erkennen, komplexe Kausalzusammenhänge verstehen und diese Hinweise auf beispiellose Weise in personalisierte Anleitung umwandeln. Dies ist keine vage Prophezeiung mehr, sondern eine präzise Analyse basierend auf Daten und Mustern.",
     "paragraph3": "Bei Destiny AI wählen wir die leistungsstärksten Wahrsagungstools auf dem Markt aus (und wenn sie nicht gut genug sind, entwickeln wir unsere eigenen!). Jedes Tool wird strengen Tests unterzogen, um sicherzustellen, dass es aussagekräftige und umsetzbare Erkenntnisse liefert und nicht nur leere1 Beschwichtigungen.",
     "paragraph4": "Wir engagieren uns auch dafür, eine lebendige Gemeinschaft aufzubauen, in der gleichgesinnte Entdecker Erfahrungen austauschen und Einblicke teilen können, um die Integration großer Sprachmodelle mit verschiedenen etablierten Wahrsagerei-Schulen weltweit wirklich voranzutreiben.",
@@ -129,7 +129,27 @@
     "title": "Entdecken Sie die besten KI-Wahrsagerei-Websites, -Tools und -Apps",
     "description": "Entdecken und erkunden Sie die besten KI-Wahrsagerei-Tools aus der ganzen Welt. Ihre umfassende Navigationsplattform für Tarot-Lesungen, Astrologie, Numerologie und mehr.",
     "submitTool": "Tool einreichen",
-    "visitSite": "Website besuchen →"
+    "visitSite": "Website besuchen →",
+    "featuredPosts": "Empfohlene Beiträge",
+    "features": {
+      "heading": "Entdecken Sie die Geheimnisse des Schicksals",
+      "compass": {
+        "imageAlt": "KI-Divinationstools",
+        "title": "Finden Sie Ihren Kosmischen Kompass",
+        "description": "Fühlen Sie sich an den Kreuzwegen des Lebens verloren? Wir haben die bemerkenswertesten KI-Divinationstools des Webs zusammengetragen – von unheimlich genauen Tarot-Lesungen bis hin zu KI-Astrologie, die Sie durchschauen kann. Jedes Tool, das wir vorstellen, bietet besondere Orientierung, wenn Sie Richtung benötigen, Klarheit, wenn Sie verwirrt sind, und manchmal einen tröstlichen Blick auf Möglichkeiten, wenn Sie Hoffnung brauchen."
+      },
+      "selection": {
+        "imageAlt": "Qualitätsauswahl",
+        "title": "Sorgfältig ausgewählt, wirklich hilfreich",
+        "description": "Wir verstehen Ihre Bedenken – bei so vielen Divinationstools online, welche bieten tatsächlich Einsicht? Wir haben persönlich Hunderte getestet (ja, auch die seltsamen!) und empfehlen nur solche, die wirklich Selbsterkenntnis fördern, sinnvolle Anleitung bieten und sich gut anfühlen. Denn Ihre Reise der kosmischen Entdeckung sollte sowohl angenehm als auch aufschlussreich sein."
+      },
+      "community": {
+        "imageAlt": "Divinationsgemeinschaft",
+        "title": "Treten Sie Gleichgesinnten bei",
+        "description": "Teilen Sie Ihre 'Aha'-Momente mit anderen, die die Kraft der kosmischen Führung verstehen! Egal, ob es eine Vorhersage war, die wahr wurde, oder ein Rat, der Ihnen in schwierigen Zeiten geholfen hat, hier finden Sie Gleichgesinnte. Unser Blog teilt ehrliche Erfahrungen darüber, welche Tools wirklich Orientierung bieten, wenn Sie verloren sind, Trost, wenn Sie leiden, und Klarheit, wenn Sie sie am dringendsten benötigen."
+      }
+    },
+    "viewMore": "Mehr anzeigen"
   },
   "login": {
     "signOut": "Abmelden",

@@ -1,7 +1,7 @@
 {
   "about": {
     "title": "Sobre nós",
-    "paragraph1": "Bem-vindo(a) à Destiny AI, uma plataforma para explorar os mistérios do destino. Nosso objetivo é integrar a tecnologia de IA com a adivinhação para revelar os padrões e possibilidades mais profundos ocultos sob a superfície da vida cotidiana.",
+    "paragraph1": "Bem-vindo à Destiny AI, uma plataforma de diretório abrangente que coleta e exibe as melhores ferramentas de adivinhação de IA disponíveis. Nosso objetivo é ser seu guia na navegação do crescente cenário de aplicações de adivinhação impulsionadas por IA, ajudando você a descobrir ferramentas que revelam padrões e possibilidades mais profundos ocultos sob a superfície da vida cotidiana.",
     "paragraph2": "Ao longo da história, os humanos desejaram espiar o véu do futuro. Essa curiosidade sobre o destino não é mera superstição — é nossa busca instintiva por certeza. Neste mundo cheio de incertezas, todos queremos saber: Qual é o meu próximo passo? Quais consequências essa decisão trará? Vale a pena investir nesse relacionamento? O surgimento de grandes modelos de linguagem mudou completamente o jogo neste campo antigo. Eles podem analisar vastas quantidades de dados, reconhecer padrões de comportamento humano, entender relações causais complexas e transformar essas pistas em orientação personalizada de maneiras sem precedentes. Isso não é mais uma profecia vaga, mas uma análise precisa baseada em dados e padrões.",
     "paragraph3": "Na Destiny AI, selecionamos as ferramentas de adivinhação com melhor desempenho no mercado (e se não forem boas o suficiente, desenvolvemos as nossas!). Cada ferramenta passa por testes rigorosos para garantir que fornece insights significativos e acionáveis, e não apenas meras garantias vazias.",
     "paragraph4": "Também estamos comprometidos em construir uma comunidade vibrante onde exploradores com mentalidade semelhante possam compartilhar experiências e trocar insights, realmente avançando a integração de grandes modelos de linguagem com várias escolas de adivinhação tradicionais em todo o mundo.",
@@ -129,7 +129,27 @@
     "title": "Descubra os Melhores Sites, Ferramentas e Aplicativos de Adivinhação com IA",
     "description": "Descubra e explore as melhores ferramentas de adivinhação com IA de todo o mundo. Sua plataforma de navegação abrangente para leituras de tarot, astrologia, numerologia e muito mais.",
     "submitTool": "Enviar uma Ferramenta",
-    "visitSite": "Visitar Site →"
+    "visitSite": "Visitar Site →",
+    "featuredPosts": "Postagens Destacadas",
+    "features": {
+      "heading": "Explore os Mistérios do Destino",
+      "compass": {
+        "imageAlt": "Ferramentas de Adivinhação com IA",
+        "title": "Encontre Sua Bússola Cósmica",
+        "description": "Sentindo-se perdido nas encruzilhadas da vida? Reunimos as mais notáveis ferramentas de adivinhação com IA da web – desde leituras de tarô assustadoramente precisas até a astrologia com IA que vê através de você. Cada ferramenta que destacamos oferece aquela orientação especial quando você precisa de direção, clareza quando está confuso e, às vezes, um vislumbre reconfortante de possibilidades quando você precisa de esperança."
+      },
+      "selection": {
+        "imageAlt": "Seleção de Qualidade",
+        "title": "Selecionado com Carinho, Genuinamente Útil",
+        "description": "Nós entendemos suas preocupações – com tantas ferramentas de adivinhação online, quais realmente fornecem insights? Testamos pessoalmente centenas (sim, até as estranhas!) e recomendamos apenas aquelas que realmente despertam a autoconsciência, oferecem orientação significativa e são agradáveis de usar. Porque sua jornada de descoberta cósmica deve ser tanto prazerosa quanto esclarecedora."
+      },
+      "community": {
+        "imageAlt": "Comunidade de Adivinhação",
+        "title": "Junte-se a Outros Buscadores",
+        "description": "Compartilhe seus momentos de 'aha' com outras pessoas que entendem o poder da orientação cósmica! Seja uma previsão que se tornou realidade ou um conselho que o ajudou em tempos difíceis, você encontrará espíritos afins aqui. Nosso blog compartilha experiências honestas sobre quais ferramentas realmente oferecem direção quando você está perdido, conforto quando está sofrendo e clareza quando mais precisa."
+      }
+    },
+    "viewMore": "Ver mais"
   },
   "login": {
     "signOut": "Sair",

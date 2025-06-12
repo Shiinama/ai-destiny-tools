@@ -2,9 +2,12 @@ import { getTranslations } from 'next-intl/server'
 
 import { getSpecificPosts } from '@/actions/ai-content'
 import { getCategories, getPaginatedTools } from '@/actions/divination-tools'
+import BlogLinkCard from '@/components/blog/blog-link-card'
 import { BlogPagination } from '@/components/blog/blog-pagination'
 import { CategoryLinks } from '@/components/categories/category-links'
+import FeatureItem from '@/components/home/feature-item'
 import SiteCard from '@/components/navigatiton-sites/site-card'
+import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
@@ -50,33 +53,51 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
           </div>
         </section>
 
-        <section>
-          <h2 className="text-primary mb-6 text-2xl font-bold">{t('featuredPosts')}</h2>
+        <section className="flex flex-col items-center space-y-6">
+          <h2 className="text-primary/80 text-2xl font-bold">{t('featuredPosts')}</h2>
           <div className="space-y-4">
             {specificPosts.map((article) => (
-              <Link
+              <BlogLinkCard
                 key={article.id}
-                href={`/blog/${article.slug}`}
-                className="flex cursor-pointer items-center space-x-2"
-              >
-                {article.coverImageUrl && (
-                  <div className="w-1/4">
-                    <img
-                      src={article.coverImageUrl}
-                      alt={article.title}
-                      className="h-full w-full rounded-lg object-cover"
-                      style={{ aspectRatio: '16/9' }}
-                    />
-                  </div>
-                )}
-                <div className="w-3/4">
-                  <h2 className="mb-1 text-xl font-semibold text-white">{article.title}</h2>
-
-                  <p className="text-gray-300">{article.excerpt}</p>
-                </div>
-              </Link>
+                id={article.id}
+                slug={article.slug}
+                title={article.title}
+                excerpt={article.excerpt}
+                coverImageUrl={article.coverImageUrl!}
+              />
             ))}
           </div>
+          <Link className={buttonVariants({ variant: 'default', size: 'lg', className: 'w-40' })} href="/blogs">
+            {t('viewMore')}
+          </Link>
+        </section>
+
+        <section className="mt-12 space-y-16">
+          <h2 className="text-primary/80 mb-6 text-2xl font-bold">{t('features.heading')}</h2>
+
+          <FeatureItem
+            imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-1.png"
+            imageAlt={t('features.compass.imageAlt')}
+            title={t('features.compass.title')}
+            description={t('features.compass.description')}
+            layout="imageLeft"
+          />
+
+          <FeatureItem
+            imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-2.png"
+            imageAlt={t('features.selection.imageAlt')}
+            title={t('features.selection.title')}
+            description={t('features.selection.description')}
+            layout="imageRight"
+          />
+
+          <FeatureItem
+            imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-3.png"
+            imageAlt={t('features.community.imageAlt')}
+            title={t('features.community.title')}
+            description={t('features.community.description')}
+            layout="imageLeft"
+          />
         </section>
       </div>
     </div>

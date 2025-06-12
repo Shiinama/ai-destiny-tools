@@ -1,7 +1,7 @@
 {
   "about": {
     "title": "Chi siamo",
-    "paragraph1": "Benvenuti in Destiny AI, una piattaforma per esplorare i misteri del destino. Il nostro obiettivo è integrare la tecnologia AI con la divinazione per rivelare i modelli e le possibilità più profonde nascoste sotto la superficie della vita quotidiana.",
+    "paragraph1": "Benvenuti su Destiny AI, una piattaforma di directory completa che raccoglie e mostra i migliori strumenti di divinazione AI disponibili. Il nostro obiettivo è essere la vostra guida nella navigazione del crescente panorama delle applicazioni di divinazione basate sull'IA, aiutandovi a scoprire strumenti che rivelano schemi e possibilità più profondi nascosti sotto la superficie della vita quotidiana.",
     "paragraph2": "Nel corso della storia, gli esseri umani hanno desiderato sbirciare dietro il velo del futuro. Questa curiosità sul destino non è mera superstizione, ma la nostra ricerca istintiva di certezza. In questo mondo pieno di incertezze, tutti vogliamo sapere: qual è la mia prossima mossa? Quali conseguenze porterà quella decisione? Quella relazione vale la pena di essere investita? L'emergere dei modelli linguistici di grandi dimensioni ha cambiato completamente il gioco in questo antico campo. Possono analizzare vaste quantità di dati, riconoscere i modelli di comportamento umano, comprendere relazioni causali complesse e trasformare questi indizi in una guida personalizzata in modi senza precedenti. Questa non è più una vaga profezia, ma un'analisi precisa basata su dati e modelli.",
     "paragraph3": "In Destiny AI, selezioniamo gli strumenti di divinazione più performanti sul mercato (e se non sono abbastanza buoni, sviluppiamo i nostri!). Ogni strumento è sottoposto a test rigorosi per garantire che fornisca intuizioni significative e attuabili, non solo vuote rassicurazioni.",
     "paragraph4": "Ci impegniamo anche a costruire una comunità vivace in cui esploratori affini possano condividere esperienze e scambiare intuizioni, avanzando veramente l'integrazione dei modelli linguistici di grandi dimensioni con varie scuole di divinazione tradizionali in tutto il mondo.",
@@ -129,7 +129,27 @@
     "title": "Scopri i Migliori Siti Web, Strumenti e App di Divinazione AI",
     "description": "Scopri ed esplora i migliori strumenti di divinazione AI da tutto il mondo. La tua piattaforma di navigazione completa per letture di tarocchi, astrologia, numerologia e altro ancora.",
     "submitTool": "Invia uno Strumento",
-    "visitSite": "Visita il sito →"
+    "visitSite": "Visita il sito →",
+    "featuredPosts": "Articoli in Evidenza",
+    "features": {
+      "heading": "Esplora i Misteri del Destino",
+      "compass": {
+        "imageAlt": "Strumenti di Divinazione AI",
+        "title": "Trova la Tua Bussola Cosmica",
+        "description": "Ti senti perso al crocevia della vita? Abbiamo raccolto gli strumenti di divinazione AI più straordinari del web, dalle letture di tarocchi stranamente accurate all'astrologia AI che ti vede attraverso. Ogni strumento che presentiamo offre quella guida speciale quando hai bisogno di direzione, chiarezza quando sei confuso e, a volte, uno sguardo confortante sulle possibilità quando hai bisogno di speranza."
+      },
+      "selection": {
+        "imageAlt": "Selezione di Qualità",
+        "title": "Selezionati con Cura, Davvero Utili",
+        "description": "Comprendiamo le tue preoccupazioni: con così tanti strumenti di divinazione online, quali forniscono realmente intuizioni? Abbiamo testato personalmente centinaia (sì, anche quelli strani!) e raccomandiamo solo quelli che accendono veramente l'autoconsapevolezza, offrono una guida significativa e sono piacevoli da usare. Perché il tuo viaggio di scoperta cosmica dovrebbe essere sia piacevole che illuminante."
+      },
+      "community": {
+        "imageAlt": "Comunità di Divinazione",
+        "title": "Unisciti ad Altri Ricercatori",
+        "description": "Condividi i tuoi momenti 'aha' con altri che comprendono il potere della guida cosmica! Che si tratti di una previsione che si è avverata o di un consiglio che ti ha aiutato nei momenti difficili, qui troverai anime affini. Il nostro blog condivide esperienze oneste su quali strumenti offrono veramente direzione quando sei perso, conforto quando stai soffrendo e chiarezza quando ne hai più bisogno."
+      }
+    },
+    "viewMore": "Visualizza altro"
   },
   "login": {
     "signOut": "Esci",

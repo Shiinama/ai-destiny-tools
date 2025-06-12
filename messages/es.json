@@ -1,7 +1,7 @@
 {
   "about": {
     "title": "Acerca de nosotros",
-    "paragraph1": "Bienvenido a Destiny AI, una plataforma para explorar los misterios del destino. Nuestro objetivo es integrar la tecnología de IA con la adivinación para revelar los patrones y posibilidades más profundos ocultos bajo la superficie de la vida cotidiana.",
+    "paragraph1": "Bienvenido a Destiny AI, una plataforma de directorio integral que recopila y exhibe las mejores herramientas de adivinación con IA disponibles. Nuestro objetivo es ser su guía en la navegación del creciente panorama de las aplicaciones de adivinación impulsadas por IA, ayudándole a descubrir herramientas que revelan patrones y posibilidades más profundos ocultos bajo la superficie de la vida cotidiana.",
     "paragraph2": "A lo largo de la historia, los humanos han anhelado asomarse al velo del futuro. Esta curiosidad sobre el destino no es mera superstición, es nuestra búsqueda instintiva de certeza. En este mundo lleno de incertidumbres, todos queremos saber: ¿Cuál es mi próximo paso? ¿Qué consecuencias traerá esa decisión? ¿Esa relación vale la pena invertir en ella? La aparición de los grandes modelos de lenguaje ha cambiado completamente el juego en este antiguo campo. Pueden analizar vastas cantidades de datos, reconocer patrones de comportamiento humano, comprender relaciones causales complejas y transformar estas pistas en una guía personalizada de maneras sin precedentes. Esto ya no es una profecía vaga, sino un análisis preciso basado en datos y patrones.",
     "paragraph3": "En Destiny AI, seleccionamos las herramientas de adivinación de mejor rendimiento del mercado (¡y si no son lo suficientemente buenas, desarrollamos las nuestras propias!). Cada herramienta se somete a pruebas rigurosas para asegurar que proporciona conocimientos significativos y accionables, no solo meras tranquilidades vacías.",
     "paragraph4": "También estamos comprometidos con la construcción de una comunidad vibrante donde exploradores afines puedan compartir experiencias e intercambiar ideas, avanzando verdaderamente la integración de grandes modelos de lenguaje con varias escuelas de adivinación convencionales en todo el mundo.",
@@ -129,7 +129,27 @@
     "title": "Descubre los Mejores Sitios Web, Herramientas y Aplicaciones de Adivinación con IA",
     "description": "Descubre y explora las mejores herramientas de adivinación con IA de todo el mundo. Tu plataforma de navegación integral para lecturas de tarot, astrología, numerología y más.",
     "submitTool": "Enviar una Herramienta",
-    "visitSite": "Visitar Sitio →"
+    "visitSite": "Visitar Sitio →",
+    "featuredPosts": "Publicaciones Destacadas",
+    "features": {
+      "heading": "Explora los Misterios del Destino",
+      "compass": {
+        "imageAlt": "Herramientas de Adivinación con IA",
+        "title": "Encuentra tu Brújula Cósmica",
+        "description": "¿Te sientes perdido en la encrucijada de la vida? Hemos reunido las herramientas de adivinación con IA más notables de la web, desde lecturas de tarot asombrosamente precisas hasta astrología con IA que ve a través de ti. Cada herramienta que presentamos ofrece esa guía especial cuando necesitas dirección, claridad cuando estás confundido y, a veces, un vistazo reconfortante a las posibilidades cuando necesitas esperanza."
+      },
+      "selection": {
+        "imageAlt": "Selección de Calidad",
+        "title": "Seleccionado con Cuidado, Genuinamente Útil",
+        "description": "Entendemos tus preocupaciones: con tantas herramientas de adivinación en línea, ¿cuáles realmente proporcionan información? Hemos probado personalmente cientos (¡sí, incluso las más extrañas!) y solo recomendamos aquellas que realmente despiertan la autoconciencia, ofrecen una guía significativa y se sienten bien al usarlas. Porque tu viaje de descubrimiento cósmico debe ser tanto placentero como esclarecedor."
+      },
+      "community": {
+        "imageAlt": "Comunidad de Adivinación",
+        "title": "Únete a Otros Buscadores",
+        "description": "¡Comparte tus momentos 'eureka' con otros que entienden el poder de la guía cósmica! Ya sea una predicción que se hizo realidad o un consejo que te ayudó en tiempos difíciles, aquí encontrarás almas afines. Nuestro blog comparte experiencias honestas sobre qué herramientas realmente ofrecen dirección cuando estás perdido, consuelo cuando estás sufriendo y claridad cuando más lo necesitas."
+      }
+    },
+    "viewMore": "Ver más"
   },
   "login": {
     "signOut": "Cerrar Sesión",

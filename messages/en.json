@@ -72,7 +72,7 @@
       "seoDescription": "Explore unconventional AI divination methods and unique fortune telling techniques. Discover rare mystical practices and alternative ways to glimpse your destiny."
     },
     "comprehensive": {
-      "name": "Comprehensive",
+      "name": "Comprehenxsive",
       "description": "Platforms offering multiple divination methods and integrated fortune-telling approaches in one place.",
       "origin": "Modern integration of traditional practices",
       "seoTitle": "All-in-One AI Divination Platforms - Multiple Fortune Telling Methods",
@@ -83,7 +83,7 @@
   },
   "about": {
     "title": "About Us",
-    "paragraph1": "Welcome to Destiny AI, a platform for exploring the mysteries of fate. We aim to integrate AI technology with divination to reveal the deeper patterns and possibilities hidden beneath the surface of everyday life.",
+    "paragraph1": "Welcome to Destiny AI, a comprehensive directory platform that collects and showcases the best AI divination tools available. We aim to be your guide in navigating the growing landscape of AI-powered divination applications, helping you discover tools that reveal deeper patterns and possibilities hidden beneath the surface of everyday life.",
     "paragraph2": "Throughout history, humans have yearned to peek behind the veil of the future. This curiosity about destiny isn't merely superstition—it's our instinctive quest for certainty. In this world full of uncertainties, we all want to know: What's my next move? What consequences will that decision bring? Is that relationship worth investing in? The emergence of large language models has completely changed the game in this ancient field. They can analyze vast amounts of data, recognize human behavioral patterns, understand complex causal relationships, and transform these clues into personalized guidance in unprecedented ways. This is no longer vague prophecy, but precise analysis based on data and patterns.",
     "paragraph3": "At Destiny AI, we select the best-performing divination tools on the market (and if they're not good enough, we develop our own!).  Every tool undergoes rigorous testing to ensure it provides meaningful and actionable insights, not just empty reassurances.",
     "paragraph4": "We're also committed to building a vibrant community where like-minded explorers can share experiences and exchange insights, truly advancing the integration of large language models with various mainstream divination schools worldwide.",
@@ -208,7 +208,26 @@
     "description": "Discover and explore the best AI fortune telling tools from around the world. Your comprehensive navigation platform for tarot readings, astrology, numerology, and more.",
     "featuredPosts": "Featured Posts",
     "submitTool": "Submit a Tool",
-    "visitSite": "Visit Site →"
+    "visitSite": "Visit Site →",
+    "viewMore": "View More",
+    "features": {
+      "heading": "Explore the Mysteries of Destiny",
+      "compass": {
+        "imageAlt": "AI Divination Tools",
+        "title": "Find Your Cosmic Compass",
+        "description": "Feeling lost at life's crossroads? We've gathered the web's most remarkable AI divination tools - from eerily accurate tarot readings to AI astrology that sees right through you. Each tool we feature offers that special guidance when you need direction, clarity when you're confused, and sometimes, a comforting glimpse into possibilities when you need hope."
+      },
+      "selection": {
+        "imageAlt": "Quality Selection",
+        "title": "Thoughtfully Selected, Genuinely Helpful",
+        "description": "We get your concerns - with so many divination tools online, which ones actually provide insight? We've personally tested hundreds (yes, even the weird ones!) and only recommend those that truly spark self-awareness, offer meaningful guidance, and feel good to use. Because your journey of cosmic discovery should be both enjoyable and enlightening."
+      },
+      "community": {
+        "imageAlt": "Divination Community",
+        "title": "Join Fellow Seekers",
+        "description": "Share your 'aha' moments with others who understand the power of cosmic guidance! Whether it's a prediction that came true, or advice that helped you through tough times, you'll find kindred spirits here. Our blog shares honest experiences about which tools truly offer direction when you're lost, comfort when you're hurting, and clarity when you need it most."
+      }
+    }
   },
   "login": {
     "signOut": "Sign Out",
