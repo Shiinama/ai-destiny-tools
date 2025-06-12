@@ -338,15 +338,13 @@ async function generateAndUploadCoverImage(title: string, keyword: string): Prom
 
   const randomIndex = Math.floor(Math.random() * promptTemplates.length)
   const selectedPrompt = promptTemplates[randomIndex]
-  const randomSeed = Math.floor(Math.random() * 2147483647)
 
   const response = await ai.models.generateImages({
     model: 'imagen-3.0-generate-002',
     prompt: selectedPrompt,
     config: {
       numberOfImages: 1,
-      aspectRatio: '16:9',
-      seed: randomSeed
+      aspectRatio: '16:9'
     }
   })
 
