@@ -14,7 +14,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
   const { page } = await searchParams
 
   const currentPage = page ? parseInt(page) : 1
-  const pageSize = 12
+  const pageSize = 20
 
   const [categories, t, sites, specificPosts] = await Promise.all([
     getCategories(),
