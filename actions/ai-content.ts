@@ -310,14 +310,43 @@ export async function saveBatchArticles(
 async function generateAndUploadCoverImage(title: string, keyword: string): Promise<string> {
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 
-  const divinationPrompt = `Create a mystical and enchanting 3D rendered image for an article titled "${title}". The image should visually represent the keyword "${keyword}" and feature elements of divination such as tarot cards, crystal balls, or astrological symbols. Set the scene in a magical and ethereal environment that captures the essence of divination and mystery.`
+  const promptTemplates = [
+    // Mystical/Divination theme (3D)
+    `Create a mystical and enchanting 3D rendered image for an article titled "${title}". The image should visually represent the keyword "${keyword}" and feature elements of divination such as tarot cards, crystal balls, or astrological symbols. Set the scene in a magical and ethereal environment.`,
+
+    // Nature/Cosmic theme (Digital painting)
+    `Design a digital painting with cosmic and natural elements for "${title}". Incorporate the concept of "${keyword}" with celestial elements like stars, planets, and cosmic energy. Include natural elements like plants, water, or mountains to create a harmonious balance between earth and cosmos.`,
+
+    // Abstract/Conceptual theme (Mixed media)
+    `Generate a mixed media abstract image representing "${title}". Use symbolic visual metaphors related to "${keyword}" with flowing energy, geometric shapes, and vibrant colors. The composition should be thought-provoking and open to interpretation.`,
+
+    // Architectural/Structural theme (Photorealistic)
+    `Create a photorealistic visualization that represents "${title}". Incorporate elements related to "${keyword}" within a surreal structure or landscape. Use dramatic lighting, perspective, and scale to create a sense of awe and wonder.`,
+
+    // Character-focused theme (Stylized illustration)
+    `Design a stylized illustration featuring a mysterious character or silhouette that embodies the essence of "${title}". The scene should incorporate visual elements related to "${keyword}" in the background or surroundings. Create a narrative feeling that invites viewers to imagine a story.`,
+
+    // Watercolor style
+    `Create a delicate watercolor illustration for "${title}". Express the concept of "${keyword}" through soft color washes, gentle gradients, and subtle textures. The image should have an ethereal, dreamy quality with flowing forms and translucent layers.`,
+
+    // Vintage/Retro poster
+    `Design a vintage-style poster illustration for "${title}". Incorporate visual elements related to "${keyword}" using bold colors, simplified shapes, and retro typography. The image should evoke nostalgia while maintaining a modern sensibility.`,
+
+    // Minimalist design
+    `Generate a minimalist design representing "${title}". Use clean lines, negative space, and a limited color palette to express the concept of "${keyword}". The composition should be elegant and impactful through its simplicity.`
+  ]
+
+  const randomIndex = Math.floor(Math.random() * promptTemplates.length)
+  const selectedPrompt = promptTemplates[randomIndex]
+  const randomSeed = Math.floor(Math.random() * 2147483647)
 
   const response = await ai.models.generateImages({
     model: 'imagen-3.0-generate-002',
-    prompt: divinationPrompt,
+    prompt: selectedPrompt,
     config: {
       numberOfImages: 1,
-      aspectRatio: '16:9'
+      aspectRatio: '16:9',
+      seed: randomSeed
     }
   })
 
