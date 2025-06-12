@@ -5,10 +5,15 @@ import { Link } from '@/i18n/navigation'
 
 export default function Footer() {
   const t = useTranslations('footer')
+  const divinationCategories = useTranslations('divinationCategories')
+
+  const categoryKey1 = ['tarot', 'astrology', 'vedic', 'numerology', 'iChing']
+
+  const categoryKey2 = ['palmistry', 'dreamInterpretation', 'comprehensive', 'other']
 
   return (
     <footer className="px-4 py-8 sm:px-6 lg:px-18">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
         <div className="flex flex-col items-start space-y-2">
           <Logo />
           <p className="text-muted-foreground mt-2 max-w-80">{t('description')}</p>
@@ -23,15 +28,21 @@ export default function Footer() {
         <div className="flex flex-col items-start space-y-2">
           <h3 className="text-foreground text-lg font-semibold">{t('quickLinks.title')}</h3>
           <div className="mt-4 flex flex-col space-y-2">
-            <Link href="/" className="text-muted-foreground hover:text-primary">
-              {t('quickLinks.home')}
-            </Link>
-            <Link href="/" className="text-muted-foreground hover:text-primary">
-              {t('quickLinks.aboutUs')}
-            </Link>
-            <Link href="/" className="text-muted-foreground hover:text-primary">
-              {t('quickLinks.refundPolicy')}
-            </Link>
+            {categoryKey1.map((key) => (
+              <Link key={key} href={`/${key}`} className="text-muted-foreground hover:text-primary">
+                {divinationCategories(`${key}.name` as any)}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col items-start space-y-2">
+          <h3 className="text-foreground text-lg font-semibold">{t('categories')}</h3>
+          <div className="mt-4 flex flex-col space-y-2">
+            {categoryKey2.map((key) => (
+              <Link key={key} href={`/${key}`} className="text-muted-foreground hover:text-primary">
+                {divinationCategories(`${key}.name` as any)}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

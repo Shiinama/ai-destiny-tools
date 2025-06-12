@@ -13,25 +13,23 @@ import { Link } from '@/i18n/navigation'
 export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page } = await searchParams
 
-  const categories = await getCategories()
-
   const currentPage = page ? parseInt(page) : 1
   const pageSize = 12
 
-  const t = await getTranslations('HomePage')
-
-  const sites = await getPaginatedTools({
-    page: currentPage,
-    pageSize,
-    status: 'approved'
-  })
-
-  const specificSlugs = [
-    'ai-divination-future-foresight',
-    'ai-fortune-telling-predicting-tomorrow',
-    'mainstream-methods-divination-world'
-  ]
-  const specificPosts = await getSpecificPosts(specificSlugs)
+  const [categories, t, sites, specificPosts] = await Promise.all([
+    getCategories(),
+    getTranslations('HomePage'),
+    getPaginatedTools({
+      page: currentPage,
+      pageSize,
+      status: 'approved'
+    }),
+    getSpecificPosts([
+      'ai-divination-future-foresight',
+      'ai-fortune-telling-predicting-tomorrow',
+      'mainstream-methods-divination-world'
+    ])
+  ])
 
   return (
     <div className="text-foreground container min-h-screen rounded-lg py-8">
@@ -54,7 +52,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         </section>
 
         <section className="flex flex-col items-center space-y-6">
-          <h2 className="text-primary/80 text-2xl font-bold">{t('featuredPosts')}</h2>
+          <h2 className="text-primary/80 text-3xl font-bold">{t('featuredPosts')}</h2>
           <div className="space-y-4">
             {specificPosts.map((article) => (
               <BlogLinkCard
@@ -73,7 +71,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
         </section>
 
         <section className="mt-12 space-y-16">
-          <h2 className="text-primary/80 mb-6 text-2xl font-bold">{t('features.heading')}</h2>
+          <h2 className="text-primary/80 mb-6 text-center text-3xl font-bold">{t('features.heading')}</h2>
 
           <FeatureItem
             imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-1.png"
