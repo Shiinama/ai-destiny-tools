@@ -28,18 +28,17 @@ export default function BatchArticlesPage() {
 
   const handleGenerate = async () => {
     if (!keywordsInput.trim()) {
-      toast.error('Keywords cannot be empty')
+      toast.error('关键词不能为空')
       return
     }
 
-    // Split keywords by newline and filter out empty lines
     const keywords = keywordsInput
       .split('\n')
       .map((k) => k.trim())
       .filter((k) => k.length > 0)
 
     if (keywords.length === 0) {
-      toast.error('No valid keywords found')
+      toast.error('未找到有效关键词')
       return
     }
 
@@ -84,7 +83,7 @@ export default function BatchArticlesPage() {
           } catch (error) {
             batchResults.push({
               status: 'error',
-              error: error instanceof Error ? error.message : 'Unknown error'
+              error: error instanceof Error ? error.message : '未知错误'
             })
           }
         }
@@ -101,12 +100,10 @@ export default function BatchArticlesPage() {
       const successCount = results.filter((a) => a.status === 'success').length
       const errorCount = results.filter((a) => a.status === 'error').length
 
-      toast.success(
-        `Successfully generated ${successCount} articles${errorCount > 0 ? ` (with ${errorCount} errors)` : ''}`
-      )
+      toast.success(`成功生成 ${successCount} 篇文章${errorCount > 0 ? ` (有 ${errorCount} 个错误)` : ''}`)
     } catch (error) {
-      console.error('Error generating articles:', error)
-      toast.error('Failed to generate articles')
+      console.error('生成文章时出错:', error)
+      toast.error('生成文章失败')
     } finally {
       setIsGenerating(false)
     }
@@ -114,7 +111,7 @@ export default function BatchArticlesPage() {
 
   const handleSave = async () => {
     if (generatedArticles.length === 0) {
-      toast.error('No articles to save')
+      toast.error('没有文章可保存')
       return
     }
 
@@ -127,7 +124,7 @@ export default function BatchArticlesPage() {
       }))
 
     if (selectedArticles.length === 0) {
-      toast.error('No articles selected')
+      toast.error('未选择任何文章')
       return
     }
 
@@ -140,11 +137,11 @@ export default function BatchArticlesPage() {
       const errorCount = saveResults.filter((r) => r.status === 'error').length
 
       toast.success(
-        `Successfully saved ${successCount} articles as ${publishImmediately ? 'published' : 'draft'}${errorCount > 0 ? ` (with ${errorCount} errors)` : ''}`
+        `成功保存 ${successCount} 篇文章为${publishImmediately ? '已发布' : '草稿'}状态${errorCount > 0 ? ` (有 ${errorCount} 个错误)` : ''}`
       )
     } catch (error) {
-      console.error('Error saving articles:', error)
-      toast.error('Failed to save articles')
+      console.error('保存文章时出错:', error)
+      toast.error('保存文章失败')
     } finally {
       setIsSaving(false)
     }
@@ -181,24 +178,24 @@ export default function BatchArticlesPage() {
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Batch Generate Articles</h1>
+        <h1 className="text-2xl font-bold">批量生成文章</h1>
         <Button variant="outline" onClick={() => router.push('/admin/articles')}>
-          Back to Articles
+          返回文章列表
         </Button>
       </div>
 
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Keywords</CardTitle>
+          <CardTitle>关键词</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="mb-4">
-            <Label htmlFor="keywords">Enter keywords (one per line)</Label>
+            <Label htmlFor="keywords">输入关键词（每行一个）</Label>
             <Textarea
               id="keywords"
               value={keywordsInput}
               onChange={(e) => setKeywordsInput(e.target.value)}
-              placeholder="Enter keywords, one per line"
+              placeholder="输入关键词，每行一个"
               rows={5}
               disabled={isGenerating}
               className="mt-4 font-mono"
@@ -208,11 +205,11 @@ export default function BatchArticlesPage() {
           {/* Language selection dropdown */}
           <div className="mb-4">
             <Label htmlFor="language" className="mb-2 block">
-              Language
+              语言
             </Label>
             <Select value={selectedLocale} onValueChange={setSelectedLocale}>
               <SelectTrigger className="w-full sm:w-[240px]">
-                <SelectValue placeholder="Select language" />
+                <SelectValue placeholder="选择语言" />
               </SelectTrigger>
               <SelectContent>
                 {locales.map((locale) => (
@@ -226,13 +223,13 @@ export default function BatchArticlesPage() {
 
           <div className="mb-4 flex items-center space-x-2">
             <Switch id="published" checked={publishImmediately} onCheckedChange={setPublishImmediately} />
-            <Label htmlFor="published">Publish immediately</Label>
+            <Label htmlFor="published">立即发布</Label>
           </div>
 
           <div className="flex gap-2">
             <Button onClick={handleGenerate} disabled={isGenerating || !keywordsInput.trim()}>
               {isGenerating && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isGenerating ? 'Generating...' : 'Generate Articles'}
+              {isGenerating ? '生成中...' : '生成文章'}
             </Button>
 
             {generatedArticles.length > 0 && (
@@ -241,7 +238,7 @@ export default function BatchArticlesPage() {
                 disabled={isSaving || !generatedArticles.some((a) => a.selected && a.status === 'success')}
               >
                 {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {isSaving ? 'Saving...' : 'Save Selected'}
+                {isSaving ? '保存中...' : '保存所选'}
               </Button>
             )}
           </div>
@@ -252,12 +249,12 @@ export default function BatchArticlesPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              <span>Generated Articles</span>
+              <span>已生成文章</span>
               {generatedArticles.some((a) => a.status === 'success') && (
                 <div className="flex items-center space-x-2">
                   <Checkbox id="selectAll" checked={selectAll} onCheckedChange={toggleSelectAll} />
                   <Label htmlFor="selectAll" className="text-sm font-normal">
-                    Select All
+                    全选
                   </Label>
                 </div>
               )}
@@ -281,9 +278,9 @@ export default function BatchArticlesPage() {
                   </div>
                   <div>
                     {item.status === 'success' ? (
-                      <span className="text-success font-medium">Generated</span>
+                      <span className="text-success font-medium">已生成</span>
                     ) : (
-                      <span className="text-destructive font-medium">Failed</span>
+                      <span className="text-destructive font-medium">失败</span>
                     )}
                   </div>
                 </div>
@@ -296,7 +293,7 @@ export default function BatchArticlesPage() {
       {results.length > 0 && (
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>Save Results</CardTitle>
+            <CardTitle>保存结果</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -307,9 +304,9 @@ export default function BatchArticlesPage() {
                   </div>
                   <div>
                     {result.status === 'success' ? (
-                      <span className="text-success font-medium">Saved</span>
+                      <span className="text-success font-medium">已保存</span>
                     ) : (
-                      <span className="text-destructive font-medium">Failed</span>
+                      <span className="text-destructive font-medium">失败</span>
                     )}
                   </div>
                 </div>

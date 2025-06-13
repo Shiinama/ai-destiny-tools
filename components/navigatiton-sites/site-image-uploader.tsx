@@ -119,6 +119,8 @@ export function SiteImageUploader({
 
       const data: { url: string } = await response.json()
       onUploadComplete(data.url)
+      setPreviewUrl(null)
+
       toast.success(t('imageUpload.success'))
 
       // Close dialog after successful upload
