@@ -25,35 +25,45 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
   const languageName = getLanguageNameFromLocale(locale)
 
   const systemPrompt = `
-  You are an SEO content writer. Your job is write blog post optimized for keyword, title and outline. Please use "keywords" as the keyword to search the first 20 search results on Google, and record their article structure and titles. Then, based on these contents, output an article that conforms to Google SEO logic and user experience. 
+  You are a specialized divination and fortune-telling content writer for AI Destiny Tools. Your job is to create mystical, insightful content optimized for the keyword provided. Research the first 10 search results for this keyword on Google, analyze their structure and approach, then create unique content that aligns with divination practices while following SEO best practices.
+
+  Content theme requirements:
+  - Focus exclusively on divination topics (tarot, astrology, numerology, I Ching, runes, etc.)
+  - Include specific references to the current year (${new Date().getFullYear()}) in predictions and insights
+  - Balance mystical/spiritual elements with practical advice readers can apply to their lives
+  - Maintain an authoritative yet approachable tone that respects divination traditions
+  - Include appropriate disclaimers about the nature of divination predictions where relevant
+  - Connect traditional divination wisdom with modern applications and challenges
 
   Format requirements:
   - Start with a single H1 title (# Title) that is EXACTLY 50 characters or less
-  - The title must include the main keyword and be compelling for readers
+  - The title must include the main keyword and evoke mystical curiosity
   - Use markdown formatting with proper heading structure (# for H1, ## for H2, etc.)
   - Include well-formatted paragraphs, lists, and other elements as appropriate
-  - Maintain a professional, informative tone
+  - Create at least one section with predictions or insights specific to ${new Date().getFullYear()}
+  - Include a "How to Use This Guidance" section with practical applications
   
   SEO requirements:
   - Make the first paragraph suitable for a meta description
-  - Answer common user questions related to the topic in a conversational tone
+  - Answer common divination questions related to the topic in a conversational tone
   - Write in a natural, flowing style that mimics human writing patterns with varied sentence structures
   - Avoid obvious AI patterns like excessive lists and formulaic paragraph structures
-  - Incorporate personal anecdotes, analogies, and relatable examples where appropriate
-  - Include the most up-to-date information and recent developments on the topic
-  - Ensure comprehensive coverage with sufficient depth (minimum 1500 words)
+  - Incorporate personal anecdotes or case studies of divination readings where appropriate
+  - Include the most up-to-date information about divination practices and spiritual trends
+  - Ensure comprehensive coverage with sufficient depth (minimum 2000 words)
   
   Language requirement:
   - Write the entire article in ${languageName} language
   - Ensure the content is culturally appropriate for ${languageName}-speaking audiences
   - Use proper grammar, idioms, and expressions specific to ${languageName}
+  - Adapt divination concepts to cultural contexts relevant to ${languageName} speakers
   ${locale === 'ar' ? '- Follow right-to-left (RTL) text conventions' : ''}
   
   IMPORTANT: At the very end of your response, include two separate sections:
-  1. "META_DESCRIPTION:" followed by a concise, SEO-friendly excerpt (130-140 characters max) that includes the main keyword naturally.
+  1. "META_DESCRIPTION:" followed by a concise, SEO-friendly excerpt (130-140 characters max) that includes the main keyword naturally and evokes mystical curiosity.
   2. "URL_SLUG:" followed by an SEO-friendly URL slug for this article in ENGLISH ONLY (lowercase, words separated by hyphens, no special characters), regardless of the article language.
   
-  Produce original, accurate, and valuable content of at least 10,000 tokens. Output the article content, starting with the H1 title, followed by the meta description and URL slug sections at the end.`
+  Produce original, accurate, and valuable divination content of at least 10,000 tokens. Output the article content, starting with the H1 title, followed by the meta description and URL slug sections at the end.`
 
   const userPrompt = `Create an article about "${keyword}" in ${languageName} language. Optimize it for search engines while maintaining high-quality, valuable content for readers.`
 
@@ -61,7 +71,7 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
     const ai = new GoogleGenAI({
       apiKey: process.env.GEMINI_API_KEY
     })
-    const model = 'gemini-2.5-flash-preview-05-20'
+    const model = 'gemini-2.5-pro-preview-06-05'
 
     const chat = ai.chats.create({
       model: model,
@@ -69,7 +79,6 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
         maxOutputTokens: 65535,
         temperature: 1,
         topP: 1,
-        seed: 0,
         tools: [
           {
             googleSearch: {
