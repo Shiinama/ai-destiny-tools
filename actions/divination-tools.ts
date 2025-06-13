@@ -176,6 +176,37 @@ export async function updateToolStatus(id: string, status: ToolStatus) {
   return result[0]
 }
 
+export async function batchUpdateToolOrder(updates: Array<{ id: string; order: number }>) {
+  const db = createDb()
+  const results = []
+
+  const batchSize = 10
+  for (let i = 0; i < updates.length; i += batchSize) {
+    const batch = updates.slice(i, i + batchSize)
+
+    const updatePromises = batch.map(async ({ id, order }) => {
+      try {
+        const result = await db
+          .update(divinationTools)
+          .set({ order })
+          .where(eq(divinationTools.id, id))
+          .returning()
+          .execute()
+
+        return result[0]
+      } catch (error) {
+        console.error(`Failed to update tool ${id}:`, error)
+        return null
+      }
+    })
+
+    const batchResults = await Promise.all(updatePromises)
+    results.push(...batchResults.filter(Boolean))
+  }
+
+  return results
+}
+
 export async function updateToolOrder(id: string, newOrder: number) {
   const db = createDb()
 
@@ -187,6 +218,30 @@ export async function updateToolOrder(id: string, newOrder: number) {
     .execute()
 
   return result[0]
+}
+
+export async function updateToolsOrder(items: Array<{ id: string; index: number }>) {
+  const db = createDb()
+
+  const results = await Promise.all(
+    items.map(async ({ id, index }) => {
+      try {
+        const result = await db
+          .update(divinationTools)
+          .set({ order: index })
+          .where(eq(divinationTools.id, id))
+          .returning()
+          .execute()
+
+        return result[0]
+      } catch (error) {
+        console.error(`Failed to update tool ${id}:`, error)
+        return null
+      }
+    })
+  )
+
+  return results.filter(Boolean)
 }
 
 export async function deleteTool(id: string) {

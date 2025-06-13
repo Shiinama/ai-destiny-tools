@@ -4,7 +4,7 @@ import { DndContext, DragEndEvent, closestCenter } from '@dnd-kit/core'
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { useEffect, useState } from 'react'
 
-import { getPaginatedTools, updateToolOrder } from '@/actions/divination-tools'
+import { getPaginatedTools, updateToolsOrder } from '@/actions/divination-tools'
 import SortableItem from '@/components/admin/SortableItem'
 
 export interface Tool {
@@ -41,7 +41,7 @@ export default function ReorderTools() {
       const newItems = arrayMove(items, oldIndex, newIndex)
       setItems(newItems)
 
-      await Promise.all(newItems.map((item, index) => updateToolOrder(item.id, index)))
+      await updateToolsOrder(newItems.map((item, index) => ({ id: item.id, index })))
     }
   }
 
@@ -49,8 +49,8 @@ export default function ReorderTools() {
     <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <SortableContext items={items} strategy={verticalListSortingStrategy}>
         <div className="h-[500px] overflow-auto">
-          {items.map((tool) => (
-            <SortableItem key={tool.id} id={tool.id} tool={tool} />
+          {items.map((tool, index) => (
+            <SortableItem index={index} key={tool.id} id={tool.id} tool={tool} />
           ))}
         </div>
       </SortableContext>
