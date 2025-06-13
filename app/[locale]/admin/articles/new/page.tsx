@@ -1,7 +1,6 @@
 'use client'
 
 import { Loader2 } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -17,8 +16,6 @@ import { locales } from '@/i18n/routing'
 
 export default function NewArticlePage() {
   const router = useRouter()
-  const t = useTranslations('admin.new')
-  const common = useTranslations('common')
   const [keyword, setKeyword] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [generatedArticle, setGeneratedArticle] = useState<{
@@ -30,11 +27,11 @@ export default function NewArticlePage() {
   }>()
   const [isSaving, setIsSaving] = useState(false)
   const [publishImmediately, setPublishImmediately] = useState(true)
-  const [selectedLocale, setSelectedLocale] = useState('en') // Default to English
+  const [selectedLocale, setSelectedLocale] = useState('zh') // 默认为中文
 
   const handleGenerate = async () => {
     if (!keyword.trim()) {
-      toast.error(t('errors.emptyKeyword'))
+      toast.error('关键词不能为空')
       return
     }
 
@@ -42,13 +39,13 @@ export default function NewArticlePage() {
     try {
       const article = await generateArticle({
         keyword: keyword.trim(),
-        locale: selectedLocale // Pass the selected locale to the API
+        locale: selectedLocale
       })
       setGeneratedArticle(article)
-      toast.success(t('success.generated'))
+      toast.success('文章生成成功')
     } catch (error) {
-      console.error('Error generating article:', error)
-      toast.error(t('errors.generateFailed'))
+      console.error('生成文章时出错:', error)
+      toast.error('生成文章失败')
     } finally {
       setIsGenerating(false)
     }
@@ -59,7 +56,6 @@ export default function NewArticlePage() {
 
     setIsSaving(true)
     try {
-      // Pass the locale to the save function
       await saveGeneratedArticle(
         {
           ...generatedArticle,
@@ -67,11 +63,11 @@ export default function NewArticlePage() {
         },
         publishImmediately
       )
-      toast.success(publishImmediately ? t('success.published') : t('success.savedAsDraft'))
+      toast.success(publishImmediately ? '文章已发布' : '文章已保存为草稿')
       router.push('/admin/articles')
     } catch (error) {
-      console.error('Error saving article:', error)
-      toast.error(t('errors.saveFailed'))
+      console.error('保存文章时出错:', error)
+      toast.error('保存文章失败')
     } finally {
       setIsSaving(false)
     }
@@ -88,38 +84,37 @@ export default function NewArticlePage() {
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">{t('title')}</h1>
+        <h1 className="text-2xl font-bold">创建新文章</h1>
         <Button variant="outline" onClick={() => router.push('/admin/articles')}>
-          {t('backToArticles')}
+          返回文章列表
         </Button>
       </div>
 
       <div className="border-border bg-card mb-6 rounded-lg border p-6 shadow">
         <div className="mb-4">
-          <Label htmlFor="keyword">{t('keywordSection.label')}</Label>
+          <Label htmlFor="keyword">输入关键词</Label>
           <div className="mt-4 flex gap-2">
             <Input
               id="keyword"
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
-              placeholder={t('keywordSection.placeholder')}
+              placeholder="输入关键词，AI将为您生成相关文章"
               disabled={isGenerating}
             />
             <Button onClick={handleGenerate} disabled={isGenerating}>
               {isGenerating && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isGenerating ? t('buttons.generating') : t('buttons.generateArticle')}
+              {isGenerating ? '正在生成...' : '生成文章'}
             </Button>
           </div>
         </div>
 
-        {/* Language selection dropdown */}
         <div className="mb-4">
           <Label htmlFor="language" className="mb-2 block">
-            {common('language')}
+            语言
           </Label>
           <Select value={selectedLocale} onValueChange={setSelectedLocale}>
             <SelectTrigger className="w-full sm:w-[240px]">
-              <SelectValue placeholder={common('selectLanguage')} />
+              <SelectValue placeholder="选择语言" />
             </SelectTrigger>
             <SelectContent>
               {locales.map((locale) => (
@@ -135,17 +130,39 @@ export default function NewArticlePage() {
       {generatedArticle && (
         <div className="border-border bg-card rounded-lg border p-6 shadow">
           <div className="mb-4">
-            <Label htmlFor="title">{t('articleForm.titleLabel')}</Label>
+            <Label htmlFor="title">文章标题</Label>
             <Input id="title" value={generatedArticle.title} onChange={(e) => handleInputChange(e, 'title')} />
           </div>
 
           <div className="mb-4">
-            <Label htmlFor="slug">{t('articleForm.slugLabel')}</Label>
+            <Label htmlFor="slug">文章别名</Label>
             <Input id="slug" value={generatedArticle.slug} onChange={(e) => handleInputChange(e, 'slug')} />
           </div>
 
           <div className="mb-4">
-            <Label htmlFor="excerpt">{t('articleForm.excerptLabel')}</Label>
+            <Label htmlFor="coverImageUrl">封面图片URL</Label>
+            <Input 
+              id="coverImageUrl" 
+              value={generatedArticle.coverImageUrl} 
+              onChange={(e) => handleInputChange(e, 'coverImageUrl')} 
+              placeholder="输入图片URL地址"
+            />
+            {generatedArticle.coverImageUrl && (
+              <div className="mt-2">
+                <img 
+                  src={generatedArticle.coverImageUrl} 
+                  alt="文章封面预览" 
+                  className="h-40 object-cover rounded-md"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://placehold.co/600x400?text=图片加载失败";
+                  }}
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="mb-4">
+            <Label htmlFor="excerpt">文章摘要</Label>
             <Textarea
               id="excerpt"
               value={generatedArticle.excerpt}
@@ -155,7 +172,7 @@ export default function NewArticlePage() {
           </div>
 
           <div className="mb-6">
-            <Label htmlFor="content">{t('articleForm.contentLabel')}</Label>
+            <Label htmlFor="content">文章内容</Label>
             <Textarea
               id="content"
               value={generatedArticle.content}
@@ -167,16 +184,16 @@ export default function NewArticlePage() {
 
           <div className="mb-6 flex items-center space-x-2">
             <Switch id="published" checked={publishImmediately} onCheckedChange={setPublishImmediately} />
-            <Label htmlFor="published">{t('articleForm.publishImmediately')}</Label>
+            <Label htmlFor="published">立即发布</Label>
           </div>
 
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={() => router.push('/admin/articles')}>
-              {t('buttons.cancel')}
+              取消
             </Button>
             <Button onClick={handleSave} disabled={isSaving}>
               {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isSaving ? t('buttons.saving') : t('buttons.saveArticle')}
+              {isSaving ? '正在保存...' : '保存文章'}
             </Button>
           </div>
         </div>

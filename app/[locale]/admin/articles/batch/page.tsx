@@ -1,7 +1,6 @@
 'use client'
 
 import { Loader2 } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -18,8 +17,6 @@ import { locales } from '@/i18n/routing'
 
 export default function BatchArticlesPage() {
   const router = useRouter()
-  const t = useTranslations('admin.batch')
-  const common = useTranslations('common')
   const [keywordsInput, setKeywordsInput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
@@ -31,7 +28,7 @@ export default function BatchArticlesPage() {
 
   const handleGenerate = async () => {
     if (!keywordsInput.trim()) {
-      toast.error(t('errors.emptyKeywords'))
+      toast.error('Keywords cannot be empty')
       return
     }
 
@@ -42,7 +39,7 @@ export default function BatchArticlesPage() {
       .filter((k) => k.length > 0)
 
     if (keywords.length === 0) {
-      toast.error(t('errors.noValidKeywords'))
+      toast.error('No valid keywords found')
       return
     }
 
@@ -105,21 +102,19 @@ export default function BatchArticlesPage() {
       const errorCount = results.filter((a) => a.status === 'error').length
 
       toast.success(
-        t('success.generated', {
-          successCount: String(successCount),
-          errorMessage: errorCount > 0 ? t('success.withErrors', { errorCount: String(errorCount) }) : ''
-        })
+        `Successfully generated ${successCount} articles${errorCount > 0 ? ` (with ${errorCount} errors)` : ''}`
       )
     } catch (error) {
       console.error('Error generating articles:', error)
-      toast.error(t('errors.generateFailed'))
+      toast.error('Failed to generate articles')
     } finally {
       setIsGenerating(false)
     }
   }
+
   const handleSave = async () => {
     if (generatedArticles.length === 0) {
-      toast.error(t('errors.noArticlesToSave'))
+      toast.error('No articles to save')
       return
     }
 
@@ -132,7 +127,7 @@ export default function BatchArticlesPage() {
       }))
 
     if (selectedArticles.length === 0) {
-      toast.error(t('errors.noSelectedArticles'))
+      toast.error('No articles selected')
       return
     }
 
@@ -145,15 +140,11 @@ export default function BatchArticlesPage() {
       const errorCount = saveResults.filter((r) => r.status === 'error').length
 
       toast.success(
-        t('success.saved', {
-          successCount: String(successCount),
-          publishStatus: publishImmediately ? t('publishStatus.published') : t('publishStatus.draft'),
-          errorMessage: errorCount > 0 ? t('success.withErrors', { errorCount: String(errorCount) }) : ''
-        })
+        `Successfully saved ${successCount} articles as ${publishImmediately ? 'published' : 'draft'}${errorCount > 0 ? ` (with ${errorCount} errors)` : ''}`
       )
     } catch (error) {
       console.error('Error saving articles:', error)
-      toast.error(t('errors.saveFailed'))
+      toast.error('Failed to save articles')
     } finally {
       setIsSaving(false)
     }
@@ -190,24 +181,24 @@ export default function BatchArticlesPage() {
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">{t('title')}</h1>
+        <h1 className="text-2xl font-bold">Batch Generate Articles</h1>
         <Button variant="outline" onClick={() => router.push('/admin/articles')}>
-          {t('backToArticles')}
+          Back to Articles
         </Button>
       </div>
 
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>{t('keywordsCard.title')}</CardTitle>
+          <CardTitle>Keywords</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="mb-4">
-            <Label htmlFor="keywords">{t('keywordsCard.label')}</Label>
+            <Label htmlFor="keywords">Enter keywords (one per line)</Label>
             <Textarea
               id="keywords"
               value={keywordsInput}
               onChange={(e) => setKeywordsInput(e.target.value)}
-              placeholder={t('keywordsCard.placeholder')}
+              placeholder="Enter keywords, one per line"
               rows={5}
               disabled={isGenerating}
               className="mt-4 font-mono"
@@ -217,11 +208,11 @@ export default function BatchArticlesPage() {
           {/* Language selection dropdown */}
           <div className="mb-4">
             <Label htmlFor="language" className="mb-2 block">
-              {common('language')}
+              Language
             </Label>
             <Select value={selectedLocale} onValueChange={setSelectedLocale}>
               <SelectTrigger className="w-full sm:w-[240px]">
-                <SelectValue placeholder={common('selectLanguage')} />
+                <SelectValue placeholder="Select language" />
               </SelectTrigger>
               <SelectContent>
                 {locales.map((locale) => (
@@ -235,13 +226,13 @@ export default function BatchArticlesPage() {
 
           <div className="mb-4 flex items-center space-x-2">
             <Switch id="published" checked={publishImmediately} onCheckedChange={setPublishImmediately} />
-            <Label htmlFor="published">{t('publishImmediately')}</Label>
+            <Label htmlFor="published">Publish immediately</Label>
           </div>
 
           <div className="flex gap-2">
             <Button onClick={handleGenerate} disabled={isGenerating || !keywordsInput.trim()}>
               {isGenerating && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isGenerating ? t('buttons.generating') : t('buttons.generateArticles')}
+              {isGenerating ? 'Generating...' : 'Generate Articles'}
             </Button>
 
             {generatedArticles.length > 0 && (
@@ -250,7 +241,7 @@ export default function BatchArticlesPage() {
                 disabled={isSaving || !generatedArticles.some((a) => a.selected && a.status === 'success')}
               >
                 {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {isSaving ? t('buttons.saving') : t('buttons.saveSelected')}
+                {isSaving ? 'Saving...' : 'Save Selected'}
               </Button>
             )}
           </div>
@@ -261,12 +252,12 @@ export default function BatchArticlesPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              <span>{t('generatedArticles.title')}</span>
+              <span>Generated Articles</span>
               {generatedArticles.some((a) => a.status === 'success') && (
                 <div className="flex items-center space-x-2">
                   <Checkbox id="selectAll" checked={selectAll} onCheckedChange={toggleSelectAll} />
                   <Label htmlFor="selectAll" className="text-sm font-normal">
-                    {t('generatedArticles.selectAll')}
+                    Select All
                   </Label>
                 </div>
               )}
@@ -290,9 +281,9 @@ export default function BatchArticlesPage() {
                   </div>
                   <div>
                     {item.status === 'success' ? (
-                      <span className="text-success font-medium">{t('status.generated')}</span>
+                      <span className="text-success font-medium">Generated</span>
                     ) : (
-                      <span className="text-destructive font-medium">{t('status.failed')}</span>
+                      <span className="text-destructive font-medium">Failed</span>
                     )}
                   </div>
                 </div>
@@ -305,7 +296,7 @@ export default function BatchArticlesPage() {
       {results.length > 0 && (
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>{t('saveResults.title')}</CardTitle>
+            <CardTitle>Save Results</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -316,9 +307,9 @@ export default function BatchArticlesPage() {
                   </div>
                   <div>
                     {result.status === 'success' ? (
-                      <span className="text-success font-medium">{t('status.saved')}</span>
+                      <span className="text-success font-medium">Saved</span>
                     ) : (
-                      <span className="text-destructive font-medium">{t('status.failed')}</span>
+                      <span className="text-destructive font-medium">Failed</span>
                     )}
                   </div>
                 </div>

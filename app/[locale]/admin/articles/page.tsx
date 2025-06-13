@@ -1,5 +1,3 @@
-import { getTranslations } from 'next-intl/server'
-
 import { getPaginatedArticles } from '@/actions/ai-content'
 import { BlogPagination } from '@/components/blog/blog-pagination'
 import { Badge } from '@/components/ui/badge'
@@ -18,19 +16,17 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
     pageSize
   })
 
-  const t = await getTranslations('admin.list')
-
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">{t('title')}</h1>
+        <h1 className="text-2xl font-bold">文章列表</h1>
         <div>
           <Link href="/admin/articles/batch">
-            <Button>{t('buttons.batchCreate')}</Button>
+            <Button>批量创建</Button>
           </Link>
           <Link href="/admin/articles/new">
             <Button className="ml-4" variant="secondary">
-              {t('buttons.createNew')}
+              新建文章
             </Button>
           </Link>
         </div>
@@ -41,32 +37,44 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
           <thead className="bg-muted/50">
             <tr>
               <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                {t('table.headers.title')}
+                封面图
               </th>
               <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                {t('table.headers.createdDate')}
+                标题
               </th>
               <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                {t('table.headers.language')}
+                创建日期
               </th>
               <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                {t('table.headers.status')}
+                语言
               </th>
               <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
-                {t('table.headers.actions')}
+                状态
+              </th>
+              <th className="text-muted-foreground px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
+                操作
               </th>
             </tr>
           </thead>
           <tbody className="divide-border bg-card divide-y">
             {articles.length === 0 ? (
               <tr>
-                <td colSpan={5} className="text-muted-foreground px-6 py-4 text-center">
-                  {t('table.noArticles')}
+                <td colSpan={6} className="text-muted-foreground px-6 py-4 text-center">
+                  暂无文章
                 </td>
               </tr>
             ) : (
               articles.map((article) => (
                 <tr key={article.id}>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {article.coverImageUrl && (
+                      <img
+                        src={article.coverImageUrl}
+                        alt={article.title}
+                        className="h-16 w-24 rounded-md object-cover"
+                      />
+                    )}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium">{article.title}</div>
                     <div className="text-muted-foreground truncate text-sm">{article.slug}</div>
@@ -79,7 +87,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <Badge variant={article.publishedAt ? 'success' : 'secondary'}>
-                      {article.publishedAt ? t('status.published') : t('status.draft')}
+                      {article.publishedAt ? '已发布' : '草稿'}
                     </Badge>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
@@ -87,14 +95,14 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
                       href={`/admin/articles/edit/${article.slug}`}
                       className="text-primary hover:text-primary/80 mr-4"
                     >
-                      {t('actions.edit')}
+                      编辑
                     </Link>
                     <Link
                       href={`/blog/${article.slug}`}
                       className="text-primary hover:text-primary/80 mr-4"
                       target="_blank"
                     >
-                      {t('actions.view')}
+                      查看
                     </Link>
                   </td>
                 </tr>
