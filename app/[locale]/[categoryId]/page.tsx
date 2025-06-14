@@ -54,6 +54,41 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
       'what-is-an-ai-astrologer-celestial-guide',
       'ai-astrology-cosmic-code-unlocked'
     ]
+  } else if (categoryId === 'tarot') {
+    links = [
+      'what-is-ai-tarot-digital-divination-guide',
+      'ai-tarot-reading-digital-oracle-guide',
+      'tarot-ai-digital-divination-guide'
+    ]
+  } else if (categoryId === 'vedic') {
+    links = [
+      'vedic-astrology-chart-ai',
+      'vedic-astrology-ai-cosmic-blueprint-guide',
+      'vedic-astrology-reading-ai-cosmic-insights'
+    ]
+  } else if (categoryId === 'iChing') {
+    links = ['i-ching-online-digital-oracle-guide-2025', 'i-ching-divination-guide-modern-wisdom']
+  } else if (categoryId === 'numerology') {
+    links = [
+      'numerology-ai-bot-guide',
+      'numerology-ai-tool-digital-destiny',
+      'ai-for-numerology-cosmic-code-decrypted',
+      'numerology-ai-digital-divination-guide'
+    ]
+  } else if (categoryId === 'palmistry') {
+    links = [
+      'palmistry-ai-reading-your-future-in-your-hand',
+      'how-to-read-palms-a-mystics-guide-to-your-fate',
+      'palmistry-chart-guide-to-reading-your-destiny',
+      'palmistry-palm-reading-guide-to-your-destiny'
+    ]
+  } else if (categoryId === 'dreamInterpretation') {
+    links = [
+      'islamic-dream-interpretation-ai-soul-vs-code',
+      'dream-interpretation-ai-a-modern-oracle-for-spiritual-growth',
+      'ai-dream-interpreter-divination-guide',
+      'real-time-text-to-image-ai-dream-interpretation-divination'
+    ]
   }
 
   const specificPosts = await getSpecificPosts(links)
