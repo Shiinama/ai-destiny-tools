@@ -52,8 +52,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     links = [
       'astrology-ai-chat-modern-oracle',
       'what-is-an-ai-astrologer-celestial-guide',
-      'ai-astrology-cosmic-code-unlocked',
-      'astrology-ai-chat-modern-oracle'
+      'ai-astrology-cosmic-code-unlocked'
     ]
   }
 
@@ -76,48 +75,50 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
   return (
     <div className="container py-8">
-      <header className="mb-8 text-center">
-        <h1 className="mb-3 text-3xl font-bold">{t(`${category.key}.name` as any)}</h1>
+      <header className="mb-8 space-y-4 text-center">
+        <h1 className="text-primary text-4xl font-bold">{t(`${category.key}.name` as any)}</h1>
         <p className="text-muted-foreground mx-auto max-w-3xl text-lg">{t(`${category.key}.description` as any)}</p>
       </header>
 
-      <section className="space-y-4">
-        {tools.length > 0 ? (
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] md:gap-4">
-            {tools.map((site) => (
-              <SiteCard key={site.id} site={site} />
-            ))}
+      <div className="grid grid-cols-1 gap-6 md:gap-12">
+        <section className="space-y-4">
+          {tools.length > 0 ? (
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] md:gap-4">
+              {tools.map((site) => (
+                <SiteCard key={site.id} site={site} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-muted-foreground py-12 text-center">
+              <p>No tools available in this category yet.</p>
+            </div>
+          )}
+          <div className="mt-6">
+            <BlogPagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
           </div>
-        ) : (
-          <div className="text-muted-foreground py-12 text-center">
-            <p>No tools available in this category yet.</p>
-          </div>
-        )}
-        <div className="mt-6">
-          <BlogPagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-        </div>
-      </section>
-
-      {specificPosts.length > 0 && (
-        <section className="flex flex-col items-center space-y-6">
-          <h2 className="text-primary/80 text-3xl font-bold">{home('featuredPosts')}</h2>
-          <div className="space-y-4">
-            {specificPosts.map((article) => (
-              <BlogLinkCard
-                key={article.id}
-                id={article.id}
-                slug={article.slug}
-                title={article.title}
-                excerpt={article.excerpt}
-                coverImageUrl={article.coverImageUrl!}
-              />
-            ))}
-          </div>
-          <Link className={buttonVariants({ variant: 'default', size: 'lg', className: 'w-40' })} href="/blogs">
-            {home('viewMore')}
-          </Link>
         </section>
-      )}
+
+        {specificPosts.length > 0 && (
+          <section className="flex flex-col items-center space-y-6">
+            <h2 className="text-primary/80 text-3xl font-bold">{home('featuredPosts')}</h2>
+            <div className="space-y-4">
+              {specificPosts.map((article) => (
+                <BlogLinkCard
+                  key={article.id}
+                  id={article.id}
+                  slug={article.slug}
+                  title={article.title}
+                  excerpt={article.excerpt}
+                  coverImageUrl={article.coverImageUrl!}
+                />
+              ))}
+            </div>
+            <Link className={buttonVariants({ variant: 'default', size: 'lg', className: 'w-40' })} href="/blogs">
+              {home('viewMore')}
+            </Link>
+          </section>
+        )}
+      </div>
     </div>
   )
 }
