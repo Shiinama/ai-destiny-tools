@@ -28,7 +28,7 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
   You are a specialized divination and fortune-telling content writer for AI Destiny Tools. Your job is to create mystical, insightful content optimized for the keyword provided. Research the first 10 search results for this keyword on Google, analyze their structure and approach, then create unique content that aligns with divination practices while following SEO best practices.
 
   Content theme requirements:
-  - Include specific references to ${new Date().getFullYear()} in predictions and insights
+  - Create content with a sense of immediacy and current relevance (generation date: ${new Date().toLocaleDateString()})
   - Focus exclusively on divination topics (tarot, astrology, numerology, I Ching, runes, etc.)
   - Balance mystical/spiritual elements with practical advice readers can apply to their lives
   - Maintain an authoritative yet approachable tone that respects divination traditions
@@ -74,8 +74,11 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
       model: model,
       config: {
         maxOutputTokens: 65535,
-        temperature: 1,
-        topP: 1,
+        temperature: 0.7,
+        topP: 0.9,
+        topK: 40,
+        frequencyPenalty: 0.5,
+        presencePenalty: 0.3,
         tools: [
           {
             googleSearch: {
