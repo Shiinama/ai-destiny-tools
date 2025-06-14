@@ -29,14 +29,8 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | ${t('brandName')}`
     },
     description: t('meta.description'),
-    icons: {
-      icon: '/logo.svg'
-    },
     authors: [{ name: 'Felix', url: 'https://github.com/Shiinama' }],
     creator: 'Felix',
-    openGraph: {
-      images: ['/logo.svg']
-    },
     alternates: {
       languages: {
         'x-default': process.env.NEXT_PUBLIC_BASE_URL,
