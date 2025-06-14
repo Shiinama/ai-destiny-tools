@@ -321,34 +321,22 @@ export async function generateAndUploadCoverImage(title: string, keyword: string
 
   const stylePrompts: Record<string, string> = {
     // Mystical/Divination theme (3D)
-    mystical: `Create a mystical and enchanting 3D rendered image for an article titled "${title}". The image should visually represent the keyword "${keyword}" and feature elements of divination such as tarot cards, crystal balls, or astrological symbols. Set the scene in a magical and ethereal environment.`,
+    mystical: `Create a mystical and enchanting 3D rendered image for an article titled "${title}". The image should visually represent the concept of "${keyword}" within a divination context. Include subtle mystical elements like ethereal light, sacred geometry, or metaphysical symbolism. Set the scene in a magical and ethereal environment that evokes spiritual insight.`,
 
     // Nature/Cosmic theme (Digital painting)
-    cosmic: `Design a digital painting with cosmic and natural elements for "${title}". Incorporate the concept of "${keyword}" with celestial elements like stars, planets, and cosmic energy. Include natural elements like plants, water, or mountains to create a harmonious balance between earth and cosmos.`,
-
-    // Abstract/Conceptual theme (Mixed media)
-    abstract: `Generate a mixed media abstract image representing "${title}". Use symbolic visual metaphors related to "${keyword}" with flowing energy, geometric shapes, and vibrant colors. The composition should be thought-provoking and open to interpretation.`,
-
-    // Architectural/Structural theme (Photorealistic)
-    architectural: `Create a photorealistic visualization that represents "${title}". Incorporate elements related to "${keyword}" within a surreal structure or landscape. Use dramatic lighting, perspective, and scale to create a sense of awe and wonder.`,
-
-    // Character-focused theme (Stylized illustration)
-    character: `Design a stylized illustration featuring a mysterious character or silhouette that embodies the essence of "${title}". The scene should incorporate visual elements related to "${keyword}" in the background or surroundings. Create a narrative feeling that invites viewers to imagine a story.`,
+    cosmic: `Design a digital painting with cosmic and natural elements for "${title}". Incorporate the concept of "${keyword}" with celestial divination imagery like constellations, cosmic alignments, or planetary influences. Show the connection between natural elements and cosmic forces as channels of prophetic wisdom.`,
 
     // Watercolor style
-    watercolor: `Create a delicate watercolor illustration for "${title}". Express the concept of "${keyword}" through soft color washes, gentle gradients, and subtle textures. The image should have an ethereal, dreamy quality with flowing forms and translucent layers.`,
-
-    // Vintage/Retro poster
-    vintage: `Design a vintage-style poster illustration for "${title}". Incorporate visual elements related to "${keyword}" using bold colors, simplified shapes, and retro typography. The image should evoke nostalgia while maintaining a modern sensibility.`,
+    watercolor: `Create a delicate watercolor illustration for "${title}". Express the divinatory meaning of "${keyword}" through soft color washes, gentle gradients, and subtle textures. The image should have an ethereal, dreamy quality with flowing forms that suggest the fluid nature of fate and destiny.`,
 
     // Minimalist design
-    minimalist: `Generate a minimalist design representing "${title}". Use clean lines, negative space, and a limited color palette to express the concept of "${keyword}". The composition should be elegant and impactful through its simplicity.`,
+    minimalist: `Generate a minimalist design representing "${title}". Use clean lines, negative space, and a limited color palette to express the essence of "${keyword}" as a divinatory concept. The composition should be elegant and impactful through its simplicity, suggesting profound meaning through minimal elements.`,
 
     // Futuristic/Tech style
-    futuristic: `Create a futuristic high-tech visualization for "${title}". Incorporate elements related to "${keyword}" with neon lights, holographic displays, and digital interfaces. Use a dark background with vibrant glowing elements to create a sense of advanced technology and innovation.`,
+    futuristic: `Create a futuristic visualization for "${title}" that blends advanced technology with mystical divination. Incorporate elements related to "${keyword}" with digital oracles, holographic prophecies, or technological scrying tools. Use a dark background with vibrant glowing elements to create a sense of modern mysticism and digital enlightenment.`,
 
     // Fantasy/Magical style
-    fantasy: `Design a fantasy illustration for "${title}". Incorporate magical elements related to "${keyword}" with enchanted forests, mythical creatures, or magical artifacts. Use rich colors, dramatic lighting, and detailed textures to create an immersive fantasy world that sparks imagination.`
+    fantasy: `Design a fantasy illustration for "${title}" centered around prophetic or divinatory themes. Incorporate magical elements related to "${keyword}" with enchanted tools of foresight, mystical beings with prophetic abilities, or magical environments where the future is revealed. Use rich colors and dramatic lighting to create an immersive world where destiny unfolds.`
   }
 
   let selectedPrompt: string

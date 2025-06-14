@@ -27,28 +27,32 @@ const imageStyles = [
   {
     id: 'mystical',
     name: '神秘/占卜风格',
-    description: '神秘而迷人的3D渲染图像，包含占卜元素如塔罗牌、水晶球或星象符号'
+    description: '神秘而迷人的3D渲染图像，展现命运的交织与预言的力量，融入微妙的神秘符号和能量流动'
   },
-  { id: 'cosmic', name: '自然/宇宙风格', description: '融合宇宙和自然元素的数字绘画，包含星星、行星和宇宙能量' },
-  { id: 'abstract', name: '抽象/概念风格', description: '使用流动的能量、几何形状和鲜艳的颜色的混合媒体抽象图像' },
   {
-    id: 'architectural',
-    name: '建筑/结构风格',
-    description: '在超现实结构或景观中的逼真可视化，使用戏剧性的光线和透视'
+    id: 'cosmic',
+    name: '自然/宇宙风格',
+    description: '融合宇宙和自然元素的数字绘画，表现星象预测与命运轨迹，展示天体与人类命运的神秘联系'
   },
-  { id: 'character', name: '角色风格', description: '以神秘角色或剪影为特色的风格化插图，营造叙事感' },
-  { id: 'watercolor', name: '水彩风格', description: '通过柔和的色彩洗涤、渐变和微妙的纹理表现的精致水彩插图' },
-  { id: 'vintage', name: '复古/怀旧风格', description: '使用大胆的颜色、简化的形状和复古排版的复古风格海报插图' },
-  { id: 'minimalist', name: '极简风格', description: '使用干净的线条、负空间和有限的调色板表达的极简设计' },
+  {
+    id: 'watercolor',
+    name: '水彩命运风格',
+    description: '通过流动的水彩技法表现命运的流转与变化，以柔和的色彩渐变和朦胧效果展示预言的模糊边界'
+  },
+  {
+    id: 'minimalist',
+    name: '极简预言风格',
+    description: '使用简约线条和有限色彩表达深刻的命运概念，通过留白和象征性元素传达预言的力量'
+  },
   {
     id: 'futuristic',
-    name: '未来/科技风格',
-    description: '具有霓虹灯、全息显示和数字界面的高科技可视化效果，使用深色背景和鲜艳的发光元素'
+    name: '未来预测风格',
+    description: '融合科技与预言的未来主义视觉，展现数字化占卜工具和全息预言，以现代方式呈现古老的命运智慧'
   },
   {
     id: 'fantasy',
-    name: '奇幻/魔法风格',
-    description: '具有魔法元素的奇幻插图，包含魔法森林、神话生物或魔法神器，使用丰富的色彩和戏剧性光线'
+    name: '奇幻命运风格',
+    description: '具有魔法元素的奇幻插图，展现命运织者、预言水晶或命运之书等神秘物品，营造命运被揭示的奇幻场景'
   }
 ]
 
