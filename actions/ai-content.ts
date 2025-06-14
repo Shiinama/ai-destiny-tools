@@ -76,9 +76,6 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
         maxOutputTokens: 65535,
         temperature: 0.7,
         topP: 0.9,
-        topK: 40,
-        frequencyPenalty: 0.5,
-        presencePenalty: 0.3,
         tools: [
           {
             googleSearch: {
