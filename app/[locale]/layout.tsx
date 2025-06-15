@@ -38,6 +38,9 @@ export async function generateMetadata(): Promise<Metadata> {
           locales.map((locale) => [locale.code, `${process.env.NEXT_PUBLIC_BASE_URL}/${locale.code}`])
         )
       }
+    },
+    other: {
+      'baidu-site-verification': 'codeva-cuus2agKEj'
     }
   }
 }
