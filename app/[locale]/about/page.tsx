@@ -14,6 +14,7 @@ export default async function AboutPage() {
         <p>{t('paragraph4')}</p>
         <p>{t('paragraph5')}</p>
         <p>{t('paragraph6')}</p>
+        <p>{t('paragraph7')}</p>
       </div>
     </div>
   )
