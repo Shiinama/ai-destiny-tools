@@ -42,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const route of routes) {
     for (const locale of locales) {
       entries.push({
-        url: `${baseUrl}/${locale.code}${route}`
+        url: `${baseUrl}${locale.code === 'en' ? '' : `/${locale.code}`}${route}`
       })
     }
   }
