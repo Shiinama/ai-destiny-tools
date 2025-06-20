@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const divinationTools = tools.map((i) => `/divination-tools/${i.id}`)
 
   const routes = [
-    '',
+    '/',
     '/tarot',
     '/astrology',
     '/vedic',
