@@ -39,10 +39,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const entries: MetadataRoute.Sitemap = []
 
+  const getUrlPath = (locale: (typeof locales)[0], route: string) => {
+    if (locale.code === 'en' && route === '/') return ''
+    if (locale.code === 'en') return route
+    if (route === '/') return `/${locale.code}`
+    return `/${locale.code}${route}`
+  }
+
   for (const route of routes) {
     for (const locale of locales) {
       entries.push({
-        url: `${baseUrl}${locale.code === 'en' ? '' : `/${locale.code}`}${route}`
+        url: `${baseUrl}${getUrlPath(locale, route)}`
       })
     }
   }
