@@ -19,7 +19,7 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
   const [isLoading, setIsLoading] = useState({
     google: false,
     github: false,
-    email: false
+    resend: false
   })
 
   const handleSignIn = async (provider: 'google' | 'resend') => {
@@ -67,8 +67,8 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
           required
           className="w-full"
         />
-        <Button type="submit" disabled={isLoading.email} variant="outline" className="w-full">
-          {isLoading.email ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Mail className="mr-2 h-5 w-5" />}
+        <Button type="submit" disabled={isLoading.resend} variant="outline" className="w-full">
+          {isLoading.resend ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Mail className="mr-2 h-5 w-5" />}
           {t('signInWithEmail')}
         </Button>
       </form>
