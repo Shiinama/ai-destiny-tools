@@ -106,7 +106,7 @@ export const divinationCategories = sqliteTable('divination_categories', {
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   key: text('key').notNull().unique(), // 用于i18n翻译的键名
-  order: integer('order').default(0),
+  display_order: integer('display_order').default(0),
   createdAt: integer('created_at', { mode: 'timestamp_ms' })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()
@@ -140,6 +140,6 @@ export const divinationTools = sqliteTable('divination_tools', {
   price: text('price'),
   logoUrl: text('logo_url'),
   screenshotUrls: text('screenshot_urls'),
-  order: integer('order').default(0),
+  display_order: integer('display_order').default(0),
   locale: text('locale').notNull().default('en')
 })

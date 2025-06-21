@@ -73,7 +73,7 @@ export async function getPaginatedTools({
 
   const filteredQuery = conditions.length > 0 ? query.where(and(...conditions)) : query
 
-  const paginatedQuery = filteredQuery.orderBy(divinationTools.order).limit(pageSize).offset(offset)
+  const paginatedQuery = filteredQuery.orderBy(divinationTools.display_order).limit(pageSize).offset(offset)
 
   const countQuery = db.select({ count: sql`count(*)` }).from(divinationTools)
 
@@ -195,7 +195,7 @@ export async function batchUpdateToolOrder(updates: Array<{ id: string; order: n
       try {
         const result = await db
           .update(divinationTools)
-          .set({ order })
+          .set({ display_order: order })
           .where(eq(divinationTools.id, id))
           .returning()
           .execute()
@@ -219,7 +219,7 @@ export async function updateToolOrder(id: string, newOrder: number) {
 
   const result = await db
     .update(divinationTools)
-    .set({ order: newOrder })
+    .set({ display_order: newOrder })
     .where(eq(divinationTools.id, id))
     .returning()
     .execute()
@@ -235,7 +235,7 @@ export async function updateToolsOrder(items: Array<{ id: string; index: number 
       try {
         const result = await db
           .update(divinationTools)
-          .set({ order: index })
+          .set({ display_order: index })
           .where(eq(divinationTools.id, id))
           .returning()
           .execute()
@@ -274,5 +274,5 @@ export async function deleteTool(id: string) {
 
 export async function getCategories() {
   const db = createDb()
-  return db.select().from(divinationCategories).orderBy(divinationCategories.order).execute()
+  return db.select().from(divinationCategories).orderBy(divinationCategories.display_order).execute()
 }
