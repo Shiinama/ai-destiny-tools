@@ -20,6 +20,7 @@ export type DivinationToolInput = {
   contactInfo?: string
   logoUrl?: string
   screenshotUrls?: string
+  locale?: string
 }
 
 export type DivinationToolUpdateInput = DivinationToolInput & {
@@ -31,13 +32,15 @@ export async function getPaginatedTools({
   pageSize = 10,
   status,
   search,
-  categoryId
+  categoryId,
+  locale
 }: {
   page?: number
   pageSize?: number
   status?: ToolStatus
   search?: string
   categoryId?: string
+  locale?: string
 }) {
   const offset = (page - 1) * pageSize
   const db = createDb()
@@ -54,6 +57,10 @@ export async function getPaginatedTools({
 
   if (categoryId) {
     conditions.push(eq(divinationTools.categoryId, categoryId))
+  }
+
+  if (locale) {
+    conditions.push(eq(divinationTools.locale, locale))
   }
 
   const query = db

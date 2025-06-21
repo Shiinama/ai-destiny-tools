@@ -10,8 +10,14 @@ import SiteCard from '@/components/navigatiton-sites/site-card'
 import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  const { page } = await searchParams
+export default async function Home({
+  searchParams,
+  params
+}: {
+  searchParams: Promise<{ page?: string }>
+  params: Promise<{ locale: string }>
+}) {
+  const [{ page }, { locale }] = await Promise.all([searchParams, params])
 
   const currentPage = page ? parseInt(page) : 1
   const pageSize = 20
@@ -22,7 +28,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
     getPaginatedTools({
       page: currentPage,
       pageSize,
-      status: 'approved'
+      status: 'approved',
+      locale
     }),
     getSpecificPosts([
       'ai-divination-future-foresight',

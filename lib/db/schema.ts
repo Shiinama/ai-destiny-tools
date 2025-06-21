@@ -140,5 +140,6 @@ export const divinationTools = sqliteTable('divination_tools', {
   price: text('price'),
   logoUrl: text('logo_url'),
   screenshotUrls: text('screenshot_urls'),
-  order: integer('order').default(0)
+  order: integer('order').default(0),
+  locale: text('locale').notNull().default('en')
 })

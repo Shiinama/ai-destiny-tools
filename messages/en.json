@@ -83,6 +83,10 @@
   },
   "about": {
     "title": "About Us",
+    "meta": {
+      "title": "About Destiny AI - Your Guide to AI Divination Tools",
+      "description": "Learn about Destiny AI's mission to curate and evaluate the world's best AI-powered divination tools. Discover our journey in bridging ancient wisdom with modern technology."
+    },
     "paragraph1": "Welcome to Destiny AI, a comprehensive directory platform that collects and showcases the best AI divination tools available. We aim to be your guide in navigating the growing landscape of AI-powered divination applications, helping you discover tools that reveal deeper patterns and possibilities hidden beneath the surface of everyday life.",
     "paragraph2": "Throughout history, humans have yearned to peek behind the veil of the future. This curiosity about destiny isn't merely superstition—it's our instinctive quest for certainty. In this world full of uncertainties, we all want to know: What's my next move? What consequences will that decision bring? Is that relationship worth investing in? The emergence of large language models has completely changed the game in this ancient field. They can analyze vast amounts of data, recognize human behavioral patterns, understand complex causal relationships, and transform these clues into personalized guidance in unprecedented ways. This is no longer vague prophecy, but precise analysis based on data and patterns.",
     "paragraph3": "At Destiny AI, we select the best-performing divination tools on the market (and if they're not good enough, we develop our own!).  Every tool undergoes rigorous testing to ensure it provides meaningful and actionable insights, not just empty reassurances.",
@@ -92,6 +96,8 @@
     "paragraph7": "Thank you for taking the time to read our About section completely."
   },
   "divinationTools": {
+    "toolNotFound": "Tool Not Found",
+    "toolNotFoundDescription": "The divination tool you're looking for could not be found. Please check our homepage for available tools.",
     "accessTool": "Access Tool",
     "visit": "Visit",
     "availableOn": "Available on",

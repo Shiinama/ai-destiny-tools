@@ -1,0 +1,1 @@
+ALTER TABLE `divination_tools` ADD `locale` text DEFAULT 'en' NOT NULL;

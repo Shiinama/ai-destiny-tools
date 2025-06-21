@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { useState, FormEvent } from 'react'
 import { toast } from 'sonner'
 
@@ -24,6 +24,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const t = useTranslations('submitTools')
+  const locale = useLocale()
   const divinationCategories = useTranslations('divinationCategories')
 
   const [formValues, setFormValues] = useState({
@@ -103,7 +104,8 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
         imageUrl: '',
         categoryId: formValues.categoryId,
         contactInfo: formValues.contactInfo,
-        status: 'pending'
+        status: 'pending',
+        locale
       })
 
       if (result) {

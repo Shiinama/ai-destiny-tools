@@ -1,6 +1,7 @@
 'use client'
 
 import { Loader2 } from 'lucide-react'
+import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
@@ -17,6 +18,7 @@ import { ToolStatus } from '@/lib/db/schema'
 
 export default function NewToolPage() {
   const router = useRouter()
+  const { locale } = useParams() as { locale: string }
 
   const [formData, setFormData] = useState({
     name: '',
@@ -31,7 +33,8 @@ export default function NewToolPage() {
     imageUrl: '',
     screenshotUrls: '',
     status: 'approved' as ToolStatus,
-    platform: ''
+    platform: '',
+    locale
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
