@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 
+import { checkUserIsAdmin } from '@/hooks/use-is-admin'
 import { redirect } from '@/i18n/navigation'
 import { auth } from '@/lib/auth'
 
@@ -11,8 +12,9 @@ export default async function AdminLayout({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const s = await auth()
-  if (!process.env.NEXT_PUBLIC_ADMIN_ID.split(',').includes(s?.user?.id ?? '')) {
+  const session = await auth()
+  const isUserAdmin = checkUserIsAdmin(session?.user?.id)
+  if (!isUserAdmin) {
     redirect({
       href: '/',
       locale

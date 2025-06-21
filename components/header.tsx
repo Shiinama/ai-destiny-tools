@@ -6,11 +6,15 @@ import LoginModal from '@/components/login/login-modal'
 import Logo from '@/components/logo'
 import { MainNav } from '@/components/main-nav'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { checkUserIsAdmin } from '@/hooks/use-is-admin'
 import { Link } from '@/i18n/navigation'
+import { auth } from '@/lib/auth'
 import { cn } from '@/lib/utils'
 
 export default async function Header({ className }: { className?: string }) {
   const t = await getTranslations('headers')
+  const session = await auth()
+  const isUserAdmin = await checkUserIsAdmin(session?.user?.id)
 
   const mobileLinkStyle = 'flex items-center rounded-md px-3 py-3 text-lg font-medium transition-colors'
 
@@ -23,6 +27,9 @@ export default async function Header({ className }: { className?: string }) {
       label: t('submitTools')
     }
   ]
+  if (isUserAdmin) {
+    navLinks.push({ href: '/admin/articles', label: '文章管理' }, { href: '/admin/tools', label: '工具管理' })
+  }
 
   return (
     <header
