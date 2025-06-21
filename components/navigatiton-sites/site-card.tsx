@@ -3,8 +3,6 @@ import { useTranslations } from 'next-intl'
 import { Card, CardDescription, CardFooter, CardHeader } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
 
-import { BrandLogo } from '../icons/brand-logo'
-
 interface SiteCardProps {
   site: {
     id: string
@@ -21,13 +19,7 @@ export default function SiteCard({ site }: SiteCardProps) {
   return (
     <Card key={site.id}>
       <div className="relative w-full overflow-hidden rounded-t-md pt-[56.25%]">
-        {site.imageUrl ? (
-          <img src={site.imageUrl} alt={site.name} className="absolute inset-0 h-full w-full object-cover" />
-        ) : (
-          <div className="bg-muted absolute inset-0 flex items-center justify-center">
-            <BrandLogo width={150} height={150} className="text-muted-foreground" />
-          </div>
-        )}
+        <img src={site.imageUrl!} alt={site.name} className="absolute inset-0 h-full w-full object-cover" />
       </div>
       <CardHeader>
         <h3 className="text-lg font-medium">{site.name}</h3>
