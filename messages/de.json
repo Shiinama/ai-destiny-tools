@@ -7,7 +7,11 @@
     "paragraph4": "Sollten Sie ungenaue Tool-Beschreibungen auf unserer Website finden, kontaktieren Sie uns bitte. Wir sind bestrebt, jegliche Fehlinformationen zu korrigieren und danken Ihnen für Ihr Verständnis.",
     "paragraph5": "Gleichzeitig ist es sehr interessant, alle Wahrsagekünste aus der ganzen Welt zu einem vergleichenden Wettbewerb zusammenzuführen! Schließlich hat jede Wahrsagemethode ihre eigene in sich schlüssige Theorie. Wenn wir sie alle in die Praxis umsetzen, können wir sehen, welche Methoden wirklich effektiv sind und welche nur leeres Gerede. Künstliche Intelligenz bevorzugt keine bestimmte Denkschule – sie kümmert sich nur um Ergebnisse und Genauigkeit.",
     "paragraph6": "Wir suchen auch Wahrsage-Enthusiasten aus verschiedenen Ländern, die sich uns anschließen, die Kultur und Werkzeuge ihres Heimatlandes fördern und uns helfen, neue Werkzeuge zu finden und hinzuzufügen. Derzeit haben wir Enthusiasten aus chinesisch-, spanisch- und englischsprachigen Ländern. Mitwirkende können über unser Partnerprogramm Einnahmen erzielen. Wir freuen uns über Kontaktaufnahme von Enthusiasten aus weiteren Ländern.",
-    "paragraph7": "Vielen Dank, dass Sie sich die Zeit genommen haben, unseren Abschnitt 'Über uns' vollständig zu lesen."
+    "paragraph7": "Vielen Dank, dass Sie sich die Zeit genommen haben, unseren Abschnitt 'Über uns' vollständig zu lesen.",
+    "meta": {
+      "title": "Über uns - Ihr Leitfaden für KI-Divinationswerkzeuge",
+      "description": "Erfahren Sie mehr über die Mission von Destiny AI, die besten KI-gesteuerten Wahrsagewerkzeuge der Welt zu kuratieren und zu bewerten. Entdecken Sie unsere Reise, die altes Wissen mit moderner Technologie verbindet."
+    }
   },
   "blogs": {
     "pageTitle": "Blogbeiträge",
@@ -89,6 +93,11 @@
         "label": "Kontaktinformationen",
         "placeholder": "Geben Sie Ihre Kontaktinformationen ein (E-Mail, soziale Medien usw.)",
         "description": "Wie können wir Sie erreichen, wenn wir weitere Informationen zu Ihrer Einreichung benötigen?"
+      },
+      "locale": {
+        "label": "Sprache",
+        "placeholder": "Sprache auswählen",
+        "description": "Wählen Sie die Sprachversion für die Anzeige der Werkzeugseite"
       }
     },
     "toast": {
@@ -106,7 +115,8 @@
       "urlValid": "Bitte geben Sie eine gültige URL ein",
       "imageValid": "Bitte laden Sie eine gültige Bilddatei hoch",
       "categoryRequired": "Kategorie ist erforderlich",
-      "contactInfoRequired": "Kontaktinformationen sind erforderlich"
+      "contactInfoRequired": "Kontaktinformationen sind erforderlich",
+      "localeRequired": "Sprache ist erforderlich"
     },
     "welcomeMessage": "Wir begrüßen Wahrsage-Tools aus aller Welt zur Einreichung auf unserer Plattform. Sie können Inhalte in Ihrer Muttersprache einreichen, und wir werden Benutzerinteraktionsdaten sammeln, um die Effektivität und Genauigkeit von Wahrsagemethoden aus verschiedenen Ländern objektiv zu bewerten. Basierend auf diesen Daten werden wir ermitteln, welche Wahrsagetechnik tatsächlich überlegen ist!"
   },
@@ -270,6 +280,8 @@
     "screenshot": "Screenshot",
     "previousImage": "Vorheriges Bild",
     "nextImage": "Nächstes Bild",
-    "goToImage": "Zum Bild springen"
+    "goToImage": "Zum Bild springen",
+    "toolNotFound": "Tool nicht gefunden",
+    "toolNotFoundDescription": "Das von Ihnen gesuchte Wahrsage-Tool konnte nicht gefunden werden. Bitte überprüfen Sie unsere Homepage für verfügbare Tools."
   }
 }

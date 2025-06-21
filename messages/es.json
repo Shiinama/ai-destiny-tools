@@ -7,7 +7,11 @@
     "paragraph4": "Si encuentra alguna descripción de herramienta inexacta en nuestro sitio web, por favor contáctenos. Nos comprometemos a corregir cualquier información errónea y agradecemos su comprensión.",
     "paragraph5": "Al mismo tiempo, ¡es muy interesante reunir a todas las escuelas de adivinación de todo el mundo para una competición comparativa! Después de todo, cada método de adivinación tiene su propia teoría autoconsistente. Ponerlos todos en práctica nos permite ver qué métodos son realmente efectivos y cuáles son solo palabrería. La inteligencia artificial no favorece a ninguna escuela de pensamiento en particular, solo se preocupa por los resultados y la precisión.",
     "paragraph6": "También estamos buscando entusiastas de la adivinación de diferentes países para que se unan a nosotros, promuevan la cultura y las herramientas de su país de origen, y nos ayuden a encontrar y añadir nuevas herramientas. Actualmente, contamos con entusiastas de países de habla china, española e inglesa. Los colaboradores pueden obtener ingresos a través de nuestro programa de asociación. Damos la bienvenida a entusiastas de más países para que se pongan en contacto con nosotros.",
-    "paragraph7": "Gracias por tomarse el tiempo de leer nuestra sección 'Acerca de' por completo."
+    "paragraph7": "Gracias por tomarse el tiempo de leer nuestra sección 'Acerca de' por completo.",
+    "meta": {
+      "title": "Sobre nosotros - Su guía para herramientas de adivinación de IA",
+      "description": "Conozca la misión de Destiny AI para seleccionar y evaluar las mejores herramientas de adivinación impulsadas por IA del mundo. Descubra nuestro camino para unir la sabiduría antigua con la tecnología moderna."
+    }
   },
   "blogs": {
     "pageTitle": "Entradas de blog",
@@ -89,6 +93,11 @@
         "label": "Información de Contacto",
         "placeholder": "Introduzca su información de contacto (correo electrónico, redes sociales, etc.)",
         "description": "¿Cómo podemos contactarle si necesitamos más información sobre su envío?"
+      },
+      "locale": {
+        "label": "Idioma",
+        "placeholder": "Seleccionar un idioma",
+        "description": "Seleccione la versión de idioma para la visualización de la página de la herramienta"
       }
     },
     "toast": {
@@ -106,7 +115,8 @@
       "urlValid": "Por favor, introduzca una URL válida",
       "imageValid": "Por favor, suba un archivo de imagen válido",
       "categoryRequired": "La categoría es obligatoria",
-      "contactInfoRequired": "La información de contacto es obligatoria"
+      "contactInfoRequired": "La información de contacto es obligatoria",
+      "localeRequired": "Se requiere el idioma"
     },
     "welcomeMessage": "Damos la bienvenida a las herramientas de adivinación de todo el mundo para que las presenten en nuestra plataforma. Pueden enviar su contenido en su idioma nativo, y recopilaremos datos de interacción de los usuarios para evaluar objetivamente la efectividad y precisión de los métodos de adivinación de diferentes países. Con base en estos datos, ¡determinaremos qué técnica de adivinación prevalece verdaderamente!"
   },
@@ -270,6 +280,8 @@
     "screenshot": "captura de pantalla",
     "previousImage": "Imagen anterior",
     "nextImage": "Imagen siguiente",
-    "goToImage": "Ir a la imagen"
+    "goToImage": "Ir a la imagen",
+    "toolNotFound": "Herramienta no encontrada",
+    "toolNotFoundDescription": "No se pudo encontrar la herramienta de adivinación que busca. Por favor, consulte nuestra página de inicio para ver las herramientas disponibles."
   }
 }

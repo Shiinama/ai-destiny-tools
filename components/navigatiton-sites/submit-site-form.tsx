@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useState, FormEvent } from 'react'
 import { toast } from 'sonner'
 
@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
+import { locales } from '@/i18n/routing'
 
 interface Category {
   id: string
@@ -24,7 +25,6 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const t = useTranslations('submitTools')
-  const locale = useLocale()
   const divinationCategories = useTranslations('divinationCategories')
 
   const [formValues, setFormValues] = useState({
@@ -32,7 +32,8 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     description: '',
     url: '',
     contactInfo: '',
-    categoryId: ''
+    categoryId: '',
+    locale: ''
   })
 
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -82,6 +83,11 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
       newErrors.contactInfo = t('validation.contactInfoRequired')
     }
 
+    // Validate locale
+    if (!formValues.locale) {
+      newErrors.locale = t('validation.localeRequired')
+    }
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -105,7 +111,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
         categoryId: formValues.categoryId,
         contactInfo: formValues.contactInfo,
         status: 'pending',
-        locale
+        locale: formValues.locale
       })
 
       if (result) {
@@ -190,6 +196,24 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
           </Select>
           <p className="text-muted-foreground text-[0.8rem]">{t('form.category.description')}</p>
           {errors.categoryId && <p className="text-destructive text-[0.8rem] font-medium">{errors.categoryId}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-sm font-medium">{t('form.locale.label')}</p>
+          <Select value={formValues.locale} onValueChange={(value) => handleInputChange('locale', value)}>
+            <SelectTrigger id="locale">
+              <SelectValue placeholder={t('form.locale.placeholder')} />
+            </SelectTrigger>
+            <SelectContent>
+              {locales.map((locale) => (
+                <SelectItem key={locale.code} value={locale.code}>
+                  {locale.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <p className="text-muted-foreground text-[0.8rem]">{t('form.locale.description')}</p>
+          {errors.locale && <p className="text-destructive text-[0.8rem] font-medium">{errors.locale}</p>}
         </div>
 
         <Button type="submit" disabled={isSubmitting}>

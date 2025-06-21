@@ -84,7 +84,7 @@
   "about": {
     "title": "About Us",
     "meta": {
-      "title": "About Destiny AI - Your Guide to AI Divination Tools",
+      "title": "About Us - Your Guide to AI Divination Tools",
       "description": "Learn about Destiny AI's mission to curate and evaluate the world's best AI-powered divination tools. Discover our journey in bridging ancient wisdom with modern technology."
     },
     "paragraph1": "Welcome to Destiny AI, a comprehensive directory platform that collects and showcases the best AI divination tools available. We aim to be your guide in navigating the growing landscape of AI-powered divination applications, helping you discover tools that reveal deeper patterns and possibilities hidden beneath the surface of everyday life.",
@@ -171,6 +171,11 @@
         "placeholder": "Enter your contact information (email, social media, etc.)",
         "description": "How can we reach you if we need more information about your submission?"
       },
+      "locale": {
+        "label": "Language",
+        "placeholder": "Select a language",
+        "description": "Select the language version for the tool page display"
+      },
       "submit": {
         "label": "Submit AI Divination Tool",
         "loading": "Submitting..."
@@ -191,7 +196,8 @@
       "urlValid": "Please enter a valid URL",
       "contactInfoRequired": "Contact information is required",
       "imageValid": "Please upload a valid image file",
-      "categoryRequired": "Category is required"
+      "categoryRequired": "Category is required",
+      "localeRequired": "Language is required"
     }
   },
   "footer": {
