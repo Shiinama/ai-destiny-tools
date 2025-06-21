@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/dialog'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Link } from '@/i18n/navigation'
+import { locales } from '@/i18n/routing'
 import { formatDate } from '@/lib/utils'
 
 export default async function ToolsAdminPage({
@@ -136,6 +137,7 @@ export default async function ToolsAdminPage({
             <TableRow>
               <TableHead>名称</TableHead>
               <TableHead>分类</TableHead>
+              <TableHead>语言</TableHead>
               <TableHead>联系方式</TableHead>
               <TableHead>创建日期</TableHead>
               <TableHead>状态</TableHead>
@@ -159,6 +161,7 @@ export default async function ToolsAdminPage({
                   <TableCell>
                     <Badge variant="outline">{tool.categoryKey}</Badge>
                   </TableCell>
+                  <TableCell> {locales.find((locale) => locale.code === tool.locale)?.name}</TableCell>
                   <TableCell>
                     <div className="text-sm">{tool.contactInfo || '未提供'}</div>
                   </TableCell>

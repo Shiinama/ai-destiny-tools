@@ -27,7 +27,7 @@ export default function AccessToolCard({ tool }: AccessToolCardProps) {
         <Button asChild className="w-full gap-2">
           <Link href={tool.url} target="_blank" rel="nofollow">
             <ExternalLink size={16} />
-            {t('visit')} {tool.name}
+            {t('visit')}
           </Link>
         </Button>
 

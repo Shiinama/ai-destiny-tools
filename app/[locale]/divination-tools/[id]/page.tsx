@@ -1,3 +1,6 @@
+import { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+
 import { getToolById } from '@/actions/divination-tools'
 import AboutSection from '@/app/[locale]/divination-tools/[id]/components/about-section'
 import AccessToolCard from '@/app/[locale]/divination-tools/[id]/components/access-tool-card'
@@ -9,6 +12,26 @@ interface DivinationToolPageProps {
   params: Promise<{
     id: string
   }>
+}
+export async function generateMetadata({ params }: DivinationToolPageProps): Promise<Metadata> {
+  const { id } = await params
+
+  const t = await getTranslations('divinationTools')
+
+  const tool = await getToolById(id)
+
+  if (!tool) {
+    return {
+      title: t('toolNotFound'),
+      description: t('toolNotFoundDescription')
+    }
+  }
+  const title = `${tool.name} - ${tool.categoryKey}`
+
+  return {
+    title: title,
+    description: tool.description
+  }
 }
 
 export default async function DivinationToolPage({ params }: DivinationToolPageProps) {

@@ -7,7 +7,11 @@
     "paragraph4": "Se trovate descrizioni di strumenti imprecise sul nostro sito web, vi preghiamo di contattarci. Ci impegniamo a correggere qualsiasi informazione errata e apprezziamo la vostra comprensione.",
     "paragraph5": "Allo stesso tempo, è molto interessante riunire tutte le scuole di divinazione di tutto il mondo per una competizione comparativa! Dopotutto, ogni metodo di divinazione ha la sua teoria auto-coerente. Mettendole tutte in pratica, possiamo vedere quali metodi sono veramente efficaci e quali sono solo chiacchiere. L'intelligenza artificiale non favorisce alcuna particolare scuola di pensiero, si preoccupa solo dei risultati e della precisione.",
     "paragraph6": "Siamo anche alla ricerca di appassionati di divinazione da diversi paesi che si uniscano a noi, promuovano la cultura e gli strumenti della loro patria e ci aiutino a trovare e aggiungere nuovi strumenti. Attualmente, abbiamo appassionati da paesi di lingua cinese, spagnola e inglese. I contributori possono guadagnare attraverso il nostro programma di partnership. Diamo il benvenuto a entusiasti di più paesi a contattarci.",
-    "paragraph7": "Grazie per aver dedicato del tempo a leggere completamente la nostra sezione 'Chi siamo'."
+    "paragraph7": "Grazie per aver dedicato del tempo a leggere completamente la nostra sezione 'Chi siamo'.",
+    "meta": {
+      "title": "Chi siamo - La tua guida agli strumenti di divinazione AI",
+      "description": "Scopri la missione di Destiny AI di curare e valutare i migliori strumenti di divinazione basati sull'IA del mondo. Esplora il nostro percorso che unisce l'antica saggezza alla tecnologia moderna."
+    }
   },
   "blogs": {
     "pageTitle": "Articoli del blog",
@@ -89,6 +93,11 @@
         "label": "Informazioni di Contatto",
         "placeholder": "Inserisci le tue informazioni di contatto (email, social media, ecc.)",
         "description": "Come possiamo contattarti se abbiamo bisogno di maggiori informazioni sulla tua sottomissione?"
+      },
+      "locale": {
+        "label": "Lingua",
+        "placeholder": "Seleziona una lingua",
+        "description": "Seleziona la versione linguistica per la visualizzazione della pagina dello strumento"
       }
     },
     "toast": {
@@ -106,7 +115,8 @@
       "urlValid": "Inserisci un URL valido",
       "imageValid": "Carica un file immagine valido",
       "categoryRequired": "La categoria è obbligatoria",
-      "contactInfoRequired": "Le informazioni di contatto sono richieste"
+      "contactInfoRequired": "Le informazioni di contatto sono richieste",
+      "localeRequired": "La lingua è obbligatoria"
     },
     "welcomeMessage": "Diamo il benvenuto agli strumenti di divinazione di tutto il mondo per la sottomissione alla nostra piattaforma. Potete inviare contenuti nella vostra lingua madre e raccoglieremo dati di interazione utente per valutare obiettivamente l'efficacia e l'accuratezza dei metodi di divinazione provenienti da diversi paesi. Basandoci su questi dati, stabiliremo quale tecnica di divinazione regna davvero sovrana!"
   },
@@ -270,6 +280,8 @@
     "screenshot": "screenshot",
     "previousImage": "Immagine precedente",
     "nextImage": "Immagine successiva",
-    "goToImage": "Vai all'immagine"
+    "goToImage": "Vai all'immagine",
+    "toolNotFound": "Strumento non trovato",
+    "toolNotFoundDescription": "Lo strumento di divinazione che stai cercando non è stato trovato. Si prega di controllare la nostra homepage per gli strumenti disponibili."
   }
 }

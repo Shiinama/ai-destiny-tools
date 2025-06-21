@@ -24,6 +24,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
+import { locales } from '@/i18n/routing'
 import { ToolStatus } from '@/lib/db/schema'
 
 export default function EditToolPage({ params }: { params: Promise<{ id: string }> }) {
@@ -43,7 +44,8 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
     imageUrl: '',
     screenshotUrls: '',
     status: 'pending' as ToolStatus,
-    platform: ''
+    platform: '',
+    locale: 'en'
   })
 
   const [isLoading, setIsLoading] = useState(true)
@@ -78,7 +80,8 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
               ? toolResult.screenshotUrls.join(',')
               : toolResult.screenshotUrls || '',
             // Convert array to comma-separated string if it's an array
-            platform: Array.isArray(toolResult.platform) ? toolResult.platform.join(',') : toolResult.platform || ''
+            platform: Array.isArray(toolResult.platform) ? toolResult.platform.join(',') : toolResult.platform || '',
+            locale: toolResult.locale || 'en'
           })
         }
       })
@@ -332,6 +335,22 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
               })}
             </div>
             <p className="text-muted-foreground mt-1 text-sm">选择工具支持的平台</p>
+          </div>
+
+          <div>
+            <Label htmlFor="language">语言</Label>
+            <Select value={formData.locale} onValueChange={(value) => handleSelectChange(value, 'locale')}>
+              <SelectTrigger className="w-full sm:w-[240px]">
+                <SelectValue placeholder="选择语言" />
+              </SelectTrigger>
+              <SelectContent>
+                {locales.map((locale) => (
+                  <SelectItem key={locale.code} value={locale.code}>
+                    {locale.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           <div>
