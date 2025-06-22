@@ -2,29 +2,34 @@
 
 import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
+import { useSession } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { checkUserIsAdmin } from '@/hooks/use-is-admin'
 import { Link } from '@/i18n/navigation'
+import { divinationTools } from '@/lib/db/schema'
 
 interface HeroSectionProps {
-  tool: {
-    name: string
-    description: string
-    imageUrl: string | null
-    logoUrl: string | null
-    url: string
-    isFree: boolean | null
-    price: string | null
-  }
+  tool: typeof divinationTools.$inferSelect
 }
 
 export default function HeroSection({ tool }: HeroSectionProps) {
   const t = useTranslations('divinationTools')
-
+  const session = useSession()
+  const isAdmin = checkUserIsAdmin(session?.data?.user?.id)
   return (
     <div className="relative mb-8 w-full">
+      {isAdmin && (
+        <div className="flex justify-end py-5">
+          <Button asChild>
+            <Link href={`/admin/tools/edit/${tool.id}`} target="_blank" rel="nofollow">
+              去编辑
+            </Link>
+          </Button>
+        </div>
+      )}
       <div className="from-primary/10 to-secondary/10 relative w-full overflow-hidden rounded-xl bg-gradient-to-r pb-[25%]">
         {tool.imageUrl && (
           <Image src={tool.imageUrl} alt={tool.name} fill className="object-cover opacity-90" sizes="100vw" priority />
