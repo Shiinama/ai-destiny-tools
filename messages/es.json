@@ -118,7 +118,24 @@
       "contactInfoRequired": "La información de contacto es obligatoria",
       "localeRequired": "Se requiere el idioma"
     },
-    "welcomeMessage": "Damos la bienvenida a las herramientas de adivinación de todo el mundo para que las presenten en nuestra plataforma. Pueden enviar su contenido en su idioma nativo, y recopilaremos datos de interacción de los usuarios para evaluar objetivamente la efectividad y precisión de los métodos de adivinación de diferentes países. Con base en estos datos, ¡determinaremos qué técnica de adivinación prevalece verdaderamente!"
+    "premium": {
+      "only25": "Solo $25",
+      "limitedTimeOffer": "Oferta por tiempo limitado",
+      "listingTrafficForever": "Listado y Tráfico para Siempre.",
+      "listingTrafficForeverDesc": "Su herramienta permanece permanentemente en la lista de Destiny AI y obtiene un flujo constante de clics y suscriptores.",
+      "48hoursAppear": "Aparece en 48 horas en la lista sin cola",
+      "48hoursAppearDesc": "Su herramienta se incluirá en un plazo de 48 horas sin esperar en la cola, lo que le proporcionará una exposición y un tráfico más rápidos.",
+      "getDofollowLinks": "Obtenga enlaces Dofollow y potencie su SEO.",
+      "getDofollowLinksDesc": "Su sitio web obtendrá no menos de 6 enlaces Dofollow de calidad de Destiny AI. Este es un factor clave para mejorar sus clasificaciones en los motores de búsqueda. No solo aumentará su visibilidad en los motores de búsqueda, sino que también incrementará el tráfico natural, lo cual es crucial para su crecimiento digital.",
+      "higherRankingExposure": "Obtenga mayor exposición en el ranking y validación de marca.",
+      "higherRankingExposureDesc": "Su sitio también aparecerá en nuestra página de colección, lo que le permitirá tener una mayor exposición y validación de marca en varios motores de búsqueda.",
+      "borderHighlight": "Resaltado de borde.",
+      "getDestinyAIEmbeds": "Obtener incrustaciones de lanzamiento de Destiny AI.",
+      "getDestinyAIEmbedsDesc": "Obtenga la certificación Destiny AI y vincule la certificación Destiny AI a su sitio web.",
+      "submitToolsDescription": "Damos la bienvenida a las herramientas de adivinación de todo el mundo para que envíen su plataforma. Puede enviar en su idioma nativo, y recopilaremos datos de interacción del usuario para evaluar objetivamente la efectividad y precisión de los métodos de adivinación de diferentes países. Basándonos en estos datos, ¡veremos qué técnica de adivinación realmente reina!",
+      "submitToolsDescription2": "Después de enviar, revisaremos su sitio lo antes posible. Si es aprobado, le enviaremos un correo electrónico para contactarle.",
+      "borderHighlightDesc": "Los usuarios pueden encontrarle rápidamente en la lista y aumentar el número de clics."
+    }
   },
   "footer": {
     "description": "Destiny AI - Su directorio completo de herramientas de adivinación impulsadas por IA. Descubra y explore las mejores plataformas de lectura de tarot, astrología, numerología y adivinación de todo el mundo.",

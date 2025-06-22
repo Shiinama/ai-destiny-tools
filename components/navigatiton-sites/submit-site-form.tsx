@@ -129,7 +129,6 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
 
   return (
     <div>
-      <p className="text-foreground/60 mb-6 text-sm">{t('welcomeMessage')}</p>
       <form onSubmit={handleSubmit} className="max-w-2xl space-y-6">
         <div className="space-y-2">
           <p className="text-sm font-medium">{t('form.name.label')}</p>

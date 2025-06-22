@@ -118,7 +118,24 @@
       "contactInfoRequired": "Kontaktinformationen sind erforderlich",
       "localeRequired": "Sprache ist erforderlich"
     },
-    "welcomeMessage": "Wir begrüßen Wahrsage-Tools aus aller Welt zur Einreichung auf unserer Plattform. Sie können Inhalte in Ihrer Muttersprache einreichen, und wir werden Benutzerinteraktionsdaten sammeln, um die Effektivität und Genauigkeit von Wahrsagemethoden aus verschiedenen Ländern objektiv zu bewerten. Basierend auf diesen Daten werden wir ermitteln, welche Wahrsagetechnik tatsächlich überlegen ist!"
+    "premium": {
+      "only25": "Nur 25 $",
+      "limitedTimeOffer": "Zeitlich begrenztes Angebot",
+      "listingTrafficForever": "Listung und Traffic für immer.",
+      "listingTrafficForeverDesc": "Ihr Tool bleibt dauerhaft in der Destiny AI-Liste und erhält einen konstanten Strom an Klicks und Abonnenten.",
+      "48hoursAppear": "Erscheint innerhalb von 48 Stunden in der Liste ohne Warteschlange",
+      "48hoursAppearDesc": "Ihr Tool wird innerhalb von 48 Stunden ohne Wartezeit in der Warteschlange gelistet, wodurch Sie schneller Sichtbarkeit und Traffic erhalten.",
+      "getDofollowLinks": "Erhalten Sie Dofollow-Links und steigern Sie Ihr SEO.",
+      "getDofollowLinksDesc": "Ihre Website erhält nicht weniger als 6 hochwertige Dofollow-Links von Destiny AI. Dies ist ein Schlüsselfaktor zur Verbesserung Ihres Suchmaschinen-Rankings. Es erhöht nicht nur Ihre Sichtbarkeit in Suchmaschinen, sondern steigert auch den natürlichen Traffic, was für Ihr digitales Wachstum entscheidend ist.",
+      "higherRankingExposure": "Erhalten Sie eine höhere Platzierung und Markenvalidierung.",
+      "higherRankingExposureDesc": "Ihre Website wird auch auf unserer Sammlungsseite erscheinen, was Ihnen eine höhere Ranking-Sichtbarkeit und Markenvalidierung in verschiedenen Suchmaschinen ermöglicht.",
+      "borderHighlight": "Rahmenhervorhebung.",
+      "getDestinyAIEmbeds": "Destiny AI Launch-Einbettungen erhalten.",
+      "getDestinyAIEmbedsDesc": "Erhalten Sie die Destiny AI-Zertifizierung und verlinken Sie die Destiny AI-Zertifizierung mit Ihrer Website.",
+      "submitToolsDescription": "Wir begrüßen Wahrsagungswerkzeuge aus aller Welt, um ihre Plattform einzureichen. Sie können in Ihrer Muttersprache einreichen, und wir werden Benutzerinteraktionsdaten sammeln, um die Effektivität und Genauigkeit von Wahrsagungsmethoden aus verschiedenen Ländern objektiv zu bewerten. Basierend auf diesen Daten werden wir sehen, welche Wahrsagungstechnik wirklich die Oberhand gewinnt!",
+      "submitToolsDescription2": "Nach dem Absenden werden wir Ihre Website so schnell wie möglich überprüfen. Sofern sie genehmigt wird, senden wir Ihnen eine E-Mail, um Sie zu kontaktieren.",
+      "borderHighlightDesc": "Benutzer können Sie schnell in der Liste erkennen und die Anzahl der Klicks erhöhen."
+    }
   },
   "footer": {
     "description": "Destiny AI - Ihr umfassendes Verzeichnis von KI-gesteuerten Wahrsagewerkzeugen. Entdecken und erkunden Sie die besten Tarot-Lesungen, Astrologie-, Numerologie- und Wahrsage-Plattformen aus aller Welt.",

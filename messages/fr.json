@@ -118,7 +118,24 @@
       "contactInfoRequired": "Les informations de contact sont obligatoires",
       "localeRequired": "La langue est requise"
     },
-    "welcomeMessage": "Nous invitons les outils de divination du monde entier à soumettre leur plateforme. Vous pouvez soumettre dans votre langue maternelle, et nous recueillerons des données d'interaction utilisateur afin d'évaluer objectivement l'efficacité et la précision des méthodes de divination issues de différents pays. Sur la base de ces données, nous déterminerons quelle technique de divination règne véritablement en maître !"
+    "premium": {
+      "only25": "Seulement 25 $",
+      "limitedTimeOffer": "Offre à durée limitée",
+      "listingTrafficForever": "Référencement et Trafic à Vie.",
+      "listingTrafficForeverDesc": "Votre outil reste en permanence sur la liste Destiny AI et reçoit un flux constant de clics et d'abonnés.",
+      "48hoursAppear": "Apparaît sous 48 heures dans la liste sans file d'attente",
+      "48hoursAppearDesc": "Votre outil sera listé dans les 48 heures sans attente dans la file, vous offrant une exposition et un trafic plus rapides.",
+      "getDofollowLinks": "Obtenez des liens Dofollow et boostez votre référencement.",
+      "getDofollowLinksDesc": "Votre site web recevra pas moins de 6 liens Dofollow de qualité de Destiny AI. C'est un facteur clé pour améliorer votre classement dans les moteurs de recherche. Non seulement cela augmentera votre visibilité sur les moteurs de recherche, mais cela augmentera également le trafic naturel, ce qui est crucial pour votre croissance numérique.",
+      "higherRankingExposure": "Obtenez une meilleure visibilité dans le classement et une validation de marque.",
+      "higherRankingExposureDesc": "Votre site apparaîtra également sur notre page de collection, vous permettant d'avoir une meilleure visibilité et une validation de marque sur divers moteurs de recherche.",
+      "borderHighlight": "Mise en évidence de la bordure.",
+      "getDestinyAIEmbeds": "Obtenez les intégrations de lancement Destiny AI.",
+      "getDestinyAIEmbedsDesc": "Obtenez la certification Destiny AI et liez la certification Destiny AI à votre site web.",
+      "submitToolsDescription": "Nous accueillons les outils de divination du monde entier à soumettre leur plateforme. Vous pouvez soumettre dans votre langue maternelle, et nous collecterons des données d'interaction utilisateur pour évaluer objectivement l'efficacité et la précision des méthodes de divination de différents pays. Basé sur ces données, nous verrons quelle technique de divination règne en maître !",
+      "submitToolsDescription2": "Après soumission, nous examinerons votre site dans les plus brefs délais. S'il est approuvé, nous vous enverrons un e-mail pour vous contacter.",
+      "borderHighlightDesc": "Les utilisateurs peuvent vous repérer rapidement dans la liste et augmenter le nombre de clics."
+    }
   },
   "footer": {
     "description": "Destiny AI - Votre annuaire complet d'outils de divination basés sur l'IA. Découvrez et explorez les meilleures plateformes de lecture de tarot, d'astrologie, de numérologie et de bonne aventure du monde entier.",
