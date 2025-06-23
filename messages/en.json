@@ -117,7 +117,6 @@
   },
   "submitTools": {
     "title": "Submit AI Divination Tool",
-    "welcomeMessage": "We welcome divination tools from around the world to submit your platform. You can submit in your native language, and we will collect user interaction data to objectively evaluate the effectiveness and accuracy of divination methods from different countries. Based on this data, we'll see which divination technique truly reigns supreme!",
     "description": "Submit a new AI-powered fortune telling or divination tool to our directory",
     "meta": {
       "title": "Submit AI Divination Tool",
@@ -198,6 +197,24 @@
       "imageValid": "Please upload a valid image file",
       "categoryRequired": "Category is required",
       "localeRequired": "Language is required"
+    },
+    "premium": {
+      "only25": "Only $25",
+      "limitedTimeOffer": "Limited Time Offer",
+      "listingTrafficForever": "Listing & Traffic Forever.",
+      "listingTrafficForeverDesc": "Your tool stays permanently on Destiny AI list and gets a constant stream of clicks and subscribers.",
+      "48hoursAppear": "48 hours appear in the list without queuing",
+      "48hoursAppearDesc": "Your tool will be listed within 48 hours without waiting in the queue, getting you faster exposure and traffic.",
+      "getDofollowLinks": "Get Dofollow links and boost your SEO.",
+      "getDofollowLinksDesc": "Your website will get no less than 6 quality Dofollow links from Destiny AI. This is a key factor in improving your search engine optimization rankings. Not only will it increase your visibility on search engines, but it will also increase natural traffic, which is crucial for your digital growth.",
+      "higherRankingExposure": "Get higher ranking exposure and brand validation.",
+      "higherRankingExposureDesc": "Your site will also appear on our collection page, allowing you to have higher ranking exposure and brand validation on various search engines.",
+      "borderHighlight": "Border Highlight.",
+      "borderHighlightDesc": "Users can quickly spot you in the list and increase the number of clicks.",
+      "getDestinyAIEmbeds": "Get Destiny AI Launch embeds.",
+      "getDestinyAIEmbedsDesc": "Get Destiny AI certification and link Destiny AI certification to your website.",
+      "submitToolsDescription": "We welcome divination tools from around the world to submit your platform. You can submit in your native language, and we will collect user interaction data to objectively evaluate the effectiveness and accuracy of divination methods from different countries. Based on this data, we'll see which divination technique truly reigns supreme!",
+      "submitToolsDescription2": "After you submit, we will review your site as soon as possible. If it is approved, we will send you an email to contact you."
     }
   },
   "footer": {

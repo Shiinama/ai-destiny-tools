@@ -111,7 +111,24 @@
       "contactInfoRequired": "联系信息是必需的",
       "localeRequired": "语言是必需的"
     },
-    "welcomeMessage": "我们欢迎来自世界各地的占卜工具提交至我们的平台。您可以以您的母语提交，我们将收集用户互动数据，以客观评估来自不同国家的占卜方法的有效性和准确性。基于这些数据，我们将揭示哪种占卜技术真正卓越！"
+    "premium": {
+      "only25": "仅需25美元",
+      "limitedTimeOffer": "限时优惠",
+      "listingTrafficForever": "永久列表和流量。",
+      "listingTrafficForeverDesc": "您的工具将永久保留在 Destiny AI 列表中，并获得持续的点击量和订阅者。",
+      "48hoursAppear": "48小时内出现在列表中，无需排队",
+      "48hoursAppearDesc": "您的工具将在48小时内列出，无需排队等候，从而更快地获得曝光和流量。",
+      "getDofollowLinks": "获取 Dofollow 链接并提升您的 SEO。",
+      "getDofollowLinksDesc": "您的网站将从 Destiny AI 获得不少于 6 个高质量的 Dofollow 链接。这是提高您搜索引擎优化排名的关键因素。它不仅会增加您在搜索引擎上的可见度，还会增加自然流量，这对您的数字增长至关重要。",
+      "higherRankingExposure": "获得更高的排名曝光和品牌验证。",
+      "higherRankingExposureDesc": "您的网站也将出现在我们的合集页面上，从而让您在各种搜索引擎上获得更高的排名曝光和品牌验证。",
+      "borderHighlight": "边框高亮。",
+      "getDestinyAIEmbeds": "获取Destiny AI启动嵌入。",
+      "getDestinyAIEmbedsDesc": "获取 Destiny AI 认证并将 Destiny AI 认证链接到您的网站。",
+      "submitToolsDescription": "我们欢迎世界各地的占卜工具提交您的平台。您可以以您的母语提交，我们将收集用户互动数据，以客观评估来自不同国家的占卜方法的有效性和准确性。根据这些数据，我们将看到哪种占卜技术真正称霸！",
+      "submitToolsDescription2": "提交后，我们将尽快审核您的网站。如果获得批准，我们将向您发送一封电子邮件以与您联系。",
+      "borderHighlightDesc": "用户可以快速在列表中发现您，并增加点击量。"
+    }
   },
   "footer": {
     "description": "Destiny AI - 您全面的人工智能占卜工具目录。发现并探索来自世界各地最佳的塔罗牌解读、占星术、数字命理学和算命平台。",

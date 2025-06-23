@@ -101,13 +101,16 @@ export default function NewToolPage() {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
+  const validateForm = () => {
     if (!formData.name || !formData.description || !formData.url || !formData.categoryId) {
       toast.error('请填写所有必填字段')
-      return
+      return false
     }
+    return true
+  }
+
+  const submitForm = async (shouldRedirect = false) => {
+    if (!validateForm()) return
 
     setIsSubmitting(true)
 
@@ -115,17 +118,31 @@ export default function NewToolPage() {
       const result = await createTool(formData)
 
       if (result) {
-        toast.success('工具创建成功')
-        router.push('/admin/tools')
+        toast.success(`工具${shouldRedirect ? '创建' : '仅保存'}成功`)
+        if (shouldRedirect) {
+          router.push('/admin/tools')
+        } else {
+          router.push(`/admin/tools/edit/${result.id}`)
+        }
       } else {
-        toast.error('创建失败')
+        toast.error(`${shouldRedirect ? '创建' : '仅保存'}失败`)
       }
     } catch (error) {
-      console.error('Error creating tool:', error)
-      toast.error('创建工具时发生错误')
+      console.error('Error saving tool:', error)
+      toast.error(`${shouldRedirect ? '创建' : '仅保存'}工具时发生错误`)
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    await submitForm(true)
+  }
+
+  const handleSaveOnly = async (e: React.FormEvent) => {
+    e.preventDefault()
+    await submitForm(false)
   }
 
   return (
@@ -318,6 +335,10 @@ export default function NewToolPage() {
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={() => router.push('/admin/tools')}>
             取消
+          </Button>
+          <Button type="button" onClick={handleSaveOnly} disabled={isSubmitting} variant="secondary">
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {isSubmitting ? '保存中...' : '仅保存'}
           </Button>
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
