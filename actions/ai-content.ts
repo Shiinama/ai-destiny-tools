@@ -68,7 +68,7 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
     const ai = new GoogleGenAI({
       apiKey: process.env.GEMINI_API_KEY
     })
-    const model = 'gemini-2.5-pro-preview-06-05'
+    const model = 'gemini-2.5-flash-lite-preview-06-17'
 
     const chat = ai.chats.create({
       model: model,
@@ -76,16 +76,6 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
         maxOutputTokens: 65535,
         temperature: 0.7,
         topP: 0.9,
-        tools: [
-          {
-            googleSearch: {
-              timeRangeFilter: {
-                startTime: '2025-01-01T00:00:00Z',
-                endTime: '2026-01-01T00:00:00Z'
-              }
-            }
-          }
-        ],
         systemInstruction: {
           parts: [
             {
