@@ -28,7 +28,11 @@ export default async function Header({ className }: { className?: string }) {
     }
   ]
   if (isUserAdmin) {
-    navLinks.push({ href: '/admin/articles', label: '文章管理' }, { href: '/admin/tools', label: '工具管理' })
+    navLinks.push(
+      { href: '/admin/articles', label: '文章管理' },
+      { href: '/admin/tools', label: '工具管理' },
+      { href: '/admin/analytics', label: '数据统计' }
+    )
   }
 
   return (
