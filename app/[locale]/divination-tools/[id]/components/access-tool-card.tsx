@@ -9,6 +9,7 @@ import { Link } from '@/i18n/navigation'
 
 interface AccessToolCardProps {
   tool: {
+    id: string
     url: string
     platform: string | null
     name: string
@@ -18,6 +19,26 @@ interface AccessToolCardProps {
 export default function AccessToolCard({ tool }: AccessToolCardProps) {
   const t = useTranslations('divinationTools')
 
+  // 处理工具访问点击
+  const handleToolClick = async () => {
+    try {
+      await fetch('/api/analytics/track', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          toolId: tool.id,
+          referrer: window.location.href
+        })
+      }).catch((error) => {
+        console.error('Failed to track analytics:', error)
+      })
+    } catch (error) {
+      console.error('Failed to track analytics:', error)
+    }
+  }
+
   return (
     <Card>
       <CardHeader className="pb-3">
@@ -25,7 +46,7 @@ export default function AccessToolCard({ tool }: AccessToolCardProps) {
       </CardHeader>
       <CardContent>
         <Button asChild className="w-full gap-2">
-          <Link href={tool.url} target="_blank" rel="nofollow">
+          <Link href={tool.url} target="_blank" onClick={handleToolClick}>
             <ExternalLink size={16} />
             {t('visit')}
           </Link>
