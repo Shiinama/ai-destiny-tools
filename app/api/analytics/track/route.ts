@@ -1,3 +1,5 @@
+import { createHash } from 'crypto'
+
 import { headers } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -8,6 +10,21 @@ import { toolAnalytics } from '@/lib/db/schema'
 interface TrackingData {
   toolId: string
   referrer?: string
+}
+
+// 生成稳定的会话ID
+function generateSessionId(userId: string | null, ipAddress: string | null, userAgent: string): string {
+  const today = new Date().toISOString().split('T')[0] // YYYY-MM-DD
+
+  // 如果用户已登录，使用用户ID + 日期
+  if (userId) {
+    return createHash('md5').update(`${userId}-${today}`).digest('hex')
+  }
+
+  // 未登录用户使用 IP + User Agent + 日期的组合
+  // 这样同一天内相同设备和IP的访问会被视为同一会话
+  const fingerprint = `${ipAddress || 'unknown'}-${userAgent}-${today}`
+  return createHash('md5').update(fingerprint).digest('hex')
 }
 
 // 解析User-Agent获取设备信息
@@ -77,8 +94,8 @@ export async function POST(request: NextRequest) {
     // 处理来源信息
     const referrerDomain = getReferrerDomain(referrer || '')
 
-    // 生成会话ID（简单实现，可以后续优化）
-    const sessionId = `${ipAddress}-${Date.now()}`
+    // 生成稳定的会话ID
+    const sessionId = generateSessionId(userId, ipAddress, userAgent)
 
     // 保存到数据库
     const db = createDb()
