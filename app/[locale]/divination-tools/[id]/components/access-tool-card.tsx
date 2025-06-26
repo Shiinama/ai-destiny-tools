@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
+import { trackToolAccess } from '@/lib/analytics'
 
 interface AccessToolCardProps {
   tool: {
@@ -21,22 +22,10 @@ export default function AccessToolCard({ tool }: AccessToolCardProps) {
 
   // 处理工具访问点击
   const handleToolClick = async () => {
-    try {
-      await fetch('/api/analytics/track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          toolId: tool.id,
-          referrer: window.location.href
-        })
-      }).catch((error) => {
-        console.error('Failed to track analytics:', error)
-      })
-    } catch (error) {
-      console.error('Failed to track analytics:', error)
-    }
+    await trackToolAccess({
+      toolId: tool.id,
+      referrer: window.location.href
+    })
   }
 
   return (
