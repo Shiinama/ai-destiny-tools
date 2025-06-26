@@ -1,5 +1,6 @@
 import { and, count, desc, eq, gte, lte, sql } from 'drizzle-orm'
 
+import { checkUserIsAdmin } from '@/hooks/use-is-admin'
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
 import { toolAnalytics, divinationTools, users } from '@/lib/db/schema'
@@ -40,7 +41,7 @@ async function checkAdminAccess() {
     throw new Error('Unauthorized')
   }
 
-  const isAdmin = process.env.NEXT_PUBLIC_ADMIN_ID.split(',').includes(session.user.id)
+  const isAdmin = await checkUserIsAdmin(session.user.id)
   if (!isAdmin) {
     throw new Error('Admin access required')
   }
