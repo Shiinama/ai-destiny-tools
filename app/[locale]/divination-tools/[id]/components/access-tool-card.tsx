@@ -6,9 +6,11 @@ import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
+import { trackToolAccess } from '@/lib/analytics'
 
 interface AccessToolCardProps {
   tool: {
+    id: string
     url: string
     platform: string | null
     name: string
@@ -18,6 +20,14 @@ interface AccessToolCardProps {
 export default function AccessToolCard({ tool }: AccessToolCardProps) {
   const t = useTranslations('divinationTools')
 
+  // 处理工具访问点击
+  const handleToolClick = async () => {
+    await trackToolAccess({
+      toolId: tool.id,
+      referrer: window.location.href
+    })
+  }
+
   return (
     <Card>
       <CardHeader className="pb-3">
@@ -25,7 +35,7 @@ export default function AccessToolCard({ tool }: AccessToolCardProps) {
       </CardHeader>
       <CardContent>
         <Button asChild className="w-full gap-2">
-          <Link href={tool.url} target="_blank" rel="nofollow">
+          <Link href={tool.url} target="_blank" onClick={handleToolClick}>
             <ExternalLink size={16} />
             {t('visit')}
           </Link>

@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { checkUserIsAdmin } from '@/hooks/use-is-admin'
 import { Link } from '@/i18n/navigation'
+import { trackToolAccess } from '@/lib/analytics'
 import { divinationTools } from '@/lib/db/schema'
 
 interface HeroSectionProps {
@@ -19,6 +20,13 @@ export default function HeroSection({ tool }: HeroSectionProps) {
   const t = useTranslations('divinationTools')
   const session = useSession()
   const isAdmin = checkUserIsAdmin(session?.data?.user?.id)
+
+  const handleToolClick = async () => {
+    await trackToolAccess({
+      toolId: tool.id,
+      referrer: window.location.href
+    })
+  }
   return (
     <div className="relative mb-8 w-full">
       {isAdmin && (
@@ -49,7 +57,7 @@ export default function HeroSection({ tool }: HeroSectionProps) {
                   {tool.isFree ? t('free') : tool.price}
                 </Badge>
                 <Button size="sm" variant="outline" asChild className="gap-2">
-                  <Link href={tool.url} target="_blank" rel="nofollow">
+                  <Link href={tool.url} target="_blank" rel="nofollow" onClick={handleToolClick}>
                     <ExternalLink size={16} />
                     {t('visitWebsite')}
                   </Link>
