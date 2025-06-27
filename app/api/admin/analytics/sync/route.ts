@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
 }
 
 // 同步所有工具的统计数据
-export async function PUT(request: NextRequest) {
+export async function PUT() {
   try {
     await checkAdminAccess()
 

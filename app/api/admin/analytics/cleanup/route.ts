@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 执行清理
-    const deleteResult = await db.delete(toolAnalytics).where(lt(toolAnalytics.visitedAt, threeMonthsAgo))
+    await db.delete(toolAnalytics).where(lt(toolAnalytics.visitedAt, threeMonthsAgo))
 
     return NextResponse.json({
       success: true,
@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
 }
 
 // 获取清理统计信息
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     await checkAdminAccess()
 
