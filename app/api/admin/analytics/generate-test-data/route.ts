@@ -121,7 +121,7 @@ export async function POST(request: NextRequest) {
 
       // 每处理100条数据输出一次进度
       if (generatedCount % 100 === 0) {
-        console.log(`Generated ${generatedCount}/${count} test records`)
+        // console.log(`Generated ${generatedCount}/${count} test records`)
       }
     }
 
