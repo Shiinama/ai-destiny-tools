@@ -3,7 +3,7 @@ import { and, count, desc, eq, gte, lte, sql } from 'drizzle-orm'
 import { checkUserIsAdmin } from '@/hooks/use-is-admin'
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
-import { toolAnalytics, divinationTools, users } from '@/lib/db/schema'
+import { toolAnalytics, toolAnalyticsSummary, divinationTools, users } from '@/lib/db/schema'
 
 export interface AnalyticsFilters {
   toolId?: string
@@ -22,6 +22,17 @@ export interface ToolAnalyticsOverview {
   uniqueVisitors: number
   todayVisits: number
   yesterdayVisits: number
+}
+
+export interface ToolSummaryStats {
+  toolId: string
+  toolName: string
+  totalVisits: number
+  uniqueVisitors: number
+  lastSyncedAt: Date | null
+  hasUnsyncedData: boolean
+  unsyncedVisits: number
+  unsyncedUniqueVisitors: number
 }
 
 export interface DetailedAnalytics {
@@ -49,7 +60,7 @@ async function checkAdminAccess() {
   return session.user.id
 }
 
-// 获取所有工具的统计概览
+// 获取所有工具的统计概览（总访问量来自汇总表+未同步数据，今日昨日数据查询所有数据）
 export async function getToolsAnalyticsOverview(
   page?: number,
   pageSize?: number
@@ -82,25 +93,20 @@ export async function getToolsAnalyticsOverview(
     }
   }
 
-  // 获取工具的基本信息和总访问量
+  // 获取工具的基本信息
   const baseQuery = db
     .select({
       toolId: divinationTools.id,
-      toolName: divinationTools.name,
-      totalVisits: count(toolAnalytics.id),
-      uniqueVisitors: sql<number>`COUNT(DISTINCT ${toolAnalytics.sessionId})`
+      toolName: divinationTools.name
     })
     .from(divinationTools)
-    .leftJoin(toolAnalytics, eq(divinationTools.id, toolAnalytics.toolId))
     .where(eq(divinationTools.status, 'approved'))
-    .groupBy(divinationTools.id, divinationTools.name)
-    .orderBy(desc(count(toolAnalytics.id)))
+    .orderBy(divinationTools.name)
 
   // 如果有分页参数，添加分页
-  const toolsWithStats =
-    page && pageSize ? await baseQuery.limit(pageSize).offset((page - 1) * pageSize) : await baseQuery
+  const tools = page && pageSize ? await baseQuery.limit(pageSize).offset((page - 1) * pageSize) : await baseQuery
 
-  // 获取今日访问量
+  // 获取今日访问量（查询所有数据）
   const todayStats = await db
     .select({
       toolId: toolAnalytics.toolId,
@@ -110,30 +116,58 @@ export async function getToolsAnalyticsOverview(
     .where(gte(toolAnalytics.visitedAt, new Date(today)))
     .groupBy(toolAnalytics.toolId)
 
-  // 获取昨日访问量
+  // 获取昨日访问量（查询所有数据）
   const yesterdayStats = await db
     .select({
       toolId: toolAnalytics.toolId,
       yesterdayVisits: count(toolAnalytics.id)
     })
     .from(toolAnalytics)
-    .where(and(gte(toolAnalytics.visitedAt, new Date(yesterday)), lte(toolAnalytics.visitedAt, new Date(today))))
+    .where(
+      and(
+        gte(toolAnalytics.visitedAt, new Date(yesterday)),
+        lte(toolAnalytics.visitedAt, new Date(yesterday + ' 23:59:59'))
+      )
+    )
     .groupBy(toolAnalytics.toolId)
 
-  // 合并数据
-  const data = toolsWithStats.map((tool) => {
-    const todayStat = todayStats.find((s) => s.toolId === tool.toolId)
-    const yesterdayStat = yesterdayStats.find((s) => s.toolId === tool.toolId)
+  // 为每个工具获取总访问量（汇总数据 + 未同步数据）
+  const data = await Promise.all(
+    tools.map(async (tool) => {
+      // 获取汇总统计数据
+      const summaryStats = await db
+        .select()
+        .from(toolAnalyticsSummary)
+        .where(eq(toolAnalyticsSummary.toolId, tool.toolId))
+        .limit(1)
 
-    return {
-      toolId: tool.toolId,
-      toolName: tool.toolName,
-      totalVisits: tool.totalVisits || 0,
-      uniqueVisitors: tool.uniqueVisitors || 0,
-      todayVisits: todayStat?.todayVisits || 0,
-      yesterdayVisits: yesterdayStat?.yesterdayVisits || 0
-    }
-  })
+      // 获取未同步的统计数据
+      const unsyncedStats = await db
+        .select({
+          totalVisits: count(toolAnalytics.id),
+          uniqueVisitors: sql<number>`COUNT(DISTINCT ${toolAnalytics.sessionId})`
+        })
+        .from(toolAnalytics)
+        .where(and(eq(toolAnalytics.toolId, tool.toolId), eq(toolAnalytics.isSynced, false)))
+
+      const summary = summaryStats[0]
+      const unsynced = unsyncedStats[0] || { totalVisits: 0, uniqueVisitors: 0 }
+      const todayStat = todayStats.find((s) => s.toolId === tool.toolId)
+      const yesterdayStat = yesterdayStats.find((s) => s.toolId === tool.toolId)
+
+      return {
+        toolId: tool.toolId,
+        toolName: tool.toolName,
+        totalVisits: (summary?.totalVisits || 0) + unsynced.totalVisits,
+        uniqueVisitors: (summary?.uniqueVisitors || 0) + unsynced.uniqueVisitors,
+        todayVisits: todayStat?.todayVisits || 0,
+        yesterdayVisits: yesterdayStat?.yesterdayVisits || 0
+      }
+    })
+  )
+
+  // 按总访问量排序
+  data.sort((a, b) => b.totalVisits - a.totalVisits)
 
   return {
     data,
@@ -141,7 +175,55 @@ export async function getToolsAnalyticsOverview(
   }
 }
 
-// 获取单个工具的详细统计数据
+// 获取工具的汇总统计数据（包含历史总访问量和未同步数据）
+export async function getToolSummaryStats(toolId: string): Promise<ToolSummaryStats> {
+  await checkAdminAccess()
+
+  const db = createDb()
+
+  // 获取工具基本信息
+  const tool = await db
+    .select({ id: divinationTools.id, name: divinationTools.name })
+    .from(divinationTools)
+    .where(eq(divinationTools.id, toolId))
+    .limit(1)
+
+  if (tool.length === 0) {
+    throw new Error('Tool not found')
+  }
+
+  // 获取汇总统计数据
+  const summaryStats = await db
+    .select()
+    .from(toolAnalyticsSummary)
+    .where(eq(toolAnalyticsSummary.toolId, toolId))
+    .limit(1)
+
+  // 获取未同步的统计数据
+  const unsyncedStats = await db
+    .select({
+      totalVisits: count(toolAnalytics.id),
+      uniqueVisitors: sql<number>`COUNT(DISTINCT ${toolAnalytics.sessionId})`
+    })
+    .from(toolAnalytics)
+    .where(and(eq(toolAnalytics.toolId, toolId), eq(toolAnalytics.isSynced, false)))
+
+  const summary = summaryStats[0]
+  const unsynced = unsyncedStats[0] || { totalVisits: 0, uniqueVisitors: 0 }
+
+  return {
+    toolId,
+    toolName: tool[0].name,
+    totalVisits: (summary?.totalVisits || 0) + unsynced.totalVisits,
+    uniqueVisitors: (summary?.uniqueVisitors || 0) + unsynced.uniqueVisitors,
+    lastSyncedAt: summary?.lastSyncedAt || null,
+    hasUnsyncedData: unsynced.totalVisits > 0,
+    unsyncedVisits: unsynced.totalVisits,
+    unsyncedUniqueVisitors: unsynced.uniqueVisitors
+  }
+}
+
+// 获取单个工具的详细统计数据（默认查询所有数据，有查询条件时才限制）
 export async function getToolDetailedAnalytics(
   toolId: string,
   filters: AnalyticsFilters = {}
@@ -154,9 +236,11 @@ export async function getToolDetailedAnalytics(
   // 构建查询条件
   const conditions = [eq(toolAnalytics.toolId, toolId)]
 
+  // 只有在用户明确提供了日期条件时才添加日期限制
   if (startDate) {
     conditions.push(gte(toolAnalytics.visitedAt, new Date(startDate)))
   }
+
   if (endDate) {
     conditions.push(lte(toolAnalytics.visitedAt, new Date(endDate + ' 23:59:59')))
   }
@@ -238,7 +322,7 @@ export async function getToolDetailedAnalytics(
   }
 }
 
-// 获取分页的访问记录
+// 获取分页的访问记录（默认查询所有数据，有查询条件时才限制）
 export async function getAnalyticsRecords(filters: AnalyticsFilters = {}) {
   await checkAdminAccess()
 
@@ -251,9 +335,12 @@ export async function getAnalyticsRecords(filters: AnalyticsFilters = {}) {
   if (toolId) {
     conditions.push(eq(toolAnalytics.toolId, toolId))
   }
+
+  // 只有在用户明确提供了日期条件时才添加日期限制
   if (startDate) {
     conditions.push(gte(toolAnalytics.visitedAt, new Date(startDate)))
   }
+
   if (endDate) {
     conditions.push(lte(toolAnalytics.visitedAt, new Date(endDate + ' 23:59:59')))
   }

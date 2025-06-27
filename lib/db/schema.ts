@@ -169,5 +169,33 @@ export const toolAnalytics = sqliteTable('tool_analytics', {
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
   // 会话标识（用于计算独立访客）
-  sessionId: text('session_id')
+  sessionId: text('session_id'),
+  // 是否已同步到总统计表
+  isSynced: integer('is_synced', { mode: 'boolean' }).default(false).notNull()
+})
+
+// 工具访问统计汇总表（存储历史总访问量数据）
+export const toolAnalyticsSummary = sqliteTable('tool_analytics_summary', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  toolId: text('tool_id')
+    .notNull()
+    .references(() => divinationTools.id, { onDelete: 'cascade' }),
+  // 总访问量
+  totalVisits: integer('total_visits').default(0).notNull(),
+  // 独立访客数
+  uniqueVisitors: integer('unique_visitors').default(0).notNull(),
+  // 最后同步时间
+  lastSyncedAt: integer('last_synced_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  // 创建时间
+  createdAt: integer('created_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  // 更新时间
+  updatedAt: integer('updated_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull()
 })

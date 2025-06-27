@@ -54,6 +54,17 @@ export default function AnalyticsFilters() {
     setEndDate(endStr)
   }
 
+  const setThreeMonthsFilter = () => {
+    const end = new Date()
+    const start = new Date(end.getFullYear(), end.getMonth() - 3, end.getDate())
+
+    const endStr = end.toISOString().split('T')[0]
+    const startStr = start.toISOString().split('T')[0]
+
+    setStartDate(startStr)
+    setEndDate(endStr)
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -89,16 +100,20 @@ export default function AnalyticsFilters() {
         </div>
 
         <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" onClick={() => setQuickFilter(0)}>
+            今日
+          </Button>
+
           <Button variant="outline" size="sm" onClick={() => setQuickFilter(7)}>
             最近7天
           </Button>
 
           <Button variant="outline" size="sm" onClick={() => setQuickFilter(30)}>
-            最近30天
+            最近1个月
           </Button>
 
-          <Button variant="outline" size="sm" onClick={() => setQuickFilter(90)}>
-            最近90天
+          <Button variant="outline" size="sm" onClick={setThreeMonthsFilter}>
+            最近3个月
           </Button>
         </div>
 

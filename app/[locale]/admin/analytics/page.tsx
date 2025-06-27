@@ -1,7 +1,9 @@
 import { Suspense } from 'react'
 
 import { getToolsAnalyticsOverview } from '@/actions/analytics'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Link } from '@/i18n/navigation'
 
 import { AnalyticsTable } from './components/analytics-table'
 
@@ -83,7 +85,10 @@ export default function AnalyticsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">数据统计</h1>
+        <h1 className="text-2xl font-bold">所有工具-历史总数据统计</h1>
+        <Link href="/admin/analytics/data-management">
+          <Button variant="outline">数据管理</Button>
+        </Link>
       </div>
 
       <Suspense fallback={<div>加载中...</div>}>

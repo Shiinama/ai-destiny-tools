@@ -1,14 +1,24 @@
 import { Suspense } from 'react'
 
-import { getToolDetailedAnalytics, getAnalyticsRecords } from '@/actions/analytics'
+import { getToolDetailedAnalytics, getAnalyticsRecords, getToolSummaryStats } from '@/actions/analytics'
 import { getToolById } from '@/actions/divination-tools'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious
+} from '@/components/ui/pagination'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Link } from '@/i18n/navigation'
 import { formatDate } from '@/lib/utils'
 
 import AnalyticsFilters from './components/analytics-filters'
+import { SummaryStats } from './components/summary-stats'
 
 interface ToolAnalyticsPageProps {
   params: Promise<{
@@ -19,6 +29,23 @@ interface ToolAnalyticsPageProps {
     endDate?: string
     page?: string
   }>
+}
+
+async function ToolSummarySection({ toolId }: { toolId: string }) {
+  const summaryStats = await getToolSummaryStats(toolId)
+
+  return (
+    <SummaryStats
+      toolId={summaryStats.toolId}
+      toolName={summaryStats.toolName}
+      totalVisits={summaryStats.totalVisits}
+      uniqueVisitors={summaryStats.uniqueVisitors}
+      lastSyncedAt={summaryStats.lastSyncedAt}
+      hasUnsyncedData={summaryStats.hasUnsyncedData}
+      unsyncedVisits={summaryStats.unsyncedVisits}
+      unsyncedUniqueVisitors={summaryStats.unsyncedUniqueVisitors}
+    />
+  )
 }
 
 async function ToolAnalyticsDetails({
@@ -41,14 +68,17 @@ async function ToolAnalyticsDetails({
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
-            <span>{tool.name} - 详细统计</span>
+            <span>{tool.name} - 访问详情</span>
             <Link href={`/divination-tools/${toolId}`} target="_blank">
               <Button variant="outline" size="sm">
                 查看工具
               </Button>
             </Link>
           </CardTitle>
-          <CardDescription>{tool.description}</CardDescription>
+          <CardDescription>
+            {tool.description}
+            <span className="text-muted-foreground mt-1 block text-xs">使用筛选条件可以查看指定时间范围的数据</span>
+          </CardDescription>
         </CardHeader>
       </Card>
 
@@ -62,7 +92,6 @@ async function ToolAnalyticsDetails({
             <div className="text-2xl font-bold">{analytics.totalVisits.toLocaleString()}</div>
           </CardContent>
         </Card>
-
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">独立访客</CardTitle>
@@ -71,7 +100,6 @@ async function ToolAnalyticsDetails({
             <div className="text-2xl font-bold">{analytics.uniqueVisitors.toLocaleString()}</div>
           </CardContent>
         </Card>
-
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">平均转化率</CardTitle>
@@ -84,7 +112,6 @@ async function ToolAnalyticsDetails({
             </div>
           </CardContent>
         </Card>
-
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">数据范围</CardTitle>
@@ -223,7 +250,7 @@ async function AnalyticsRecords({
     <Card>
       <CardHeader>
         <CardTitle>访问记录</CardTitle>
-        <CardDescription>近10条详细的访问记录列表</CardDescription>
+        <CardDescription>详细的访问记录列表</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="overflow-hidden rounded-lg border">
@@ -265,18 +292,73 @@ async function AnalyticsRecords({
 
         {pagination.totalPages > 1 && (
           <div className="mt-4 flex justify-center">
-            <div className="flex gap-2">
-              {Array.from({ length: Math.min(pagination.totalPages, 10) }, (_, i) => i + 1).map((pageNum) => (
-                <Link
-                  key={pageNum}
-                  href={`?page=${pageNum}${startDate ? `&startDate=${startDate}` : ''}${endDate ? `&endDate=${endDate}` : ''}`}
-                >
-                  <Button variant={pageNum === pagination.page ? 'default' : 'outline'} size="sm">
-                    {pageNum}
-                  </Button>
-                </Link>
-              ))}
-            </div>
+            <Pagination>
+              <PaginationContent>
+                {pagination.page > 1 && (
+                  <PaginationItem>
+                    <PaginationLink
+                      href={`?page=1${startDate ? `&startDate=${startDate}` : ''}${endDate ? `&endDate=${endDate}` : ''}`}
+                    >
+                      首页
+                    </PaginationLink>
+                  </PaginationItem>
+                )}
+
+                {pagination.page > 1 && (
+                  <PaginationItem>
+                    <PaginationPrevious
+                      href={`?page=${pagination.page - 1}${startDate ? `&startDate=${startDate}` : ''}${endDate ? `&endDate=${endDate}` : ''}`}
+                    />
+                  </PaginationItem>
+                )}
+
+                {Array.from({ length: pagination.totalPages }, (_, i) => i + 1)
+                  .filter((num) => {
+                    if (pagination.totalPages <= 7) return true
+                    if (num === 1 || num === pagination.totalPages) return true
+                    if (num >= pagination.page - 2 && num <= pagination.page + 2) return true
+                    return false
+                  })
+                  .map((pageNum, index, array) => {
+                    // 添加省略号
+                    if (index > 0 && pageNum - array[index - 1] > 1) {
+                      return (
+                        <PaginationItem key={`ellipsis-${pageNum}`}>
+                          <PaginationEllipsis />
+                        </PaginationItem>
+                      )
+                    }
+                    return (
+                      <PaginationItem key={pageNum}>
+                        <PaginationLink
+                          href={`?page=${pageNum}${startDate ? `&startDate=${startDate}` : ''}${endDate ? `&endDate=${endDate}` : ''}`}
+                          isActive={pageNum === pagination.page}
+                        >
+                          {pageNum}
+                        </PaginationLink>
+                      </PaginationItem>
+                    )
+                  })}
+
+                {pagination.page < pagination.totalPages && (
+                  <PaginationItem>
+                    <PaginationNext
+                      href={`?page=${pagination.page + 1}${startDate ? `&startDate=${startDate}` : ''}${endDate ? `&endDate=${endDate}` : ''}`}
+                    />
+                  </PaginationItem>
+                )}
+
+                {pagination.page < pagination.totalPages && (
+                  <PaginationItem>
+                    <PaginationLink
+                      href={`?page=${pagination.totalPages}${startDate ? `&startDate=${startDate}` : ''}${endDate ? `&endDate=${endDate}` : ''}`}
+                    >
+                      末页
+                    </PaginationLink>
+                  </PaginationItem>
+                )}
+              </PaginationContent>
+            </Pagination>
           </div>
         )}
       </CardContent>
@@ -298,15 +380,24 @@ export default async function ToolAnalyticsPage({ params, searchParams }: ToolAn
         </Link>
       </div>
 
-      <AnalyticsFilters />
-
-      <Suspense fallback={<div>加载统计数据中...</div>}>
-        <ToolAnalyticsDetails toolId={toolId} startDate={startDate} endDate={endDate} />
+      <Suspense fallback={<div>加载汇总统计中...</div>}>
+        <ToolSummarySection toolId={toolId} />
       </Suspense>
 
-      <Suspense fallback={<div>加载访问记录中...</div>}>
-        <AnalyticsRecords toolId={toolId} startDate={startDate} endDate={endDate} page={currentPage} />
-      </Suspense>
+      <div className="space-y-4">
+        <div className="border-t pt-6">
+          <h2 className="mb-4 text-xl font-semibold">详细访问记录</h2>
+          <AnalyticsFilters />
+        </div>
+
+        <Suspense fallback={<div>加载统计数据中...</div>}>
+          <ToolAnalyticsDetails toolId={toolId} startDate={startDate} endDate={endDate} />
+        </Suspense>
+
+        <Suspense fallback={<div>加载访问记录中...</div>}>
+          <AnalyticsRecords toolId={toolId} startDate={startDate} endDate={endDate} page={currentPage} />
+        </Suspense>
+      </div>
     </div>
   )
 }
