@@ -192,7 +192,8 @@
       "continueWithGithub": "GitHubで続行",
       "orContinueWith": "または以下で続行",
       "emailPlaceholder": "メールアドレスを入力",
-      "signInWithEmail": "メールでサインイン"
+      "signInWithEmail": "メールでサインイン",
+      "magicLinkSent": "マジックリンクがあなたのメールアドレスに送信されました。ご確認ください。"
     }
   },
   "common": {

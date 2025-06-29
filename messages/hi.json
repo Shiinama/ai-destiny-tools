@@ -185,7 +185,8 @@
       "continueWithGithub": "GitHub के साथ जारी रखें",
       "orContinueWith": "या इसके साथ जारी रखें",
       "emailPlaceholder": "अपना ईमेल दर्ज करें",
-      "signInWithEmail": "ईमेल से साइन इन करें"
+      "signInWithEmail": "ईमेल से साइन इन करें",
+      "magicLinkSent": "मैजिक लिंक आपके ईमेल पर भेज दिया गया है, कृपया जांचें।"
     }
   },
   "common": {
