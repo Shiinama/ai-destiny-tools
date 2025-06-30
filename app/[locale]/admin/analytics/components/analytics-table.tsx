@@ -40,12 +40,22 @@ export function AnalyticsTable({ initialData = [], initialPagination }: Analytic
     }
   )
   const [loading, setLoading] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
 
   // 获取数据的函数
-  const fetchData = async (page: number) => {
+  const fetchData = async (page: number, search?: string) => {
     setLoading(true)
     try {
-      const response = await fetch(`/api/admin/analytics?page=${page}&pageSize=${pagination.pageSize}`)
+      const params = new URLSearchParams({
+        page: page.toString(),
+        pageSize: pagination.pageSize.toString()
+      })
+
+      if (search && search.trim()) {
+        params.set('search', search.trim())
+      }
+
+      const response = await fetch(`/api/admin/analytics?${params.toString()}`)
       if (response.ok) {
         const result = (await response.json()) as {
           data: ToolAnalyticsOverview[]
@@ -68,8 +78,19 @@ export function AnalyticsTable({ initialData = [], initialPagination }: Analytic
   // 页面变化处理
   const handlePageChange = (newPage: number) => {
     if (newPage >= 1 && newPage <= pagination.totalPages) {
-      fetchData(newPage)
+      fetchData(newPage, searchQuery)
     }
+  }
+
+  // 搜索处理
+  const handleSearch = () => {
+    fetchData(1, searchQuery)
+  }
+
+  // 重置搜索
+  const handleResetSearch = () => {
+    setSearchQuery('')
+    fetchData(1, '')
   }
 
   // 分页按钮组件
@@ -126,8 +147,36 @@ export function AnalyticsTable({ initialData = [], initialPagination }: Analytic
   return (
     <Card>
       <CardHeader>
-        <CardTitle>工具访问统计</CardTitle>
-        <CardDescription>各工具的访问量统计数据</CardDescription>
+        <div className="flex items-center justify-between">
+          <div>
+            <CardTitle>工具访问统计</CardTitle>
+            <CardDescription>各工具的访问量统计数据</CardDescription>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="搜索工具名称..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleSearch()
+                  }
+                }}
+                className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-64 rounded-md border px-3 py-1 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              />
+            </div>
+            <Button onClick={handleSearch} size="sm">
+              搜索
+            </Button>
+            {searchQuery && (
+              <Button onClick={handleResetSearch} variant="outline" size="sm">
+                重置
+              </Button>
+            )}
+          </div>
+        </div>
       </CardHeader>
       <CardContent>
         <div className="overflow-hidden rounded-lg border">
