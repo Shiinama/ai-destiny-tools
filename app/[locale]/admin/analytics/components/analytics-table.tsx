@@ -1,10 +1,11 @@
 'use client'
 
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Link } from '@/i18n/navigation'
 
@@ -24,31 +25,24 @@ interface PaginationInfo {
   totalPages: number
 }
 
-interface AnalyticsTableProps {
-  initialData?: ToolAnalyticsOverview[]
-  initialPagination?: PaginationInfo
-}
-
-export function AnalyticsTable({ initialData = [], initialPagination }: AnalyticsTableProps) {
-  const [data, setData] = useState<ToolAnalyticsOverview[]>(initialData)
-  const [pagination, setPagination] = useState<PaginationInfo>(
-    initialPagination || {
-      page: 1,
-      pageSize: 10,
-      total: 0,
-      totalPages: 0
-    }
-  )
+export function AnalyticsTable() {
+  const [data, setData] = useState<ToolAnalyticsOverview[]>([])
+  const [pagination, setPagination] = useState<PaginationInfo>({
+    page: 1,
+    pageSize: 10,
+    total: 0,
+    totalPages: 0
+  })
   const [loading, setLoading] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
   // 获取数据的函数
-  const fetchData = async (page: number, search?: string) => {
+  const fetchData = async (page: number, search?: string, pageSize?: number) => {
     setLoading(true)
     try {
       const params = new URLSearchParams({
         page: page.toString(),
-        pageSize: pagination.pageSize.toString()
+        pageSize: (pageSize ?? pagination.pageSize).toString()
       })
 
       if (search && search.trim()) {
@@ -75,6 +69,11 @@ export function AnalyticsTable({ initialData = [], initialPagination }: Analytic
     }
   }
 
+  // 组件挂载时自动加载第一页数据
+  useEffect(() => {
+    fetchData(1, '')
+  }, [])
+
   // 页面变化处理
   const handlePageChange = (newPage: number) => {
     if (newPage >= 1 && newPage <= pagination.totalPages) {
@@ -96,9 +95,28 @@ export function AnalyticsTable({ initialData = [], initialPagination }: Analytic
   // 分页按钮组件
   const PaginationControls = () => (
     <div className="flex items-center justify-between px-2 py-4">
-      <div className="text-muted-foreground text-sm">
-        显示第 {(pagination.page - 1) * pagination.pageSize + 1} -{' '}
-        {Math.min(pagination.page * pagination.pageSize, pagination.total)} 条， 共 {pagination.total} 条记录
+      <div className="flex items-center space-x-4">
+        <div className="text-muted-foreground text-sm">
+          显示第 {(pagination.page - 1) * pagination.pageSize + 1} -{' '}
+          {Math.min(pagination.page * pagination.pageSize, pagination.total)} 条， 共 {pagination.total} 条记录
+        </div>
+        <Select
+          value={String(pagination.pageSize)}
+          onValueChange={(val) => {
+            const newSize = Number(val)
+            setPagination((prev) => ({ ...prev, pageSize: newSize, page: 1 }))
+            fetchData(1, searchQuery, newSize)
+          }}
+        >
+          <SelectTrigger className="w-28">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="10">10条/页</SelectItem>
+            <SelectItem value="20">20条/页</SelectItem>
+            <SelectItem value="50">50条/页</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
       <div className="flex items-center space-x-2">
         <Button

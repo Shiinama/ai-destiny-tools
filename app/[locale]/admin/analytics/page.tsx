@@ -68,15 +68,7 @@ async function AnalyticsOverview() {
       </div>
 
       {/* 工具统计表格 */}
-      <AnalyticsTable
-        initialData={toolsStats.slice(0, 10)}
-        initialPagination={{
-          page: 1,
-          pageSize: 10,
-          total: toolsStats.length,
-          totalPages: Math.ceil(toolsStats.length / 10)
-        }}
-      />
+      <AnalyticsTable />
     </div>
   )
 }

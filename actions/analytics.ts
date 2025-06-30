@@ -1,3 +1,4 @@
+'use server'
 import { and, count, desc, eq, gte, lte, sql, like } from 'drizzle-orm'
 
 import { checkUserIsAdmin } from '@/hooks/use-is-admin'
