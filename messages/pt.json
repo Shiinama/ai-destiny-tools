@@ -192,7 +192,8 @@
       "continueWithGithub": "Continuar com GitHub",
       "orContinueWith": "Ou continuar com",
       "emailPlaceholder": "Digite seu e-mail",
-      "signInWithEmail": "Entrar com E-mail"
+      "signInWithEmail": "Entrar com E-mail",
+      "magicLinkSent": "Link mágico enviado para o seu e-mail, por favor, verifique."
     }
   },
   "common": {
