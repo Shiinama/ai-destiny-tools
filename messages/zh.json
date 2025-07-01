@@ -300,5 +300,13 @@
     "goToImage": "转到图片",
     "toolNotFound": "未找到工具",
     "toolNotFoundDescription": "找不到您要查找的占卜工具。请查看我们的主页以获取可用工具。"
+  },
+  "tools": {
+    "tarot": {
+      "title": "AI 塔罗牌解读",
+      "description": "探索未知，获得指引，开启内在智慧。",
+      "start": "开始塔罗牌解读",
+      "startAi": "开始 AI 塔罗牌解读"
+    }
   }
 }
