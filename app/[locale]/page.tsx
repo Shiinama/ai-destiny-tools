@@ -28,8 +28,7 @@ export default async function Home({
     getPaginatedTools({
       page: currentPage,
       pageSize,
-      status: 'approved',
-      locale
+      status: 'approved'
     }),
     getSpecificPosts([
       'ai-divination-future-foresight',
