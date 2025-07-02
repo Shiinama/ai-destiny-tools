@@ -306,7 +306,13 @@
       "title": "AI 塔罗牌解读",
       "description": "探索未知，获得指引，开启内在智慧。",
       "start": "开始塔罗牌解读",
-      "startAi": "开始 AI 塔罗牌解读"
+      "startAi": "开始 AI 塔罗牌解读",
+      "question": {
+        "title": "输入您的塔罗牌问题",
+        "description": "您想占卜什么问题？",
+        "placeholder": "输入您想占卜的问题",
+        "start": "牌阵引导"
+      }
     }
   }
 }

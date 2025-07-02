@@ -300,5 +300,13 @@
     "metaDescription": "Explore our latest articles on AI divination, fortune-telling technologies, and mystical insights. Discover expert perspectives, trends, and developments in the world of AI-powered destiny exploration.",
     "noArticles": "No articles available",
     "publishedAt": "Published at {date}"
+  },
+  "tools": {
+    "tarot": {
+      "title": "AI Tarot Reading",
+      "description": "AI Tarot Reading is a tool that uses AI to read the tarot cards and provide a reading.",
+      "start": "Start Tarot Reading",
+      "startAi": "Start AI Tarot Reading"
+    }
   }
 }
