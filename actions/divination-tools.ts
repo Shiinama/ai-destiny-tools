@@ -4,7 +4,7 @@ import { eq, like, sql, and } from 'drizzle-orm'
 
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
-import { divinationTools, divinationCategories, ToolStatus } from '@/lib/db/schema'
+import { divinationTools, divinationCategories, ToolStatus, divinationToolTranslations } from '@/lib/db/schema'
 
 export type DivinationToolInput = {
   name: string
@@ -26,18 +26,36 @@ export type DivinationToolUpdateInput = DivinationToolInput & {
   status?: ToolStatus
 }
 
+// 多语言字段处理工具函数
+function withI18nFields<T extends { name: string; description: string }>(
+  base: T,
+  translation?: { name?: string | null; description?: string | null },
+  locale?: string
+) {
+  if (!locale || locale === 'en' || !translation) {
+    return base
+  }
+  return {
+    ...base,
+    name: translation.name || base.name,
+    description: translation.description || base.description
+  }
+}
+
 export async function getPaginatedTools({
   page = 1,
   pageSize = 10,
   status,
   search,
-  categoryId
+  categoryId,
+  locale
 }: {
   page?: number
   pageSize?: number
   status?: ToolStatus
   search?: string
   categoryId?: string
+  locale?: string
 }) {
   const offset = (page - 1) * pageSize
   const db = createDb()
@@ -56,13 +74,30 @@ export async function getPaginatedTools({
     conditions.push(eq(divinationTools.categoryId, categoryId))
   }
 
-  const query = db
-    .select({
-      tools: divinationTools,
-      categoryKey: divinationCategories.key
-    })
-    .from(divinationTools)
-    .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
+  let query
+  if (!locale || locale === 'en') {
+    query = db
+      .select({
+        tools: divinationTools,
+        categoryKey: divinationCategories.key
+      })
+      .from(divinationTools)
+      .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
+  } else {
+    query = db
+      .select({
+        tools: divinationTools,
+        categoryKey: divinationCategories.key,
+        translationName: divinationToolTranslations.name,
+        translationDescription: divinationToolTranslations.description
+      })
+      .from(divinationTools)
+      .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
+      .leftJoin(
+        divinationToolTranslations,
+        and(eq(divinationToolTranslations.toolId, divinationTools.id), eq(divinationToolTranslations.locale, locale))
+      )
+  }
 
   const filteredQuery = conditions.length > 0 ? query.where(and(...conditions)) : query
 
@@ -79,10 +114,18 @@ export async function getPaginatedTools({
   const tools = await paginatedQuery.execute()
 
   return {
-    tools: tools.map((item) => ({
-      ...item.tools,
-      categoryKey: item.categoryKey
-    })),
+    tools: tools.map((item) => {
+      return {
+        ...withI18nFields(
+          item.tools,
+          'translationName' in item || 'translationDescription' in item
+            ? { name: (item as any).translationName, description: (item as any).translationDescription }
+            : undefined,
+          locale
+        ),
+        categoryKey: item.categoryKey
+      }
+    }),
     pagination: {
       currentPage: page,
       totalPages,
@@ -92,21 +135,47 @@ export async function getPaginatedTools({
   }
 }
 
-export async function getToolById(id: string) {
+export async function getToolById(id: string, locale?: string) {
   const db = createDb()
-  const result = await db
-    .select({
-      tool: divinationTools,
-      categoryKey: divinationCategories.key
-    })
-    .from(divinationTools)
-    .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
-    .where(eq(divinationTools.id, id))
-    .execute()
+  let query
+  if (!locale || locale === 'en') {
+    query = db
+      .select({
+        tool: divinationTools,
+        categoryKey: divinationCategories.key
+      })
+      .from(divinationTools)
+      .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
+      .where(eq(divinationTools.id, id))
+  } else {
+    query = db
+      .select({
+        tool: divinationTools,
+        categoryKey: divinationCategories.key,
+        translationName: divinationToolTranslations.name,
+        translationDescription: divinationToolTranslations.description
+      })
+      .from(divinationTools)
+      .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
+      .leftJoin(
+        divinationToolTranslations,
+        and(eq(divinationToolTranslations.toolId, divinationTools.id), eq(divinationToolTranslations.locale, locale))
+      )
+      .where(eq(divinationTools.id, id))
+  }
+  const result = await query.execute()
+
+  const item = result[0]
 
   return {
-    ...result[0].tool,
-    categoryKey: result[0].categoryKey
+    ...withI18nFields(
+      item.tool,
+      'translationName' in item || 'translationDescription' in item
+        ? { name: (item as any).translationName, description: (item as any).translationDescription }
+        : undefined,
+      locale
+    ),
+    categoryKey: item.categoryKey
   }
 }
 
@@ -268,4 +337,37 @@ export async function deleteTool(id: string) {
 export async function getCategories() {
   const db = createDb()
   return db.select().from(divinationCategories).orderBy(divinationCategories.display_order).execute()
+}
+
+// 新增或更新多语言翻译
+export async function upsertToolTranslations(
+  toolId: string,
+  translations: Array<{ locale: string; name: string; description: string }>
+) {
+  const db = createDb()
+  try {
+    for (const { locale, name, description } of translations) {
+      // 先查，有则更新，无则插入
+      const exist = await db
+        .select()
+        .from(divinationToolTranslations)
+        .where(and(eq(divinationToolTranslations.toolId, toolId), eq(divinationToolTranslations.locale, locale)))
+        .execute()
+      if (exist.length > 0) {
+        await db
+          .update(divinationToolTranslations)
+          .set({ name, description, updatedAt: new Date() })
+          .where(and(eq(divinationToolTranslations.toolId, toolId), eq(divinationToolTranslations.locale, locale)))
+          .execute()
+      } else {
+        await db
+          .insert(divinationToolTranslations)
+          .values({ toolId, locale, name, description, createdAt: new Date(), updatedAt: new Date() })
+          .execute()
+      }
+    }
+    return { code: 0, message: '多语言翻译已全部同步完成' }
+  } catch (error) {
+    return { code: 1, message: '多语言翻译同步失败', error: error instanceof Error ? error.message : String(error) }
+  }
 }
