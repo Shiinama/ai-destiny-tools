@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 
 import SpreadList from './components/SpreadList'
-import TopCard from './static/yesorno.webp'
+// import TopCard from './static/yesorno.webp'
 
 export default function TarotPage() {
   const t = useTranslations('tools.tarot')
@@ -16,7 +16,13 @@ export default function TarotPage() {
         <h1 className="text-4xl font-bold tracking-tight text-purple-400 lg:text-5xl">{t('title')}</h1>
         <p className="max-w-xl text-lg text-gray-200">{t('description')}</p>
         <div className="my-4">
-          <Image src={TopCard} alt="Tarot card" width={180} height={320} className="rounded-lg shadow-lg" />
+          <Image
+            src="https://static.destinyai.tools/tarot/card-backs/card_back.png"
+            alt="Tarot card"
+            width={240}
+            height={400}
+            className="rounded-lg shadow-lg"
+          />
         </div>
         <Link href="/tools/tarot/question">
           <Button

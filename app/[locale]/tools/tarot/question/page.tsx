@@ -1,12 +1,11 @@
 'use client'
 
 import { Heart, Briefcase, Sparkles, Compass, Star, HelpCircle } from 'lucide-react'
-import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
-import { recommendTarotSpread } from '@/actions/divination-tools'
+import { recommendTarotSpread } from '@/actions/tarot'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -14,22 +13,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
 
 import SpreadInfo from '../components/SpreadInfo'
-import defImg from '../static/development.webp'
-import spreadsData from '../static/toart/json/spreads.json'
-
-interface SpreadDetail {
-  name: string
-  desc: string
-  interpretations: any[]
-}
-
-interface SpreadCategory {
-  type: string
-  route: string
-  desc: string
-  picture: string
-  spreads: SpreadDetail[]
-}
+import SpreadPreview from '../components/SpreadPreview'
+import spreadsData from '../static/tarot/json/spreads.json'
 
 interface SpreadRecommendation {
   spreadType: string
@@ -55,14 +40,13 @@ export default function QuestionPage() {
   const common = useTranslations('common')
   const searchParams = useSearchParams()
   const spreadType = searchParams.get('type')
-
   const [activeTab, setActiveTab] = useState('daily')
   const [question, setQuestion] = useState('')
   const [isRecommending, setIsRecommending] = useState(false)
   const [recommendation, setRecommendation] = useState<SpreadRecommendation | null>(null)
   const [showRecommendation, setShowRecommendation] = useState(false)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
-  const [selectedSpread, setSelectedSpread] = useState<SpreadDetail | null>(null)
+  const [selectedSpread, setSelectedSpread] = useState<Spread | null>(null)
   const maxLength = 500
   const remainingChars = maxLength - question.length
 
@@ -79,7 +63,6 @@ export default function QuestionPage() {
     setIsRecommending(true)
     try {
       const result = await recommendTarotSpread(question)
-      console.log(result)
       setRecommendation(result)
       setShowRecommendation(true)
       // setActiveTab(result.spreadType)
@@ -91,10 +74,10 @@ export default function QuestionPage() {
   }
 
   const startDraw = () => {
-    // TODO: 跳转到抽牌页面
     if (recommendation) {
       // 这里可以添加路由跳转逻辑
-      router.push(`/tools/tarot/draw?spread=${recommendation.spreadName}&type=${recommendation.spreadType}`)
+      // router.push(`/tools/tarot/draw?spread=${recommendation.spreadName}&type=${recommendation.spreadType}`)
+      router.push('draw/' + recommendation.spreadLink || '')
     }
   }
 
@@ -103,7 +86,7 @@ export default function QuestionPage() {
     // setRecommendation(null)
   }
 
-  const handleSpreadInfo = (spread: SpreadDetail) => {
+  const handleSpreadInfo = (spread: Spread) => {
     setSelectedSpread(spread)
     setIsDialogOpen(true)
   }
@@ -147,7 +130,7 @@ export default function QuestionPage() {
         )}
         {/* AI推荐结果 */}
         {showRecommendation && recommendation && (
-          <Card className="border-amber-400/30 bg-gradient-to-r from-amber-900/20 to-orange-900/20 text-white backdrop-blur-md">
+          <Card className="mx-auto max-w-[900px] border-amber-400/30 bg-gradient-to-r from-amber-900/20 to-orange-900/20 text-white backdrop-blur-md">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Star className="h-5 w-5 text-amber-400" />
@@ -160,18 +143,19 @@ export default function QuestionPage() {
                   <div className="flex items-center gap-2 rounded-full bg-amber-400/20 px-3 py-1">
                     {categoryIcons[recommendation.spreadType as keyof typeof categoryIcons]}
                     <span className="text-sm font-medium">
-                      {spreadsData.find((s) => s.route === recommendation.spreadType)?.type}
+                      {spreadsData.find((s: any) => s.route === recommendation.spreadType)?.type}
                     </span>
                   </div>
                   <span className="text-amber-300">推荐牌阵: {recommendation.spreadName}</span>
                 </div>
                 <p className="leading-relaxed text-gray-200">{recommendation.reason}</p>
 
-                <div>
-                  <Image
-                    src={defImg}
-                    alt=""
-                    className="w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                <div className="flex justify-center">
+                  <SpreadPreview
+                    link={recommendation.spreadLink || ''}
+                    name={recommendation.spreadName}
+                    containerWidth={400}
+                    containerHeight={240}
                   />
                 </div>
                 <Button
@@ -193,7 +177,6 @@ export default function QuestionPage() {
             </CardContent>
           </Card>
         )}
-
         {/* 牌阵选择标签页 */}
         {!(showRecommendation && recommendation) && (
           <>
@@ -223,6 +206,7 @@ export default function QuestionPage() {
                       {spread.spreads.map((spreadItem) => (
                         <Card
                           key={spreadItem.name}
+                          onClick={() => router.push(`draw/${spreadItem.link}`)}
                           className="group relative cursor-pointer border-purple-400/20 bg-black/40 text-white backdrop-blur-md transition-all hover:border-purple-400/50 hover:bg-black/60"
                         >
                           {/* 问号图标 */}
@@ -245,18 +229,19 @@ export default function QuestionPage() {
                           </CardHeader>
                           <CardContent className="space-y-3">
                             <div className="relative overflow-hidden rounded-lg">
-                              <Image
-                                src={defImg}
-                                alt={spreadItem.name}
-                                width={200}
-                                height={120}
-                                className="h-26 w-full object-contain opacity-80 transition-opacity group-hover:opacity-100"
+                              <SpreadPreview
+                                link={spreadItem.link}
+                                name={spreadItem.name}
+                                containerWidth={280}
+                                containerHeight={160}
                               />
                             </div>
                             <p className="line-clamp-3 text-sm leading-relaxed text-gray-300">{spreadItem.desc}</p>
-                            <Button size="sm" className="w-full bg-purple-600/80 text-white hover:bg-purple-600">
-                              选择此牌阵
-                            </Button>
+                            {recommendation && (
+                              <Button size="sm" className="w-full bg-purple-600/80 text-white hover:bg-purple-600">
+                                选择此牌阵
+                              </Button>
+                            )}
                           </CardContent>
                         </Card>
                       ))}

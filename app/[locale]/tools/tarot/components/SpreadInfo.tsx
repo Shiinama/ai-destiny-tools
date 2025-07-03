@@ -5,8 +5,6 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 
-import defImg from '../static/development.webp'
-
 interface SpreadInfo {
   name: string
   desc: string
@@ -49,7 +47,7 @@ export default function SpreadInfo({ content, isOpen, onClose }: SpreadInfoProps
           <div className="flex justify-center">
             <div className="relative w-full max-w-2xl">
               <Image
-                src={defImg}
+                src="https://static.destinyai.tools/tarot/development.webp"
                 alt={content.name}
                 width={600}
                 height={400}

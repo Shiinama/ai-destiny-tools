@@ -8,23 +8,16 @@ import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 
-import spreadsData from '../static/toart/json/spreads.json'
-import defaultSpreadImage from '../static/toart/spreads/spreads1.png'
+import spreadsData from '../static/tarot/json/spreads.json'
 
-interface SpreadCategory {
-  type: string
-  route: string
-  desc: string
-  picture: string
-  spreads: any[]
-}
+import type { SpreadClass } from '@/types/tarot'
 
 export default function SpreadList() {
-  const [spreadList, setList] = useState<SpreadCategory[]>([])
+  const [spreadList, setList] = useState<SpreadClass[]>([])
   const t = useTranslations('tools.tarot')
 
   useEffect(() => {
-    setList(spreadsData as SpreadCategory[])
+    setList(spreadsData as SpreadClass[])
   }, [])
 
   return (
@@ -42,9 +35,8 @@ export default function SpreadList() {
           >
             <div className="w-full md:w-1/2">
               <div className="relative overflow-hidden rounded-xl">
-                {/* 注意：json中的图片路径是示例，这里我们先使用一张默认图片 */}
                 <Image
-                  src={defaultSpreadImage}
+                  src={item.picture}
                   alt={item.type}
                   width={500}
                   height={300}
