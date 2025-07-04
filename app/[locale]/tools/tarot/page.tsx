@@ -17,10 +17,10 @@ export default function TarotPage() {
         <p className="max-w-xl text-lg text-gray-200">{t('description')}</p>
         <div className="my-4">
           <Image
-            src="https://static.destinyai.tools/tarot/card-backs/card_back.png"
+            src="https://static.destinyai.tools/tarot/card-backs/home_cardbg.png"
             alt="Tarot card"
-            width={240}
-            height={400}
+            width={277}
+            height={405}
             className="rounded-lg shadow-lg"
           />
         </div>

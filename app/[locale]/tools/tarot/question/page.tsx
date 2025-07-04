@@ -75,10 +75,29 @@ export default function QuestionPage() {
 
   const startDraw = () => {
     if (recommendation) {
-      // 这里可以添加路由跳转逻辑
-      // router.push(`/tools/tarot/draw?spread=${recommendation.spreadName}&type=${recommendation.spreadType}`)
-      router.push('draw/' + recommendation.spreadLink || '')
+      // 构建URL参数，包含牌阵信息和占卜问题
+      const params = new URLSearchParams({
+        question: encodeURIComponent(question),
+        spreadName: encodeURIComponent(recommendation.spreadName),
+        spreadCategory: encodeURIComponent(recommendation.spreadCategory),
+        spreadDesc: encodeURIComponent(recommendation.spreadDesc || ''),
+        reason: encodeURIComponent(recommendation.reason || '')
+      })
+
+      router.push(`draw/${recommendation.spreadLink}?${params.toString()}`)
     }
+  }
+
+  const handleSpreadSelect = (spreadItem: any) => {
+    // 直接选择牌阵时，构建URL参数
+    const params = new URLSearchParams({
+      question: encodeURIComponent(question || ''),
+      spreadName: encodeURIComponent(spreadItem.name),
+      spreadCategory: encodeURIComponent(activeTab),
+      spreadDesc: encodeURIComponent(spreadItem.desc || '')
+    })
+
+    router.push(`draw/${spreadItem.link}?${params.toString()}`)
   }
 
   const reSelectSpread = () => {
@@ -206,7 +225,6 @@ export default function QuestionPage() {
                       {spread.spreads.map((spreadItem) => (
                         <Card
                           key={spreadItem.name}
-                          onClick={() => router.push(`draw/${spreadItem.link}`)}
                           className="group relative cursor-pointer border-purple-400/20 bg-black/40 text-white backdrop-blur-md transition-all hover:border-purple-400/50 hover:bg-black/60"
                         >
                           {/* 问号图标 */}
@@ -238,7 +256,11 @@ export default function QuestionPage() {
                             </div>
                             <p className="line-clamp-3 text-sm leading-relaxed text-gray-300">{spreadItem.desc}</p>
                             {recommendation && (
-                              <Button size="sm" className="w-full bg-purple-600/80 text-white hover:bg-purple-600">
+                              <Button
+                                size="sm"
+                                className="w-full bg-purple-600/80 text-white hover:bg-purple-600"
+                                onClick={() => handleSpreadSelect(spreadItem)}
+                              >
                                 选择此牌阵
                               </Button>
                             )}

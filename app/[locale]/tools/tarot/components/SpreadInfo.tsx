@@ -1,19 +1,13 @@
 'use client'
 
-import Image from 'next/image'
-
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Spread } from '@/types/tarot'
 
-interface SpreadInfo {
-  name: string
-  desc: string
-  guide?: string
-  interpretations?: any[]
-}
+import SpreadPreview from '../components/SpreadPreview'
 
 interface SpreadInfoProps {
-  content: SpreadInfo | null
+  content: Spread | null
   isOpen: boolean
   onClose: () => void
 }
@@ -46,12 +40,12 @@ export default function SpreadInfo({ content, isOpen, onClose }: SpreadInfoProps
           {/* 牌阵图片 */}
           <div className="flex justify-center">
             <div className="relative w-full max-w-2xl">
-              <Image
-                src="https://static.destinyai.tools/tarot/development.webp"
-                alt={content.name}
-                width={600}
-                height={400}
-                className="h-auto w-full rounded-lg shadow-lg"
+              <SpreadPreview
+                link={content.link}
+                name={content.name}
+                containerWidth="100%"
+                containerHeight={300}
+                showCardNumbers={true}
               />
             </div>
           </div>
