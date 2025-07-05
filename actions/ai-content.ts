@@ -383,22 +383,39 @@ export async function translateFieldsToLocales({
   fields: Record<string, string>
   targetLanguages: string[]
 }): Promise<Record<string, Record<string, string>>> {
+  // 过滤只保留在locales里的目标语言
+  const validLocales = locales.filter((l) => targetLanguages.includes(l.code))
+  // 生成 code-name 列表
+  const localeInfo = validLocales.map((l) => `${l.code}（${l.name}）`).join(', ')
+
   const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
   })
   const model = 'gemma-3n-e2b-it'
-  const prompt = `Please translate the following fields to the target languages: ${targetLanguages.join(', ')}.
-Please return a JSON object where each key is the language code, and the value is an object containing the translated fields.
-Please output the result strictly in the following format (do not add any explanation):
+
+  const prompt = `Please translate the following fields into the target languages: ${localeInfo}.
+
+Requirements:
+1. Translate according to each language's code, user language habits, and cultural background.
+2. Ensure the translation is natural and idiomatic, avoid literal translation, and polish appropriately to fit local user expressions.
+3. For industry terms or proper nouns, use the commonly used expressions in that language.
+4. Keep the original field semantics accurate and style consistent.
+5. The returned JSON result must use ONLY the language code as key (e.g. "zh", "ja", ...), do NOT include language name.
+6. Return ONLY the JSON result, do not add any explanation or extra content.
+7. [You MUST strictly include ALL target languages (${validLocales.map((l) => l.code).join(', ')})]
+8. If a word or phrase cannot be naturally translated, keep the original text in the translation，Pay attention to the original text's capitalization and maintain it in the translation
+9. The output format MUST strictly follow the example below, with nothing omitted:
 
 TRANSLATION_RESULT_START
 {
   "zh": { "name": "...", "description": "..." },
-  "ja": { "name": "...", "description": "..." }
+  "ja": { "name": "...", "description": "..." },
+  ...
 }
 TRANSLATION_RESULT_END
 
-Fields to translate: ${JSON.stringify(fields, null, 2)}`
+Fields to translate (original text): ${JSON.stringify(fields, null, 2)}
+For each language, ensure the translation is idiomatic and suitable for users of that language.`
 
   const chat = ai.chats.create({
     model,
@@ -416,6 +433,8 @@ Fields to translate: ${JSON.stringify(fields, null, 2)}`
     try {
       return JSON.parse(match[1].trim())
     } catch {
+      // eslint-disable-next-line no-console
+      console.log('生成翻译失败')
       return {}
     }
   }
