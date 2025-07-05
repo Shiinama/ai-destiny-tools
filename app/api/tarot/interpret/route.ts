@@ -1,6 +1,9 @@
 import { GoogleGenAI } from '@google/genai'
 import { NextRequest, NextResponse } from 'next/server'
 
+import { hasEnoughTokens, updateUserTokenUsage } from '@/actions/token-management'
+import { auth } from '@/lib/auth'
+
 interface InterpretRequest {
   question: string
   spreadName: string
@@ -9,6 +12,16 @@ interface InterpretRequest {
 }
 
 export async function POST(request: NextRequest) {
+  const session = await auth()
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized')
+  }
+
+  const hasTokens = await hasEnoughTokens(session.user.id, 0)
+
+  if (!hasTokens) {
+    throw new Error('Not enough tokens')
+  }
   try {
     const body = (await request.json()) as InterpretRequest
     const { question, spreadName, spreads, spreadDesc } = body
@@ -51,6 +64,9 @@ export async function POST(request: NextRequest) {
       }
     })
 
+    // 用于统计token消耗
+    let totalTokensUsed = 0
+
     // 创建流式响应
     const stream = new ReadableStream({
       async start(controller) {
@@ -59,11 +75,30 @@ export async function POST(request: NextRequest) {
             message: [{ text: '请开始解读。' }]
           })
 
+          let isFirstChunk = true
+
           for await (const chunk of result) {
             const text = chunk.text
             if (text) {
               // 发送文本块
               controller.enqueue(new TextEncoder().encode(`data: ${JSON.stringify({ text })}\n\n`))
+            }
+
+            // 在第一个chunk中获取使用的token数量
+            if (isFirstChunk && chunk.usageMetadata) {
+              const inputTokens = chunk.usageMetadata.promptTokenCount || 0
+              const outputTokens = chunk.usageMetadata.candidatesTokenCount || 0
+              totalTokensUsed = inputTokens + outputTokens
+              isFirstChunk = false
+            }
+          }
+
+          // 更新用户token使用量
+          if (totalTokensUsed > 0 && session.user?.id) {
+            try {
+              await updateUserTokenUsage(session.user.id, totalTokensUsed)
+            } catch (error) {
+              console.error('Failed to update token usage:', error)
             }
           }
 

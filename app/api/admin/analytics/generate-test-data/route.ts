@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   try {
     await checkAdminAccess()
 
-    const { count = 1000 } = (await request.json()) as any
+    const { count = 100000 } = (await request.json()) as any
 
     const db = createDb()
 

@@ -217,3 +217,15 @@ export const divinationToolTranslations = sqliteTable('divination_tool_translati
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()
 })
+
+// 用户token消耗表
+export const userUsage = sqliteTable('userUsage', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  usedTokens: integer('usedTokens').notNull().default(0),
+  totalTokens: integer('totalTokens').notNull().default(0)
+})

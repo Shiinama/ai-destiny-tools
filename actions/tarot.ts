@@ -2,7 +2,9 @@
 
 import { GoogleGenAI } from '@google/genai'
 
+import { hasEnoughTokens, updateUserTokenUsage } from '@/actions/token-management'
 import spreadsData from '@/app/[locale]/tools/tarot/static/tarot/json/spreads.json'
+import { auth } from '@/lib/auth'
 
 interface SpreadRecommendation {
   spreadType: string
@@ -13,8 +15,19 @@ interface SpreadRecommendation {
   spreadGuide?: string
   spreadLink?: string
 }
-
+// 推荐牌阵
 export async function recommendTarotSpread(question: string): Promise<SpreadRecommendation> {
+  const session = await auth()
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized')
+  }
+
+  const hasTokens = await hasEnoughTokens(session.user.id, 0)
+
+  if (!hasTokens) {
+    throw new Error('Not enough tokens')
+  }
+
   try {
     const ai = new GoogleGenAI({
       apiKey: process.env.GEMINI_API_KEY
@@ -82,6 +95,16 @@ ${JSON.stringify(spreadsData, null, 2)}
       message: [{ text: userPrompt }]
     })
 
+    let tokensUsed = 0
+
+    if (result.usageMetadata) {
+      const inputTokens = result.usageMetadata.promptTokenCount || 0
+      const outputTokens = result.usageMetadata.candidatesTokenCount || 0
+      tokensUsed = inputTokens + outputTokens
+    }
+
+    await updateUserTokenUsage(session.user.id, tokensUsed)
+
     const response = result.text!
 
     // 清理响应文本，移除可能的markdown标记
@@ -108,104 +131,4 @@ ${JSON.stringify(spreadsData, null, 2)}
       spreadLink: 'daily/single'
     }
   }
-}
-
-export async function interpretTarotCards(
-  question: string,
-  spreadName: string,
-  spreads: any[],
-  spreadDesc?: string
-): Promise<{ success: boolean; interpretation?: string; error?: string }> {
-  try {
-    const ai = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY
-    })
-
-    let prompt = `你是一位经验丰富、富有同情心的塔罗牌解读师。
-    请根据用户的问题、所选牌阵和翻开的牌面，进行专业、深入、富有启发性的塔罗解读。
-    解读应包含对每张牌在特定位置的含义解释，以及一个综合性的总结和具体可执行的建议。
-    请以清晰、积极的语言呈现，避免过于宿命论的表述，强调用户的自主选择权。
-
-    用户的问题是："${question}"
-    所选牌阵是："${spreadName}"${spreadDesc ? `\n牌阵说明："${spreadDesc}"` : ''}
-
-    翻开的牌面信息如下：
-    `
-
-    spreads.forEach((pos: any, index: number) => {
-      prompt += `\n位置 ${index + 1}：${pos.name} (${pos.direction === 'reversed' ? '逆位' : '正位'})`
-    })
-
-    prompt += `\n\n请先逐一分析每张牌在当前位置的意义，然后给出整体解读和具体的行动建议。使用清晰的分段格式，让解读易于阅读和理解。`
-
-    const model = 'gemini-2.0-flash-exp'
-
-    const chat = ai.chats.create({
-      model: model,
-      config: {
-        maxOutputTokens: 8192,
-        temperature: 0.7,
-        systemInstruction: {
-          parts: [{ text: prompt }]
-        }
-      }
-    })
-
-    const result = await chat.sendMessage({
-      message: [{ text: '请开始解读。' }]
-    })
-
-    const interpretation = result.text!
-
-    return { success: true, interpretation }
-  } catch (error) {
-    console.error('Gemini API Error:', error)
-    return { success: false, error: '无法生成解读。请稍后再试。' }
-  }
-}
-
-// 新增流式解读函数
-export async function interpretTarotCardsStream(
-  question: string,
-  spreadName: string,
-  spreads: any[],
-  spreadDesc?: string
-) {
-  const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY
-  })
-
-  let prompt = `你是一位经验丰富、富有同情心的塔罗牌解读师。
-  请根据用户的问题、所选牌阵和翻开的牌面，进行专业、深入、富有启发性的塔罗解读。
-  解读应包含对每张牌在特定位置的含义解释，以及一个综合性的总结和具体可执行的建议。
-  请以清晰、积极的语言呈现，避免过于宿命论的表述，强调用户的自主选择权。
-
-  用户的问题是："${question}"
-  所选牌阵是："${spreadName}"${spreadDesc ? `\n牌阵说明："${spreadDesc}"` : ''}
-
-  翻开的牌面信息如下：
-  `
-
-  spreads.forEach((pos: any, index: number) => {
-    prompt += `\n位置 ${index + 1}：${pos.name} (${pos.direction === 'reversed' ? '逆位' : '正位'})`
-  })
-
-  prompt += `\n\n请先逐一分析每张牌在当前位置的意义，然后给出整体解读和具体的行动建议。使用清晰的分段格式，让解读易于阅读和理解。`
-
-  const model = 'gemini-2.0-flash-exp'
-
-  const chat = ai.chats.create({
-    model: model,
-    config: {
-      maxOutputTokens: 8192,
-      temperature: 0.7,
-      systemInstruction: {
-        parts: [{ text: prompt }]
-      }
-    }
-  })
-
-  return chat.sendMessageStream({
-    message: [{ text: '请开始解读。' }]
-  })
 }

@@ -146,7 +146,7 @@ export default function DrawCard({ slug }: { slug: string[] }) {
   // 处理AI解读弹窗关闭，跳转回塔罗牌首页
   const handleInterpretationClose = () => {
     setInterpretationOpen(false)
-    router.push('/tools/tarot')
+    router.replace('/tools/tarot')
   }
 
   return (
