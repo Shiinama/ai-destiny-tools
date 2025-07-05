@@ -15,7 +15,7 @@ export default async function Home({
   searchParams
 }: {
   params: Promise<{ locale: string }>
-  searchParams: { page?: string }
+  searchParams: Promise<{ page?: string }>
 }) {
   const [{ page }, { locale }] = await Promise.all([searchParams, params])
 
