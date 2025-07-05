@@ -199,3 +199,21 @@ export const toolAnalyticsSummary = sqliteTable('tool_analytics_summary', {
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()
 })
+
+export const divinationToolTranslations = sqliteTable('divination_tool_translations', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  toolId: text('tool_id')
+    .notNull()
+    .references(() => divinationTools.id, { onDelete: 'cascade' }),
+  locale: text('locale').notNull(),
+  name: text('name').notNull(),
+  description: text('description').notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: integer('updated_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull()
+})

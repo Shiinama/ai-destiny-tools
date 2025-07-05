@@ -11,14 +11,15 @@ import ScreenshotsSection from '@/app/[locale]/divination-tools/[id]/components/
 interface DivinationToolPageProps {
   params: Promise<{
     id: string
+    locale: string
   }>
 }
 export async function generateMetadata({ params }: DivinationToolPageProps): Promise<Metadata> {
-  const { id } = await params
+  const { id, locale } = await params
 
   const t = await getTranslations('divinationTools')
 
-  const tool = await getToolById(id)
+  const tool = await getToolById(id, locale)
 
   if (!tool) {
     return {
@@ -35,9 +36,9 @@ export async function generateMetadata({ params }: DivinationToolPageProps): Pro
 }
 
 export default async function DivinationToolPage({ params }: DivinationToolPageProps) {
-  const { id } = await params
+  const { id, locale } = await params
 
-  const tool = await getToolById(id)
+  const tool = await getToolById(id, locale)
 
   return (
     <div className="container mx-auto py-8">

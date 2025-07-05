@@ -4,7 +4,8 @@ import { Loader2 } from 'lucide-react'
 import { use, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
-import { getToolById, updateTool, deleteTool, getCategories } from '@/actions/divination-tools'
+import { translateFieldsToLocales } from '@/actions/ai-content'
+import { getToolById, updateTool, deleteTool, getCategories, upsertToolTranslations } from '@/actions/divination-tools'
 import { SiteImageUploader } from '@/components/navigatiton-sites/site-image-uploader'
 import {
   AlertDialog,
@@ -24,6 +25,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
+import { locales } from '@/i18n/routing'
 import { ToolStatus } from '@/lib/db/schema'
 
 export default function EditToolPage({ params }: { params: Promise<{ id: string }> }) {
@@ -164,10 +166,29 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
 
       if (result) {
         toast.success(`工具${shouldRedirect ? '更新' : '仅保存'}成功`)
-        if (shouldRedirect) {
-          router.push('/admin/tools')
+
+        const targetLocaleCodes = locales.filter((l) => l.code !== 'en').map((l) => l.code)
+        const translationsResult = await translateFieldsToLocales({
+          fields: { name: formData.name, description: formData.description },
+          targetLanguages: targetLocaleCodes
+        })
+        const translations = targetLocaleCodes.map((code) => ({
+          locale: code,
+          name: translationsResult[code]?.name || '',
+          description: translationsResult[code]?.description || ''
+        }))
+
+        const upsertResult = await upsertToolTranslations(id, translations)
+        if (upsertResult.code === 0) {
+          toast.success('多语言翻译已全部同步完成')
+        } else {
+          toast.error(upsertResult.message)
         }
-      } else {
+      }
+
+      if (shouldRedirect) {
+        router.push('/admin/tools')
+      } else if (!result) {
         toast.error(`${shouldRedirect ? '更新' : '仅保存'}失败`)
       }
     } catch (error) {

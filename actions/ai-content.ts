@@ -374,3 +374,50 @@ export async function getSpecificPosts(slugs: string[]) {
   const db = createDb()
   return db.select().from(posts).where(inArray(posts.slug, slugs)).execute()
 }
+
+// 批量翻译多个字段到多个语言，AI 返回 JSON 用特殊标记包裹，正则提取
+export async function translateFieldsToLocales({
+  fields,
+  targetLanguages
+}: {
+  fields: Record<string, string>
+  targetLanguages: string[]
+}): Promise<Record<string, Record<string, string>>> {
+  const ai = new GoogleGenAI({
+    apiKey: process.env.GEMINI_API_KEY
+  })
+  const model = 'gemma-3n-e2b-it'
+  const prompt = `Please translate the following fields to the target languages: ${targetLanguages.join(', ')}.
+Please return a JSON object where each key is the language code, and the value is an object containing the translated fields.
+Please output the result strictly in the following format (do not add any explanation):
+
+TRANSLATION_RESULT_START
+{
+  "zh": { "name": "...", "description": "..." },
+  "ja": { "name": "...", "description": "..." }
+}
+TRANSLATION_RESULT_END
+
+Fields to translate: ${JSON.stringify(fields, null, 2)}`
+
+  const chat = ai.chats.create({
+    model,
+    config: {
+      maxOutputTokens: 4096,
+      temperature: 0.2,
+      topP: 0.9
+    }
+  })
+  const response = await chat.sendMessage({
+    message: [{ text: prompt }]
+  })
+  const match = response.text?.match(/TRANSLATION_RESULT_START([\s\S]*?)TRANSLATION_RESULT_END/)
+  if (match) {
+    try {
+      return JSON.parse(match[1].trim())
+    } catch {
+      return {}
+    }
+  }
+  return {}
+}
