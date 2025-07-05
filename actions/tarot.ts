@@ -47,7 +47,8 @@ ${JSON.stringify(spreadsData, null, 2)}
   "reason": "详细的推荐理由",
   "spreadCategory": "对应的type值(如常规占卜)",
   "spreadDesc": "选中牌阵的desc值",
-  "spreadLink": "选中牌阵的link值(如daily/single)"
+  "spreadLink": "选中牌阵的link值(如daily/single)",
+  "cardCount": "选中牌阵的count值(如1)"
 }
 
 重要：

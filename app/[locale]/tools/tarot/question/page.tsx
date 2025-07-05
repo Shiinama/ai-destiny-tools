@@ -24,6 +24,7 @@ interface SpreadRecommendation {
   spreadDesc: string
   spreadGuide?: string
   spreadLink?: string
+  cardCount?: number
 }
 
 const categoryIcons = {
@@ -81,7 +82,8 @@ export default function QuestionPage() {
         spreadName: encodeURIComponent(recommendation.spreadName),
         spreadCategory: encodeURIComponent(recommendation.spreadCategory),
         spreadDesc: encodeURIComponent(recommendation.spreadDesc || ''),
-        reason: encodeURIComponent(recommendation.reason || '')
+        reason: encodeURIComponent(recommendation.reason || ''),
+        cardCount: encodeURIComponent(recommendation.cardCount || '')
       })
 
       router.push(`draw/${recommendation.spreadLink}?${params.toString()}`)
@@ -94,7 +96,8 @@ export default function QuestionPage() {
       question: encodeURIComponent(question || ''),
       spreadName: encodeURIComponent(spreadItem.name),
       spreadCategory: encodeURIComponent(activeTab),
-      spreadDesc: encodeURIComponent(spreadItem.desc || '')
+      spreadDesc: encodeURIComponent(spreadItem.desc || ''),
+      cardCount: encodeURIComponent(spreadItem.count || '')
     })
 
     router.push(`draw/${spreadItem.link}?${params.toString()}`)

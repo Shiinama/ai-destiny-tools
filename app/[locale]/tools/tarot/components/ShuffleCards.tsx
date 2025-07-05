@@ -25,7 +25,7 @@ export default function ShuffleCards({ onShuffleComplete }: ShuffleCardsProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const lastUpdateTime = useRef<number>(0)
 
-  const REQUIRED_DISTANCE = 800 // 需要移动800px的距离
+  const REQUIRED_DISTANCE = 1000 // 需要移动1000px的距离
   const PROGRESS_THRESHOLD = 100 // 进度达到100%时完成洗牌
   const UPDATE_INTERVAL = 100 // 每100ms更新一次卡牌位置，避免抖动
 
@@ -141,32 +141,11 @@ export default function ShuffleCards({ onShuffleComplete }: ShuffleCardsProps) {
       </div>
 
       {/* 说明文字 */}
-      <div className="mt-8 text-center text-white">
-        <h2 className="mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-3xl font-bold text-transparent">
+      <div className="mt-20 text-center text-white">
+        <h2 className="mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-3xl font-bold text-transparent select-none">
           洗牌
         </h2>
-        <p className="mb-4 text-xl">{isDragging ? '继续移动鼠标洗牌...' : '按住鼠标拖动洗牌'}</p>
-
-        <div className="mx-auto mb-4 h-4 w-80 rounded-full border border-white/30 bg-white/20">
-          <div
-            className="relative h-4 overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          >
-            <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <p className="text-lg font-semibold">进度: {Math.round(progress)}%</p>
-          {progress >= 100 && (
-            <p className="animate-pulse text-xl font-bold text-yellow-400">✨ 洗牌完成！正在进入选牌环节...</p>
-          )}
-          {progress < 100 && (
-            <p className="text-sm text-white/60">
-              已移动: {Math.round(totalDistance)}px / {REQUIRED_DISTANCE}px
-            </p>
-          )}
-        </div>
+        <p className="mb-4 text-xl select-none">请按住鼠标拖动洗牌</p>
       </div>
     </div>
   )

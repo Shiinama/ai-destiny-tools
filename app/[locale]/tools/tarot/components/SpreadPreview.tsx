@@ -94,7 +94,7 @@ export default function SpreadPreview({
           <div className="relative">
             <Image
               src="https://static.destinyai.tools/tarot/card-backs/card_bgm.png"
-              alt={`${name} 牌阵第${index + 1}张牌`}
+              alt={`${index + 1}`}
               width={cardDisplayWidth}
               height={cardDisplayHeight}
               className="rounded border border-purple-300/30 shadow-lg"
