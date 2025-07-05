@@ -188,7 +188,7 @@ export default function QuestionPage() {
                   onClick={reSelectSpread}
                   variant="outline"
                   size="lg"
-                  className="w-full rounded-lg text-base text-white hover:bg-purple-700 disabled:opacity-50"
+                  className="w-full rounded-lg text-base text-white"
                 >
                   自选其他牌阵
                 </Button>

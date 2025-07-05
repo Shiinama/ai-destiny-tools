@@ -1,162 +1,43 @@
 'use client'
 
-import { Sparkles, Info } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
-import { useTranslations } from 'next-intl'
-import { use, useState, useMemo, useEffect } from 'react'
+import { use, useState, useMemo } from 'react'
 
-import { Button } from '@/components/ui/button'
-import useInit from '@/hooks/use-init'
-import { useRouter } from '@/i18n/navigation'
-
-import Card from '../../components/Card'
 import CardSelection from '../../components/CardSelection'
-import InterpretationDialog from '../../components/InterpretationDialog'
-import QuestionSpreadDialog from '../../components/QuestionSpreadDialog'
+import DrawCard from '../../components/DrawCard'
 import ShuffleCards from '../../components/ShuffleCards'
 import StageTransition from '../../components/StageTransition'
 
 // 扩展全局 CardType，添加占卜时需要的额外属性
-interface CurrentCardType extends CardType {
-  position: number
-  flipped: boolean
-  direction: 'normal' | 'reversed'
-}
 
 export default function DrawPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = use(params)
-  const searchParams = useSearchParams()
-  const t = useTranslations('tools.tarot')
-  const router = useRouter()
 
-  // 从URL参数中获取信息
-  const question = searchParams.get('question') ? decodeURIComponent(searchParams.get('question')!) : ''
-  const spreadName = searchParams.get('spreadName') ? decodeURIComponent(searchParams.get('spreadName')!) : ''
-  const spreadCategory = searchParams.get('spreadCategory')
-    ? decodeURIComponent(searchParams.get('spreadCategory')!)
-    : ''
-  const spreadDesc = searchParams.get('spreadDesc') ? decodeURIComponent(searchParams.get('spreadDesc')!) : ''
-  const reason = searchParams.get('reason') ? decodeURIComponent(searchParams.get('reason')!) : ''
+  // console.log('spreadCategory', spreadCategory, spreadDesc)
 
   const [currentStage, setCurrentStage] = useState('shuffle')
 
-  const { scale, cardArr, indexes, flipStates, reverses, infoShown, onReload, onCardClick, closeInfo, cards } =
-    useInit(slug)
-
-  // 弹窗状态管理
-  const [isQuestionSpreadDialogOpen, setQuestionSpreadDialogOpen] = useState(false)
-
-  // AI 解读相关状态
-  const [isInterpretationOpen, setInterpretationOpen] = useState(false)
-  const [interpretationText, setInterpretationText] = useState('')
-  const [isInterpreting, setIsInterpreting] = useState(false)
-  const [currentCardInfos, setCurrentCardInfos] = useState<CurrentCardType[]>([])
-
-  // 检查是否所有牌都已翻开
-  const allFlipped = useMemo(() => {
-    if (currentCardInfos.length) {
-      return currentCardInfos.every((card) => card.flipped)
-    }
-    return false
-  }, [currentCardInfos])
+  // 计算所需卡牌数量，不依赖于cardArr
   const requiredCount = useMemo(() => {
-    return cardArr.length
-  }, [cardArr])
+    // 从slug中解析出所需的卡牌数量
+    if (!slug || slug.length === 0) return 1
 
-  // 更新当前卡牌信息（从SpreadsBox移动过来）
-  useEffect(() => {
-    const infos = indexes.map((cardi, posi) => ({
-      ...cards[cardi],
-      position: posi + 1,
-      flipped: flipStates[posi],
-      direction: (reverses[posi] ? 'reversed' : 'normal') as 'normal' | 'reversed'
-    }))
-
-    setCurrentCardInfos(infos)
-  }, [indexes, flipStates, reverses, cards])
-
-  // AI解读函数
-  async function getInterpretation() {
-    setInterpretationText('')
-    setIsInterpreting(true)
-    setInterpretationOpen(true)
-
-    try {
-      const response = await fetch('/api/tarot/interpret', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          question: question || '请为我解读这次塔罗牌抽牌的结果',
-          spreadName: spreadName || '塔罗牌阵',
-          spreads: currentCardInfos,
-          spreadDesc: spreadDesc
-        })
-      })
-
-      if (!response.ok) {
-        throw new Error('网络请求失败')
-      }
-
-      const reader = response.body?.getReader()
-      if (!reader) {
-        throw new Error('无法读取响应流')
-      }
-
-      const decoder = new TextDecoder()
-      let accumulated = ''
-
-      while (true) {
-        const { done, value } = await reader.read()
-
-        if (done) break
-
-        const chunk = decoder.decode(value, { stream: true })
-        const lines = chunk.split('\n')
-
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6)
-
-            if (data === '[DONE]') {
-              setIsInterpreting(false)
-              return
-            }
-
-            try {
-              const parsed = JSON.parse(data)
-              if (parsed.text) {
-                accumulated += parsed.text
-                setInterpretationText(accumulated)
-              } else if (parsed.error) {
-                throw new Error(parsed.error)
-              }
-            } catch (e) {
-              // 忽略JSON解析错误，继续处理下一行
-            }
-          }
-        }
-      }
-
-      setIsInterpreting(false)
-    } catch (error) {
-      console.error('解读失败:', error)
-      setInterpretationText('抱歉，解读过程中出现错误，请稍后再试。')
-      setIsInterpreting(false)
+    // 根据不同的牌阵类型返回不同的数量
+    const spreadType = slug[0]
+    switch (spreadType) {
+      case 'single':
+        return 1
+      case 'three':
+        return 3
+      case 'celtic':
+        return 10
+      case 'love':
+        return 7
+      case 'career':
+        return 5
+      default:
+        return 1
     }
-  }
-
-  // 处理AI解读按钮点击
-  const handleAIInterpretation = () => {
-    getInterpretation()
-  }
-
-  // 处理AI解读弹窗关闭，跳转回塔罗牌首页
-  const handleInterpretationClose = () => {
-    setInterpretationOpen(false)
-    router.push('/tools/tarot')
-  }
+  }, [slug])
 
   // 根据当前阶段渲染不同的内容
   const renderContent = () => {
@@ -168,81 +49,11 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
         return <CardSelection requiredCount={requiredCount} onCompleteSelection={() => setCurrentStage('draw')} />
 
       case 'draw':
-        return (
-          <div className="container mx-auto px-4 py-8">
-            <div className="mx-auto max-w-6xl space-y-8">
-              {/* 顶部按钮区域 */}
-              <div className="flex justify-center gap-4">
-                <Button
-                  onClick={() => setQuestionSpreadDialogOpen(true)}
-                  className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg transition-all duration-300 hover:from-purple-700 hover:to-pink-700 hover:shadow-xl"
-                  size="lg"
-                >
-                  <Info className="h-5 w-5" />
-                  占卜信息
-                </Button>
-
-                <Button
-                  onClick={handleAIInterpretation}
-                  disabled={!allFlipped}
-                  className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg transition-all duration-300 hover:from-amber-600 hover:to-orange-600 hover:shadow-xl disabled:cursor-not-allowed disabled:from-slate-600 disabled:to-slate-600 disabled:opacity-50"
-                  size="lg"
-                >
-                  <Sparkles className="h-5 w-5" />
-                  {allFlipped ? '✨ AI 解读' : '请翻开所有牌'}
-                </Button>
-              </div>
-
-              {/* 翻牌区域 */}
-              <div className="relative min-h-[80vh] w-full" id="card_container">
-                {cardArr.map((item, index) => (
-                  <div key={index} className="absolute h-0 w-0" style={{ top: item.top, left: item.left }}>
-                    <Card
-                      cards={cards}
-                      scale={scale}
-                      rotate={item.rotate}
-                      index={indexes[index]}
-                      flipped={flipStates[index]}
-                      reversed={reverses[index]}
-                      showInfo={infoShown[index]}
-                      closeInfo={closeInfo}
-                      onClick={() => onCardClick(index)}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )
-
+        return <DrawCard slug={slug} />
       default:
         return null
     }
   }
 
-  return (
-    <StageTransition stage={currentStage}>
-      {renderContent()}
-
-      {/* 问题和牌阵信息弹窗 */}
-      <QuestionSpreadDialog
-        isOpen={isQuestionSpreadDialogOpen}
-        onClose={() => setQuestionSpreadDialogOpen(false)}
-        question={question}
-        spreadName={spreadName}
-        spreadCategory={spreadCategory}
-        spreadDesc={spreadDesc}
-        reason={reason}
-      />
-
-      {/* AI解读弹窗 */}
-      <InterpretationDialog
-        isOpen={isInterpretationOpen}
-        onClose={handleInterpretationClose}
-        text={interpretationText}
-        isLoading={isInterpreting}
-        cards={currentCardInfos}
-      />
-    </StageTransition>
-  )
+  return <StageTransition stage={currentStage}>{renderContent()}</StageTransition>
 }

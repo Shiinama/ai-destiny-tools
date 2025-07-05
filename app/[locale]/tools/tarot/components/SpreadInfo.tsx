@@ -30,7 +30,7 @@ export default function SpreadInfo({ content, isOpen, onClose }: SpreadInfoProps
           <DialogTitle className="text-2xl font-bold text-purple-400">牌阵释义</DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-6 overflow-hidden">
           {/* 牌阵标题和描述 */}
           <div className="space-y-3 text-center">
             <h2 className="text-3xl font-bold text-white">{content.name}</h2>
@@ -54,16 +54,37 @@ export default function SpreadInfo({ content, isOpen, onClose }: SpreadInfoProps
           {content.interpretations && content.interpretations.length > 0 && (
             <div className="space-y-4">
               <h3 className="text-center text-xl font-bold text-purple-400">牌位含义</h3>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                {content.interpretations[0]?.map((interp: any, index: number) => (
-                  <div key={index} className="rounded-lg border border-purple-400/20 bg-purple-900/20 p-3 text-center">
-                    <div className="mx-auto mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-sm font-bold">
-                      {interp.position}
-                    </div>
-                    <div className="mb-1 text-xs font-medium text-purple-300">第{interp.position}张牌</div>
-                    <p className="line-clamp-3 text-xs leading-relaxed text-gray-300">{interp.interpretation}</p>
+              <div className="relative w-full overflow-x-auto overflow-y-hidden border-b p-6">
+                {content.interpretations.length > 1 && (
+                  <div className="flex min-w-max pb-4">
+                    {content.interpretations.map((scenarioItems, scenarioIndex) => (
+                      <div key={scenarioIndex} className="rounded-lg border border-purple-400/30 bg-purple-900/10 p-4">
+                        <h4 className="border-b border-purple-400/20 pb-2 text-center text-lg font-semibold text-purple-300">
+                          含义 {scenarioIndex + 1}
+                        </h4>
+                        <div className="space-y-2">
+                          {scenarioItems.map((interp: any, itemIndex: number) => (
+                            <div
+                              key={`${scenarioIndex}-${itemIndex}`}
+                              className="rounded-sm border border-purple-400/20 bg-purple-900/20 p-3"
+                            >
+                              {interp.position}：{interp.interpretation}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
+                {content.interpretations.length === 1 && (
+                  <div className="flex flex-wrap">
+                    {content.interpretations[0].map((interp: any, itemIndex: number) => (
+                      <div key={itemIndex} className="rounded-lg border border-purple-400/30 bg-purple-900/10 p-4">
+                        {interp.position}：{interp.interpretation}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           )}

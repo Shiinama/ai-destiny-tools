@@ -77,9 +77,9 @@ function Card({
         }}
       >
         <div
-          className={`absolute inset-0 h-full w-full rounded-md bg-cover bg-center transition-transform duration-500 backface-hidden ${flipped ? 'rotate-y-180' : 'rotate-y-0'} ${flipped ? 'z-10' : 'z-20'}`}
+          className={`absolute inset-0 h-full w-full rounded-md border-2 bg-cover bg-center shadow-lg transition-transform duration-500 backface-hidden ${flipped ? 'rotate-y-180' : 'rotate-y-0'} ${flipped ? 'z-10' : 'z-20'}`}
           style={{
-            backgroundImage: `url('https://static.destinyai.tools/tarot/card-backs/card_back_4.webp')`
+            backgroundImage: `url('https://static.destinyai.tools/tarot/card-backs/card_bgm.png')`
           }}
         ></div>
 
@@ -94,7 +94,7 @@ function Card({
 
       <Dialog open={showInfo} onOpenChange={closeInfo}>
         <DialogPortal>
-          <DialogContent className="data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=open]:animate-in data-[state=open]:fade-in data-[state=closed]:animate-out data-[state=closed]:fade-out fixed top-1/2 left-1/2 w-[90vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-slate-800 p-6 text-slate-200 shadow-2xl focus:outline-none data-[state=closed]:duration-200 data-[state=open]:duration-300 md:p-8">
+          <DialogContent className="max-w-3xl overflow-hidden border-purple-400/30 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 text-white backdrop-blur-xl md:p-8">
             {/* 弹窗内容的实际布局容器 */}
             <div className="grid max-h-[80vh] grid-cols-1 gap-x-8 overflow-y-auto md:grid-cols-2">
               {/* 左栏/上方：图片 */}

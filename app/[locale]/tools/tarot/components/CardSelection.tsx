@@ -50,8 +50,10 @@ export default function CardSelection({ requiredCount, onCompleteSelection }: Ca
     expandCards()
   }, [])
 
+  const [isComplete, setIsComplete] = useState(false)
   useEffect(() => {
     if (requiredCount && selectedCard.length === requiredCount) {
+      setIsComplete(true)
       setTimeout(() => {
         onCompleteSelection()
       }, 1000)
@@ -102,6 +104,9 @@ export default function CardSelection({ requiredCount, onCompleteSelection }: Ca
         ))}
       </div>
       <div className="mt-8">需要选中{requiredCount}张牌</div>
+      {isComplete && (
+        <p className="mt-4 animate-pulse text-xl font-bold text-yellow-400">✨ 选牌完成！正在进入翻牌牌环节...</p>
+      )}
     </div>
   )
 }
