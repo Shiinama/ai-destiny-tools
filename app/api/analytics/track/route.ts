@@ -79,11 +79,13 @@ export async function POST(request: NextRequest) {
     const headersList = await headers()
     const userAgent = headersList.get('user-agent') || ''
     const acceptLanguage = headersList.get('accept-language') || ''
-    const forwardedFor = headersList.get('x-forwarded-for')
-    const realIp = headersList.get('x-real-ip')
 
-    // 获取IP地址
-    const ipAddress = forwardedFor?.split(',')[0] || realIp || null
+    const ipAddress =
+      headersList.get('cf-connecting-ip') ||
+      headersList.get('x-forwarded-for')?.split(',')?.[0]?.trim() ||
+      headersList.get('x-real-ip') ||
+      headersList.get('x-client-ip') ||
+      null
 
     // 解析设备信息
     const { deviceType, browser, operatingSystem } = parseUserAgent(userAgent)

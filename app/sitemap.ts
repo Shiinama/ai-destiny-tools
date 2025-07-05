@@ -1,8 +1,9 @@
 import { unstable_noStore } from 'next/cache'
 
-import { getAllArticles } from '@/actions/ai-content'
 import { getPaginatedTools } from '@/actions/divination-tools'
 import { locales } from '@/i18n/routing'
+
+import allArticles from './allArticles.json'
 
 import type { MetadataRoute } from 'next'
 
@@ -11,12 +12,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-  const [{ tools }, allArticles] = await Promise.all([
+  const [{ tools }] = await Promise.all([
     getPaginatedTools({
       pageSize: 10000,
       page: 1
-    }),
-    getAllArticles()
+    })
   ])
 
   const divinationTools = tools.map((i) => `/divination-tools/${i.id}`)

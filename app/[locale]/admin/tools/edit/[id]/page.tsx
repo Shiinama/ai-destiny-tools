@@ -4,7 +4,8 @@ import { Loader2 } from 'lucide-react'
 import { use, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
-import { getToolById, updateTool, deleteTool, getCategories } from '@/actions/divination-tools'
+import { translateFieldsToLocales } from '@/actions/ai-content'
+import { getToolById, updateTool, deleteTool, getCategories, upsertToolTranslations } from '@/actions/divination-tools'
 import { SiteImageUploader } from '@/components/navigatiton-sites/site-image-uploader'
 import {
   AlertDialog,
@@ -147,13 +148,16 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
+  const validateForm = () => {
     if (!formData.name || !formData.description || !formData.url || !formData.categoryId) {
       toast.error('请填写所有必填字段')
-      return
+      return false
     }
+    return true
+  }
+
+  const submitForm = async (shouldRedirect = false) => {
+    if (!validateForm()) return
 
     setIsSubmitting(true)
 
@@ -161,15 +165,48 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
       const result = await updateTool(id, formData)
 
       if (result) {
-        toast.success('工具更新成功')
+        toast.success(`工具${shouldRedirect ? '更新' : '仅保存'}成功`)
+
+        const targetLocaleCodes = locales.filter((l) => l.code !== 'en').map((l) => l.code)
+        const translationsResult = await translateFieldsToLocales({
+          fields: { name: formData.name, description: formData.description },
+          targetLanguages: targetLocaleCodes
+        })
+        const translations = targetLocaleCodes.map((code) => ({
+          locale: code,
+          name: translationsResult[code]?.name || '',
+          description: translationsResult[code]?.description || ''
+        }))
+
+        const upsertResult = await upsertToolTranslations(id, translations)
+        if (upsertResult.code === 0) {
+          toast.success('多语言翻译已全部同步完成')
+        } else {
+          toast.error(upsertResult.message)
+        }
+      }
+
+      if (shouldRedirect) {
         router.push('/admin/tools')
+      } else if (!result) {
+        toast.error(`${shouldRedirect ? '更新' : '仅保存'}失败`)
       }
     } catch (error) {
       console.error('Error updating tool:', error)
-      toast.error('更新工具时发生错误')
+      toast.error(`${shouldRedirect ? '更新' : '仅保存'}工具时发生错误`)
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    await submitForm(true)
+  }
+
+  const handleSaveOnly = async (e: React.FormEvent) => {
+    e.preventDefault()
+    await submitForm(false)
   }
 
   const handleDelete = async () => {
@@ -337,7 +374,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
             <p className="text-muted-foreground mt-1 text-sm">选择工具支持的平台</p>
           </div>
 
-          <div>
+          {/* <div>
             <Label htmlFor="language">语言</Label>
             <Select value={formData.locale} onValueChange={(value) => handleSelectChange(value, 'locale')}>
               <SelectTrigger className="w-full sm:w-[240px]">
@@ -351,7 +388,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
                 ))}
               </SelectContent>
             </Select>
-          </div>
+          </div> */}
 
           <div>
             <Label htmlFor="logoUrl">Logo图片</Label>
@@ -429,6 +466,10 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={() => router.push('/admin/tools')}>
             取消
+          </Button>
+          <Button type="button" onClick={handleSaveOnly} disabled={isSubmitting} variant="secondary">
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {isSubmitting ? '保存中...' : '仅保存'}
           </Button>
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

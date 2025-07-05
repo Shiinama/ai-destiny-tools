@@ -5,7 +5,8 @@ import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
-import { createTool, getCategories } from '@/actions/divination-tools'
+import { translateFieldsToLocales } from '@/actions/ai-content'
+import { createTool, getCategories, upsertToolTranslations } from '@/actions/divination-tools'
 import { SiteImageUploader } from '@/components/navigatiton-sites/site-image-uploader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -14,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
+import { locales } from '@/i18n/routing'
 import { ToolStatus } from '@/lib/db/schema'
 
 export default function NewToolPage() {
@@ -119,6 +121,27 @@ export default function NewToolPage() {
 
       if (result) {
         toast.success(`工具${shouldRedirect ? '创建' : '仅保存'}成功`)
+        // 多语言自动翻译
+        try {
+          const targetLocaleCodes = locales.filter((l) => l.code !== 'en').map((l) => l.code)
+          const translationsResult = await translateFieldsToLocales({
+            fields: { name: formData.name, description: formData.description },
+            targetLanguages: targetLocaleCodes
+          })
+          const translations = targetLocaleCodes.map((code) => ({
+            locale: code,
+            name: translationsResult[code]?.name || '',
+            description: translationsResult[code]?.description || ''
+          }))
+          const upsertResult = await upsertToolTranslations(result.id, translations)
+          if (upsertResult.code === 0) {
+            toast.success('多语言翻译已全部同步完成')
+          } else {
+            toast.error(upsertResult.message)
+          }
+        } catch (err) {
+          toast.error('多语言翻译同步失败')
+        }
         if (shouldRedirect) {
           router.push('/admin/tools')
         } else {

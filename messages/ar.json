@@ -192,7 +192,8 @@
       "continueWithGithub": "المتابعة باستخدام جيت هاب",
       "orContinueWith": "أو المتابعة باستخدام",
       "emailPlaceholder": "أدخل بريدك الإلكتروني",
-      "signInWithEmail": "تسجيل الدخول بالبريد الإلكتروني"
+      "signInWithEmail": "تسجيل الدخول بالبريد الإلكتروني",
+      "magicLinkSent": "تم إرسال الرابط السحري إلى بريدك الإلكتروني، يرجى التحقق."
     }
   },
   "common": {

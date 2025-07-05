@@ -4,6 +4,7 @@ import { Mail, Loader2, LogIn } from 'lucide-react'
 import { signIn } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -31,10 +32,14 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
       })
 
       if (result?.ok && !result?.error && onSuccess) {
+        if (provider === 'resend') {
+          toast.success(t('magicLinkSent'))
+        }
         onSuccess()
       }
     } catch (error) {
       console.error(`Error signing in with ${provider}:`, error)
+      toast.error(`Error signing in with ${provider}`)
     } finally {
       setIsLoading((prev) => ({ ...prev, [provider]: false }))
     }

@@ -11,11 +11,11 @@ import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 
 export default async function Home({
-  searchParams,
-  params
+  params,
+  searchParams
 }: {
-  searchParams: Promise<{ page?: string }>
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ page?: string }>
 }) {
   const [{ page }, { locale }] = await Promise.all([searchParams, params])
 
@@ -29,7 +29,7 @@ export default async function Home({
       page: currentPage,
       pageSize,
       status: 'approved',
-      locale
+      locale: locale
     }),
     getSpecificPosts([
       'ai-divination-future-foresight',

@@ -10,7 +10,6 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
-import { locales } from '@/i18n/routing'
 
 interface Category {
   id: string
@@ -84,9 +83,9 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
     }
 
     // Validate locale
-    if (!formValues.locale) {
-      newErrors.locale = t('validation.localeRequired')
-    }
+    // if (!formValues.locale) {
+    //   newErrors.locale = t('validation.localeRequired')
+    // }
 
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
@@ -110,8 +109,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
         imageUrl: '',
         categoryId: formValues.categoryId,
         contactInfo: formValues.contactInfo,
-        status: 'pending',
-        locale: formValues.locale
+        status: 'pending'
       })
 
       if (result) {
@@ -197,7 +195,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
           {errors.categoryId && <p className="text-destructive text-[0.8rem] font-medium">{errors.categoryId}</p>}
         </div>
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <p className="text-sm font-medium">{t('form.locale.label')}</p>
           <Select value={formValues.locale} onValueChange={(value) => handleInputChange('locale', value)}>
             <SelectTrigger id="locale">
@@ -213,7 +211,7 @@ export default function SubmitSiteForm({ categories }: SubmitSiteFormProps) {
           </Select>
           <p className="text-muted-foreground text-[0.8rem]">{t('form.locale.description')}</p>
           {errors.locale && <p className="text-destructive text-[0.8rem] font-medium">{errors.locale}</p>}
-        </div>
+        </div> */}
 
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? t('form.submit.loading') : t('form.submit.label')}

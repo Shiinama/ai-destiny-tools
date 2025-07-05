@@ -1,4 +1,5 @@
-import { and, count, desc, eq, gte, lte, sql } from 'drizzle-orm'
+'use server'
+import { and, count, desc, eq, gte, lte, sql, like } from 'drizzle-orm'
 
 import { checkUserIsAdmin } from '@/hooks/use-is-admin'
 import { auth } from '@/lib/auth'
@@ -63,7 +64,8 @@ async function checkAdminAccess() {
 // 获取所有工具的统计概览（总访问量来自汇总表+未同步数据，今日昨日数据查询所有数据）
 export async function getToolsAnalyticsOverview(
   page?: number,
-  pageSize?: number
+  pageSize?: number,
+  searchQuery?: string
 ): Promise<{
   data: ToolAnalyticsOverview[]
   pagination?: { page: number; pageSize: number; total: number; totalPages: number }
@@ -74,6 +76,16 @@ export async function getToolsAnalyticsOverview(
   const today = new Date().toISOString().split('T')[0]
   const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().split('T')[0]
 
+  // 构建查询条件
+  const conditions = [eq(divinationTools.status, 'approved')]
+
+  // 如果有搜索查询，添加模糊搜索条件
+  if (searchQuery && searchQuery.trim()) {
+    conditions.push(like(divinationTools.name, `%${searchQuery.trim()}%`))
+  }
+
+  const whereCondition = conditions.length > 1 ? and(...conditions) : conditions[0]
+
   // 如果有分页参数，先获取总数
   let totalCount = 0
   let pagination = undefined
@@ -82,7 +94,7 @@ export async function getToolsAnalyticsOverview(
     const countResult = await db
       .select({ count: count(divinationTools.id) })
       .from(divinationTools)
-      .where(eq(divinationTools.status, 'approved'))
+      .where(whereCondition)
 
     totalCount = countResult[0]?.count || 0
     pagination = {
@@ -100,7 +112,7 @@ export async function getToolsAnalyticsOverview(
       toolName: divinationTools.name
     })
     .from(divinationTools)
-    .where(eq(divinationTools.status, 'approved'))
+    .where(whereCondition)
     .orderBy(divinationTools.name)
 
   // 如果有分页参数，添加分页
