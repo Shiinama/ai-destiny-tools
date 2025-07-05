@@ -10,8 +10,11 @@ import useInit from '@/hooks/use-init'
 import { useRouter } from '@/i18n/navigation'
 
 import Card from '../../components/Card'
+import CardSelection from '../../components/CardSelection'
 import InterpretationDialog from '../../components/InterpretationDialog'
 import QuestionSpreadDialog from '../../components/QuestionSpreadDialog'
+import ShuffleCards from '../../components/ShuffleCards'
+import StageTransition from '../../components/StageTransition'
 
 // 扩展全局 CardType，添加占卜时需要的额外属性
 interface CurrentCardType extends CardType {
@@ -35,13 +38,15 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
   const spreadDesc = searchParams.get('spreadDesc') ? decodeURIComponent(searchParams.get('spreadDesc')!) : ''
   const reason = searchParams.get('reason') ? decodeURIComponent(searchParams.get('reason')!) : ''
 
+  const [currentStage, setCurrentStage] = useState('shuffle')
+
   const { scale, cardArr, indexes, flipStates, reverses, infoShown, onReload, onCardClick, closeInfo, cards } =
     useInit(slug)
 
   // 弹窗状态管理
   const [isQuestionSpreadDialogOpen, setQuestionSpreadDialogOpen] = useState(false)
 
-  // AI 解读相关状态（从SpreadsBox移动过来）
+  // AI 解读相关状态
   const [isInterpretationOpen, setInterpretationOpen] = useState(false)
   const [interpretationText, setInterpretationText] = useState('')
   const [isInterpreting, setIsInterpreting] = useState(false)
@@ -54,6 +59,9 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
     }
     return false
   }, [currentCardInfos])
+  const requiredCount = useMemo(() => {
+    return cardArr.length
+  }, [cardArr])
 
   // 更新当前卡牌信息（从SpreadsBox移动过来）
   useEffect(() => {
@@ -67,7 +75,7 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
     setCurrentCardInfos(infos)
   }, [indexes, flipStates, reverses, cards])
 
-  // AI解读函数（从SpreadsBox移动过来）
+  // AI解读函数
   async function getInterpretation() {
     setInterpretationText('')
     setIsInterpreting(true)
@@ -150,70 +158,91 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
     router.push('/tools/tarot')
   }
 
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mx-auto max-w-6xl space-y-8">
-        {/* 顶部按钮区域 */}
-        <div className="flex justify-center gap-4">
-          <Button
-            onClick={() => setQuestionSpreadDialogOpen(true)}
-            className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg transition-all duration-300 hover:from-purple-700 hover:to-pink-700 hover:shadow-xl"
-            size="lg"
-          >
-            <Info className="h-5 w-5" />
-            占卜信息
-          </Button>
+  // 根据当前阶段渲染不同的内容
+  const renderContent = () => {
+    switch (currentStage) {
+      case 'shuffle':
+        return <ShuffleCards onShuffleComplete={() => setCurrentStage('select')} />
 
-          <Button
-            onClick={handleAIInterpretation}
-            disabled={!allFlipped}
-            className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg transition-all duration-300 hover:from-amber-600 hover:to-orange-600 hover:shadow-xl disabled:cursor-not-allowed disabled:from-slate-600 disabled:to-slate-600 disabled:opacity-50"
-            size="lg"
-          >
-            <Sparkles className="h-5 w-5" />
-            {allFlipped ? '✨ AI 解读' : '请翻开所有牌'}
-          </Button>
-        </div>
+      case 'select':
+        return <CardSelection requiredCount={requiredCount} onCompleteSelection={() => setCurrentStage('draw')} />
 
-        {/* 翻牌区域 */}
-        <div className="relative min-h-[80vh] w-full" id="card_container">
-          {cardArr.map((item, index) => (
-            <div key={index} className="absolute h-0 w-0" style={{ top: item.top, left: item.left }}>
-              <Card
-                cards={cards}
-                scale={scale}
-                rotate={item.rotate}
-                index={indexes[index]}
-                flipped={flipStates[index]}
-                reversed={reverses[index]}
-                showInfo={infoShown[index]}
-                closeInfo={closeInfo}
-                onClick={() => onCardClick(index)}
-              />
+      case 'draw':
+        return (
+          <div className="container mx-auto px-4 py-8">
+            <div className="mx-auto max-w-6xl space-y-8">
+              {/* 顶部按钮区域 */}
+              <div className="flex justify-center gap-4">
+                <Button
+                  onClick={() => setQuestionSpreadDialogOpen(true)}
+                  className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg transition-all duration-300 hover:from-purple-700 hover:to-pink-700 hover:shadow-xl"
+                  size="lg"
+                >
+                  <Info className="h-5 w-5" />
+                  占卜信息
+                </Button>
+
+                <Button
+                  onClick={handleAIInterpretation}
+                  disabled={!allFlipped}
+                  className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg transition-all duration-300 hover:from-amber-600 hover:to-orange-600 hover:shadow-xl disabled:cursor-not-allowed disabled:from-slate-600 disabled:to-slate-600 disabled:opacity-50"
+                  size="lg"
+                >
+                  <Sparkles className="h-5 w-5" />
+                  {allFlipped ? '✨ AI 解读' : '请翻开所有牌'}
+                </Button>
+              </div>
+
+              {/* 翻牌区域 */}
+              <div className="relative min-h-[80vh] w-full" id="card_container">
+                {cardArr.map((item, index) => (
+                  <div key={index} className="absolute h-0 w-0" style={{ top: item.top, left: item.left }}>
+                    <Card
+                      cards={cards}
+                      scale={scale}
+                      rotate={item.rotate}
+                      index={indexes[index]}
+                      flipped={flipStates[index]}
+                      reversed={reverses[index]}
+                      showInfo={infoShown[index]}
+                      closeInfo={closeInfo}
+                      onClick={() => onCardClick(index)}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        )
 
-        {/* 问题和牌阵信息弹窗 */}
-        <QuestionSpreadDialog
-          isOpen={isQuestionSpreadDialogOpen}
-          onClose={() => setQuestionSpreadDialogOpen(false)}
-          question={question}
-          spreadName={spreadName}
-          spreadCategory={spreadCategory}
-          spreadDesc={spreadDesc}
-          reason={reason}
-        />
+      default:
+        return null
+    }
+  }
 
-        {/* AI解读弹窗 */}
-        <InterpretationDialog
-          isOpen={isInterpretationOpen}
-          onClose={handleInterpretationClose}
-          text={interpretationText}
-          isLoading={isInterpreting}
-          cards={currentCardInfos}
-        />
-      </div>
-    </div>
+  return (
+    <StageTransition stage={currentStage}>
+      {renderContent()}
+
+      {/* 问题和牌阵信息弹窗 */}
+      <QuestionSpreadDialog
+        isOpen={isQuestionSpreadDialogOpen}
+        onClose={() => setQuestionSpreadDialogOpen(false)}
+        question={question}
+        spreadName={spreadName}
+        spreadCategory={spreadCategory}
+        spreadDesc={spreadDesc}
+        reason={reason}
+      />
+
+      {/* AI解读弹窗 */}
+      <InterpretationDialog
+        isOpen={isInterpretationOpen}
+        onClose={handleInterpretationClose}
+        text={interpretationText}
+        isLoading={isInterpreting}
+        cards={currentCardInfos}
+      />
+    </StageTransition>
   )
 }
