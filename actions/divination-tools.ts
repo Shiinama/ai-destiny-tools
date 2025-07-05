@@ -371,3 +371,25 @@ export async function upsertToolTranslations(
     return { code: 1, message: '多语言翻译同步失败', error: error instanceof Error ? error.message : String(error) }
   }
 }
+
+// 获取所有工具（仅返回 id、name、description 字段）
+export async function getAllTools(page?: number, pageSize?: number) {
+  const db = createDb()
+  const query = db
+    .select({
+      id: divinationTools.id,
+      name: divinationTools.name,
+      description: divinationTools.description
+    })
+    .from(divinationTools)
+    .orderBy(divinationTools.display_order)
+
+  if (page !== undefined && pageSize !== undefined) {
+    const dynamicQuery = query
+      .$dynamic()
+      .limit(pageSize)
+      .offset((page - 1) * pageSize)
+    return dynamicQuery.execute()
+  }
+  return query.execute()
+}

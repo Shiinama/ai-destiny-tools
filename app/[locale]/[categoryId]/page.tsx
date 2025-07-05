@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
-  const { categoryId } = await params
+  const { categoryId, locale } = await params
   const { page } = await searchParams
   const home = await getTranslations('HomePage')
 
@@ -106,7 +106,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     page: currentPage,
     pageSize,
     status: 'approved',
-    categoryId: category.id
+    categoryId: category.id,
+    locale
   })
 
   return (
