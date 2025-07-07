@@ -11,6 +11,7 @@ import { BlogPagination } from '@/components/blog/blog-pagination'
 import SiteCard from '@/components/navigatiton-sites/site-card'
 import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
+import { truncateWithEllipsis } from '@/lib/utils'
 
 interface CategoryPageProps {
   params: Promise<{
@@ -30,14 +31,14 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   if (!category) {
     return {
-      title: t('categoryNotFound'),
-      description: t('categoryNotFoundDescription')
+      title: truncateWithEllipsis(t('categoryNotFound'), 44),
+      description: truncateWithEllipsis(t('categoryNotFoundDescription'), 157)
     }
   }
 
   return {
-    title: t(`${category.key}.seoTitle` as any),
-    description: t(`${category.key}.seoDescription` as any)
+    title: truncateWithEllipsis(t(`${category.key}.seoTitle` as any), 44),
+    description: truncateWithEllipsis(t(`${category.key}.seoDescription` as any), 157)
   }
 }
 

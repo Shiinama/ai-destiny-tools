@@ -35,3 +35,14 @@ export function formatDate(
 export function formatRelativeDate(date: Date | string | number | null | undefined): string {
   return formatDate(date)
 }
+
+/**
+ * 截断字符串并加...的工具函数
+ * @param str 原始字符串
+ * @param maxLength 最大长度（不含...）
+ * @returns 截断后的字符串
+ */
+export function truncateWithEllipsis(str: string, maxLength: number): string {
+  if (!str) return ''
+  return str.length > maxLength ? str.slice(0, maxLength) + '...' : str
+}

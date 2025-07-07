@@ -7,6 +7,7 @@ import AccessToolCard from '@/app/[locale]/divination-tools/[id]/components/acce
 import HeroSection from '@/app/[locale]/divination-tools/[id]/components/hero-section'
 import PricingCard from '@/app/[locale]/divination-tools/[id]/components/pricing-card'
 import ScreenshotsSection from '@/app/[locale]/divination-tools/[id]/components/screenshots-section'
+import { truncateWithEllipsis } from '@/lib/utils'
 
 interface DivinationToolPageProps {
   params: Promise<{
@@ -30,8 +31,8 @@ export async function generateMetadata({ params }: DivinationToolPageProps): Pro
   const title = `${tool.name} - ${tool.categoryKey}`
 
   return {
-    title: title,
-    description: tool.description
+    title: truncateWithEllipsis(title, 44),
+    description: truncateWithEllipsis(tool.description, 157)
   }
 }
 
