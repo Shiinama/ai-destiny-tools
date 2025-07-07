@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { use, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 
 import CardSelection from '../../components/CardSelection'
 import DrawCard from '../../components/DrawCard'
@@ -13,10 +13,24 @@ import StageTransition from '../../components/StageTransition'
 export default function DrawPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = use(params)
   const searchParams = useSearchParams()
-  // console.log('spreadCategory', spreadCategory, spreadDesc)
-  const requiredCount = searchParams.get('cardCount')
-    ? parseInt(decodeURIComponent(searchParams.get('cardCount')!), 10)
-    : 1
+
+  const sessionId = searchParams.get('sessionId')
+
+  const [tarorSession, setTarorSession] = useState<TarotSession | null>(null)
+
+  useEffect(() => {
+    async function getTarorSession() {
+      const response = await fetch(`/api/tarot/session?id=${sessionId}`)
+      const data: TarotSession = await response.json()
+      setTarorSession(data)
+      if (data.cards && data.cards.length) {
+        // 用户已翻牌
+        setCurrentStage('draw')
+        // 将翻牌信息写入组件
+      }
+    }
+    getTarorSession()
+  }, [sessionId])
 
   const [currentStage, setCurrentStage] = useState('shuffle')
 
@@ -27,10 +41,15 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
         return <ShuffleCards onShuffleComplete={() => setCurrentStage('select')} />
 
       case 'select':
-        return <CardSelection requiredCount={requiredCount} onCompleteSelection={() => setCurrentStage('draw')} />
+        return (
+          <CardSelection
+            requiredCount={tarorSession?.cardCount || 1}
+            onCompleteSelection={() => setCurrentStage('draw')}
+          />
+        )
 
       case 'draw':
-        return <DrawCard slug={slug} />
+        return tarorSession ? <DrawCard slug={slug} sessionData={tarorSession} /> : null
       default:
         return null
     }

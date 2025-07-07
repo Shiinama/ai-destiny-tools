@@ -2,12 +2,15 @@
 
 import { Heart, Briefcase, Sparkles, Compass, Star, HelpCircle } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 import { recommendTarotSpread } from '@/actions/tarot'
+import LoginForm from '@/components/login/login-form'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from '@/i18n/navigation'
@@ -18,13 +21,12 @@ import spreadsData from '../static/tarot/json/spreads.json'
 
 interface SpreadRecommendation {
   spreadType: string
-  spreadName: string
-  reason: string
   spreadCategory: string
+  spreadName: string
   spreadDesc: string
-  spreadGuide?: string
   spreadLink?: string
-  cardCount?: number
+  cardCount: number
+  reason: string
 }
 
 const categoryIcons = {
@@ -48,6 +50,14 @@ export default function QuestionPage() {
   const [showRecommendation, setShowRecommendation] = useState(false)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [selectedSpread, setSelectedSpread] = useState<Spread | null>(null)
+  const { data: session } = useSession()
+  const [isLogin, setIsLogin] = useState(false)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+
+  useEffect(() => {
+    setIsLogin(!!session?.user?.id)
+  }, [session])
+
   const maxLength = 500
   const remainingChars = maxLength - question.length
 
@@ -59,6 +69,12 @@ export default function QuestionPage() {
   }, [spreadType])
 
   const handleRecommendSpread = async () => {
+    if (!session?.user?.id) {
+      // 打开登录弹窗
+      setIsLoginModalOpen(true)
+      return
+    }
+
     if (!question.trim()) return
 
     setIsRecommending(true)
@@ -66,7 +82,6 @@ export default function QuestionPage() {
       const result = await recommendTarotSpread(question)
       setRecommendation(result)
       setShowRecommendation(true)
-      // setActiveTab(result.spreadType)
     } catch (error) {
       console.error('推荐失败:', error)
     } finally {
@@ -74,33 +89,59 @@ export default function QuestionPage() {
     }
   }
 
-  const startDraw = () => {
-    if (recommendation) {
-      // 构建URL参数，包含牌阵信息和占卜问题
-      const params = new URLSearchParams({
-        question: encodeURIComponent(question),
-        spreadName: encodeURIComponent(recommendation.spreadName),
-        spreadCategory: encodeURIComponent(recommendation.spreadCategory),
-        spreadDesc: encodeURIComponent(recommendation.spreadDesc || ''),
-        reason: encodeURIComponent(recommendation.reason || ''),
-        cardCount: encodeURIComponent(recommendation.cardCount || '')
-      })
+  const createTarotSession = async (formData: {
+    spreadName: string
+    spreadCategory: string
+    spreadDesc: string
+    reason: string
+    cardCount: number
+    spreadLink: string
+  }) => {
+    if (!session?.user?.id) {
+      // 显示登录提示或跳转到登录页面
+      return
+    }
 
-      router.push(`draw/${recommendation.spreadLink}?${params.toString()}`)
+    const response = await fetch('/api/tarot/session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ ...formData, question, userId: session.user.id })
+    })
+    if (!response.ok) {
+      throw new Error('创建会话失败')
+    }
+
+    const result = (await response.json()) as { id: string }
+    const sessionId = result.id
+
+    // 跳转到翻牌页面，传递sessionId
+    router.push(`draw/${formData.spreadLink}?sessionId=${sessionId}`)
+  }
+
+  const startDraw = async () => {
+    if (recommendation) {
+      createTarotSession({
+        spreadName: recommendation.spreadName,
+        spreadCategory: recommendation.spreadCategory,
+        spreadDesc: recommendation.spreadDesc || '',
+        reason: recommendation.reason || '',
+        cardCount: recommendation.cardCount || 1,
+        spreadLink: recommendation.spreadLink || ''
+      })
     }
   }
 
-  const handleSpreadSelect = (spreadItem: any) => {
-    // 直接选择牌阵时，构建URL参数
-    const params = new URLSearchParams({
-      question: encodeURIComponent(question || ''),
-      spreadName: encodeURIComponent(spreadItem.name),
-      spreadCategory: encodeURIComponent(activeTab),
-      spreadDesc: encodeURIComponent(spreadItem.desc || ''),
-      cardCount: encodeURIComponent(spreadItem.count || '')
+  const handleSpreadSelect = async (spreadItem: Spread) => {
+    createTarotSession({
+      spreadName: spreadItem.name,
+      spreadCategory: activeTab,
+      spreadDesc: spreadItem.desc || '',
+      reason: '',
+      cardCount: spreadItem.count || spreadItem.interpretations[0]?.length || 1,
+      spreadLink: spreadItem.link
     })
-
-    router.push(`draw/${spreadItem.link}?${params.toString()}`)
   }
 
   const reSelectSpread = () => {
@@ -117,7 +158,7 @@ export default function QuestionPage() {
     <div className="container mx-auto px-4 py-12">
       <div className="mx-auto max-w-6xl space-y-8">
         {/* 顶部问题输入区域 */}
-        {!recommendation && (
+        {!recommendation && session && (
           <Card className="border-purple-400/20 bg-black/40 text-white backdrop-blur-md">
             <CardHeader>
               <CardTitle className="text-center text-3xl font-bold text-purple-400">选择您的塔罗牌阵</CardTitle>
@@ -141,11 +182,17 @@ export default function QuestionPage() {
               </div>
               <Button
                 onClick={handleRecommendSpread}
-                disabled={!question.trim() || isRecommending}
+                disabled={(isLogin && !question.trim()) || isRecommending}
                 size="lg"
-                className="w-full rounded-lg bg-purple-600 text-base text-white hover:bg-purple-700 disabled:opacity-50"
+                className={`w-full cursor-pointer rounded-lg text-base text-white transition-all duration-300 disabled:opacity-50 ${
+                  !isLogin
+                    ? 'relative animate-pulse overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 shadow-lg shadow-purple-500/50 before:absolute before:inset-0 before:translate-x-[-100%] before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-transform before:duration-700 hover:scale-[1.02] hover:from-purple-700 hover:via-pink-700 hover:to-purple-800 hover:shadow-xl hover:shadow-purple-500/70 hover:before:translate-x-[100%]'
+                    : 'bg-purple-600 hover:bg-purple-700'
+                } `}
               >
-                {isRecommending ? '正在分析问题...' : '获取AI推荐牌阵'}
+                <span className={!isLogin ? 'relative z-10' : ''}>
+                  {!isLogin ? '登录后开启占卜之旅' : isRecommending ? '正在分析问题...' : '输入问题获取AI推荐牌阵'}
+                </span>
               </Button>
             </CardContent>
           </Card>
@@ -279,6 +326,15 @@ export default function QuestionPage() {
         )}
       </div>
       <SpreadInfo content={selectedSpread} isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+      <Dialog open={isLoginModalOpen} onOpenChange={setIsLoginModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>登录</DialogTitle>
+            <DialogDescription>请登录以继续使用占卜功能。</DialogDescription>
+          </DialogHeader>
+          <LoginForm />
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

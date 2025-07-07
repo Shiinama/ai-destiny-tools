@@ -62,7 +62,7 @@ export default function CardSelection({ requiredCount, onCompleteSelection }: Ca
 
   const selectCard = (index: number) => {
     if (selectedCard.includes(index)) return // 防止重复选择
-
+    if (selectedCard.length === requiredCount) return
     setCards((prev) => prev.map((card, i) => (i === index ? { ...card, transy: -110 } : card)))
     setSelectedCard([...selectedCard, index])
   }
@@ -104,9 +104,9 @@ export default function CardSelection({ requiredCount, onCompleteSelection }: Ca
         ))}
       </div>
       <div className="mt-8 select-none">需要选中{requiredCount}张牌</div>
-      {isComplete && (
-        <p className="mt-4 animate-pulse text-xl font-bold text-yellow-400">✨ 选牌完成！正在进入翻牌牌环节...</p>
-      )}
+      <p className="mt-4 h-[30px] animate-pulse text-xl font-bold text-yellow-400">
+        {isComplete ? '✨ 选牌完成！正在进入翻牌牌环节...' : ''}
+      </p>
     </div>
   )
 }

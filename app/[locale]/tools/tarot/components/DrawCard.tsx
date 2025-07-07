@@ -1,7 +1,7 @@
 'use client'
 
 import { Sparkles, Info } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
+// import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useState, useMemo, useEffect } from 'react'
 
@@ -19,19 +19,33 @@ interface CurrentCardType extends CardType {
   direction: 'normal' | 'reversed'
 }
 
-export default function DrawCard({ slug }: { slug: string[] }) {
-  const searchParams = useSearchParams()
+export default function DrawCard({ slug, sessionData }: { slug: string[]; sessionData: TarotSession }) {
+  // const searchParams = useSearchParams()
   const t = useTranslations('tools.tarot')
   const router = useRouter()
 
-  // 从URL参数中获取信息
-  const question = searchParams.get('question') ? decodeURIComponent(searchParams.get('question')!) : ''
-  const spreadName = searchParams.get('spreadName') ? decodeURIComponent(searchParams.get('spreadName')!) : ''
-  const spreadCategory = searchParams.get('spreadCategory')
-    ? decodeURIComponent(searchParams.get('spreadCategory')!)
-    : ''
-  const spreadDesc = searchParams.get('spreadDesc') ? decodeURIComponent(searchParams.get('spreadDesc')!) : ''
-  const reason = searchParams.get('reason') ? decodeURIComponent(searchParams.get('reason')!) : ''
+  // 从URL参数中获取sessionId或传统参数信息
+  // const sessionId = searchParams.get('sessionId')
+  // const [sessionData, setSessionData] = useState<any>(null)
+
+  // // 传统方式的参数（作为fallback）
+  // const question = searchParams.get('question') ? decodeURIComponent(searchParams.get('question')!) : ''
+  // const spreadName = searchParams.get('spreadName') ? decodeURIComponent(searchParams.get('spreadName')!) : ''
+  // const spreadCategory = searchParams.get('spreadCategory')
+  //   ? decodeURIComponent(searchParams.get('spreadCategory')!)
+  //   : ''
+  // const spreadDesc = searchParams.get('spreadDesc') ? decodeURIComponent(searchParams.get('spreadDesc')!) : ''
+  // const reason = searchParams.get('reason') ? decodeURIComponent(searchParams.get('reason')!) : ''
+
+  // 获取会话数据
+  // useEffect(() => {
+  //   if (sessionId) {
+  //     fetch(`/api/tarot/session?id=${sessionId}`)
+  //       .then((res) => res.json())
+  //       .then((data) => setSessionData(data))
+  //       .catch((error) => console.error('获取会话数据失败:', error))
+  //   }
+  // }, [sessionId])
 
   // 传入当前阶段，让useInit决定是否执行初始化逻辑
   const { scale, cardArr, indexes, flipStates, reverses, infoShown, onReload, onCardClick, closeInfo, cards } =
@@ -64,7 +78,21 @@ export default function DrawCard({ slug }: { slug: string[] }) {
     }))
 
     setCurrentCardInfos(infos)
-  }, [indexes, flipStates, reverses, cards])
+
+    // 当所有牌都翻开后，保存抽牌结果到数据库
+    if (infos.length > 0 && infos.every((card) => card.flipped) && sessionData?.id) {
+      fetch('/api/tarot/session', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          sessionId: sessionData.id,
+          cards: infos
+        })
+      }).catch((error) => console.error('保存抽牌结果失败:', error))
+    }
+  }, [indexes, flipStates, reverses, cards, sessionData?.id])
 
   // AI解读函数
   async function getInterpretation() {
@@ -79,10 +107,10 @@ export default function DrawCard({ slug }: { slug: string[] }) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          question: question || '请为我解读这次塔罗牌抽牌的结果',
-          spreadName: spreadName || '塔罗牌阵',
+          question: sessionData?.question,
+          spreadName: sessionData?.spreadName,
           spreads: currentCardInfos,
-          spreadDesc: spreadDesc
+          spreadDesc: sessionData?.spreadDesc
         })
       })
 
@@ -112,6 +140,21 @@ export default function DrawCard({ slug }: { slug: string[] }) {
 
             if (data === '[DONE]') {
               setIsInterpreting(false)
+
+              // 更新会话中的AI解读结果
+              if (accumulated) {
+                fetch('/api/tarot/session', {
+                  method: 'PUT',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    sessionId: sessionData.id,
+                    aiInterpretation: accumulated
+                  })
+                }).catch((error) => console.error('更新AI解读结果失败:', error))
+              }
+
               return
             }
 
@@ -199,11 +242,11 @@ export default function DrawCard({ slug }: { slug: string[] }) {
       <QuestionSpreadDialog
         isOpen={isQuestionSpreadDialogOpen}
         onClose={() => setQuestionSpreadDialogOpen(false)}
-        question={question}
-        spreadName={spreadName}
-        spreadCategory={spreadCategory}
-        spreadDesc={spreadDesc}
-        reason={reason}
+        question={sessionData?.question}
+        spreadName={sessionData?.spreadName}
+        spreadCategory={sessionData?.spreadCategory}
+        spreadDesc={sessionData?.spreadDesc || ''}
+        reason={sessionData?.reason || ''}
       />
 
       {/* AI解读弹窗 */}

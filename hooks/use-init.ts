@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 
 import cards from '@/app/[locale]/tools/tarot/static/tarot/json/cards.json'
 import { getCardPositionConfig, type ScaleType, type CardArrType } from '@/lib/card-pos'
@@ -16,37 +16,36 @@ const useInit = (slug: string[]) => {
   const [reverses, setReverses] = useState<boolean[]>(new Array(cardNum).fill(false))
   const [infoShown, setInfoShown] = useState<boolean[]>(new Array(cardNum).fill(false))
 
-  const shuffleIndexes = useCallback(
-    (cardData: CardType[]) => {
-      // 如果传入的卡牌数据为空或长度不足，则不执行洗牌
-      if (!cardData || cardData.length === 0) {
-        return
-      }
-      const tempIndexes = Array.from({ length: cardData.length }, (_, index) => index)
-      const newIndexes: number[] = []
-      for (let i = 0; i < cardNum; i++) {
-        // 防止在卡牌数量多于总牌数时出错
-        if (tempIndexes.length === 0) break
-        const rand = Math.floor(Math.random() * tempIndexes.length)
-        newIndexes.push(tempIndexes.splice(rand, 1)[0])
-      }
-      setIndexes(newIndexes)
-    },
-    [cardNum]
-  )
+  // function shuffleIndexes(cardData: CardType[]) {
+  //   // 如果传入的卡牌数据为空或长度不足，则不执行洗牌
+  // }
 
   useEffect(() => {
     const config = getCardPositionConfig(slug, containerWidth, containerHeight)
     setScale(config.scale)
     setCardArr(config.cardArr)
     setCardNum(config.cardArr.length)
-    shuffleIndexes(cards)
-  }, [slug, containerWidth, containerHeight, shuffleIndexes])
+  }, [slug, containerWidth, containerHeight])
+
+  useEffect(() => {
+    if (!cards || cards.length === 0) {
+      return
+    }
+    const tempIndexes = Array.from({ length: cards.length }, (_, index) => index)
+    const newIndexes: number[] = []
+    for (let i = 0; i < cardNum; i++) {
+      // 防止在卡牌数量多于总牌数时出错
+      if (tempIndexes.length === 0) break
+      const rand = Math.floor(Math.random() * tempIndexes.length)
+      newIndexes.push(tempIndexes.splice(rand, 1)[0])
+    }
+    setIndexes(newIndexes)
+  }, [cardNum])
 
   function onReload() {
     setflipStates(new Array(cardNum).fill(false))
     setInfoShown(new Array(cardNum).fill(false))
-    shuffleIndexes(cards)
+    // shuffleIndexes(cards)
   }
 
   function onCardClick(index: number) {

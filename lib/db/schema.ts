@@ -229,3 +229,35 @@ export const userUsage = sqliteTable('userUsage', {
   usedTokens: integer('usedTokens').notNull().default(0),
   totalTokens: integer('totalTokens').notNull().default(0)
 })
+
+export type TarotSessionStatus = 'created' | 'drawing' | 'completed'
+
+// 塔罗牌占卜记录表
+export const tarotSessions = sqliteTable('tarot_sessions', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  userId: text('user_id').references(() => users.id, { onDelete: 'set null' }),
+  // 占卜问题信息
+  question: text('question').notNull(),
+  spreadName: text('spread_name').notNull(),
+  spreadCategory: text('spread_category').notNull(),
+  spreadDesc: text('spread_desc'),
+  reason: text('reason'), // AI推荐理由
+  cardCount: integer('card_count').notNull(),
+  spreadLink: text('spread_link'),
+  // 抽牌结果（JSON格式存储）
+  cards: text('cards'), // 存储抽中的卡牌信息
+  // AI解读结果
+  aiInterpretation: text('ai_interpretation'),
+  // 占卜状态
+  status: text('status').$type<TarotSessionStatus>().default('created').notNull(),
+  // 时间戳
+  createdAt: integer('created_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: integer('updated_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  completedAt: integer('completed_at', { mode: 'timestamp_ms' })
+})
