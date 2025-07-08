@@ -4,12 +4,13 @@ import { getTranslations } from 'next-intl/server'
 import { getCategories } from '@/actions/divination-tools'
 import { PremiumBenefits } from '@/components/navigatiton-sites/premium-benefits'
 import SubmitSiteForm from '@/components/navigatiton-sites/submit-site-form'
+import { truncateWithEllipsis } from '@/lib/utils'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('submitTools')
   return {
-    title: t('title'),
-    description: t('description')
+    title: truncateWithEllipsis(t('title'), 44),
+    description: truncateWithEllipsis(t('description'), 157)
   }
 }
 

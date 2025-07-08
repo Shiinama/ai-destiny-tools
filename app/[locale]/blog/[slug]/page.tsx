@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server'
 
 import { getArticleBySlug } from '@/actions/ai-content'
 import BlogBody from '@/components/blog/blog-body'
-import { formatDate } from '@/lib/utils'
+import { formatDate, truncateWithEllipsis } from '@/lib/utils'
 
 interface PostSlugPageProps {
   params: Promise<{
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: PostSlugPageProps) {
   }
 
   return {
-    title: article.title,
-    description: article.excerpt
+    title: truncateWithEllipsis(article.title, 44),
+    description: truncateWithEllipsis(article.excerpt, 157)
   }
 }
 

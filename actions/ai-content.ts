@@ -375,6 +375,29 @@ export async function getSpecificPosts(slugs: string[]) {
   return db.select().from(posts).where(inArray(posts.slug, slugs)).execute()
 }
 
+// 校验翻译结果，必须包含所有目标语言且每个字段非空
+function validateTranslationResult(result: Record<string, Record<string, string>>, allLocaleCodes: string[]): boolean {
+  let failed = false
+  for (const code of allLocaleCodes) {
+    if (!result[code]) {
+      console.error(`[翻译失败] 缺少目标语言: ${code}`)
+      failed = true
+    } else {
+      // 检查所有字段都非空
+      const values = Object.values(result[code] || {})
+      if (values.length === 0 || values.some((v) => v === undefined || v === null || String(v).trim() === '')) {
+        console.error(`[翻译失败] 语言 ${code} 的内容为空或缺失:`, result[code])
+        failed = true
+      }
+    }
+  }
+  if (failed) {
+    console.error('[翻译失败] AI返回内容：', result)
+    return false
+  }
+  return true
+}
+
 // 批量翻译多个字段到多个语言，AI 返回 JSON 用特殊标记包裹，正则提取
 export async function translateFieldsToLocales({
   fields,
@@ -383,40 +406,70 @@ export async function translateFieldsToLocales({
   fields: Record<string, string>
   targetLanguages: string[]
 }): Promise<Record<string, Record<string, string>>> {
-  const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY
-  })
-  const model = 'gemma-3n-e2b-it'
-  const prompt = `Please translate the following fields to the target languages: ${targetLanguages.join(', ')}.
-Please return a JSON object where each key is the language code, and the value is an object containing the translated fields.
-Please output the result strictly in the following format (do not add any explanation):
+  // 过滤只保留在locales里的目标语言
+  const validLocales = locales.filter((l) => targetLanguages.includes(l.code))
+  // 生成 code-name 列表
+  const localeInfo = validLocales.map((l) => `${l.code}（${l.name}）`).join(', ')
+  const allLocaleCodes = validLocales.map((l) => l.code)
+
+  // system prompt: 固定格式和注意事项
+  const systemPrompt = `
+You are a professional AI translation assistant.
+Your job is to translate the given fields into the specified target languages, ensuring natural, idiomatic, and culturally appropriate translations.
+
+Requirements:
+1. Translate according to each language's code, user language habits, and cultural background.
+2. Ensure the translation is natural and idiomatic, avoid literal translation, and polish appropriately to fit local user expressions.
+3. For industry terms or proper nouns, use the commonly used expressions in that language.
+4. Keep the original field semantics accurate and style consistent.
+5. The returned JSON result must use ONLY the language code as key (e.g. "zh", "ja", ...), do NOT include language name.
+6. Return ONLY the JSON result, do not add any explanation or extra content.
+7. [You MUST strictly include ALL target languages provided by the user]
+8. If a word or phrase cannot be naturally translated, keep the original text in the translation, and maintain its capitalization.
+9. The output format MUST strictly follow the example below, with nothing omitted:
 
 TRANSLATION_RESULT_START
 {
-  "zh": { "name": "...", "description": "..." },
-  "ja": { "name": "...", "description": "..." }
+  "zh": { "content": "...", "description": "..." },
+  "ja": { "content": "...", "description": "..." },
+  ...
 }
-TRANSLATION_RESULT_END
+TRANSLATION_RESULT_END`
 
-Fields to translate: ${JSON.stringify(fields, null, 2)}`
+  // user prompt: 只传递本次目标语言和字段内容
+  const userPrompt = `Please translate the following fields into the target languages: ${localeInfo}.
+Fields to translate (original text):${JSON.stringify(fields, null, 2)}`
 
+  const ai = new GoogleGenAI({
+    apiKey: process.env.GEMINI_API_KEY
+  })
+
+  const model = 'gemini-2.5-flash-lite-preview-06-17'
   const chat = ai.chats.create({
     model,
     config: {
-      maxOutputTokens: 4096,
+      maxOutputTokens: 65535,
       temperature: 0.2,
-      topP: 0.9
+      topP: 0.9,
+      systemInstruction: {
+        parts: [{ text: systemPrompt }]
+      }
     }
   })
+
   const response = await chat.sendMessage({
-    message: [{ text: prompt }]
+    message: [{ text: userPrompt }]
   })
   const match = response.text?.match(/TRANSLATION_RESULT_START([\s\S]*?)TRANSLATION_RESULT_END/)
   if (match) {
     try {
-      return JSON.parse(match[1].trim())
-    } catch {
-      return {}
+      const result = JSON.parse(match[1].trim())
+      if (!validateTranslationResult(result, allLocaleCodes)) {
+        return {}
+      }
+      return result
+    } catch (e) {
+      throw e
     }
   }
   return {}

@@ -4,14 +4,14 @@ import { getTranslations } from 'next-intl/server'
 import { getPaginatedArticles } from '@/actions/ai-content'
 import { BlogPagination } from '@/components/blog/blog-pagination'
 import { Link } from '@/i18n/navigation'
-import { formatDate } from '@/lib/utils'
+import { formatDate, truncateWithEllipsis } from '@/lib/utils'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('blogs')
 
   return {
-    title: t('metaTitle'),
-    description: t('metaDescription')
+    title: truncateWithEllipsis(t('metaTitle'), 44),
+    description: truncateWithEllipsis(t('metaDescription'), 157)
   }
 }
 

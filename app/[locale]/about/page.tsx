@@ -1,11 +1,13 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
+import { truncateWithEllipsis } from '@/lib/utils'
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('about')
   return {
-    title: t('meta.title'),
-    description: t('meta.description')
+    title: truncateWithEllipsis(t('meta.title'), 44),
+    description: truncateWithEllipsis(t('meta.description'), 157)
   }
 }
 
