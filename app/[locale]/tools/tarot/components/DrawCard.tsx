@@ -3,13 +3,14 @@
 import { Sparkles, Info } from 'lucide-react'
 // import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 
 import { Button } from '@/components/ui/button'
 import useInit from '@/hooks/use-init'
 import { useRouter } from '@/i18n/navigation'
 
 import Card from './Card'
+import CardInfoDialog from './CardInfoDialog'
 import InterpretationDialog from './InterpretationDialog'
 import QuestionSpreadDialog from './QuestionSpreadDialog'
 
@@ -17,6 +18,7 @@ interface CurrentCardType extends CardType {
   position: number
   flipped: boolean
   direction: 'normal' | 'reversed'
+  index: number
 }
 
 export default function DrawCard({ slug, sessionData }: { slug: string[]; sessionData: TarotSession }) {
@@ -24,32 +26,8 @@ export default function DrawCard({ slug, sessionData }: { slug: string[]; sessio
   const t = useTranslations('tools.tarot')
   const router = useRouter()
 
-  // 从URL参数中获取sessionId或传统参数信息
-  // const sessionId = searchParams.get('sessionId')
-  // const [sessionData, setSessionData] = useState<any>(null)
-
-  // // 传统方式的参数（作为fallback）
-  // const question = searchParams.get('question') ? decodeURIComponent(searchParams.get('question')!) : ''
-  // const spreadName = searchParams.get('spreadName') ? decodeURIComponent(searchParams.get('spreadName')!) : ''
-  // const spreadCategory = searchParams.get('spreadCategory')
-  //   ? decodeURIComponent(searchParams.get('spreadCategory')!)
-  //   : ''
-  // const spreadDesc = searchParams.get('spreadDesc') ? decodeURIComponent(searchParams.get('spreadDesc')!) : ''
-  // const reason = searchParams.get('reason') ? decodeURIComponent(searchParams.get('reason')!) : ''
-
-  // 获取会话数据
-  // useEffect(() => {
-  //   if (sessionId) {
-  //     fetch(`/api/tarot/session?id=${sessionId}`)
-  //       .then((res) => res.json())
-  //       .then((data) => setSessionData(data))
-  //       .catch((error) => console.error('获取会话数据失败:', error))
-  //   }
-  // }, [sessionId])
-
   // 传入当前阶段，让useInit决定是否执行初始化逻辑
-  const { scale, cardArr, indexes, flipStates, reverses, infoShown, onReload, onCardClick, closeInfo, cards } =
-    useInit(slug)
+  const { onCardClick, closeInfo, cardInfos, cardArr, scale, curCard, showInfo } = useInit(slug, sessionData)
 
   // 弹窗状态管理
   const [isQuestionSpreadDialogOpen, setQuestionSpreadDialogOpen] = useState(false)
@@ -58,44 +36,23 @@ export default function DrawCard({ slug, sessionData }: { slug: string[]; sessio
   const [isInterpretationOpen, setInterpretationOpen] = useState(false)
   const [interpretationText, setInterpretationText] = useState('')
   const [isInterpreting, setIsInterpreting] = useState(false)
-  const [currentCardInfos, setCurrentCardInfos] = useState<CurrentCardType[]>([])
 
   // 检查是否所有牌都已翻开
   const allFlipped = useMemo(() => {
-    if (currentCardInfos.length) {
-      return currentCardInfos.every((card) => card.flipped)
+    if (cardInfos.length) {
+      return cardInfos.every((card) => card.flipped)
     }
     return false
-  }, [currentCardInfos])
-
-  // 更新当前卡牌信息（从SpreadsBox移动过来）
-  useEffect(() => {
-    const infos = indexes.map((cardi, posi) => ({
-      ...cards[cardi],
-      position: posi + 1,
-      flipped: flipStates[posi],
-      direction: (reverses[posi] ? 'reversed' : 'normal') as 'normal' | 'reversed'
-    }))
-
-    setCurrentCardInfos(infos)
-
-    // 当所有牌都翻开后，保存抽牌结果到数据库
-    if (infos.length > 0 && infos.every((card) => card.flipped) && sessionData?.id) {
-      fetch('/api/tarot/session', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          sessionId: sessionData.id,
-          cards: infos
-        })
-      }).catch((error) => console.error('保存抽牌结果失败:', error))
-    }
-  }, [indexes, flipStates, reverses, cards, sessionData?.id])
+  }, [cardInfos])
 
   // AI解读函数
   async function getInterpretation() {
+    // 如果已经解读过，直接展示以往的解读结果，不在调取api
+    if (sessionData?.aiInterpretation) {
+      setInterpretationText(sessionData.aiInterpretation)
+      setInterpretationOpen(true)
+      return
+    }
     setInterpretationText('')
     setIsInterpreting(true)
     setInterpretationOpen(true)
@@ -109,7 +66,7 @@ export default function DrawCard({ slug, sessionData }: { slug: string[]; sessio
         body: JSON.stringify({
           question: sessionData?.question,
           spreadName: sessionData?.spreadName,
-          spreads: currentCardInfos,
+          spreads: cardInfos,
           spreadDesc: sessionData?.spreadDesc
         })
       })
@@ -220,24 +177,24 @@ export default function DrawCard({ slug, sessionData }: { slug: string[]; sessio
 
           {/* 翻牌区域 */}
           <div className="relative min-h-[80vh] w-full" id="card_container">
-            {cardArr.map((item, index) => (
-              <div key={index} className="absolute h-0 w-0" style={{ top: item.top, left: item.left }}>
-                <Card
-                  cards={cards}
-                  scale={scale}
-                  rotate={item.rotate}
-                  index={indexes[index]}
-                  flipped={flipStates[index]}
-                  reversed={reverses[index]}
-                  showInfo={infoShown[index]}
-                  closeInfo={closeInfo}
-                  onClick={() => onCardClick(index)}
-                />
-              </div>
-            ))}
+            {cardArr.map(
+              (item, index) =>
+                cardInfos[index] && (
+                  <div key={index} className="absolute h-0 w-0" style={{ top: item.top, left: item.left }}>
+                    <Card
+                      rotate={item.rotate}
+                      scale={scale}
+                      curCard={cardInfos[index]}
+                      onClick={() => onCardClick(index)}
+                    />
+                  </div>
+                )
+            )}
           </div>
         </div>
       </div>
+      {/* 卡牌信息 */}
+      {curCard && <CardInfoDialog curCard={curCard} showInfo={showInfo} closeInfo={closeInfo} />}
       {/* 问题和牌阵信息弹窗 */}
       <QuestionSpreadDialog
         isOpen={isQuestionSpreadDialogOpen}
@@ -255,7 +212,7 @@ export default function DrawCard({ slug, sessionData }: { slug: string[]; sessio
         onClose={handleInterpretationClose}
         text={interpretationText}
         isLoading={isInterpreting}
-        cards={currentCardInfos}
+        cards={cardInfos}
       />
     </>
   )

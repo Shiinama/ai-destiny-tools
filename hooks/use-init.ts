@@ -5,80 +5,99 @@ import { getCardPositionConfig, type ScaleType, type CardArrType } from '@/lib/c
 
 import useElementSize from './use-element-size'
 
-const useInit = (slug: string[]) => {
+const useInit = (slug: string[], sessionData: TarotSession) => {
   const { width: containerWidth, height: containerHeight } = useElementSize('card_container')
 
   const [cardArr, setCardArr] = useState<CardArrType[]>([])
-  const [cardNum, setCardNum] = useState(0)
   const [scale, setScale] = useState<ScaleType>({ x: 0, y: 0 })
-  const [flipStates, setflipStates] = useState<boolean[]>(new Array(cardNum).fill(false))
-  const [indexes, setIndexes] = useState<number[]>(new Array(cardNum).fill(0))
-  const [reverses, setReverses] = useState<boolean[]>(new Array(cardNum).fill(false))
-  const [infoShown, setInfoShown] = useState<boolean[]>(new Array(cardNum).fill(false))
-
-  // function shuffleIndexes(cardData: CardType[]) {
-  //   // 如果传入的卡牌数据为空或长度不足，则不执行洗牌
-  // }
+  const [cardInfos, setCardInfos] = useState<CurrentCardType[]>([])
+  const [curCard, setCurCard] = useState<CurrentCardType | null>(null)
+  const [showInfo, setShowInfo] = useState(false)
 
   useEffect(() => {
     const config = getCardPositionConfig(slug, containerWidth, containerHeight)
     setScale(config.scale)
     setCardArr(config.cardArr)
-    setCardNum(config.cardArr.length)
   }, [slug, containerWidth, containerHeight])
 
   useEffect(() => {
-    if (!cards || cards.length === 0) {
-      return
+    if (sessionData && sessionData.cards && sessionData.cards.length > 0) {
+      const arr = JSON.parse(sessionData.cards)
+      const infos = arr.map((item: CurrentCardType) => ({
+        ...cards[item.index],
+        position: item.position,
+        flipped: item.flipped,
+        direction: item.direction,
+        index: item.index
+      }))
+      setCardInfos(infos)
+    } else {
+      const tempIndexes = Array.from({ length: cards.length }, (_, index) => index)
+      const newIndexes: number[] = []
+      for (let i = 0; i < cardArr.length; i++) {
+        // 防止在卡牌数量多于总牌数时出错
+        if (tempIndexes.length === 0) break
+        const rand = Math.floor(Math.random() * tempIndexes.length)
+        newIndexes.push(tempIndexes.splice(rand, 1)[0])
+      }
+      const infos = newIndexes.map((cardI, idx) => ({
+        ...cards[cardI],
+        position: idx + 1,
+        flipped: false,
+        direction: Math.random() > 0.5 ? 'reversed' : ('normal' as 'normal' | 'reversed'),
+        index: cardI
+      }))
+      setCardInfos(infos)
     }
-    const tempIndexes = Array.from({ length: cards.length }, (_, index) => index)
-    const newIndexes: number[] = []
-    for (let i = 0; i < cardNum; i++) {
-      // 防止在卡牌数量多于总牌数时出错
-      if (tempIndexes.length === 0) break
-      const rand = Math.floor(Math.random() * tempIndexes.length)
-      newIndexes.push(tempIndexes.splice(rand, 1)[0])
-    }
-    setIndexes(newIndexes)
-  }, [cardNum])
+  }, [sessionData, cardArr.length])
 
-  function onReload() {
-    setflipStates(new Array(cardNum).fill(false))
-    setInfoShown(new Array(cardNum).fill(false))
-    // shuffleIndexes(cards)
-  }
+  // function onReload() {
+  //   setflipStates(new Array(cardNum).fill(false))
+  //   setInfoShown(new Array(cardNum).fill(false))
+  //   // shuffleIndexes(cards)
+  // }
 
   function onCardClick(index: number) {
-    if (!flipStates[index]) {
-      const tempReverses = [...reverses]
-      tempReverses[index] = Math.random() > 0.5
-      setReverses(tempReverses)
-
-      const tempFlips = [...flipStates]
-      tempFlips[index] = true
-      setflipStates(tempFlips)
+    if (!cardInfos[index].flipped) {
+      // 翻牌
+      const newArr = cardInfos.map((el, idx) => (idx === index ? { ...el, flipped: true } : el))
+      setCardInfos(newArr)
+      // 即时保存抽牌结果到数据库，避免用户刷新页面后重复翻牌
+      fetch('/api/tarot/session', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          sessionId: sessionData.id,
+          cards: newArr.map((item) => ({
+            position: item.position,
+            flipped: item.flipped,
+            direction: item.direction,
+            index: item.index
+          }))
+        })
+      }).catch((error) => console.error('保存抽牌结果失败:', error))
     } else {
-      const tempInfo = [...infoShown]
-      tempInfo[index] = true
-      setInfoShown(tempInfo)
+      // 查看卡牌详情
+      setCurCard(cardInfos[index])
+      setShowInfo(true)
     }
   }
 
   function closeInfo() {
-    setInfoShown(new Array(cardNum).fill(false))
+    setShowInfo(false)
   }
 
   return {
-    indexes,
-    flipStates,
-    reverses,
-    infoShown,
-    onReload,
     onCardClick,
     closeInfo,
     cards,
     cardArr,
-    scale
+    scale,
+    curCard,
+    showInfo,
+    cardInfos
   }
 }
 

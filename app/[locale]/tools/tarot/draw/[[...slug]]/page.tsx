@@ -36,6 +36,8 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
 
   // 根据当前阶段渲染不同的内容
   const renderContent = () => {
+    if (!tarorSession) return null
+
     switch (currentStage) {
       case 'shuffle':
         return <ShuffleCards onShuffleComplete={() => setCurrentStage('select')} />
@@ -49,7 +51,7 @@ export default function DrawPage({ params }: { params: Promise<{ slug: string[] 
         )
 
       case 'draw':
-        return tarorSession ? <DrawCard slug={slug} sessionData={tarorSession} /> : null
+        return <DrawCard slug={slug} sessionData={tarorSession} />
       default:
         return null
     }

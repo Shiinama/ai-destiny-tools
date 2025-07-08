@@ -158,7 +158,7 @@ export default function QuestionPage() {
     <div className="container mx-auto px-4 py-12">
       <div className="mx-auto max-w-6xl space-y-8">
         {/* 顶部问题输入区域 */}
-        {!recommendation && session && (
+        {!recommendation && (
           <Card className="border-purple-400/20 bg-black/40 text-white backdrop-blur-md">
             <CardHeader>
               <CardTitle className="text-center text-3xl font-bold text-purple-400">选择您的塔罗牌阵</CardTitle>

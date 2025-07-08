@@ -63,6 +63,13 @@ declare global {
     detail: string
     link: string
   }
+
+  interface CurrentCardType extends CardType {
+    position: number
+    flipped: boolean
+    direction: 'normal' | 'reversed'
+    index: number
+  }
 }
 
 export {}
