@@ -9,16 +9,15 @@ import { divinationToolTranslations } from '@/lib/db/schema'
 
 export const dynamic = 'force-dynamic'
 
-// 获取某个工具未翻译的locale（包括name为空的情况）
 async function getUntranslatedLocales(toolId: string, targetLocales: string[]): Promise<string[]> {
   const db = createDb()
   const rows = await db
-    .select({ locale: divinationToolTranslations.locale, name: divinationToolTranslations.name })
+    .select({ locale: divinationToolTranslations.locale, content: divinationToolTranslations.content })
     .from(divinationToolTranslations)
     .where(eq(divinationToolTranslations.toolId, toolId))
     .execute()
-  // 已有且 name 不为空的 locale
-  const translated = rows.filter((row) => row.name && row.name.trim() !== '').map((row) => row.locale)
+  // 已有且 content 不为空的 locale
+  const translated = rows.filter((row) => row.content && row.content.trim() !== '').map((row) => row.locale)
   // 其余都需要翻译
   return targetLocales.filter((code) => !translated.includes(code))
 }
@@ -34,21 +33,19 @@ export async function POST(req: NextRequest) {
     // 只处理一页
     const tools = await getAllTools(page, pageSize)
     for (const tool of tools) {
-      if (!tool.name || !tool.description) continue
+      if (!tool.content || !tool.description) continue
       const needTranslateLocales = await getUntranslatedLocales(tool.id, targetLocaleCodes)
       if (needTranslateLocales.length === 0) continue
-      if (process.env.NODE_ENV !== 'production') {
-        // eslint-disable-next-line no-console
-        console.log('正在翻译工具', tool.id, tool.name, '目标语言:', needTranslateLocales)
-      }
+      // eslint-disable-next-line no-console
+      console.log('正在翻译工具', tool.id, tool.content, '目标语言:', needTranslateLocales)
       const translationsResult = await translateFieldsToLocales({
-        fields: { name: tool.name, description: tool.description },
+        fields: { content: tool.content, description: tool.description },
         targetLanguages: needTranslateLocales
       })
 
       const translations = needTranslateLocales.map((code) => ({
         locale: code,
-        name: translationsResult[code]?.name || '',
+        content: translationsResult[code]?.content || '',
         description: translationsResult[code]?.description || ''
       }))
       const upsertResult = await upsertToolTranslations(tool.id, translations)

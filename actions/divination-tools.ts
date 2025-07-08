@@ -27,9 +27,9 @@ export type DivinationToolUpdateInput = DivinationToolInput & {
 }
 
 // 多语言字段处理工具函数
-function withI18nFields<T extends { name: string; description: string }>(
+function withI18nFields<T extends { description: string; content: string }>(
   base: T,
-  translation?: { name?: string | null; description?: string | null },
+  translation?: { content?: string | null; description?: string | null },
   locale?: string
 ) {
   if (!locale || locale === 'en' || !translation) {
@@ -37,7 +37,7 @@ function withI18nFields<T extends { name: string; description: string }>(
   }
   return {
     ...base,
-    name: translation.name || base.name,
+    content: translation.content || base.content,
     description: translation.description || base.description
   }
 }
@@ -88,7 +88,7 @@ export async function getPaginatedTools({
       .select({
         tools: divinationTools,
         categoryKey: divinationCategories.key,
-        translationName: divinationToolTranslations.name,
+        translationContent: divinationToolTranslations.content,
         translationDescription: divinationToolTranslations.description
       })
       .from(divinationTools)
@@ -117,9 +117,9 @@ export async function getPaginatedTools({
     tools: tools.map((item) => {
       return {
         ...withI18nFields(
-          item.tools,
-          'translationName' in item || 'translationDescription' in item
-            ? { name: (item as any).translationName, description: (item as any).translationDescription }
+          { ...item.tools, content: item.tools.content ?? '' },
+          'translationContent' in item || 'translationDescription' in item
+            ? { content: (item as any).translationContent, description: (item as any).translationDescription }
             : undefined,
           locale
         ),
@@ -152,7 +152,7 @@ export async function getToolById(id: string, locale?: string) {
       .select({
         tool: divinationTools,
         categoryKey: divinationCategories.key,
-        translationName: divinationToolTranslations.name,
+        translationContent: divinationToolTranslations.content,
         translationDescription: divinationToolTranslations.description
       })
       .from(divinationTools)
@@ -169,9 +169,9 @@ export async function getToolById(id: string, locale?: string) {
 
   return {
     ...withI18nFields(
-      item.tool,
-      'translationName' in item || 'translationDescription' in item
-        ? { name: (item as any).translationName, description: (item as any).translationDescription }
+      { ...item.tool, content: item.tool.content ?? '' },
+      'translationContent' in item || 'translationDescription' in item
+        ? { content: (item as any).translationContent, description: (item as any).translationDescription }
         : undefined,
       locale
     ),
@@ -342,11 +342,11 @@ export async function getCategories() {
 // 新增或更新多语言翻译
 export async function upsertToolTranslations(
   toolId: string,
-  translations: Array<{ locale: string; name: string; description: string }>
+  translations: Array<{ locale: string; content: string; description: string }>
 ) {
   const db = createDb()
   try {
-    for (const { locale, name, description } of translations) {
+    for (const { locale, content, description } of translations) {
       // 先查，有则更新，无则插入
       const exist = await db
         .select()
@@ -356,13 +356,13 @@ export async function upsertToolTranslations(
       if (exist.length > 0) {
         await db
           .update(divinationToolTranslations)
-          .set({ name, description, updatedAt: new Date() })
+          .set({ content, description, updatedAt: new Date() })
           .where(and(eq(divinationToolTranslations.toolId, toolId), eq(divinationToolTranslations.locale, locale)))
           .execute()
       } else {
         await db
           .insert(divinationToolTranslations)
-          .values({ toolId, locale, name, description, createdAt: new Date(), updatedAt: new Date() })
+          .values({ toolId, locale, content, description, createdAt: new Date(), updatedAt: new Date() })
           .execute()
       }
     }
@@ -378,7 +378,7 @@ export async function getAllTools(page?: number, pageSize?: number) {
   const query = db
     .select({
       id: divinationTools.id,
-      name: divinationTools.name,
+      content: divinationTools.content,
       description: divinationTools.description
     })
     .from(divinationTools)

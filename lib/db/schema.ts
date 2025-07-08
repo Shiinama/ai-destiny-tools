@@ -208,7 +208,7 @@ export const divinationToolTranslations = sqliteTable('divination_tool_translati
     .notNull()
     .references(() => divinationTools.id, { onDelete: 'cascade' }),
   locale: text('locale').notNull(),
-  name: text('name').notNull(),
+  content: text('content').notNull(),
   description: text('description').notNull(),
   createdAt: integer('created_at', { mode: 'timestamp_ms' })
     .default(sql`CURRENT_TIMESTAMP`)

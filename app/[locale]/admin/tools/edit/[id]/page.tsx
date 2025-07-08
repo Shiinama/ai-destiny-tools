@@ -169,12 +169,12 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
 
         const targetLocaleCodes = locales.filter((l) => l.code !== 'en').map((l) => l.code)
         const translationsResult = await translateFieldsToLocales({
-          fields: { name: formData.name, description: formData.description },
+          fields: { content: formData.content, description: formData.description },
           targetLanguages: targetLocaleCodes
         })
         const translations = targetLocaleCodes.map((code) => ({
           locale: code,
-          name: translationsResult[code]?.name || '',
+          content: translationsResult[code]?.content || '',
           description: translationsResult[code]?.description || ''
         }))
 
