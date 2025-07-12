@@ -10,8 +10,8 @@
   "siteInfo": {
     "brandName": "Destiny AI",
     "meta": {
-      "title": "Destiny AI - Directory of AI Divination Tools",
-      "description": "Discover the best AI-powered divination tools for tarot, astrology, I Ching and more. Your guide to modern fortune telling technology."
+      "title": "Destiny AI - The AI Fortune Telling Tool Directory",
+      "description": "Your curated directory of AI fortune telling tools. We've collected the top AI platforms for Tarot, Astrology, Horoscopes, and more. Find free and premium tools, read reviews, and connect with the future of divination."
     }
   },
   "divinationCategories": {
@@ -235,28 +235,37 @@
     "copyright": "© 2025 Destiny AI Tools All rights reserved."
   },
   "HomePage": {
-    "title": "Discover The Best AI divination Websites & Tools & Apps",
-    "description": "Discover and explore the best AI fortune telling tools from around the world. Your comprehensive navigation platform for tarot readings, astrology, numerology, and more.",
+    "title": "The AI Fortune Telling Tool Directory",
+    "description": "Your curated directory of AI fortune telling tools. We've collected the top AI platforms for Tarot, Astrology, Horoscopes, and more. Find free and premium tools, read reviews, and connect with the future of divination.",
     "featuredPosts": "Featured Posts",
     "submitTool": "Submit a Tool",
     "visitSite": "Visit Site →",
     "viewMore": "View More",
     "features": {
-      "heading": "Explore the Mysteries of Destiny",
-      "compass": {
-        "imageAlt": "AI Divination Tools",
-        "title": "Find Your Cosmic Compass",
-        "description": "Feeling lost at life's crossroads? We've gathered the web's most remarkable AI divination tools - from eerily accurate tarot readings to AI astrology that sees right through you. Each tool we feature offers that special guidance when you need direction, clarity when you're confused, and sometimes, a comforting glimpse into possibilities when you need hope."
+      "step1_concept": {
+        "imageAlt": "AI Divination and Fortune Telling concept",
+        "title": "What is AI Divination & AI Fortune Telling?",
+        "description": "AI Divination and AI Fortune Telling merge technology with traditional wisdom. Our platform is your introduction to this new frontier, where powerful algorithms provide personalized insights through various online fortune telling methods, making predictions more accessible than ever."
       },
-      "selection": {
-        "imageAlt": "Quality Selection",
-        "title": "Thoughtfully Selected, Genuinely Helpful",
-        "description": "We get your concerns - with so many divination tools online, which ones actually provide insight? We've personally tested hundreds (yes, even the weird ones!) and only recommend those that truly spark self-awareness, offer meaningful guidance, and feel good to use. Because your journey of cosmic discovery should be both enjoyable and enlightening."
+      "step2_howitworks": {
+        "imageAlt": "AI Astrology Chart and Tarot Cards",
+        "title": "How Does an AI Fortune Teller Work?",
+        "description": "It's technology, not a guess. An AI fortune teller processes millions of data points from content to perform an AI Tarot reading or a detailed AI astrology analysis. By recognizing complex patterns, these tools provide an accurate and surprisingly profound AI divination experience right from your device."
       },
-      "community": {
-        "imageAlt": "Divination Community",
-        "title": "Join Fellow Seekers",
-        "description": "Share your 'aha' moments with others who understand the power of cosmic guidance! Whether it's a prediction that came true, or advice that helped you through tough times, you'll find kindred spirits here. Our blog shares honest experiences about which tools truly offer direction when you're lost, comfort when you're hurting, and clarity when you need it most."
+      "step3_types": {
+        "imageAlt": "A collection of links to AI Tarot, Astrology, and Numerology tools",
+        "title": "Discover Every Type of AI Divination Tool",
+        "description": "Our directory is your gateway to the world of AI fortune telling. Here, you can find platforms offering instant AI Tarot readings, discover top-rated websites for free AI astrology analysis, and connect with apps that deliver your daily AI horoscope or perform AI numerology calculations. We help you navigate the web to find your perfect tool."
+      },
+      "step4_selection": {
+        "imageAlt": "A seal of approval for best AI divination tools",
+        "title": "The Best AI Divination Tools, Tested & Reviewed",
+        "description": "With countless online fortune telling sites, finding quality is key. We personally test and review hundreds of AI divination platforms to ensure their guidance is accurate and meaningful. Our curated list features only the best AI fortune telling tools so you can explore with total confidence."
+      },
+      "step5_guidance": {
+        "imageAlt": "A user comparing different AI divination websites on a screen",
+        "title": "Find the Right Platform For Your First Reading",
+        "description": "Ready for your first AI-powered insight? Our curated lists make it easy to choose. For immediate answers, browse our top-rated AI Tarot platforms. For a deep-dive into your personality, compare the best AI astrology sites we've reviewed. We guide you to the right external service, ensuring your first AI divination experience is a great one."
       }
     }
   },

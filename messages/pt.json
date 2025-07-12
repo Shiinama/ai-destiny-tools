@@ -31,8 +31,8 @@
   "siteInfo": {
     "brandName": "Destiny AI",
     "meta": {
-      "title": "Destiny AI - Diretório de Ferramentas de Adivinhação de IA",
-      "description": "Descubra as melhores ferramentas de adivinhação baseadas em IA para tarô, astrologia, I Ching e muito mais. Seu guia para a tecnologia moderna de leitura da sorte."
+      "title": "Destiny AI - O Diretório de Ferramentas de Adivinhação com IA",
+      "description": "Seu diretório selecionado de ferramentas de adivinhação com IA. Coletamos as principais plataformas de IA para Tarot, Astrologia, Horóscopos e muito mais. Encontre ferramentas gratuitas e premium, leia avaliações e conecte-se com o futuro da adivinhação."
     }
   },
   "submitTools": {
@@ -176,6 +176,31 @@
         "imageAlt": "Comunidade de Adivinhação",
         "title": "Junte-se a Outros Buscadores",
         "description": "Compartilhe seus momentos de 'aha' com outras pessoas que entendem o poder da orientação cósmica! Seja uma previsão que se tornou realidade ou um conselho que o ajudou em tempos difíceis, você encontrará espíritos afins aqui. Nosso blog compartilha experiências honestas sobre quais ferramentas realmente oferecem direção quando você está perdido, conforto quando está sofrendo e clareza quando mais precisa."
+      },
+      "step1_concept": {
+        "imageAlt": "Conceito de Adivinhação e Leitura da Sorte por IA",
+        "title": "O que é Adivinhação por IA e Leitura da Sorte por IA?",
+        "description": "A Adivinhação por IA e a Leitura da Sorte por IA mesclam tecnologia com sabedoria tradicional. Nossa plataforma é sua introdução a esta nova fronteira, onde algoritmos poderosos fornecem insights personalizados através de vários métodos de leitura da sorte online, tornando as previsões mais acessíveis do que nunca."
+      },
+      "step2_howitworks": {
+        "imageAlt": "AI Astrology Chart and Tarot Cards",
+        "title": "Como Funciona um Adivinho de IA?",
+        "description": "É tecnologia, não um palpite. Um adivinho de IA processa milhões de pontos de dados de conteúdo para realizar uma leitura de Tarot por IA ou uma análise detalhada de astrologia por IA. Ao reconhecer padrões complexos, essas ferramentas fornecem uma experiência de divinação por IA precisa e surpreendentemente profunda diretamente do seu dispositivo."
+      },
+      "step3_types": {
+        "imageAlt": "A collection of links to AI Tarot, Astrology, and Numerology tools",
+        "title": "Descubra Todo Tipo de Ferramenta de Divinação por IA",
+        "description": "Nosso diretório é sua porta de entrada para o mundo da adivinhação por IA. Aqui, você pode encontrar plataformas que oferecem leituras instantâneas de Tarot por IA, descobrir sites bem avaliados para análise gratuita de astrologia por IA e conectar-se a aplicativos que fornecem seu horóscopo diário por IA ou realizam cálculos de numerologia por IA. Nós o ajudamos a navegar na web para encontrar sua ferramenta perfeita."
+      },
+      "step4_selection": {
+        "imageAlt": "A seal of approval for best AI divination tools",
+        "title": "As Melhores Ferramentas de Divinação por IA, Testadas e Revisadas",
+        "description": "Com inúmeros sites de adivinhação online, encontrar qualidade é fundamental. Nós testamos e revisamos pessoalmente centenas de plataformas de divinação por IA para garantir que sua orientação seja precisa e significativa. Nossa lista curada apresenta apenas as melhores ferramentas de adivinhação por IA para que você possa explorar com total confiança."
+      },
+      "step5_guidance": {
+        "imageAlt": "A user comparing different AI divination websites on a screen",
+        "title": "Encontre a Plataforma Certa Para Sua Primeira Leitura",
+        "description": "Pronto para sua primeira percepção com IA? Nossas listas selecionadas facilitam a escolha. Para respostas imediatas, navegue em nossas plataformas de Tarot por IA mais bem avaliadas. Para um mergulho profundo em sua personalidade, compare os melhores sites de astrologia por IA que revisamos. Nós o guiamos para o serviço externo certo, garantindo que sua primeira experiência de divinação por IA seja excelente."
       }
     },
     "viewMore": "Ver mais"
