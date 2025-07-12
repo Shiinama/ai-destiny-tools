@@ -19,6 +19,8 @@ export async function GET() {
 
     while (hasMore) {
       const offset = (page - 1) * pageSize
+      // eslint-disable-next-line no-console
+      console.log(`正在获取第${page}页，offset=${offset}`)
       const posts_data = await db
         .select({
           id: posts.id,
@@ -29,9 +31,12 @@ export async function GET() {
         .from(posts)
         .limit(pageSize)
         .offset(offset)
-
+      // eslint-disable-next-line no-console
+      console.log(`本页获取到${posts_data.length}条数据`)
       if (posts_data.length < pageSize) {
         hasMore = false
+        // eslint-disable-next-line no-console
+        console.log('已获取全部数据')
       }
 
       allPosts.push(...posts_data)
@@ -41,13 +46,19 @@ export async function GET() {
     // 检查并创建目录
     const filePath = join(process.cwd(), 'app', 'allArticles.json')
     const dirPath = join(process.cwd(), 'app')
+    // eslint-disable-next-line no-console
+    console.log('文件路径:', filePath)
 
     if (!existsSync(dirPath)) {
       await mkdir(dirPath, { recursive: true })
+      // eslint-disable-next-line no-console
+      console.log('目录不存在，已创建')
     }
 
     // 写入文件
     await writeFile(filePath, JSON.stringify(allPosts, null, 2))
+    // eslint-disable-next-line no-console
+    console.log('已写入文件')
 
     return NextResponse.json({
       total: allPosts.length,
