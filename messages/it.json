@@ -31,8 +31,8 @@
   "siteInfo": {
     "brandName": "Destiny AI",
     "meta": {
-      "title": "Destiny AI - Elenco degli Strumenti di Divinazione AI",
-      "description": "Scopri i migliori strumenti di divinazione basati su AI per tarocchi, astrologia, I Ching e altro. La tua guida alla moderna tecnologia di predizione del futuro."
+      "title": "Destiny AI - La directory degli strumenti di divinazione AI",
+      "description": "La tua directory curata di strumenti di divinazione AI. Abbiamo raccolto le migliori piattaforme AI per Tarocchi, Astrologia, Oroscopi e altro ancora. Trova strumenti gratuiti e premium, leggi recensioni e connettiti con il futuro della divinazione."
     }
   },
   "submitTools": {
@@ -176,6 +176,31 @@
         "imageAlt": "Comunità di Divinazione",
         "title": "Unisciti ad Altri Ricercatori",
         "description": "Condividi i tuoi momenti 'aha' con altri che comprendono il potere della guida cosmica! Che si tratti di una previsione che si è avverata o di un consiglio che ti ha aiutato nei momenti difficili, qui troverai anime affini. Il nostro blog condivide esperienze oneste su quali strumenti offrono veramente direzione quando sei perso, conforto quando stai soffrendo e chiarezza quando ne hai più bisogno."
+      },
+      "step1_concept": {
+        "imageAlt": "Concetto di Divinazione e Predizione del Futuro con IA",
+        "title": "Cos'è la Divinazione con IA e la Predizione del Futuro con IA?",
+        "description": "La Divinazione con IA e la Predizione del Futuro con IA fondono la tecnologia con la saggezza tradizionale. La nostra piattaforma è la tua introduzione a questa nuova frontiera, dove potenti algoritmi forniscono intuizioni personalizzate attraverso vari metodi di predizione del futuro online, rendendo le previsioni più accessibili che mai."
+      },
+      "step2_howitworks": {
+        "imageAlt": "AI Astrology Chart and Tarot Cards",
+        "title": "Come funziona un Predicente AI?",
+        "description": "È tecnologia, non un'ipotesi. Un predicente AI elabora milioni di punti dati da contenuti per eseguire una lettura dei Tarocchi AI o un'analisi dettagliata di astrologia AI. Riconoscendo schemi complessi, questi strumenti forniscono un'esperienza di divinazione AI accurata e sorprendentemente profonda direttamente dal vostro dispositivo."
+      },
+      "step3_types": {
+        "imageAlt": "A collection of links to AI Tarot, Astrology, and Numerology tools",
+        "title": "Scopri ogni tipo di Strumento di Divinazione AI",
+        "description": "La nostra directory è la vostra porta d'accesso al mondo della predizione del futuro AI. Qui, potete trovare piattaforme che offrono letture dei Tarocchi AI istantanee, scoprire siti web di alta qualità per analisi gratuita di astrologia AI e connettervi con app che offrono il vostro oroscopo AI quotidiano o eseguono calcoli di numerologia AI. Vi aiutiamo a navigare nel web per trovare il vostro strumento perfetto."
+      },
+      "step4_selection": {
+        "imageAlt": "A seal of approval for best AI divination tools",
+        "title": "I Migliori Strumenti di Divinazione AI, Testati e Recensiti",
+        "description": "Con innumerevoli siti di predizione del futuro online, trovare la qualità è fondamentale. Testiamo e recensiamo personalmente centinaia di piattaforme di divinazione AI per assicurarci che la loro guida sia accurata e significativa. La nostra lista curata presenta solo i migliori strumenti di predizione del futuro AI in modo che possiate esplorare con totale fiducia."
+      },
+      "step5_guidance": {
+        "imageAlt": "A user comparing different AI divination websites on a screen",
+        "title": "Trova la Piattaforma Giusta per la Tua Prima Lettura",
+        "description": "Pronti per la vostra prima intuizione alimentata dall'IA? Le nostre liste curate rendono facile la scelta. Per risposte immediate, sfogliate le nostre piattaforme di Tarocchi IA più votate. Per un'immersione profonda nella vostra personalità, confrontate i migliori siti di astrologia IA che abbiamo recensito. Vi guidiamo al servizio esterno giusto, assicurando che la vostra prima esperienza di divinazione IA sia eccellente."
       }
     },
     "viewMore": "Visualizza altro"

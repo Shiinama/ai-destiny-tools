@@ -32,7 +32,7 @@
     "brandName": "Destiny AI",
     "meta": {
       "title": "Destiny AI - Directorio de Herramientas de Adivinación con IA",
-      "description": "Descubre las mejores herramientas de adivinación impulsadas por IA para tarot, astrología, I Ching y más. Tu guía para la tecnología moderna de adivinación."
+      "description": "Su directorio curado de herramientas de adivinación con IA. Hemos recopilado las principales plataformas de IA para Tarot, Astrología, Horóscopos y más. Encuentre herramientas gratuitas y premium, lea reseñas y conéctese con el futuro de la adivinación."
     }
   },
   "submitTools": {
@@ -176,6 +176,31 @@
         "imageAlt": "Comunidad de Adivinación",
         "title": "Únete a Otros Buscadores",
         "description": "¡Comparte tus momentos 'eureka' con otros que entienden el poder de la guía cósmica! Ya sea una predicción que se hizo realidad o un consejo que te ayudó en tiempos difíciles, aquí encontrarás almas afines. Nuestro blog comparte experiencias honestas sobre qué herramientas realmente ofrecen dirección cuando estás perdido, consuelo cuando estás sufriendo y claridad cuando más lo necesitas."
+      },
+      "step1_concept": {
+        "imageAlt": "Concepto de Adivinación y Predicción del Futuro con IA",
+        "title": "¿Qué es la Adivinación con IA y la Predicción del Futuro con IA?",
+        "description": "La Adivinación con IA y la Predicción del Futuro con IA fusionan la tecnología con la sabiduría tradicional. Nuestra plataforma es su introducción a esta nueva frontera, donde potentes algoritmos proporcionan percepciones personalizadas a través de varios métodos de adivinación en línea, haciendo las predicciones más accesibles que nunca."
+      },
+      "step2_howitworks": {
+        "imageAlt": "AI Astrology Chart and Tarot Cards",
+        "title": "¿Cómo funciona un Adivino de IA?",
+        "description": "Es tecnología, no una suposición. Un adivino de IA procesa millones de puntos de datos de contenido para realizar una lectura de Tarot con IA o un análisis astrológico detallado con IA. Al reconocer patrones complejos, estas herramientas proporcionan una experiencia de adivinación con IA precisa y sorprendentemente profunda directamente desde su dispositivo."
+      },
+      "step3_types": {
+        "imageAlt": "A collection of links to AI Tarot, Astrology, and Numerology tools",
+        "title": "Descubre todo tipo de herramientas de adivinación con IA",
+        "description": "Nuestro directorio es su puerta de entrada al mundo de la quiromancia con IA. Aquí, puede encontrar plataformas que ofrecen lecturas de Tarot con IA instantáneas, descubrir sitios web mejor valorados para análisis de astrología con IA gratuitos y conectarse con aplicaciones que le entregan su horóscopo diario con IA o realizan cálculos de numerología con IA. Le ayudamos a navegar por la web para encontrar su herramienta perfecta."
+      },
+      "step4_selection": {
+        "imageAlt": "A seal of approval for best AI divination tools",
+        "title": "Las mejores herramientas de adivinación con IA, probadas y revisadas",
+        "description": "Con innumerables sitios de quiromancia en línea, encontrar calidad es clave. Probamos y revisamos personalmente cientos de plataformas de adivinación con IA para asegurar que su orientación sea precisa y significativa. Nuestra lista curada presenta solo las mejores herramientas de quiromancia con IA para que pueda explorar con total confianza."
+      },
+      "step5_guidance": {
+        "imageAlt": "A user comparing different AI divination websites on a screen",
+        "title": "Encuentra la plataforma adecuada para tu primera lectura",
+        "description": "¿Listo para su primera perspicacia impulsada por la IA? Nuestras listas curadas facilitan la elección. Para respuestas inmediatas, explore nuestras plataformas de Tarot con IA mejor valoradas. Para una inmersión profunda en su personalidad, compare los mejores sitios de astrología con IA que hemos revisado. Le guiamos al servicio externo adecuado, asegurando que su primera experiencia de adivinación con IA sea excelente."
       }
     },
     "viewMore": "Ver más"

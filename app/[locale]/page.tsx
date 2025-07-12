@@ -78,29 +78,41 @@ export default async function Home({
         </section>
 
         <section className="mt-12 space-y-16">
-          <h2 className="text-primary/80 mb-6 text-center text-3xl font-bold">{t('features.heading')}</h2>
-
           <FeatureItem
             imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-1.png"
-            imageAlt={t('features.compass.imageAlt')}
-            title={t('features.compass.title')}
-            description={t('features.compass.description')}
+            imageAlt={t('features.step1_concept.imageAlt')}
+            title={t('features.step1_concept.title')}
+            description={t('features.step1_concept.description')}
             layout="imageLeft"
           />
 
           <FeatureItem
-            imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-2.png"
-            imageAlt={t('features.selection.imageAlt')}
-            title={t('features.selection.title')}
-            description={t('features.selection.description')}
+            imageUrl="https://static.destinyai.tools/1752300132807-astrological-moon-phase-cover-image.png"
+            imageAlt={t('features.step2_howitworks.imageAlt')}
+            title={t('features.step2_howitworks.title')}
+            description={t('features.step2_howitworks.description')}
             layout="imageRight"
           />
 
           <FeatureItem
             imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-3.png"
-            imageAlt={t('features.community.imageAlt')}
-            title={t('features.community.title')}
-            description={t('features.community.description')}
+            imageAlt={t('features.step3_types.imageAlt')}
+            title={t('features.step3_types.title')}
+            description={t('features.step3_types.description')}
+            layout="imageLeft"
+          />
+          <FeatureItem
+            imageUrl="https://static.destinyai.tools/ai-destiny-home-feature-2.png"
+            imageAlt={t('features.step4_selection.imageAlt')}
+            title={t('features.step4_selection.title')}
+            description={t('features.step4_selection.description')}
+            layout="imageRight"
+          />
+          <FeatureItem
+            imageUrl="https://static.destinyai.tools/1752300089926-april-5-astrological-sign-cover-image.png"
+            imageAlt={t('features.step5_guidance.imageAlt')}
+            title={t('features.step5_guidance.title')}
+            description={t('features.step5_guidance.description')}
             layout="imageLeft"
           />
         </section>

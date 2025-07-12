@@ -31,8 +31,8 @@
   "siteInfo": {
     "brandName": "Destiny AI",
     "meta": {
-      "title": "Destiny AI - Annuaire des Outils de Divination IA",
-      "description": "Découvrez les meilleurs outils de divination basés sur l'IA pour le tarot, l'astrologie, le Yi King et plus encore. Votre guide de la technologie moderne de la bonne aventure."
+      "title": "Destiny AI - Le répertoire des outils de divination par IA",
+      "description": "Votre répertoire organisé d'outils de divination par IA. Nous avons rassemblé les meilleures plateformes d'IA pour le Tarot, l'Astrologie, les Horoscopes et plus encore. Trouvez des outils gratuits et premium, lisez des avis et connectez-vous à l'avenir de la divination."
     }
   },
   "submitTools": {
@@ -176,6 +176,31 @@
         "imageAlt": "Communauté de Divination",
         "title": "Rejoignez d'Autres Chercheurs",
         "description": "Partagez vos moments 'eurêka' avec d'autres qui comprennent le pouvoir de la guidance cosmique ! Que ce soit une prédiction qui s'est réalisée, ou un conseil qui vous a aidé à traverser des moments difficiles, vous trouverez ici des âmes sœurs. Notre blog partage des expériences honnêtes sur les outils qui offrent vraiment une direction lorsque vous êtes perdu, du réconfort lorsque vous souffrez, et de la clarté lorsque vous en avez le plus besoin."
+      },
+      "step1_concept": {
+        "imageAlt": "Concept de divination et de voyance par IA",
+        "title": "Qu'est-ce que la divination et la voyance par IA ?",
+        "description": "La divination par IA et la voyance par IA fusionnent la technologie avec la sagesse traditionnelle. Notre plateforme est votre introduction à cette nouvelle frontière, où de puissants algorithmes fournissent des aperçus personnalisés grâce à diverses méthodes de voyance en ligne, rendant les prédictions plus accessibles que jamais."
+      },
+      "step2_howitworks": {
+        "imageAlt": "AI Astrology Chart and Tarot Cards",
+        "title": "Comment fonctionne une Diseuse de Bonne Aventure par IA ?",
+        "description": "C'est de la technologie, pas une supposition. Une diseuse de bonne aventure par IA traite des millions de points de données provenant de contenus pour effectuer une lecture de Tarot par IA ou une analyse astrologique détaillée par IA. En reconnaissant des modèles complexes, ces outils offrent une expérience de divination par IA précise et étonnamment profonde directement depuis votre appareil."
+      },
+      "step3_types": {
+        "imageAlt": "A collection of links to AI Tarot, Astrology, and Numerology tools",
+        "title": "Découvrez tous les types d'outils de Divination par IA",
+        "description": "Notre annuaire est votre passerelle vers le monde de la diseuse de bonne aventure par IA. Ici, vous pouvez trouver des plateformes offrant des lectures de Tarot par IA instantanées, découvrir les sites web les mieux notés pour une analyse astrologique par IA gratuite, et vous connecter avec des applications qui vous livrent votre horoscope quotidien par IA ou effectuent des calculs de numérologie par IA. Nous vous aidons à naviguer sur le web pour trouver votre outil parfait."
+      },
+      "step4_selection": {
+        "imageAlt": "A seal of approval for best AI divination tools",
+        "title": "Les Meilleurs Outils de Divination par IA, Testés et Évalués",
+        "description": "Avec d'innombrables sites de diseuse de bonne aventure en ligne, trouver la qualité est essentiel. Nous testons et évaluons personnellement des centaines de plateformes de divination par IA pour nous assurer que leurs conseils sont précis et significatifs. Notre liste sélectionnée ne contient que les meilleurs outils de diseuse de bonne aventure par IA afin que vous puissiez explorer en toute confiance."
+      },
+      "step5_guidance": {
+        "imageAlt": "A user comparing different AI divination websites on a screen",
+        "title": "Trouvez la Bonne Plateforme Pour Votre Première Lecture",
+        "description": "Prêt pour votre premier aperçu alimenté par l'IA ? Nos listes sélectionnées facilitent le choix. Pour des réponses immédiates, parcourez nos plateformes de Tarot par IA les mieux notées. Pour une plongée profonde dans votre personnalité, comparez les meilleurs sites d'astrologie par IA que nous avons examinés. Nous vous guidons vers le bon service externe, garantissant que votre première expérience de divination par IA soit excellente."
       }
     },
     "viewMore": "Voir plus"

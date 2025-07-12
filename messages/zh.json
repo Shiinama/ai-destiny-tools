@@ -10,8 +10,8 @@
   "siteInfo": {
     "brandName": "Destiny AI",
     "meta": {
-      "title": "Destiny AI - AI占卜工具目录",
-      "description": "发现塔罗牌、占星术、易经等最佳AI驱动的占卜工具。您了解现代占卜技术的指南。"
+      "title": "Destiny AI - AI 算命工具目录",
+      "description": "您精心策划的 AI 算命工具目录。我们收集了塔罗牌、占星术、星座等顶级的 AI 平台。查找免费和高级工具，阅读评论，连接占卜的未来。"
     }
   },
   "about": {
@@ -169,6 +169,31 @@
         "imageAlt": "占卜社区",
         "title": "加入同道中人",
         "description": "与其他理解宇宙指引力量的人分享你的“茅塞顿开”时刻！无论是应验的预测，还是助你度过难关的建议，你都会在这里找到志同道合的朋友。我们的博客分享了关于哪些工具在你迷失时真正提供方向、在你痛苦时提供慰藉、在你最需要时提供清晰的真实体验。"
+      },
+      "step1_concept": {
+        "imageAlt": "AI 占卜和算命概念",
+        "title": "什么是 AI 占卜和 AI 算命？",
+        "description": "AI 占卜和 AI 算命将技术与传统智慧相结合。我们的平台是您进入这一新领域的入口，强大的算法通过各种在线算命方法提供个性化见解，使预测比以往任何时候都更容易获得。"
+      },
+      "step2_howitworks": {
+        "imageAlt": "AI Astrology Chart and Tarot Cards",
+        "title": "AI算命师如何工作？",
+        "description": "这是技术，不是猜测。AI算命师处理数百万来自内容的数据点，以执行AI塔罗牌阅读或详细的AI占星分析。通过识别复杂的模式，这些工具直接从您的设备提供准确且令人惊讶的深刻AI占卜体验。"
+      },
+      "step3_types": {
+        "imageAlt": "A collection of links to AI Tarot, Astrology, and Numerology tools",
+        "title": "探索所有类型的AI占卜工具",
+        "description": "我们的目录是您进入AI算命世界的门户。在这里，您可以找到提供即时AI塔罗牌阅读的平台，发现免费AI占星分析的顶级网站，并连接到提供每日AI生肖预测或执行AI数字命理计算的应用程序。我们帮助您浏览网络，找到最适合您的工具。"
+      },
+      "step4_selection": {
+        "imageAlt": "A seal of approval for best AI divination tools",
+        "title": "最佳AI占卜工具，经过测试与审查",
+        "description": "在线算命网站不计其数，找到高质量的关键。我们亲自测试和审查数百个AI占卜平台，以确保它们的指导准确而有意义。我们精心策划的列表只包含最好的AI算命工具，让您充满信心地探索。"
+      },
+      "step5_guidance": {
+        "imageAlt": "A user comparing different AI divination websites on a screen",
+        "title": "为您的首次阅读找到合适的平台",
+        "description": "准备好迎接您的首次AI驱动洞察了吗？我们精心策划的列表让选择变得简单。为了立即获得答案，请浏览我们评价最高的AI塔罗牌平台。为了深入了解您的个性，比较我们审查过的最佳AI占星网站。我们引导您找到正确的外部服务，确保您的首次AI占卜体验非常出色。"
       }
     },
     "viewMore": "查看更多"

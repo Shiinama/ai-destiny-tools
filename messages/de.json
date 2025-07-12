@@ -31,8 +31,8 @@
   "siteInfo": {
     "brandName": "Destiny AI",
     "meta": {
-      "title": "Destiny AI - Verzeichnis der KI-Divinationswerkzeuge",
-      "description": "Entdecken Sie die besten KI-gestützten Divinationswerkzeuge für Tarot, Astrologie, I Ging und mehr. Ihr Leitfaden für moderne Wahrsage-Technologie."
+      "title": "Destiny AI - Das Verzeichnis für KI-Wahrsagewerkzeuge",
+      "description": "Ihr kuratiertes Verzeichnis von KI-Wahrsagewerkzeugen. Wir haben die besten KI-Plattformen für Tarot, Astrologie, Horoskope und mehr gesammelt. Finden Sie kostenlose und Premium-Tools, lesen Sie Bewertungen und verbinden Sie sich mit der Zukunft der Wahrsagung."
     }
   },
   "submitTools": {
@@ -176,6 +176,31 @@
         "imageAlt": "Divinationsgemeinschaft",
         "title": "Treten Sie Gleichgesinnten bei",
         "description": "Teilen Sie Ihre 'Aha'-Momente mit anderen, die die Kraft der kosmischen Führung verstehen! Egal, ob es eine Vorhersage war, die wahr wurde, oder ein Rat, der Ihnen in schwierigen Zeiten geholfen hat, hier finden Sie Gleichgesinnte. Unser Blog teilt ehrliche Erfahrungen darüber, welche Tools wirklich Orientierung bieten, wenn Sie verloren sind, Trost, wenn Sie leiden, und Klarheit, wenn Sie sie am dringendsten benötigen."
+      },
+      "step1_concept": {
+        "imageAlt": "KI-Wahrsagung und Wahrsagerei-Konzept",
+        "title": "Was ist KI-Wahrsagung & KI-Wahrsagerei?",
+        "description": "KI-Wahrsagung und KI-Wahrsagerei verbinden Technologie mit traditioneller Weisheit. Unsere Plattform ist Ihr Einstieg in dieses neue Feld, wo leistungsstarke Algorithmen personalisierte Einblicke durch verschiedene Online-Wahrsagemethoden bieten und Vorhersagen zugänglicher denn je machen."
+      },
+      "step2_howitworks": {
+        "imageAlt": "AI Astrology Chart and Tarot Cards",
+        "title": "Wie funktioniert ein KI-Wahrsager?",
+        "description": "Es ist Technologie, kein Ratespiel. Ein KI-Wahrsager verarbeitet Millionen von Datenpunkten aus Inhalten, um eine KI-Tarot-Lesung oder eine detaillierte KI-Astrologie-Analyse durchzuführen. Durch das Erkennen komplexer Muster bieten diese Tools eine präzise und überraschend tiefgreifende KI-Divinationserfahrung direkt von Ihrem Gerät aus."
+      },
+      "step3_types": {
+        "imageAlt": "A collection of links to AI Tarot, Astrology, and Numerology tools",
+        "title": "Entdecken Sie jede Art von KI-Divinations-Tool",
+        "description": "Unser Verzeichnis ist Ihr Tor zur Welt der KI-Wahrsagerei. Hier finden Sie Plattformen, die sofortige KI-Tarot-Lesungen anbieten, die am besten bewerteten Websites für kostenlose KI-Astrologie-Analysen entdecken und sich mit Apps verbinden, die Ihr tägliches KI-Horoskop liefern oder KI-Numerologie-Berechnungen durchführen. Wir helfen Ihnen, das Web zu navigieren, um Ihr perfektes Tool zu finden."
+      },
+      "step4_selection": {
+        "imageAlt": "A seal of approval for best AI divination tools",
+        "title": "Die besten KI-Divinations-Tools, getestet & bewertet",
+        "description": "Bei unzähligen Online-Wahrsageseiten ist Qualität entscheidend. Wir testen und bewerten persönlich Hunderte von KI-Divinationsplattformen, um sicherzustellen, dass ihre Führung präzise und bedeutungsvoll ist. Unsere kuratierte Liste enthält nur die besten KI-Wahrsage-Tools, damit Sie mit vollem Vertrauen erkunden können."
+      },
+      "step5_guidance": {
+        "imageAlt": "A user comparing different AI divination websites on a screen",
+        "title": "Finden Sie die richtige Plattform für Ihre erste Lesung",
+        "description": "Bereit für Ihre erste KI-gestützte Einsicht? Unsere kuratierten Listen machen die Auswahl einfach. Für sofortige Antworten durchsuchen Sie unsere am besten bewerteten KI-Tarot-Plattformen. Für einen tiefen Einblick in Ihre Persönlichkeit vergleichen Sie die besten KI-Astrologie-Seiten, die wir überprüft haben. Wir führen Sie zum richtigen externen Dienst und stellen sicher, dass Ihre erste KI-Divinationserfahrung eine großartige ist."
       }
     },
     "viewMore": "Mehr anzeigen"
