@@ -46,3 +46,13 @@ export function truncateWithEllipsis(str: string, maxLength: number): string {
   if (!str) return ''
   return str.length > maxLength ? str.slice(0, maxLength) + '...' : str
 }
+
+/**
+ * 处理分类显示名，去除 AI 前缀
+ */
+export function getCategoryDisplayName(displayName: string) {
+  if (typeof displayName === 'string' && displayName.startsWith('AI')) {
+    return displayName.slice(2)
+  }
+  return displayName
+}

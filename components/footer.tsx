@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl'
 
 import Logo from '@/components/logo'
 import { Link } from '@/i18n/navigation'
+import { getCategoryDisplayName } from '@/lib/utils'
 
 export default function Footer() {
   const t = useTranslations('footer')
@@ -28,21 +29,29 @@ export default function Footer() {
         <div className="flex flex-col items-start space-y-2">
           <h3 className="text-foreground text-lg font-semibold">{t('quickLinks.title')}</h3>
           <div className="mt-4 flex flex-col space-y-2">
-            {categoryKey1.map((key) => (
-              <Link key={key} href={`/${key}`} className="text-muted-foreground hover:text-primary">
-                {divinationCategories(`${key}.name` as any)}
-              </Link>
-            ))}
+            {categoryKey1.map((key) => {
+              const displayName = divinationCategories(`${key}.name` as any)
+              const nameToShow = getCategoryDisplayName(displayName)
+              return (
+                <Link key={key} href={`/${key}`} className="text-muted-foreground hover:text-primary">
+                  {nameToShow}
+                </Link>
+              )
+            })}
           </div>
         </div>
         <div className="flex flex-col items-start space-y-2">
           <h3 className="text-foreground text-lg font-semibold">{t('categories')}</h3>
           <div className="mt-4 flex flex-col space-y-2">
-            {categoryKey2.map((key) => (
-              <Link key={key} href={`/${key}`} className="text-muted-foreground hover:text-primary">
-                {divinationCategories(`${key}.name` as any)}
-              </Link>
-            ))}
+            {categoryKey2.map((key) => {
+              const displayName = divinationCategories(`${key}.name` as any)
+              const nameToShow = getCategoryDisplayName(displayName)
+              return (
+                <Link key={key} href={`/${key}`} className="text-muted-foreground hover:text-primary">
+                  {nameToShow}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </div>

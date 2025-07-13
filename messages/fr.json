@@ -246,49 +246,294 @@
       "description": "Une méthode de divination utilisant un jeu de 78 cartes avec des images symboliques pour obtenir des aperçus sur le passé, le présent et le futur.",
       "origin": "Italie/France (Europe du 15ème siècle)",
       "seoTitle": "Lecture de Tarot IA - Prédictions et Significations de Cartes Gratuites en Ligne",
-      "seoDescription": "Obtenez des lectures de tarot précises alimentées par l'IA en ligne. Découvrez ce que les cartes révèlent sur votre vie amoureuse, votre parcours professionnel et votre avenir grâce à nos outils avancés de prédiction de tarot."
+      "seoDescription": "Obtenez des lectures de tarot précises alimentées par l'IA en ligne. Découvrez ce que les cartes révèlent sur votre vie amoureuse, votre parcours professionnel et votre avenir grâce à nos outils avancés de prédiction de tarot.",
+      "feature-1": {
+        "title": "Découvrez les Meilleurs Lecteurs de Tarot IA",
+        "description": "Naviguez parmi les meilleurs lecteurs de Tarot IA et comparez les fonctionnalités pour trouver votre guide numérique parfait pour des prédictions perspicaces.",
+        "imageAlt": "Comparaison des lecteurs de tarot IA"
+      },
+      "feature-2": {
+        "title": "Meilleure Lecture de Tarot en Ligne",
+        "description": "Découvrez les plateformes de lecture de tarot en ligne les mieux notées de 2025. Nous avons exploré les options pour vous apporter les outils alimentés par l'IA les plus précis et perspicaces pour votre voyage spirituel.",
+        "imageAlt": "Meilleure lecture de tarot IA en ligne"
+      },
+      "feature-3": {
+        "title": "Maîtriser l'interprétation du Tarot par l'IA",
+        "imageAlt": "Outils d'interprétation de tarot par IA",
+        "description": "Découvrez des outils précis d'interprétation de Tarot IA. Filtrez et sélectionnez les plateformes les plus précises pour améliorer votre compréhension des divinations numériques."
+      },
+      "faq-1": {
+        "question": "Qu'est-ce que la lecture de tarot par IA ?",
+        "answer": "La lecture de tarot IA utilise des algorithmes avancés pour interpréter les cartes de tarot, offrant des conseils personnalisés. Ce site vous aide à découvrir les meilleures plateformes qui fusionnent le symbolisme traditionnel avec la technologie moderne pour des lectures perspicaces et accessibles à tout moment."
+      },
+      "faq-2": {
+        "question": "La lecture de tarot par IA est-elle meilleure que le tarot traditionnel ?",
+        "answer": "Le Tarot IA offre des avantages uniques tels que l'accessibilité 24h/24 et 7j/7 et des interprétations basées sur les données pour des aperçus cohérents. [1, 5] Nous vous aidons à trouver et à comparer divers services de Tarot IA pour voir comment cette approche moderne complète la pratique traditionnelle."
+      },
+      "faq-3": {
+        "question": "Puis-je effectuer une lecture de Tarot par IA moi-même ?",
+        "answer": "Absolument ! La plupart des plateformes de Tarot IA sont conçues pour une utilisation personnelle et facile. Notre guide vous aide à filtrer et à trouver des outils conviviaux, afin que vous puissiez commencer votre propre voyage de tarot alimenté par l'IA pour la découverte de soi immédiatement, sans aucune expérience nécessaire."
+      },
+      "faq-4": {
+        "question": "Dans quelle mesure la lecture de tarot par IA est-elle fiable ?",
+        "answer": "La fiabilité du Tarot IA découle de sa capacité à analyser de vastes ensembles de données de significations symboliques, garantissant des interprétations objectives et cohérentes. Découvrez les outils de Tarot IA les plus fiables et les mieux notés sur notre plateforme pour une lecture digne de confiance."
+      },
+      "faq-5": {
+        "answer": "Les avantages clés incluent un accès immédiat, la confidentialité et des informations personnalisées basées sur une analyse de données complexe. Le Tarot IA rend l'orientation plus abordable et pratique. Explorez notre liste sélectionnée pour trouver un outil qui correspond à vos besoins et questions spécifiques.",
+        "question": "Quels sont les principaux avantages de la lecture de Tarot par IA ?"
+      }
     },
     "astrology": {
       "name": "Astrologie",
       "description": "L'étude de la manière dont les positions et les mouvements des corps célestes influencent les affaires humaines et les phénomènes naturels.",
       "origin": "Origines multiples (Babylone antique, Égypte, Grèce)",
       "seoTitle": "Cartes Astrologiques et Horoscopes IA - Lectures Zodiacales Personnalisées",
-      "seoDescription": "Explorez votre destinée cosmique avec les outils d'astrologie alimentés par l'IA. Obtenez des cartes de naissance personnalisées, des horoscopes quotidiens et des lectures de compatibilité basées sur votre signe zodiacal."
+      "seoDescription": "Explorez votre destinée cosmique avec les outils d'astrologie alimentés par l'IA. Obtenez des cartes de naissance personnalisées, des horoscopes quotidiens et des lectures de compatibilité basées sur votre signe zodiacal.",
+      "feature-1": {
+        "title": "Explorer les outils d'IA d'astrologie",
+        "description": "Découvrez les dernières plateformes d'IA astrologique, y compris les chatbots d'astrologie et les lectures gratuites optimisées par l'IA. Comparez les fonctionnalités pour trouver l'outil parfait pour des aperçus astrologiques personnalisés.",
+        "imageAlt": "Aperçu des outils d'IA en astrologie"
+      },
+      "feature-2": {
+        "title": "Meilleurs Chatbots IA d'Astrologie",
+        "description": "Découvrez les chatbots d'IA astrologiques les mieux notés pour des conseils instantanés et interactifs. Bénéficiez de conseils et de prédictions astrologiques en temps réel adaptés à votre carte de naissance unique.",
+        "imageAlt": "Meilleurs chatbots IA d'astrologie"
+      },
+      "feature-3": {
+        "title": "Lectures d'astrologie IA gratuites",
+        "description": "Accédez à des lectures d'astrologie IA gratuites et découvrez des horoscopes personnalisés. Notre sélection rigoureuse vous aide à choisir les meilleurs outils d'astrologie alimentés par l'IA pour des conseils précis, perspicaces et pratiques concernant votre vie et votre avenir.",
+        "imageAlt": "Lectures d'astrologie gratuites par IA"
+      },
+      "faq-1": {
+        "question": "Qu'est-ce que l'astrologie IA ?",
+        "answer": "L'Astrologie IA utilise l'intelligence artificielle pour analyser les données astrologiques, fournissant des aperçus et des prédictions personnalisés basés sur votre thème natal et les positions planétaires."
+      },
+      "faq-2": {
+        "question": "L'astrologie IA est-elle meilleure que l'astrologie traditionnelle ?",
+        "answer": "L'Astrologie IA offre des interprétations plus rapides, basées sur les données et une accessibilité 24h/24 et 7j/7, en faisant une alternative pratique aux lectures astrologiques traditionnelles."
+      },
+      "faq-3": {
+        "question": "Puis-je utiliser l'astrologie IA gratuitement ?",
+        "answer": "Oui, de nombreuses plateformes d'astrologie IA offrent des fonctionnalités gratuites telles que des horoscopes quotidiens, des analyses de thèmes astraux et des rapports de compatibilité pour vous aider à démarrer."
+      },
+      "faq-4": {
+        "question": "Quelle est la fiabilité de l'astrologie par IA ?",
+        "answer": "L'astrologie IA exploite des algorithmes avancés et de vastes ensembles de données pour fournir des aperçus astrologiques cohérents et objectifs, mais l'interprétation personnelle joue仍un rôle."
+      },
+      "faq-5": {
+        "question": "Quels sont les principaux avantages de l'Astrologie IA ?",
+        "answer": "L'Astrologie par IA offre des conseils instantanés et personnalisés, la confidentialité et un accès facile aux outils astrologiques, vous aidant à prendre des décisions éclairées à tout moment, n'importe où."
+      }
     },
     "iChing": {
       "name": "Yi King",
       "description": "Un ancien système de divination chinois utilisant des hexagrammes pour fournir des conseils et prédire les événements futurs.",
       "origin": "Chine (vers 1000-750 av. J.-C.)",
       "seoTitle": "Oracle I Ching IA - Lectures et Hexagrammes du Livre des Mutations",
-      "seoDescription": "Consultez l'ancien Livre des Mutations avec notre oracle I Ching IA. Obtenez des lectures d'hexagrammes personnalisées, des interprétations et des conseils pour les décisions importantes de la vie."
+      "seoDescription": "Consultez l'ancien Livre des Mutations avec notre oracle I Ching IA. Obtenez des lectures d'hexagrammes personnalisées, des interprétations et des conseils pour les décisions importantes de la vie.",
+      "feature-1": {
+        "title": "Explorer le Yi King IA en ligne",
+        "description": "Trouvez et comparez les principales plateformes en ligne d'I Ching basées sur l'IA pour des lectures d'hexagrammes instantanées et des conseils avisés.",
+        "imageAlt": "Plateformes en ligne de Yi King par IA"
+      },
+      "feature-2": {
+        "title": "Hexagrammes I Ching précis",
+        "description": "Accédez à des outils d'IA avancés qui interprètent les hexagrammes du Yi King pour une compréhension approfondie et des prédictions fiables.",
+        "imageAlt": "Hexagrammes I Ching précis par IA (Accurate AI I Ching hexagrams)"
+      },
+      "feature-3": {
+        "title": "Outils de Lecture I Ching Gratuits",
+        "description": "Découvrez des services de lecture du Yi King gratuits alimentés par l'IA pour expérimenter la divination numérique sans coût.",
+        "imageAlt": "Lectures gratuites de Yi King par IA"
+      },
+      "faq-1": {
+        "question": "Qu'est-ce que l'IA I Ching ?",
+        "answer": "Le Yi King IA utilise l'intelligence artificielle pour fournir des lectures numériques du Yi King et interpréter les hexagrammes en ligne."
+      },
+      "faq-2": {
+        "question": "Les lectures de Yi King par IA sont-elles meilleures que les méthodes traditionnelles ?",
+        "answer": "L'Yi King par IA offre des lectures rapides, accessibles et cohérentes, ce qui en fait une alternative pratique aux méthodes traditionnelles."
+      },
+      "faq-3": {
+        "question": "Puis-je obtenir une lecture gratuite de Yi King par IA ?",
+        "answer": "Oui, de nombreuses plateformes proposent des lectures gratuites du Yi King par IA pour permettre aux utilisateurs de découvrir la divination numérique."
+      },
+      "faq-4": {
+        "question": "Les I Ching basés sur l'IA sont-ils fiables ?",
+        "answer": "Les principaux I Ching basés sur l'IA utilisent des algorithmes avancés pour fournir des interprétations d'hexagrammes précises et éclairantes."
+      },
+      "faq-5": {
+        "question": "Quels sont les avantages d'utiliser l'IA Yi King ?",
+        "answer": "Les plateformes AI I Ching offrent un accès instantané, une portée mondiale et une comparaison aisée des différentes plateformes de divination."
+      }
     },
     "numerology": {
       "name": "Numérologie",
       "description": "La croyance en la relation divine ou mystique entre les nombres et les événements, utilisant des calculs pour révéler des informations sur la personnalité et l'avenir.",
       "origin": "Origines multiples (Grèce antique, Égypte, Babylone)",
       "seoTitle": "Calculateur de Numérologie IA - Analyse du Chemin de Vie et du Nombre du Destin",
-      "seoDescription": "Calculez votre chemin de vie, votre destinée et vos nombres d'expression avec nos outils de numérologie IA. Découvrez comment les nombres influencent votre personnalité, vos relations et votre avenir."
+      "seoDescription": "Calculez votre chemin de vie, votre destinée et vos nombres d'expression avec nos outils de numérologie IA. Découvrez comment les nombres influencent votre personnalité, vos relations et votre avenir.",
+      "feature-1": {
+        "title": "Centre de Calculateur de Nombres Angéliques",
+        "description": "Découvrez les meilleurs calculateurs de nombres angéliques par IA pour décoder les messages spirituels et obtenir des aperçus quotidiens.",
+        "imageAlt": "Calculatrice de nombres angéliques par IA"
+      },
+      "feature-2": {
+        "title": "Aperçus du numéro de chemin de vie",
+        "description": "Trouvez les meilleurs outils d'IA pour révéler votre numéro de chemin de vie et débloquer des conseils personnalisés pour votre parcours.",
+        "imageAlt": "Aperçus des numéros de chemin de vie par IA"
+      },
+      "feature-3": {
+        "title": "Calculateurs de Numérologie Intelligents",
+        "description": "Comparez les calculateurs avancés de numérologie basés sur l'IA pour analyser vos chiffres et prendre des décisions de vie éclairées.",
+        "imageAlt": "Calculateurs de numérologie IA"
+      },
+      "faq-1": {
+        "question": "Qu'est-ce que la Numérologie IA ?",
+        "answer": "La Numérologie IA utilise l'intelligence artificielle pour analyser les nombres et fournir des informations et des prédictions numérologiques personnalisées."
+      },
+      "faq-2": {
+        "question": "Les outils de numérologie par IA sont-ils meilleurs que les méthodes traditionnelles ?",
+        "answer": "Les outils de numérologie basés sur l'IA offrent des résultats plus rapides et basés sur des données, et peuvent comparer plusieurs systèmes, ce qui les rend plus pratiques pour de nombreux utilisateurs."
+      },
+      "faq-3": {
+        "question": "Puis-je utiliser gratuitement les calculateurs de numérologie IA ?",
+        "answer": "De nombreux calculateurs de numérologie IA offrent des fonctionnalités de base gratuites, avec des aperçus avancés disponibles via des plans premium."
+      },
+      "faq-4": {
+        "question": "Les prédictions numérologiques par IA sont-elles fiables ?",
+        "answer": "Les outils de numérologie IA utilisent des principes de numérologie établis et des algorithmes avancés, mais les résultats doivent être considérés comme des conseils plutôt que comme une vérité absolue."
+      },
+      "faq-5": {
+        "question": "Quels sont les avantages d'utiliser les outils de numérologie basés sur l'IA ?",
+        "answer": "Les outils de numérologie basés sur l'IA offrent des informations rapides et personnalisées, des comparaisons faciles et un accès à un large éventail de systèmes et de calculateurs de numérologie."
+      }
     },
     "palmistry": {
       "name": "Chiromancie",
       "description": "L'art de la caractérisation et de la chiromancie par l'étude des lignes, des formes et des textures de la paume.",
       "origin": "Inde (il y a environ 4000 ans)",
       "seoTitle": "Lecture de Main IA - Chiromancie Digitale et Analyse des Mains",
-      "seoDescription": "Téléchargez une photo pour une analyse de lecture de main IA. Découvrez ce que les lignes de votre main révèlent sur votre vie amoureuse, votre succès professionnel, votre santé et votre avenir avec nos outils de chiromancie digitale."
+      "seoDescription": "Téléchargez une photo pour une analyse de lecture de main IA. Découvrez ce que les lignes de votre main révèlent sur votre vie amoureuse, votre succès professionnel, votre santé et votre avenir avec nos outils de chiromancie digitale.",
+      "feature-1": {
+        "title": "Explorer les meilleurs outils d'IA de chiromancie",
+        "description": "Naviguez et comparez les principales applications de chiromancie IA, de chiromancie faciale et de lecture de lignes de la main pour trouver l'outil idéal pour votre parcours de divination numérique.",
+        "imageAlt": "Outils de chiromancie IA"
+      },
+      "feature-2": {
+        "title": "Découvrez le Pouvoir de la Chiromancie Faciale",
+        "description": "Découvrez comment les outils d'intelligence artificielle de chiromancie faciale analysent les traits du visage pour des aperçus uniques, vous aidant à faire des choix éclairés.",
+        "imageAlt": "Analyse de la chiromancie faciale par IA"
+      },
+      "feature-3": {
+        "title": "Comparer les Plateformes d'IA de Chiromancie",
+        "description": "Comparez facilement les fonctionnalités, les tarifs et les expériences utilisateur des meilleures plateformes de chiromancie basées sur l'IA dans le monde entier.",
+        "imageAlt": "Comparaison de plateformes d'IA de chiromancie"
+      },
+      "faq-1": {
+        "question": "Qu'est-ce que la chiromancie IA ?",
+        "answer": "La chiromancie IA utilise l'intelligence artificielle pour analyser les images de paumes ou de visages, fournissant des lectures de paume numériques et des informations personnalisées."
+      },
+      "faq-2": {
+        "question": "La chiromancie par IA est-elle plus précise que les méthodes traditionnelles ?",
+        "answer": "La chiromancie par IA offre des lectures cohérentes et basées sur des données, mais la précision peut varier selon la plateforme et doit être comparée pour de meilleurs résultats."
+      },
+      "faq-3": {
+        "question": "Puis-je utiliser la chiromancie IA en ligne gratuitement ?",
+        "answer": "De nombreux outils de chiromancie basés sur l'IA proposent des essais gratuits ou des lectures de base, vous permettant d'explorer la lecture de paume numérique sans frais."
+      },
+      "faq-4": {
+        "question": "Les outils de chiromancie basés sur l'IA sont-ils fiables ?",
+        "answer": "Les principales plateformes de chiromancie basées sur l'IA utilisent des algorithmes avancés pour des résultats fiables, mais il est toujours essentiel de consulter les avis des utilisateurs et la crédibilité de la plateforme."
+      },
+      "faq-5": {
+        "question": "Quels sont les avantages d'utiliser la chiromancie IA ?",
+        "answer": "La chiromancie IA offre des lectures de paume instantanées, accessibles et personnalisées, aidant les utilisateurs à découvrir des informations à tout moment et en tout lieu."
+      }
     },
     "dreamInterpretation": {
       "name": "Interprétation des Rêves",
       "description": "Analyser les rêves pour découvrir des significations cachées, des messages et des prédictions sur l'avenir.",
       "origin": "Ancienne Égypte, Grèce et Mésopotamie",
       "seoTitle": "Interprétation des Rêves IA - Signification des Rêves et des Symboles",
-      "seoDescription": "Comprenez la signification de vos rêves grâce à l'analyse des rêves IA. Obtenez des interprétations personnalisées des symboles oniriques, des thèmes récurrents et des messages subconscients pendant votre sommeil."
+      "seoDescription": "Comprenez la signification de vos rêves grâce à l'analyse des rêves IA. Obtenez des interprétations personnalisées des symboles oniriques, des thèmes récurrents et des messages subconscients pendant votre sommeil.",
+      "feature-1": {
+        "title": "Interprétation des Rêves par IA",
+        "description": "Découvrez des outils d'IA avancés qui analysent et interprètent vos rêves instantanément, vous aidant à découvrir des significations cachées.",
+        "imageAlt": "Interprétation de rêves par IA"
+      },
+      "feature-2": {
+        "title": "Interpréter l'IA Interprète",
+        "description": "Comparez les meilleures IA d'interprétation conçues pour l'analyse des rêves, offrant des aperçus et des conseils personnalisés.",
+        "imageAlt": "Comparaison d'interprètes de rêves IA"
+      },
+      "feature-3": {
+        "title": "Livre d'Interprétation des Rêves",
+        "description": "Trouvez les meilleurs livres et ressources numériques pour l'interprétation des rêves, conçus pour les débutants et les experts.",
+        "imageAlt": "Ressources d'interprétation des rêves"
+      },
+      "faq-1": {
+        "question": "Qu'est-ce que l'interprétation des rêves par IA ?",
+        "answer": "L'Interprétation des Rêves par IA utilise l'intelligence artificielle pour analyser et expliquer la signification de vos rêves rapidement et précisément."
+      },
+      "faq-2": {
+        "question": "L'interprétation des rêves par l'IA est-elle meilleure que les méthodes traditionnelles ?",
+        "answer": "Les outils d'IA offrent des aperçus instantanés basés sur les données, rendant l'analyse des rêves plus accessible et souvent plus précise que les méthodes traditionnelles."
+      },
+      "faq-3": {
+        "question": "Puis-je utiliser l'IA pour interpréter n'importe quel type de rêve ?",
+        "answer": "Oui, la plupart des interprètes de rêves basés sur l'IA sont conçus pour analyser une large gamme de scénarios et de symboles oniriques."
+      },
+      "faq-4": {
+        "question": "Les outils d'interprétation des rêves basés sur l'IA sont-ils fiables ?",
+        "answer": "Les principaux outils d'interprétation des rêves par IA utilisent des algorithmes avancés et de vastes ensembles de données, offrant des résultats fiables et perspicaces."
+      },
+      "faq-5": {
+        "question": "Quels sont les avantages de l'utilisation de l'IA pour l'interprétation des rêves ?",
+        "answer": "Les outils d'IA offrent une analyse des rêves rapide, personnalisée et pratique, aidant les utilisateurs à comprendre leur subconscient plus efficacement."
+      }
     },
     "vedic": {
       "name": "Astrologie Védique",
       "description": "Un ancien système astrologique indien basé sur les positions sidérales plutôt que tropicales, offrant une analyse détaillée du destin, du caractère et des événements de la vie.",
       "origin": "Inde (vers 1500 av. J.-C.)",
       "seoTitle": "Astrologie Védique IA - Thèmes Astraux et Prédictions Jyotish",
-      "seoDescription": "Découvrez votre véritable empreinte cosmique avec l'astrologie védique IA. Obtenez des lectures Jyotish précises, des thèmes astraux et des prédictions pour la carrière, les relations et le chemin de vie."
+      "seoDescription": "Découvrez votre véritable empreinte cosmique avec l'astrologie védique IA. Obtenez des lectures Jyotish précises, des thèmes astraux et des prédictions pour la carrière, les relations et le chemin de vie.",
+      "feature-1": {
+        "title": "Découvrez les Meilleurs Calculateurs d'IA d'Astrologie Védique",
+        "imageAlt": "Calculatrices d'IA pour l'astrologie védique",
+        "description": "Explorez les meilleurs calculateurs d'astrologie védique basés sur l'IA de Destiny AI pour générer facilement votre thème astral personnalisé et obtenir des informations approfondies. Trouvez, comparez et choisissez les meilleurs outils sur notre plateforme de navigation tout-en-un."
+      },
+      "feature-2": {
+        "title": "Découvrez votre Destin avec les Outils d'IA",
+        "description": "Créez instantanément votre thème astral védique à l'aide d'une IA avancée. Notre plateforme vous aide à découvrir et à sélectionner les outils numériques les plus fiables pour un guidage astrologique personnalisé.",
+        "imageAlt": "Outils d'IA pour les thèmes astraux védiques"
+      },
+      "feature-3": {
+        "title": "Trouvez Votre Astrologue Numérique Idéal",
+        "description": "Naviguez dans le monde de l'IA de l'astrologie védique grâce à notre sélection organisée d'applications et de calculateurs. Découvrez, filtrez et choisissez l'outil parfait pour déverrouiller votre thème astral et votre avenir.",
+        "imageAlt": "Applications numériques d'astrologues védiques"
+      },
+      "faq-1": {
+        "question": "Qu'est-ce que l'astrologie védique IA ?",
+        "answer": "L'astrologie védique IA utilise l'intelligence artificielle pour analyser les principes astrologiques védiques traditionnels, fournissant des lectures et des aperçus personnalisés basés sur vos détails de naissance."
+      },
+      "faq-2": {
+        "question": "L'astrologie védique par IA est-elle meilleure que l'astrologie traditionnelle ?",
+        "answer": "L'astrologie védique basée sur l'IA offre des prédictions plus rapides et basées sur les données, et peut traiter de grandes quantités de données astrologiques, la rendant plus accessible et cohérente par rapport aux méthodes traditionnelles."
+      },
+      "faq-3": {
+        "question": "Puis-je obtenir des prédictions précises avec l'astrologie védique par IA ?",
+        "answer": "Oui, l'astrologie védique IA exploite des algorithmes avancés pour fournir des prédictions précises et personnalisées, bien que les résultats puissent varier en fonction de la qualité des données et de l'interprétation."
+      },
+      "faq-4": {
+        "question": "L'astrologie védique par IA est-elle fiable ?",
+        "answer": "L'astrologie védique par IA est fiable pour des lectures rapides, impartiales et cohérentes, mais elle est préférable d'être utilisée comme un outil complémentaire aux côtés d'astrologues humains experts. [1, 2, 3]"
+      },
+      "faq-5": {
+        "question": "Quels sont les avantages d'utiliser l'astrologie védique par IA ?",
+        "answer": "L'astrologie védique par IA offre un accès instantané, des aperçus personnalisés et une analyse impartiale, aidant les utilisateurs à prendre des décisions éclairées concernant leur avenir."
+      }
     },
     "categoryNotFound": "Catégorie Introuvable",
     "categoryNotFoundDescription": "La catégorie de divination que vous recherchez n'a pas pu être trouvée. Veuillez consulter notre page d'accueil pour les catégories disponibles.",
@@ -305,7 +550,8 @@
       "origin": "Intégration moderne des pratiques traditionnelles",
       "seoTitle": "Plateformes de divination IA tout-en-un - Méthodes multiples de voyance",
       "seoDescription": "Accédez à plusieurs méthodes de divination IA en un seul endroit. Des plateformes complètes offrant le tarot, l'astrologie, la numérologie et bien plus pour une guidance spirituelle et une voyance complètes."
-    }
+    },
+    "faqTitle": "Foire aux questions"
   },
   "divinationTools": {
     "accessTool": "Accéder à l'outil",
