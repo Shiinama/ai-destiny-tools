@@ -28,7 +28,8 @@
     "i18n:delete": "tsx scripts/18n/cli.ts --d",
     "i18n:keys": "tsx scripts/18n/cli.ts --mode=keys --keys",
     "i18n:list": "tsx scripts/18n/cli.ts --list-locales",
-    "i18n:sequential": "tsx scripts/18n/sequential-cli.ts"
+    "i18n:sequential": "tsx scripts/18n/sequential-cli.ts",
+    "update-sitemap": "curl -X GET http://localhost:3000/api/blog/get-all-urls "
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.9.0",
