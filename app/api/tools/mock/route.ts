@@ -24,6 +24,10 @@ function generateMockTools(categoryIds: string[]) {
 }
 
 export async function GET() {
+  // 只在本地环境允许调用
+  if (process.env.NODE_ENV !== 'development') {
+    return NextResponse.json({ code: 403, message: '此接口仅在开发环境可用' }, { status: 403 })
+  }
   // 获取真实分类
   const categories = await getCategories()
   const categoryIds = categories.map((c: any) => c.id)
