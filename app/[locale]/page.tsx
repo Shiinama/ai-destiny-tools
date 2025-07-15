@@ -42,7 +42,7 @@ export default async function Home({
     <div className="text-foreground container min-h-screen rounded-lg py-8">
       <header className="mb-8 space-y-4 text-center">
         <h1 className="text-primary text-4xl font-bold">{t('title')}</h1>
-        <p className="text-muted-foreground mx-auto max-w-3xl text-lg">{t('description')}</p>
+        <p className="text-muted-foreground mx-auto max-w-4xl text-lg">{t('description')}</p>
         <CategoryLinks categories={categories} />
       </header>
 

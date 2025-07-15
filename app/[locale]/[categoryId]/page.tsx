@@ -6,8 +6,10 @@ import { getTranslations } from 'next-intl/server'
 
 import { getSpecificPosts } from '@/actions/ai-content'
 import { getCategories, getPaginatedTools } from '@/actions/divination-tools'
+import { getFeatureConfigs, ignoreCategories } from '@/app/[locale]/[categoryId]/config'
 import BlogLinkCard from '@/components/blog/blog-link-card'
 import { BlogPagination } from '@/components/blog/blog-pagination'
+import FeatureItem from '@/components/home/feature-item'
 import SiteCard from '@/components/navigatiton-sites/site-card'
 import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
@@ -115,7 +117,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     <div className="container py-8">
       <header className="mb-8 space-y-4 text-center">
         <h1 className="text-primary text-4xl font-bold">{t(`${category.key}.name` as any)}</h1>
-        <p className="text-muted-foreground mx-auto max-w-3xl text-lg">{t(`${category.key}.description` as any)}</p>
+        <p className="text-muted-foreground mx-auto max-w-4xl text-lg">{t(`${category.key}.description` as any)}</p>
       </header>
 
       <div className="grid grid-cols-1 gap-6 md:gap-12">
@@ -154,6 +156,38 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
             <Link className={buttonVariants({ variant: 'default', size: 'lg', className: 'w-40' })} href="/blogs">
               {home('viewMore')}
             </Link>
+          </section>
+        )}
+
+        {!ignoreCategories.includes(category.key) && (
+          <section className="mt-12 space-y-16">
+            {getFeatureConfigs(t, category.key).map((feature, idx) => (
+              <FeatureItem key={idx} {...feature} />
+            ))}
+          </section>
+        )}
+
+        {!ignoreCategories.includes(category.key) && (
+          <section className="mt-12 space-y-8 p-6 md:p-8">
+            <h2 className="text-primary/80 flex items-center justify-center gap-2 text-center text-3xl font-bold">
+              {t(`faqTitle`)}
+            </h2>
+            <div className="mx-auto max-w-4xl space-y-6">
+              {Array.from({ length: 5 }, (_, idx) => {
+                const i = idx + 1
+                return (
+                  <div key={i}>
+                    <div className="text-primary-foreground relative flex items-center gap-2 text-lg font-semibold">
+                      {t(`${category.key}.faq-${i}.question` as any)}
+                    </div>
+                    <div className="text-muted-foreground my-5 text-base">
+                      {t(`${category.key}.faq-${i}.answer` as any)}
+                    </div>
+                    {i < 5 && <hr className="border-muted" />}
+                  </div>
+                )
+              })}
+            </div>
           </section>
         )}
       </div>

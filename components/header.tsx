@@ -47,8 +47,9 @@ export default async function Header({ className }: { className?: string }) {
           <Logo />
           <MainNav className="ml-4" items={navLinks} />
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <LocaleSwitcher />
+          {/* <DiscordBtn /> */}
           <LoginModal />
         </div>
       </nav>
@@ -57,6 +58,7 @@ export default async function Header({ className }: { className?: string }) {
         <Logo />
         <div className="flex items-center gap-4">
           <LocaleSwitcher />
+          {/* <DiscordBtn /> */}
           <Sheet>
             <SheetTrigger asChild>
               <Menu className="size-6" />
