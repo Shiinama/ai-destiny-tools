@@ -1,7 +1,6 @@
 import { Menu } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 
-import DiscordBtn from '@/components/discord'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import LoginModal from '@/components/login/login-modal'
 import Logo from '@/components/logo'
@@ -50,7 +49,7 @@ export default async function Header({ className }: { className?: string }) {
         </div>
         <div className="flex items-center gap-4">
           <LocaleSwitcher />
-          <DiscordBtn />
+          {/* <DiscordBtn /> */}
           <LoginModal />
         </div>
       </nav>
@@ -59,7 +58,7 @@ export default async function Header({ className }: { className?: string }) {
         <Logo />
         <div className="flex items-center gap-4">
           <LocaleSwitcher />
-          <DiscordBtn />
+          {/* <DiscordBtn /> */}
           <Sheet>
             <SheetTrigger asChild>
               <Menu className="size-6" />
