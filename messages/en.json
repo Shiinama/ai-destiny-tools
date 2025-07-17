@@ -483,10 +483,12 @@
   "HomePage": {
     "title": "The AI Fortune Telling Tool Directory",
     "description": "Your curated directory of AI fortune telling tools. We've collected the top AI platforms for Tarot, Astrology, Horoscopes, and more. Find free and premium tools, read reviews, and connect with the future of divination.",
+    "searchPlaceholder": "Search AI Tarot, Astrology, Horoscope tools...",
     "featuredPosts": "Featured Posts",
     "submitTool": "Submit a Tool",
     "visitSite": "Visit Site →",
     "viewMore": "View More",
+    "noResults": "No tools found matching your search",
     "features": {
       "step1_concept": {
         "imageAlt": "AI Divination and Fortune Telling concept",

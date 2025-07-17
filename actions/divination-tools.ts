@@ -67,7 +67,9 @@ export async function getPaginatedTools({
   }
 
   if (search) {
-    conditions.push(like(divinationTools.name, `%${search}%`))
+    conditions.push(
+      sql`(${like(divinationTools.name, `%${search}%`)} OR ${like(divinationTools.description, `%${search}%`)} OR ${like(divinationTools.content, `%${search}%`)})`
+    )
   }
 
   if (categoryId) {
