@@ -4,14 +4,13 @@ import { getSpecificPosts } from '@/actions/ai-content'
 import { getCategories, getPaginatedTools } from '@/actions/divination-tools'
 import HomeContent from '@/components/home/home-content'
 
-export default async function Home({
-  params,
-  searchParams
-}: {
+interface SearchPageProps {
   params: Promise<{ locale: string }>
-  searchParams: Promise<{ page?: string }>
-}) {
-  const [{ page }, { locale }] = await Promise.all([searchParams, params])
+  searchParams: Promise<{ query?: string; page?: string }>
+}
+
+export default async function SearchPage({ params, searchParams }: SearchPageProps) {
+  const [{ query, page }, { locale }] = await Promise.all([searchParams, params])
 
   const currentPage = page ? parseInt(page) : 1
   const pageSize = 20
@@ -23,6 +22,7 @@ export default async function Home({
       page: currentPage,
       pageSize,
       status: 'approved',
+      search: query,
       locale: locale
     }),
     getSpecificPosts([
@@ -34,6 +34,7 @@ export default async function Home({
 
   return (
     <HomeContent
+      search={query}
       t={t}
       categories={categories}
       tools={sites.tools}

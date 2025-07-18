@@ -203,7 +203,10 @@
         "description": "Pronti per la vostra prima intuizione alimentata dall'IA? Le nostre liste curate rendono facile la scelta. Per risposte immediate, sfogliate le nostre piattaforme di Tarocchi IA più votate. Per un'immersione profonda nella vostra personalità, confrontate i migliori siti di astrologia IA che abbiamo recensito. Vi guidiamo al servizio esterno giusto, assicurando che la vostra prima esperienza di divinazione IA sia eccellente."
       }
     },
-    "viewMore": "Visualizza altro"
+    "viewMore": "Visualizza altro",
+    "searchPlaceholder": "Cerca strumenti AI di Tarocchi, Astrologia, Oroscopo...",
+    "noResults": "Nessuno strumento trovato corrispondente alla tua ricerca.",
+    "searchResultsFor": "Risultati di ricerca per"
   },
   "login": {
     "signOut": "Esci",
