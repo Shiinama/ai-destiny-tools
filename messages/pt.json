@@ -203,7 +203,10 @@
         "description": "Pronto para sua primeira percepção com IA? Nossas listas selecionadas facilitam a escolha. Para respostas imediatas, navegue em nossas plataformas de Tarot por IA mais bem avaliadas. Para um mergulho profundo em sua personalidade, compare os melhores sites de astrologia por IA que revisamos. Nós o guiamos para o serviço externo certo, garantindo que sua primeira experiência de divinação por IA seja excelente."
       }
     },
-    "viewMore": "Ver mais"
+    "viewMore": "Ver mais",
+    "searchPlaceholder": "Pesquisar ferramentas de IA para Tarot, Astrologia, Horóscopo...",
+    "noResults": "Nenhuma ferramenta encontrada que corresponda à sua pesquisa.",
+    "searchResultsFor": "Resultados da pesquisa para"
   },
   "login": {
     "signOut": "Sair",

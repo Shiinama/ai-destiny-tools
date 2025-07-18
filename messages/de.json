@@ -203,7 +203,10 @@
         "description": "Bereit für Ihre erste KI-gestützte Einsicht? Unsere kuratierten Listen machen die Auswahl einfach. Für sofortige Antworten durchsuchen Sie unsere am besten bewerteten KI-Tarot-Plattformen. Für einen tiefen Einblick in Ihre Persönlichkeit vergleichen Sie die besten KI-Astrologie-Seiten, die wir überprüft haben. Wir führen Sie zum richtigen externen Dienst und stellen sicher, dass Ihre erste KI-Divinationserfahrung eine großartige ist."
       }
     },
-    "viewMore": "Mehr anzeigen"
+    "viewMore": "Mehr anzeigen",
+    "searchPlaceholder": "KI-Tarot-, Astrologie- und Horoskop-Tools suchen...",
+    "noResults": "Es wurden keine Tools gefunden, die Ihrer Suche entsprechen.",
+    "searchResultsFor": "Suchergebnisse für"
   },
   "login": {
     "signOut": "Abmelden",
