@@ -18,7 +18,7 @@ export default function SiteCard({ site }: SiteCardProps) {
 
   return (
     <Card key={site.id}>
-      <div className="relative w-full overflow-hidden rounded-t-md pt-[56.25%]">
+      <div className="relative w-full overflow-hidden rounded-t-xl pt-[56.25%]">
         <img src={site.imageUrl!} alt={site.name} className="absolute inset-0 h-full w-full object-cover" />
       </div>
       <CardHeader>
