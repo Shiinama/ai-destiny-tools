@@ -4,13 +4,12 @@ import { getSpecificPosts } from '@/actions/ai-content'
 import { getCategories, getPaginatedTools } from '@/actions/divination-tools'
 import HomeContent from '@/components/home/home-content'
 
-export default async function SearchPage({
-  params,
-  searchParams
-}: {
+interface SearchPageProps {
   params: Promise<{ locale: string }>
   searchParams: Promise<{ query?: string; page?: string }>
-}) {
+}
+
+export default async function SearchPage({ params, searchParams }: SearchPageProps) {
   const [{ query, page }, { locale }] = await Promise.all([searchParams, params])
 
   const currentPage = page ? parseInt(page) : 1
@@ -35,7 +34,7 @@ export default async function SearchPage({
 
   return (
     <HomeContent
-      locale={locale}
+      search={query}
       t={t}
       categories={categories}
       tools={sites.tools}

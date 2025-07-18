@@ -8,7 +8,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 
 interface HomeContentProps {
-  locale: string
+  search?: string
   t: any
   categories: any[]
   tools: any[]
@@ -16,7 +16,7 @@ interface HomeContentProps {
   specificPosts: any[]
 }
 
-export default function HomeContent({ locale, t, categories, tools, pagination, specificPosts }: HomeContentProps) {
+export default function HomeContent({ t, categories, tools, pagination, specificPosts, search }: HomeContentProps) {
   return (
     <div className="text-foreground container min-h-screen rounded-lg py-8">
       <header className="mb-8 space-y-4 text-center">
@@ -25,7 +25,14 @@ export default function HomeContent({ locale, t, categories, tools, pagination, 
         <CategoryLinks categories={categories} />
       </header>
 
-      <SearchBox locale={locale} />
+      <SearchBox />
+
+      {typeof search === 'string' && search.trim() !== '' && (
+        <div className="text-primary mb-4 text-2xl">
+          {t('searchResultsFor')}: <span className="font-semibold">{search}</span>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 gap-6 md:gap-12">
         <section className="space-y-4">
           <div className="grid grid-cols-2 gap-2 md:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] md:gap-4">

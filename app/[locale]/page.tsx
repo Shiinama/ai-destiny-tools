@@ -34,7 +34,6 @@ export default async function Home({
 
   return (
     <HomeContent
-      locale={locale}
       t={t}
       categories={categories}
       tools={sites.tools}

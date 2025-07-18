@@ -4,11 +4,12 @@ import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
 
-import { useRouter } from '@/i18n/navigation'
+import { useRouter, usePathname } from '@/i18n/navigation'
 
-export default function SearchBox({ locale }: { locale: string }) {
+export default function SearchBox() {
   const searchParams = useSearchParams()
   const router = useRouter()
+  const pathname = usePathname()
   const [query, setQuery] = useState('')
   const t = useTranslations('HomePage')
 
@@ -18,10 +19,19 @@ export default function SearchBox({ locale }: { locale: string }) {
 
   const handleSearch = () => {
     const q = query.trim()
-    if (q) {
-      router.push(`/${locale}/search?query=${encodeURIComponent(q)}`)
-    } else {
-      router.push(`/${locale}`)
+    if (!q) return
+
+    const searchUrl = `/search?query=${encodeURIComponent(q)}`
+    const isOnSearchPage = pathname.startsWith(`/search`)
+    const currentQuery = searchParams.get('query') || ''
+
+    if (isOnSearchPage && currentQuery !== q) {
+      router.push(searchUrl)
+      return
+    }
+
+    if (!isOnSearchPage) {
+      window.open(searchUrl, '_blank')
     }
   }
 
