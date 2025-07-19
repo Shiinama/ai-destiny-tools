@@ -179,6 +179,63 @@ export async function getToolById(id: string, locale?: string) {
   }
 }
 
+export async function getToolsByCategory(
+  categoryId: string,
+  excludeToolId?: string,
+  locale?: string,
+  limit: number = 6
+) {
+  const db = createDb()
+
+  const conditions = [eq(divinationTools.categoryId, categoryId), eq(divinationTools.status, 'approved')]
+
+  if (excludeToolId) {
+    conditions.push(sql`${divinationTools.id} != ${excludeToolId}`)
+  }
+
+  let query
+  if (!locale || locale === 'en') {
+    query = db
+      .select({
+        tools: divinationTools,
+        categoryKey: divinationCategories.key
+      })
+      .from(divinationTools)
+      .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
+      .where(and(...conditions))
+  } else {
+    query = db
+      .select({
+        tools: divinationTools,
+        categoryKey: divinationCategories.key,
+        translationContent: divinationToolTranslations.content,
+        translationDescription: divinationToolTranslations.description
+      })
+      .from(divinationTools)
+      .leftJoin(divinationCategories, eq(divinationTools.categoryId, divinationCategories.id))
+      .leftJoin(
+        divinationToolTranslations,
+        and(eq(divinationToolTranslations.toolId, divinationTools.id), eq(divinationToolTranslations.locale, locale))
+      )
+      .where(and(...conditions))
+  }
+
+  const tools = await query.orderBy(divinationTools.display_order).limit(limit).execute()
+
+  return tools.map((item) => {
+    return {
+      ...withI18nFields(
+        { ...item.tools, content: item.tools.content ?? '' },
+        'translationContent' in item || 'translationDescription' in item
+          ? { content: (item as any).translationContent, description: (item as any).translationDescription }
+          : undefined,
+        locale
+      ),
+      categoryKey: item.categoryKey
+    }
+  })
+}
+
 export async function createTool(data: DivinationToolInput) {
   const session = await auth()
   if (!session?.user?.id) {

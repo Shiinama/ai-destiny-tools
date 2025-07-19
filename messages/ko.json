@@ -574,6 +574,9 @@
     "nextImage": "다음 이미지",
     "goToImage": "이미지로 이동",
     "toolNotFound": "도구를 찾을 수 없습니다",
-    "toolNotFoundDescription": "찾으시는 점술 도구를 찾을 수 없습니다. 사용 가능한 도구는 저희 홈페이지를 확인해 주세요."
+    "toolNotFoundDescription": "찾으시는 점술 도구를 찾을 수 없습니다. 사용 가능한 도구는 저희 홈페이지를 확인해 주세요.",
+    "relatedTools": "관련 도구",
+    "relatedToolsDescription": "마음에 드실 만한 더 많은 {category} 도구를 찾아보세요.",
+    "viewMore": "더 보기"
   }
 }

@@ -574,6 +574,9 @@
     "nextImage": "Imagen siguiente",
     "goToImage": "Ir a la imagen",
     "toolNotFound": "Herramienta no encontrada",
-    "toolNotFoundDescription": "No se pudo encontrar la herramienta de adivinación que busca. Por favor, consulte nuestra página de inicio para ver las herramientas disponibles."
+    "toolNotFoundDescription": "No se pudo encontrar la herramienta de adivinación que busca. Por favor, consulte nuestra página de inicio para ver las herramientas disponibles.",
+    "relatedTools": "Herramientas relacionadas",
+    "relatedToolsDescription": "Descubre más herramientas de {category} que podrían interesarte",
+    "viewMore": "Ver más"
   }
 }

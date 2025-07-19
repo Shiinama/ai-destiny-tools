@@ -1,12 +1,15 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
+import { Suspense } from 'react'
 
-import { getToolById } from '@/actions/divination-tools'
+import { getToolById, getToolsByCategory } from '@/actions/divination-tools'
 import AboutSection from '@/app/[locale]/divination-tools/[id]/components/about-section'
 import AccessToolCard from '@/app/[locale]/divination-tools/[id]/components/access-tool-card'
 import HeroSection from '@/app/[locale]/divination-tools/[id]/components/hero-section'
 import PricingCard from '@/app/[locale]/divination-tools/[id]/components/pricing-card'
+import RelatedTools from '@/app/[locale]/divination-tools/[id]/components/related-tools'
 import ScreenshotsSection from '@/app/[locale]/divination-tools/[id]/components/screenshots-section'
+import { divinationTools } from '@/lib/db/schema'
 import { truncateWithEllipsis } from '@/lib/utils'
 
 interface DivinationToolPageProps {
@@ -46,9 +49,12 @@ export default async function DivinationToolPage({ params }: DivinationToolPageP
       <HeroSection tool={tool} />
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+        <div className="space-y-8 lg:col-span-2">
           <ScreenshotsSection tool={tool} />
           <AboutSection content={tool.content} />
+          <Suspense fallback={null}>
+            <RelatedToolsComponent tool={tool} locale={locale} />
+          </Suspense>
         </div>
 
         <div className="space-y-6">
@@ -58,4 +64,14 @@ export default async function DivinationToolPage({ params }: DivinationToolPageP
       </div>
     </div>
   )
+}
+const RelatedToolsComponent = async ({
+  tool,
+  locale
+}: {
+  tool: typeof divinationTools.$inferSelect & { categoryKey: string | null }
+  locale: string
+}) => {
+  const relatedTools = await getToolsByCategory(tool.categoryId, tool.id, locale, 6)
+  return <RelatedTools currentTool={tool} relatedTools={relatedTools} />
 }

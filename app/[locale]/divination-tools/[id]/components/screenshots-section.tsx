@@ -29,7 +29,7 @@ export default function ScreenshotsSection({ tool }: ScreenshotsSectionProps) {
   }
 
   return (
-    <Card className="mb-8">
+    <Card>
       <CardContent className="px-1">
         <h2 className="p-4 text-xl font-bold">{t('screenshots')}</h2>
         <Swiper
