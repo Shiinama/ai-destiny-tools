@@ -44,7 +44,7 @@ export default function SearchBox() {
   return (
     <div className="relative mx-auto mb-8 w-full max-w-3xl">
       <input
-        className="w-full rounded-lg bg-white px-6 py-4 pr-12 text-base shadow-sm outline-none placeholder:text-gray-400 dark:bg-white/[0.07] dark:text-white dark:placeholder:text-gray-500"
+        className="w-full rounded-lg bg-white/[0.07] px-6 py-4 pr-12 text-base text-white shadow-sm outline-none placeholder:text-gray-500"
         placeholder={t('searchPlaceholder')}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
