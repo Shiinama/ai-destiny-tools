@@ -19,11 +19,17 @@ export default function SiteCard({ site }: SiteCardProps) {
   return (
     <Card key={site.id}>
       <div className="relative w-full overflow-hidden rounded-t-xl pt-[56.25%]">
-        <img src={site.imageUrl!} alt={site.name} className="absolute inset-0 h-full w-full object-cover" />
+        <Link href={`/divination-tools/${site.id}`} target="_blank" rel="nofollow">
+          <img
+            src={site.imageUrl!}
+            alt={site.name}
+            className="absolute inset-0 h-full w-full cursor-pointer object-cover transition-transform duration-300 hover:scale-110"
+          />
+        </Link>
       </div>
       <CardHeader>
-        <h3 className="text-lg font-medium">{site.name}</h3>
-        <CardDescription className="line-clamp-4">{site.description}</CardDescription>
+        <h3 className="line-clamp-1 text-lg font-medium">{site.name}</h3>
+        <CardDescription className="line-clamp-3 text-pretty">{site.description}</CardDescription>
       </CardHeader>
       <CardFooter>
         <Link
