@@ -574,6 +574,9 @@
     "nextImage": "Immagine successiva",
     "goToImage": "Vai all'immagine",
     "toolNotFound": "Strumento non trovato",
-    "toolNotFoundDescription": "Lo strumento di divinazione che stai cercando non è stato trovato. Si prega di controllare la nostra homepage per gli strumenti disponibili."
+    "toolNotFoundDescription": "Lo strumento di divinazione che stai cercando non è stato trovato. Si prega di controllare la nostra homepage per gli strumenti disponibili.",
+    "relatedTools": "Strumenti correlati",
+    "relatedToolsDescription": "Scopri altri strumenti {category} che potrebbero piacerti",
+    "viewMore": "Visualizza altro"
   }
 }

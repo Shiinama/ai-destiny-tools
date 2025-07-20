@@ -574,6 +574,9 @@
     "nextImage": "Nächstes Bild",
     "goToImage": "Zum Bild springen",
     "toolNotFound": "Tool nicht gefunden",
-    "toolNotFoundDescription": "Das von Ihnen gesuchte Wahrsage-Tool konnte nicht gefunden werden. Bitte überprüfen Sie unsere Homepage für verfügbare Tools."
+    "toolNotFoundDescription": "Das von Ihnen gesuchte Wahrsage-Tool konnte nicht gefunden werden. Bitte überprüfen Sie unsere Homepage für verfügbare Tools.",
+    "relatedTools": "Verwandte Tools",
+    "relatedToolsDescription": "Entdecken Sie weitere {category}-Tools, die Ihnen gefallen könnten",
+    "viewMore": "Mehr anzeigen"
   }
 }

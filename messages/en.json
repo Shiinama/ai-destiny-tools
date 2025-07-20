@@ -359,7 +359,10 @@
     "screenshot": "screenshot",
     "previousImage": "Previous image",
     "nextImage": "Next image",
-    "goToImage": "Go to image"
+    "goToImage": "Go to image",
+    "relatedTools": "Related Tools",
+    "relatedToolsDescription": "Discover more {category} tools you might like",
+    "viewMore": "View More"
   },
   "submitTools": {
     "title": "Submit AI Divination Tool",

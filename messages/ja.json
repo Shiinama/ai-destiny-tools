@@ -574,6 +574,9 @@
     "nextImage": "次の画像",
     "goToImage": "画像へ移動",
     "toolNotFound": "ツールが見つかりません",
-    "toolNotFoundDescription": "お探しの占いツールは見つかりませんでした。利用可能なツールについては、ホームページをご確認ください。"
+    "toolNotFoundDescription": "お探しの占いツールは見つかりませんでした。利用可能なツールについては、ホームページをご確認ください。",
+    "relatedTools": "関連ツール",
+    "relatedToolsDescription": "{category}の関連ツールをもっと探索する",
+    "viewMore": "さらに表示"
   }
 }

@@ -574,6 +574,9 @@
     "nextImage": "Próxima imagem",
     "goToImage": "Ir para a imagem",
     "toolNotFound": "Ferramenta não encontrada",
-    "toolNotFoundDescription": "A ferramenta de adivinhação que você está procurando não foi encontrada. Por favor, verifique nossa página inicial para ferramentas disponíveis."
+    "toolNotFoundDescription": "A ferramenta de adivinhação que você está procurando não foi encontrada. Por favor, verifique nossa página inicial para ferramentas disponíveis.",
+    "relatedTools": "Ferramentas Relacionadas",
+    "relatedToolsDescription": "Descubra mais ferramentas de {category} de que possa gostar",
+    "viewMore": "Ver mais"
   }
 }

@@ -9,7 +9,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
 interface ScreenshotsSectionProps {
@@ -29,9 +29,11 @@ export default function ScreenshotsSection({ tool }: ScreenshotsSectionProps) {
   }
 
   return (
-    <Card className="mb-8">
+    <Card>
       <CardContent className="px-1">
-        <h2 className="p-4 text-xl font-bold">{t('screenshots')}</h2>
+        <CardHeader>
+          <CardTitle className="text-xl font-bold">{t('screenshots')}</CardTitle>
+        </CardHeader>
         <Swiper
           modules={[Navigation, Pagination]}
           navigation
