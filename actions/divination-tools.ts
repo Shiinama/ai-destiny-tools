@@ -220,7 +220,10 @@ export async function getToolsByCategory(
       .where(and(...conditions))
   }
 
-  const tools = await query.orderBy(divinationTools.display_order).limit(limit).execute()
+  const tools = await query
+    .orderBy(sql`RANDOM()`)
+    .limit(limit)
+    .execute()
 
   return tools.map((item) => {
     return {
