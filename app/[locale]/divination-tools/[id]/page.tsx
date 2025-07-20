@@ -52,14 +52,17 @@ export default async function DivinationToolPage({ params }: DivinationToolPageP
         <div className="space-y-8 lg:col-span-2">
           <ScreenshotsSection tool={tool} />
           <AboutSection content={tool.content} />
-          <Suspense fallback={null}>
-            <RelatedToolsComponent tool={tool} locale={locale} />
-          </Suspense>
         </div>
 
         <div className="space-y-6">
           <AccessToolCard tool={tool} />
           <PricingCard tool={tool} />
+        </div>
+
+        <div className="lg:col-span-3">
+          <Suspense fallback={null}>
+            <RelatedToolsComponent tool={tool} locale={locale} />
+          </Suspense>
         </div>
       </div>
     </div>

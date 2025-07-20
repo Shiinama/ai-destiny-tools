@@ -37,7 +37,7 @@ export default function RelatedTools({ currentTool, relatedTools }: RelatedTools
         </div>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {relatedTools.map((tool) => (
             <Link key={tool.id} href={`/divination-tools/${tool.id}`} className="group block">
               <Card className="hover:shadow-primary/10 h-full overflow-hidden transition-all duration-300 group-hover:-translate-y-1 hover:shadow-lg">
