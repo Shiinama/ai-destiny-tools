@@ -28,6 +28,7 @@ export default function NewToolPage() {
     url: '',
     categoryId: '',
     contactInfo: '',
+    remarks: '',
     isFree: true,
     price: '',
     content: '',
@@ -337,6 +338,19 @@ export default function NewToolPage() {
               placeholder="邮箱或其他联系方式"
             />
           </div>
+
+          <div>
+            <Label htmlFor="remarks">备注</Label>
+            <Textarea
+              id="remarks"
+              name="remarks"
+              value={formData.remarks}
+              onChange={handleInputChange}
+              placeholder="输入备注信息"
+              rows={3}
+            />
+          </div>
+
           <div className="flex items-center space-x-2">
             <Switch id="isFree" checked={formData.isFree} onCheckedChange={handleSwitchChange} />
             <Label htmlFor="isFree">免费工具</Label>

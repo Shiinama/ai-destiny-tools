@@ -141,7 +141,8 @@ export const divinationTools = sqliteTable('divination_tools', {
   logoUrl: text('logo_url'),
   screenshotUrls: text('screenshot_urls'),
   display_order: integer('display_order').default(0),
-  locale: text('locale').notNull().default('en')
+  locale: text('locale').notNull().default('en'),
+  remarks: text('remarks')
 })
 
 // 工具访问统计记录表

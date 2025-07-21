@@ -18,6 +18,7 @@ export type DivinationToolInput = {
   status: ToolStatus
   price?: string
   contactInfo?: string
+  remarks?: string
   logoUrl?: string
   screenshotUrls?: string
 }
@@ -53,7 +54,7 @@ export async function getPaginatedTools({
   page?: number
   pageSize?: number
   status?: ToolStatus
-  search?: { name?: string; contactInfo?: string }
+  search?: { name?: string; contactInfo?: string; remarks?: string }
   categoryId?: string
   locale?: string
 }) {
@@ -73,6 +74,9 @@ export async function getPaginatedTools({
     }
     if (search.contactInfo) {
       searchConditions.push(like(divinationTools.contactInfo, `%${search.contactInfo}%`))
+    }
+    if (search.remarks) {
+      searchConditions.push(like(divinationTools.remarks, `%${search.remarks}%`))
     }
     if (searchConditions.length > 0) {
       conditions.push(and(...searchConditions))
