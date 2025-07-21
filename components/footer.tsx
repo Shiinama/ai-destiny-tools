@@ -4,6 +4,8 @@ import Logo from '@/components/logo'
 import { Link } from '@/i18n/navigation'
 import { getCategoryDisplayName } from '@/lib/utils'
 
+import DiscordBtn from './discord'
+
 export default function Footer() {
   const t = useTranslations('footer')
   const divinationCategories = useTranslations('divinationCategories')
@@ -18,6 +20,7 @@ export default function Footer() {
         <div className="flex flex-col items-start space-y-2">
           <Logo />
           <p className="text-muted-foreground mt-2 max-w-80">{t('description')}</p>
+          <DiscordBtn />
         </div>
 
         <div className="flex flex-col items-start space-y-2">
