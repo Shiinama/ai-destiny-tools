@@ -13,6 +13,7 @@ import {
   DialogDescription,
   DialogClose
 } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Link } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
@@ -21,9 +22,9 @@ import { formatDate } from '@/lib/utils'
 export default async function ToolsAdminPage({
   searchParams
 }: {
-  searchParams: Promise<{ page?: string; status?: string; categoryId?: string }>
+  searchParams: Promise<{ page?: string; status?: string; categoryId?: string; name?: string; contactInfo?: string }>
 }) {
-  const { page, status, categoryId } = await searchParams
+  const { page, status, categoryId, name, contactInfo } = await searchParams
   const currentPage = page ? parseInt(page) : 1
   const pageSize = 10
 
@@ -33,7 +34,11 @@ export default async function ToolsAdminPage({
     page: currentPage,
     pageSize,
     status: status as any,
-    categoryId: categoryId === 'all' ? undefined : categoryId
+    categoryId: categoryId === 'all' ? undefined : categoryId,
+    search: {
+      name: name?.trim() || undefined,
+      contactInfo: contactInfo?.trim() || undefined
+    }
   })
 
   const getStatusBadgeVariant = (status: string) => {
@@ -60,15 +65,26 @@ export default async function ToolsAdminPage({
     }
   }
 
-  const buildFilterUrl = (newStatus?: string) => {
+  const buildFilterUrl = (newStatus?: string, newName?: string, newContactInfo?: string) => {
     const params = new URLSearchParams()
 
-    if (newStatus) {
-      params.set('status', newStatus)
+    const statusToUse = newStatus !== undefined ? newStatus : status
+    if (statusToUse) {
+      params.set('status', statusToUse)
     }
 
     if (categoryId) {
       params.set('categoryId', categoryId)
+    }
+
+    const nameToUse = newName !== undefined ? newName : name
+    if (nameToUse) {
+      params.set('name', nameToUse)
+    }
+
+    const contactInfoToUse = newContactInfo !== undefined ? newContactInfo : contactInfo
+    if (contactInfoToUse) {
+      params.set('contactInfo', contactInfoToUse)
     }
 
     const queryString = params.toString()
@@ -88,7 +104,7 @@ export default async function ToolsAdminPage({
 
       <div className="mb-6 space-y-4">
         <div className="flex flex-wrap gap-2">
-          <Link href={buildFilterUrl(undefined)}>
+          <Link href={buildFilterUrl('')}>
             <Button variant={!status ? 'default' : 'outline'} size="sm">
               全部
             </Button>
@@ -128,6 +144,39 @@ export default async function ToolsAdminPage({
               </DialogClose>
             </DialogContent>
           </Dialog>
+        </div>
+
+        <div className="flex flex-wrap gap-4">
+          <div className="min-w-[200px] flex-1">
+            <form action="/admin/tools" method="get" className="flex gap-2">
+              {status && <input type="hidden" name="status" value={status} />}
+              {categoryId && <input type="hidden" name="categoryId" value={categoryId} />}
+              <Input
+                type="text"
+                name="name"
+                placeholder="搜索工具名称..."
+                defaultValue={name || ''}
+                className="flex-1"
+              />
+              <Input
+                type="text"
+                name="contactInfo"
+                placeholder="搜索联系方式..."
+                defaultValue={contactInfo || ''}
+                className="flex-1"
+              />
+              <Button type="submit" size="sm">
+                搜索
+              </Button>
+              {(name || contactInfo) && (
+                <Link href={buildFilterUrl(status, '', '')}>
+                  <Button type="button" variant="outline" size="sm">
+                    清除
+                  </Button>
+                </Link>
+              )}
+            </form>
+          </div>
         </div>
       </div>
 

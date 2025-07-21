@@ -53,7 +53,7 @@ export async function getPaginatedTools({
   page?: number
   pageSize?: number
   status?: ToolStatus
-  search?: string
+  search?: { name?: string; contactInfo?: string }
   categoryId?: string
   locale?: string
 }) {
@@ -67,7 +67,16 @@ export async function getPaginatedTools({
   }
 
   if (search) {
-    conditions.push(like(divinationTools.name, `%${search}%`))
+    const searchConditions = []
+    if (search.name) {
+      searchConditions.push(like(divinationTools.name, `%${search.name}%`))
+    }
+    if (search.contactInfo) {
+      searchConditions.push(like(divinationTools.contactInfo, `%${search.contactInfo}%`))
+    }
+    if (searchConditions.length > 0) {
+      conditions.push(and(...searchConditions))
+    }
   }
 
   if (categoryId) {
