@@ -13,17 +13,22 @@ import {
   DialogDescription,
   DialogClose
 } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Link } from '@/i18n/navigation'
 import { locales } from '@/i18n/routing'
 import { formatDate } from '@/lib/utils'
 
-export default async function ToolsAdminPage({
-  searchParams
-}: {
-  searchParams: Promise<{ page?: string; status?: string; categoryId?: string }>
-}) {
-  const { page, status, categoryId } = await searchParams
+interface SearchParams {
+  page?: string
+  status?: string
+  categoryId?: string
+  name?: string
+  contactInfo?: string
+  remarks?: string
+}
+export default async function ToolsAdminPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const { page, status, categoryId, name, contactInfo, remarks } = await searchParams
   const currentPage = page ? parseInt(page) : 1
   const pageSize = 10
 
@@ -33,7 +38,12 @@ export default async function ToolsAdminPage({
     page: currentPage,
     pageSize,
     status: status as any,
-    categoryId: categoryId === 'all' ? undefined : categoryId
+    categoryId: categoryId === 'all' ? undefined : categoryId,
+    search: {
+      name: name?.trim() || undefined,
+      contactInfo: contactInfo?.trim() || undefined,
+      remarks: remarks?.trim() || undefined
+    }
   })
 
   const getStatusBadgeVariant = (status: string) => {
@@ -60,15 +70,31 @@ export default async function ToolsAdminPage({
     }
   }
 
-  const buildFilterUrl = (newStatus?: string) => {
+  const buildFilterUrl = (newStatus?: string, newName?: string, newContactInfo?: string, newRemarks?: string) => {
     const params = new URLSearchParams()
 
-    if (newStatus) {
-      params.set('status', newStatus)
+    const statusToUse = newStatus !== undefined ? newStatus : status
+    if (statusToUse) {
+      params.set('status', statusToUse)
     }
 
     if (categoryId) {
       params.set('categoryId', categoryId)
+    }
+
+    const nameToUse = newName !== undefined ? newName : name
+    if (nameToUse) {
+      params.set('name', nameToUse)
+    }
+
+    const contactInfoToUse = newContactInfo !== undefined ? newContactInfo : contactInfo
+    if (contactInfoToUse) {
+      params.set('contactInfo', contactInfoToUse)
+    }
+
+    const remarksToUse = newRemarks !== undefined ? newRemarks : remarks
+    if (remarksToUse) {
+      params.set('remarks', remarksToUse)
     }
 
     const queryString = params.toString()
@@ -88,7 +114,7 @@ export default async function ToolsAdminPage({
 
       <div className="mb-6 space-y-4">
         <div className="flex flex-wrap gap-2">
-          <Link href={buildFilterUrl(undefined)}>
+          <Link href={buildFilterUrl('')}>
             <Button variant={!status ? 'default' : 'outline'} size="sm">
               全部
             </Button>
@@ -129,6 +155,46 @@ export default async function ToolsAdminPage({
             </DialogContent>
           </Dialog>
         </div>
+
+        <div className="flex flex-wrap gap-4">
+          <div className="min-w-[200px] flex-1">
+            <form action="/admin/tools" method="get" className="flex gap-2">
+              {status && <input type="hidden" name="status" value={status} />}
+              {categoryId && <input type="hidden" name="categoryId" value={categoryId} />}
+              <Input
+                type="text"
+                name="name"
+                placeholder="搜索工具名称..."
+                defaultValue={name || ''}
+                className="flex-1"
+              />
+              <Input
+                type="text"
+                name="contactInfo"
+                placeholder="搜索联系方式..."
+                defaultValue={contactInfo || ''}
+                className="flex-1"
+              />
+              <Input
+                type="text"
+                name="remarks"
+                placeholder="搜索备注..."
+                defaultValue={remarks || ''}
+                className="flex-1"
+              />
+              <Button type="submit" size="sm">
+                搜索
+              </Button>
+              {(name || contactInfo || remarks) && (
+                <Link href={buildFilterUrl(status, '', '', '')}>
+                  <Button type="button" variant="outline" size="sm">
+                    清除
+                  </Button>
+                </Link>
+              )}
+            </form>
+          </div>
+        </div>
       </div>
 
       <div className="overflow-hidden rounded-lg border shadow">
@@ -139,6 +205,7 @@ export default async function ToolsAdminPage({
               <TableHead>分类</TableHead>
               <TableHead>语言</TableHead>
               <TableHead>联系方式</TableHead>
+              <TableHead>备注</TableHead>
               <TableHead>创建日期</TableHead>
               <TableHead>状态</TableHead>
               <TableHead className="w-[150px]">操作</TableHead>
@@ -164,6 +231,9 @@ export default async function ToolsAdminPage({
                   <TableCell> {locales.find((locale) => locale.code === tool.locale)?.name}</TableCell>
                   <TableCell>
                     <div className="text-sm">{tool.contactInfo || '未提供'}</div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="max-w-xs truncate text-sm">{tool.remarks || '无'}</div>
                   </TableCell>
                   <TableCell className="text-muted-foreground text-sm">{formatDate(tool.createdAt)}</TableCell>
                   <TableCell>

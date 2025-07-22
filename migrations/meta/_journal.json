@@ -120,6 +120,13 @@
       "when": 1751940019205,
       "tag": "0016_furry_piledriver",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1753067213217,
+      "tag": "0017_equal_vanisher",
+      "breakpoints": true
     }
   ]
 }

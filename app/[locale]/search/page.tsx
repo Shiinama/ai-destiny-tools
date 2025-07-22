@@ -22,7 +22,7 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
       page: currentPage,
       pageSize,
       status: 'approved',
-      search: query,
+      search: query ? { name: query } : undefined,
       locale: locale
     }),
     getSpecificPosts([

@@ -38,6 +38,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
     url: '',
     categoryId: '',
     contactInfo: '',
+    remarks: '',
     isFree: true,
     price: '',
     content: '',
@@ -70,6 +71,7 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
             url: toolResult.url,
             categoryId: toolResult.categoryId,
             contactInfo: toolResult.contactInfo || '',
+            remarks: toolResult.remarks || '',
             isFree: toolResult.isFree !== false,
             price: toolResult.price || '',
             status: toolResult.status || 'pending',
@@ -441,6 +443,18 @@ export default function EditToolPage({ params }: { params: Promise<{ id: string 
               value={formData.contactInfo}
               onChange={handleInputChange}
               placeholder="邮箱或其他联系方式"
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="remarks">备注</Label>
+            <Textarea
+              id="remarks"
+              name="remarks"
+              value={formData.remarks}
+              onChange={handleInputChange}
+              placeholder="输入备注信息"
+              rows={3}
             />
           </div>
 
