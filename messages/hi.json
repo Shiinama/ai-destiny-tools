@@ -199,7 +199,17 @@
     "viewMore": "और देखें",
     "searchPlaceholder": "एआई टैरो, ज्योतिष, राशिफल उपकरण खोजें...",
     "noResults": "आपकी खोज से मेल खाने वाले कोई उपकरण नहीं मिले।",
-    "searchResultsFor": "खोज परिणाम"
+    "searchResultsFor": "खोज परिणाम",
+    "sortBy": "इसके अनुसार छाँटें",
+    "sort": {
+      "default": "डिफ़ॉल्ट",
+      "newest": "नवीनतम पहले",
+      "oldest": "सबसे पुराना पहले",
+      "nameAsc": "नाम (ए-जेड)",
+      "nameDesc": "नाम (Z-A)",
+      "freeFirst": "पहले निःशुल्क",
+      "paidFirst": "पहले भुगतान किए गए"
+    }
   },
   "login": {
     "signOut": "साइन आउट करें",

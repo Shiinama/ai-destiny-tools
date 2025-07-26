@@ -206,7 +206,17 @@
     "viewMore": "さらに表示",
     "searchPlaceholder": "AIタロット、占星術、ホロスコープツールを検索...",
     "noResults": "検索条件に一致するツールは見つかりませんでした。",
-    "searchResultsFor": "検索結果"
+    "searchResultsFor": "検索結果",
+    "sortBy": "並べ替え",
+    "sort": {
+      "default": "デフォルト",
+      "newest": "最新順",
+      "oldest": "最も古い順",
+      "nameAsc": "名前 (A-Z)",
+      "nameDesc": "名前 (Z-A)",
+      "freeFirst": "無料優先",
+      "paidFirst": "有料優先"
+    }
   },
   "login": {
     "signOut": "ログアウト",

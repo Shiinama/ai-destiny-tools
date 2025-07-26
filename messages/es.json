@@ -206,7 +206,17 @@
     "viewMore": "Ver más",
     "searchPlaceholder": "Buscar herramientas de IA para Tarot, Astrología, Horóscopo...",
     "noResults": "No se encontraron herramientas que coincidan con su búsqueda.",
-    "searchResultsFor": "Resultados de búsqueda para"
+    "searchResultsFor": "Resultados de búsqueda para",
+    "sortBy": "Ordenar por",
+    "sort": {
+      "default": "Predeterminado",
+      "newest": "Más reciente primero",
+      "oldest": "Más antiguo primero",
+      "nameAsc": "Nombre (A-Z)",
+      "nameDesc": "Nombre (Z-A)",
+      "freeFirst": "Gratuitos primero",
+      "paidFirst": "Primero los de pago"
+    }
   },
   "login": {
     "signOut": "Cerrar Sesión",
