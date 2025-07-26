@@ -211,9 +211,6 @@
     "sort": {
       "default": "デフォルト",
       "newest": "最新順",
-      "oldest": "最も古い順",
-      "nameAsc": "名前 (A-Z)",
-      "nameDesc": "名前 (Z-A)",
       "freeFirst": "無料優先",
       "paidFirst": "有料優先"
     }

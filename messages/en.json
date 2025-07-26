@@ -497,9 +497,6 @@
     "sort": {
       "default": "Default",
       "newest": "Newest First",
-      "oldest": "Oldest First",
-      "nameAsc": "Name (A-Z)",
-      "nameDesc": "Name (Z-A)",
       "freeFirst": "Free First",
       "paidFirst": "Paid First"
     },

@@ -211,9 +211,6 @@
     "sort": {
       "default": "Predefinito",
       "newest": "Più recente prima",
-      "oldest": "Dal più vecchio al più recente",
-      "nameAsc": "Nome (A-Z)",
-      "nameDesc": "Nome (Z-A)",
       "freeFirst": "Prima i gratuiti",
       "paidFirst": "Prima i paganti"
     }

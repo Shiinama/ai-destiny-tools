@@ -211,9 +211,6 @@
     "sort": {
       "default": "기본",
       "newest": "최신순",
-      "oldest": "오래된 순서",
-      "nameAsc": "이름 (A-Z)",
-      "nameDesc": "이름 (Z-A)",
       "freeFirst": "무료 우선",
       "paidFirst": "유료 항목 먼저"
     }

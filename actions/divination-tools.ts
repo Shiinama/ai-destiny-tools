@@ -43,7 +43,7 @@ function withI18nFields<T extends { description: string; content: string }>(
   }
 }
 
-export type SortOption = 'default' | 'newest' | 'oldest' | 'name-asc' | 'name-desc' | 'free-first' | 'paid-first'
+export type SortOption = 'default' | 'newest' | 'free-first' | 'paid-first'
 
 export async function getPaginatedTools({
   page = 1,
@@ -123,15 +123,6 @@ export async function getPaginatedTools({
   switch (sort) {
     case 'newest':
       orderedQuery = filteredQuery.orderBy(desc(divinationTools.createdAt))
-      break
-    case 'oldest':
-      orderedQuery = filteredQuery.orderBy(asc(divinationTools.createdAt))
-      break
-    case 'name-asc':
-      orderedQuery = filteredQuery.orderBy(asc(divinationTools.name))
-      break
-    case 'name-desc':
-      orderedQuery = filteredQuery.orderBy(desc(divinationTools.name))
       break
     case 'free-first':
       orderedQuery = filteredQuery.orderBy(desc(divinationTools.isFree), divinationTools.display_order)
