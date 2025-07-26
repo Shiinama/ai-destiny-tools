@@ -1,18 +1,19 @@
 import { getTranslations } from 'next-intl/server'
 
 import { getSpecificPosts } from '@/actions/ai-content'
-import { getCategories, getPaginatedTools } from '@/actions/divination-tools'
+import { getCategories, getPaginatedTools, SortOption } from '@/actions/divination-tools'
 import HomeContent from '@/components/home/home-content'
 
 interface SearchPageProps {
   params: Promise<{ locale: string }>
-  searchParams: Promise<{ query?: string; page?: string }>
+  searchParams: Promise<{ query?: string; page?: string; sort?: string }>
 }
 
 export default async function SearchPage({ params, searchParams }: SearchPageProps) {
-  const [{ query, page }, { locale }] = await Promise.all([searchParams, params])
+  const [{ query, page, sort }, { locale }] = await Promise.all([searchParams, params])
 
   const currentPage = page ? parseInt(page) : 1
+  const currentSort = (sort as SortOption) || 'default'
   const pageSize = 20
 
   const [categories, t, sites, specificPosts] = await Promise.all([
@@ -23,7 +24,8 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
       pageSize,
       status: 'approved',
       search: query ? { name: query } : undefined,
-      locale: locale
+      locale: locale,
+      sort: currentSort
     }),
     getSpecificPosts([
       'ai-divination-future-foresight',
@@ -40,6 +42,7 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
       tools={sites.tools}
       pagination={sites.pagination}
       specificPosts={specificPosts}
+      currentSort={currentSort}
     />
   )
 }

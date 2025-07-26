@@ -199,7 +199,14 @@
     "viewMore": "查看更多",
     "searchPlaceholder": "搜索AI塔罗、占星、运势工具...",
     "noResults": "未找到与您的搜索匹配的工具。",
-    "searchResultsFor": "搜索结果"
+    "searchResultsFor": "搜索结果",
+    "sortBy": "排序方式",
+    "sort": {
+      "default": "默认",
+      "newest": "最新优先",
+      "freeFirst": "免费优先",
+      "paidFirst": "付费优先"
+    }
   },
   "login": {
     "signOut": "登出",

@@ -206,7 +206,14 @@
     "viewMore": "Visualizza altro",
     "searchPlaceholder": "Cerca strumenti AI di Tarocchi, Astrologia, Oroscopo...",
     "noResults": "Nessuno strumento trovato corrispondente alla tua ricerca.",
-    "searchResultsFor": "Risultati di ricerca per"
+    "searchResultsFor": "Risultati di ricerca per",
+    "sortBy": "Ordina per",
+    "sort": {
+      "default": "Predefinito",
+      "newest": "Più recente prima",
+      "freeFirst": "Prima i gratuiti",
+      "paidFirst": "Prima i paganti"
+    }
   },
   "login": {
     "signOut": "Esci",
