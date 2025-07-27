@@ -1,6 +1,6 @@
 'use server'
 
-import { eq, like, sql, and } from 'drizzle-orm'
+import { eq, like, sql, and, desc, asc } from 'drizzle-orm'
 
 import { auth } from '@/lib/auth'
 import { createDb } from '@/lib/db'
@@ -43,13 +43,16 @@ function withI18nFields<T extends { description: string; content: string }>(
   }
 }
 
+export type SortOption = 'default' | 'newest' | 'free-first' | 'paid-first'
+
 export async function getPaginatedTools({
   page = 1,
   pageSize = 10,
   status,
   search,
   categoryId,
-  locale
+  locale,
+  sort = 'default'
 }: {
   page?: number
   pageSize?: number
@@ -57,6 +60,7 @@ export async function getPaginatedTools({
   search?: { name?: string; contactInfo?: string; remarks?: string }
   categoryId?: string
   locale?: string
+  sort?: SortOption
 }) {
   const offset = (page - 1) * pageSize
   const db = createDb()
@@ -114,7 +118,25 @@ export async function getPaginatedTools({
 
   const filteredQuery = conditions.length > 0 ? query.where(and(...conditions)) : query
 
-  const paginatedQuery = filteredQuery.orderBy(divinationTools.display_order).limit(pageSize).offset(offset)
+  // 根据排序选项设置排序规则
+  let orderedQuery
+  switch (sort) {
+    case 'newest':
+      orderedQuery = filteredQuery.orderBy(desc(divinationTools.createdAt))
+      break
+    case 'free-first':
+      orderedQuery = filteredQuery.orderBy(desc(divinationTools.isFree), divinationTools.display_order)
+      break
+    case 'paid-first':
+      orderedQuery = filteredQuery.orderBy(asc(divinationTools.isFree), divinationTools.display_order)
+      break
+    case 'default':
+    default:
+      orderedQuery = filteredQuery.orderBy(divinationTools.display_order)
+      break
+  }
+
+  const paginatedQuery = orderedQuery.limit(pageSize).offset(offset)
 
   const countQuery = db.select({ count: sql`count(*)` }).from(divinationTools)
 

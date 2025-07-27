@@ -2,6 +2,7 @@ import BlogLinkCard from '@/components/blog/blog-link-card'
 import { BlogPagination } from '@/components/blog/blog-pagination'
 import { CategoryLinks } from '@/components/categories/category-links'
 import FeatureItem from '@/components/home/feature-item'
+import SortSelector, { SortOption } from '@/components/home/sort-selector'
 import SiteCard from '@/components/navigatiton-sites/site-card'
 import SearchBox from '@/components/search/search-box'
 import { buttonVariants } from '@/components/ui/button'
@@ -14,9 +15,18 @@ interface HomeContentProps {
   tools: any[]
   pagination: { currentPage: number; totalPages: number }
   specificPosts: any[]
+  currentSort?: SortOption
 }
 
-export default function HomeContent({ t, categories, tools, pagination, specificPosts, search }: HomeContentProps) {
+export default function HomeContent({
+  t,
+  categories,
+  tools,
+  pagination,
+  specificPosts,
+  search,
+  currentSort
+}: HomeContentProps) {
   return (
     <div className="text-foreground container min-h-screen rounded-lg py-8">
       <header className="mb-8 space-y-4 text-center">
@@ -32,6 +42,10 @@ export default function HomeContent({ t, categories, tools, pagination, specific
           {t('searchResultsFor')}: <span className="font-semibold">{search}</span>
         </div>
       )}
+
+      <div className="mb-6 flex justify-end">
+        <SortSelector currentSort={currentSort} />
+      </div>
 
       <div className="grid grid-cols-1 gap-6 md:gap-12">
         <section className="space-y-4">

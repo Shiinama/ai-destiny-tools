@@ -206,7 +206,14 @@
     "viewMore": "더 보기",
     "searchPlaceholder": "AI 타로, 점성술, 운세 도구 검색...",
     "noResults": "검색과 일치하는 도구를 찾을 수 없습니다.",
-    "searchResultsFor": "검색 결과"
+    "searchResultsFor": "검색 결과",
+    "sortBy": "정렬 기준",
+    "sort": {
+      "default": "기본",
+      "newest": "최신순",
+      "freeFirst": "무료 우선",
+      "paidFirst": "유료 항목 먼저"
+    }
   },
   "login": {
     "signOut": "로그아웃",

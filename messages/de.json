@@ -206,7 +206,14 @@
     "viewMore": "Mehr anzeigen",
     "searchPlaceholder": "KI-Tarot-, Astrologie- und Horoskop-Tools suchen...",
     "noResults": "Es wurden keine Tools gefunden, die Ihrer Suche entsprechen.",
-    "searchResultsFor": "Suchergebnisse für"
+    "searchResultsFor": "Suchergebnisse für",
+    "sortBy": "Sortieren nach",
+    "sort": {
+      "default": "Standard",
+      "newest": "Neueste zuerst",
+      "freeFirst": "Kostenlose zuerst",
+      "paidFirst": "Bezahlte zuerst"
+    }
   },
   "login": {
     "signOut": "Abmelden",
