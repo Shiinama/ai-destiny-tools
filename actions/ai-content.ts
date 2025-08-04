@@ -4,6 +4,7 @@ import { GoogleGenAI } from '@google/genai'
 import { count, desc, eq, inArray } from 'drizzle-orm'
 
 import { locales } from '@/i18n/routing'
+import { createAI } from '@/lib/ai'
 import { createDb } from '@/lib/db'
 import { posts } from '@/lib/db/schema'
 import { createR2 } from '@/lib/r2'
@@ -115,7 +116,14 @@ export async function generateArticle({ keyword, locale = 'en' }: ArticleGenerat
         .replace(/\-\-+/g, '-')
     }
 
-    const coverImageUrl = await generateAndUploadCoverImage(extractedTitle, keyword)
+    let coverImageUrl = ''
+    try {
+      const generatedImageUrl = await generateArticleCoverImage(content, extractedTitle)
+      coverImageUrl = generatedImageUrl || ''
+    } catch (error) {
+      console.warn('Failed to generate cover image:', error)
+      // 即使封面图片生成失败，也不影响文章生成的成功状态
+    }
 
     return {
       title: extractedTitle,
@@ -473,4 +481,209 @@ Fields to translate (original text):${JSON.stringify(fields, null, 2)}`
     }
   }
   return {}
+}
+export type ImageRatio = '1:1' | '16:9' | '4:3' | '3:2' | '9:16' | 'custom'
+export type ImageStyle = 'realistic' | 'artistic' | 'anime' | 'cinematic' | 'fantasy' | 'abstract'
+
+interface ImageGenerationOptions {
+  prompt: string
+  negativePrompt?: string
+  ratio?: ImageRatio
+  style?: ImageStyle
+  customWidth?: number
+  customHeight?: number
+  steps?: number
+  seed?: number
+}
+const styleEnhancers: Record<ImageStyle, string> = {
+  realistic: 'highly detailed, photorealistic, sharp focus, professional photography, 8k',
+  artistic: 'artistic style, vibrant colors, expressive, detailed brushstrokes, creative composition',
+  anime: 'anime style, cel shading, vibrant colors, detailed, clean lines, 2D illustration',
+  cinematic: 'cinematic lighting, dramatic composition, movie scene, high production value, film grain',
+  fantasy: 'fantasy art, magical atmosphere, ethereal lighting, detailed environment, vibrant colors',
+  abstract: 'abstract art, non-representational, geometric shapes, bold colors, expressive composition'
+}
+const styleNegativePrompts: Record<ImageStyle, string> = {
+  realistic:
+    'cartoon, illustration, drawing, painting, anime, blurry, low resolution, distorted, deformed, text, watermark',
+  artistic: 'photorealistic, blurry, low quality, distorted, deformed, text, watermark',
+  anime: 'photorealistic, blurry, low quality, 3D, distorted, deformed, text, watermark',
+  cinematic:
+    'cartoon, illustration, drawing, painting, anime, blurry, low resolution, distorted, deformed, text, watermark',
+  fantasy: 'blurry, low quality, distorted, deformed, text, watermark',
+  abstract: 'photorealistic, blurry, low quality, distorted, deformed, text, watermark'
+}
+function getDimensions(
+  ratio: ImageRatio,
+  customWidth?: number,
+  customHeight?: number
+): { width: number; height: number } {
+  if (ratio === 'custom' && customWidth && customHeight) {
+    return { width: customWidth, height: customHeight }
+  }
+
+  switch (ratio) {
+    case '1:1':
+      return { width: 1024, height: 1024 }
+    case '16:9':
+      return { width: 1280, height: 720 }
+    case '4:3':
+      return { width: 1024, height: 768 }
+    case '3:2':
+      return { width: 1200, height: 800 }
+    case '9:16':
+      return { width: 720, height: 1280 }
+    default:
+      return { width: 1024, height: 1024 }
+  }
+}
+
+export async function cloudflareTextToImage({
+  prompt,
+  negativePrompt,
+  ratio = '16:9',
+  style = 'realistic',
+  customWidth,
+  customHeight,
+  steps = 8,
+  seed
+}: ImageGenerationOptions) {
+  try {
+    const ai = createAI()
+    const r2 = createR2()
+
+    const enhancedPrompt = `${prompt}, ${styleEnhancers[style]}`
+
+    const finalNegativePrompt = negativePrompt
+      ? `${negativePrompt}, ${styleNegativePrompts[style]}`
+      : styleNegativePrompts[style]
+
+    const { width, height } = getDimensions(ratio, customWidth, customHeight)
+
+    const response = await ai.run('@cf/bytedance/stable-diffusion-xl-lightning', {
+      prompt: enhancedPrompt,
+      negative_prompt: finalNegativePrompt,
+      height,
+      width,
+      num_steps: steps,
+      seed: seed || Math.floor(Math.random() * 2147483647)
+    })
+
+    const reader = response.getReader()
+    const chunks: Uint8Array[] = []
+    let done, value
+
+    while ((({ done, value } = await reader.read()), !done)) {
+      chunks.push(value!)
+    }
+
+    const imageBuffer = new Uint8Array(chunks.reduce((acc, chunk) => acc + chunk.length, 0))
+    let offset = 0
+    for (const chunk of chunks) {
+      imageBuffer.set(chunk, offset)
+      offset += chunk.length
+    }
+
+    const base64Image = `data:image/png;base64,${Buffer.from(imageBuffer).toString('base64')}`
+
+    const sanitizedPrompt = prompt.replace(/[^a-zA-Z0-9]/g, '-').substring(0, 30)
+    const timestamp = Date.now()
+    const filename = `${timestamp}-${sanitizedPrompt}-${width}x${height}.png`
+
+    try {
+      await r2.put(filename, imageBuffer, {
+        httpMetadata: {
+          contentType: 'image/png'
+        }
+      })
+    } catch (r2Error) {
+      console.error('Error storing image in R2:', r2Error)
+    }
+
+    return {
+      success: true,
+      imageData: base64Image,
+      imageUrl: filename,
+      error: null,
+      metadata: {
+        prompt: enhancedPrompt,
+        negativePrompt: finalNegativePrompt,
+        width,
+        height,
+        steps,
+        seed,
+        style,
+        timestamp
+      }
+    }
+  } catch (error) {
+    console.error('Error generating image:', error)
+    return {
+      success: false,
+      imageData: null,
+      imageUrl: null,
+      error: error instanceof Error ? error.message : 'Unknown error occurred'
+    }
+  }
+}
+
+export async function generateArticleCoverImage(articleContent: string, title: string) {
+  const cloudflareAI = createAI()
+
+  const promptGenerationResult = await cloudflareAI.run('@cf/meta/llama-4-scout-17b-16e-instruct', {
+    messages: [
+      {
+        role: 'system',
+        content: `You are an expert at creating Stable Diffusion prompts. 
+          
+          Create a prompt for a 16:9 cover image that represents the article's main theme.
+          
+          Guidelines for the prompt:
+          - Use a comma-separated list of keywords and short phrases
+          - Include visual elements, style descriptors, and mood indicators
+          - Focus on concrete visual elements rather than abstract concepts
+          - Include 5-20 keywords maximum
+          - DO NOT use full sentences or narrative descriptions
+          - DO NOT include negative prompts
+          - DO NOT include quotation marks or other formatting
+          
+          Example good prompts:
+          - mountain landscape, sunrise, golden light, fog, dramatic vista, 16k
+          - business meeting, professional setting, modern office, teamwork, corporate
+          - healthy food, fresh vegetables, vibrant colors, wooden table, soft lighting`
+      },
+      {
+        role: 'user',
+        content: `Create a Stable Diffusion prompt for a cover image for an article titled: "${title}". 
+          
+          Here's the beginning of the article content for context: "${articleContent.substring(0, 500)}..."
+          
+          Return ONLY the comma-separated keywords without any explanation or additional text.`
+      }
+    ],
+    stream: false
+  })
+
+  let imagePrompt = title
+  if (typeof promptGenerationResult === 'object') {
+    // Clean up the response to ensure it's just the keywords
+    const response = promptGenerationResult.response.trim()
+    // Remove any explanatory text, quotation marks, or other formatting
+    imagePrompt = response
+      .replace(/^["']|["']$/g, '') // Remove surrounding quotes
+      .replace(/^(prompt:|keywords:|here's a prompt:|stable diffusion prompt:)/i, '') // Remove prefixes
+      .replace(/\.$/g, '') // Remove trailing period
+      .trim()
+  }
+
+  // Generate the cover image using the created prompt
+  const imageResult = await cloudflareTextToImage({
+    prompt: imagePrompt,
+    ratio: '16:9',
+    style: 'cinematic', // Using cinematic style for professional-looking cover images
+    steps: 12, // Higher quality generation
+    negativePrompt: 'text, watermark, signature, blurry, distorted, low quality, disfigured'
+  })
+
+  return imageResult.imageUrl
 }
