@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation'
 import { getCategoryDisplayName } from '@/lib/utils'
 
 import DiscordBtn from './discord'
+import TwitterBtn from './twitter'
 
 export default function Footer() {
   const t = useTranslations('footer')
@@ -20,7 +21,10 @@ export default function Footer() {
         <div className="flex flex-col items-start space-y-2">
           <Logo />
           <p className="text-muted-foreground mt-2 max-w-80">{t('description')}</p>
-          <DiscordBtn />
+          <div className="flex space-x-2">
+            <DiscordBtn />
+            <TwitterBtn />
+          </div>
         </div>
 
         <div className="flex flex-col items-start space-y-2">
