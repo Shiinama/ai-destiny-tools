@@ -603,7 +603,7 @@ export async function cloudflareTextToImage({
     return {
       success: true,
       imageData: base64Image,
-      imageUrl: filename,
+      imageUrl: `${process.env.NEXT_PUBLIC_R2_DOMAIN}/${filename}`,
       error: null,
       metadata: {
         prompt: enhancedPrompt,
