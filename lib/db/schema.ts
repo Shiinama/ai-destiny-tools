@@ -218,3 +218,23 @@ export const divinationToolTranslations = sqliteTable('divination_tool_translati
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull()
 })
+
+// SimilarWeb 流量数据表
+export const toolSimilarwebData = sqliteTable('tool_similarweb_data', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  toolId: text('tool_id')
+    .notNull()
+    .references(() => divinationTools.id, { onDelete: 'cascade' }),
+  // SimilarWeb 完整数据 (JSON格式)
+  similarwebData: text('similarweb_data', { mode: 'json' }).notNull().$type<any>(),
+  // 创建时间
+  createdAt: integer('created_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  // 更新时间
+  updatedAt: integer('updated_at', { mode: 'timestamp_ms' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull()
+})

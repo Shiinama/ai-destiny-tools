@@ -29,7 +29,9 @@
     "i18n:keys": "tsx scripts/18n/cli.ts --mode=keys --keys",
     "i18n:list": "tsx scripts/18n/cli.ts --list-locales",
     "i18n:sequential": "tsx scripts/18n/sequential-cli.ts",
-    "update-sitemap": "curl -X GET http://localhost:3000/api/blog/get-all-urls "
+    "update-sitemap": "curl -X GET http://localhost:3000/api/blog/get-all-urls ",
+    "export:tool-domains": "tsx scripts/export-and-process.ts",
+    "insert:similarweb-data": "tsx scripts/insert-similarweb-data.ts"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.9.0",
