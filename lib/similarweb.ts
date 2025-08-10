@@ -1,7 +1,6 @@
 'use server'
 import { readFileSync, writeFileSync } from 'fs'
 
-// SimilarWeb 数据接口类型
 export interface SimilarWebResponse {
   Version: number
   SiteName: string
@@ -70,22 +69,19 @@ export interface SimilarWebResponse {
   SnapshotDate: string
 }
 
-// 域名和工具ID的映射
 export interface DomainToolMapping {
   domain: string
   toolId: string
 }
 
-// 处理结果
 export interface ProcessResult {
   domain: string
   toolId: string
   success: boolean
-  data?: Record<string, number>
+  data?: SimilarWebResponse
   error?: string
 }
 
-// 从域名获取 SimilarWeb 数据
 async function fetchSimilarWebData(domain: string): Promise<SimilarWebResponse | null> {
   try {
     const apiUrl = `https://data.similarweb.com/api/v1/data?domain=${encodeURIComponent(domain)}`
@@ -108,17 +104,15 @@ async function fetchSimilarWebData(domain: string): Promise<SimilarWebResponse |
   }
 }
 
-// 处理单个域名并保存到数据库
 export async function processSingleDomain(
   domain: string,
   toolId: string,
   baseUrl: string = 'http://localhost:3000'
 ): Promise<ProcessResult> {
   try {
-    // 获取 SimilarWeb 数据
     const apiResponse = await fetchSimilarWebData(domain)
 
-    if (!apiResponse || !apiResponse.EstimatedMonthlyVisits) {
+    if (!apiResponse) {
       return {
         domain,
         toolId,
@@ -127,7 +121,6 @@ export async function processSingleDomain(
       }
     }
 
-    // 保存到数据库
     const response = await fetch(`${baseUrl}/api/similarweb`, {
       method: 'POST',
       headers: {
@@ -143,8 +136,7 @@ export async function processSingleDomain(
       return {
         domain,
         toolId,
-        success: true,
-        data: apiResponse.EstimatedMonthlyVisits
+        success: true
       }
     } else {
       const errorText = await response.text()
@@ -165,7 +157,6 @@ export async function processSingleDomain(
   }
 }
 
-// 处理所有域名
 export async function processAllDomains(
   domainMappings: DomainToolMapping[],
   baseUrl: string = 'http://localhost:3000'
@@ -175,11 +166,9 @@ export async function processAllDomains(
   for (let i = 0; i < domainMappings.length; i++) {
     const mapping = domainMappings[i]
 
-    // 处理单个域名
     const result = await processSingleDomain(mapping.domain, mapping.toolId, baseUrl)
     results.push(result)
 
-    // 显示进度
     const progress = (((i + 1) / domainMappings.length) * 100).toFixed(1)
     const status = result.success ? '✅' : '❌'
     // eslint-disable-next-line no-console
@@ -194,7 +183,6 @@ export async function processAllDomains(
   return results
 }
 
-// 从 API 获取工具域名并保存成文件
 export async function exportToolDomains(
   outputPath: string = './tool-domains.json',
   baseUrl: string = 'http://localhost:3000'
@@ -228,7 +216,6 @@ export async function exportToolDomains(
   }
 }
 
-// 从本地 JSON 文件读取域名映射
 export async function loadDomainMappingsFromFile(
   filePath: string = './tool-domains.json'
 ): Promise<DomainToolMapping[]> {
@@ -241,7 +228,6 @@ export async function loadDomainMappingsFromFile(
   }
 }
 
-// 使用本地文件处理所有域名
 export async function processDomainsFromFile(
   filePath: string = './tool-domains.json',
   baseUrl: string = 'http://localhost:3000'
